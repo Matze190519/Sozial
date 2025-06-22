@@ -1,0 +1,484 @@
+[
+  {
+    "id": 1,
+    "module": "google-sheets:watchRows",
+    "version": 4,
+    "parameters": {
+      "mode": "select",
+      "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+      "sheetName": "LR_Content_Ideas",
+      "tableFirstRow": "A1:H1",
+      "includesHeaders": true,
+      "valueInputOption": "USER_ENTERED",
+      "valueRenderOption": "FORMATTED_VALUE",
+      "dateTimeRenderOption": "FORMATTED_STRING",
+      "limit": 1
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 0,
+        "y": 0
+      },
+      "restore": {},
+      "expect": [
+        {
+          "name": "youtube_url",
+          "type": "url",
+          "label": "YouTube URL",
+          "required": true
+        },
+        {
+          "name": "content_title",
+          "type": "text",
+          "label": "Content Title",
+          "required": false
+        },
+        {
+          "name": "target_platforms",
+          "type": "text",
+          "label": "Target Platforms",
+          "required": true
+        },
+        {
+          "name": "urgency_level",
+          "type": "text",
+          "label": "Urgency Level",
+          "required": true
+        },
+        {
+          "name": "auto_post",
+          "type": "boolean",
+          "label": "Auto Post",
+          "required": false
+        },
+        {
+          "name": "generate_video",
+          "type": "boolean",
+          "label": "Generate Video",
+          "required": false
+        },
+        {
+          "name": "lead_generation",
+          "type": "boolean",
+          "label": "Lead Generation",
+          "required": false
+        },
+        {
+          "name": "lr_focus",
+          "type": "text",
+          "label": "LR Focus Area",
+          "required": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://api.perplexity.ai/chat/completions",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{PERPLEXITY_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"model\": \"llama-3.1-sonar-large-128k-online\", \"messages\": [{\"role\": \"system\", \"content\": \"Du bist der ultimative LR Health & Beauty Trend-Researcher mit Fokus auf Network Marketing, Luxus-Lifestyle und finanzielle Freiheit.\"}, {\"role\": \"user\", \"content\": \"ULTIMATE LR TREND RESEARCH für: {{1.content_title}}\\n\\nLR FOCUS: {{1.lr_focus}}\\n\\nFokus auf:\\n🏎️ LUXURY LIFESTYLE 2025: Lamborghini, Mercedes, Autokonzept ohne Anzahlung\\n💰 GUARANTEED INCOME: Vererbbares Einkommen, Sicherheit, finanzielle Freiheit\\n🤖 AI BUSINESS TRENDS: KI-Coaching, 24/7 Support, Lina AI Assistant\\n🇩🇪 MADE IN GERMANY: Qualität, Vertrauen, Bruce Willis, Guido Maria Kretschmer\\n📱 SOCIAL SELLING: Homeoffice, Flexibilität, eigener Online-Shop\\n🎯 NETWORK MARKETING: Team-Building, Passive Income, Work-Life-Balance\\n\\nErstelle VIRAL HOOKS für LR die GARANTIERT konvertieren!\"}], \"max_tokens\": 2500, \"temperature\": 0.9}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 300,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 3,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://api.dumplingai.com/transcript",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{DUMPLING_AI_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"videoUrl\": \"{{1.youtube_url}}\", \"language\": \"auto\", \"format\": \"text\", \"include_timestamps\": true}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 600,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 4,
+    "module": "openai:createChatCompletion",
+    "version": 1,
+    "parameters": {
+      "model": "gpt-4o",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Du bist der ULTIMATIVE LR Health & Beauty Content Creator. Erstelle VIRAL-OPTIMIERTE Posts die LR's einzigartige USPs maximal hervorheben und GARANTIERT konvertieren!"
+        },
+        {
+          "role": "user",
+          "content": "ERSTELLE ULTIMATE LR VIRAL CONTENT für: {{1.content_title}}\\n\\nLR FOCUS AREA: {{1.lr_focus}}\\nContent Type: {{1.urgency_level}}\\nZielplattformen: {{1.target_platforms}}\\n\\nLR UNIQUE SELLING POINTS (MUST INCLUDE):\\n🏎️ AUTOKONZEPT: Neuwagen bis 80% günstiger, OHNE Anzahlung, OHNE Schlussrate\\n💰 GARANTIERTE BONI: Monatliches Einkommen, vererbbares Vermögen\\n🏠 HOMEOFFICE: Arbeiten von zu Hause, freie Zeiteinteilung\\n🛒 EIGENER ONLINE-SHOP: Social Selling, digitale Freiheit\\n🤖 LINA KI-COACHING: 24/7 Support, Social Media Automation\\n⭐ STAR-KONZEPT: Bruce Willis, Guido Maria Kretschmer exklusiv\\n🇩🇪 MADE IN GERMANY: Einzigartige Qualität und Sicherheit\\n\\nTrend-Insights: {{2.data.choices[0].message.content}}\\nTranskript-Content: {{3.data.transcript}}\\n\\nErstelle für JEDE Plattform ULTIMATE LR CONTENT mit:\\n✅ Viral Hook mit LR USP in ersten 3 Sekunden\\n✅ Platform-spezifisch optimiert\\n✅ Multiple Lead Generation Points\\n✅ FOMO und Urgency für LR-Vorteile\\n✅ Compliance-konform aber maximal überzeugend\\n✅ Call-to-Action für Lina AI Chat\\n\\nFormat als ULTIMATE JSON mit allen Details für Instagram, Facebook, LinkedIn, TikTok, YouTube, Twitter!"
+        }
+      ],
+      "max_tokens": 4500,
+      "temperature": 0.9,
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 900,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 5,
+    "module": "json:parseJSON",
+    "version": 1,
+    "parameters": {},
+    "mapper": {
+      "json": "{{4.choices[0].message.content}}"
+    },
+    "metadata": {
+      "designer": {
+        "x": 1200,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 6,
+    "module": "openai:createChatCompletion",
+    "version": 1,
+    "parameters": {
+      "model": "gpt-4o",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Du bist der ULTIMATE LR Leonardo AI Prompt Engineer für LUXURY LIFESTYLE Content. Erstelle DYNAMISCHE, CINEMATIC Video-Prompts die das LR Autokonzept, Luxus-Lifestyle und finanzielle Freiheit VIRAL darstellen!"
+        },
+        {
+          "role": "user",
+          "content": "ERSTELLE ULTIMATE DYNAMIC LEONARDO PROMPTS für LR: {{1.content_title}}\\n\\nLR FOCUS: {{1.lr_focus}}\\nSocial Media Content: {{5}}\\nTrend Insights: {{2.data.choices[0].message.content}}\\n\\nErstelle DYNAMISCHE Leonardo Prompts basierend auf LR Focus {{1.lr_focus}}:\\n\\n🏎️ AUTOKONZEPT: Luxus-Neuwagen, Schlüsselübergabe, Showroom\\n💰 FINANCIAL FREEDOM: Penthouse, Homeoffice-Luxus, Erfolgs-Symbole\\n🇩🇪 MADE IN GERMANY: Premium-Packaging, Qualitäts-Siegel\\n🤖 KI/TECH: Futuristische Hologramme, AI-Interfaces, Lina AI\\n\\nErstelle für JEDE Plattform optimierte Prompts:\\n1. YOUTUBE (16:9) - Cinematic LR Luxury\\n2. INSTAGRAM (9:16) - Vertical LR Lifestyle\\n3. TIKTOK (9:16) - Dynamic Viral LR\\n4. THUMBNAIL (16:9) - Eye-catching Hook\\n5. STATIC (1:1) - Multi-Purpose\\n\\nJEDER PROMPT: Keine Menschen/Gesichter, Luxus-Lifestyle, Made in Germany Feeling, Platform-optimiert\\n\\nFormat als JSON!"
+        }
+      ],
+      "max_tokens": 3500,
+      "temperature": 0.8,
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 1500,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 7,
+    "module": "json:parseJSON",
+    "version": 1,
+    "parameters": {},
+    "mapper": {
+      "json": "{{6.choices[0].message.content}}"
+    },
+    "metadata": {
+      "designer": {
+        "x": 1800,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 8,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"prompt\": \"{{7.youtube.prompt}} | LR Health Beauty Luxury | {{1.lr_focus}} | Made in Germany | No people | Cinematic 4K | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 3, \"guidance_scale\": 8, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, text, watermark, blurry\"}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2100,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 9,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"prompt\": \"{{7.instagram.prompt}} | LR Vertical Content | {{1.lr_focus}} | Luxury Mobile | No people | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 576, \"height\": 1024, \"num_images\": 3, \"guidance_scale\": 8, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, text, watermark\"}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2100,
+        "y": 200
+      }
+    }
+  },
+  {
+    "id": 10,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"prompt\": \"{{7.tiktok.prompt}} | LR Viral TikTok | {{1.lr_focus}} | Gen Z Luxury | Dynamic | No people | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 576, \"height\": 1024, \"num_images\": 3, \"guidance_scale\": 9, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, boring\"}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2100,
+        "y": 400
+      }
+    }
+  },
+  {
+    "id": 11,
+    "module": "tools:sleep",
+    "version": 1,
+    "parameters": {
+      "delay": 90
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2400,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 12,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{8.data.sdGenerationJob.generationId}}",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        }
+      ]
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2700,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 13,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{9.data.sdGenerationJob.generationId}}",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        }
+      ]
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2700,
+        "y": 200
+      }
+    }
+  },
+  {
+    "id": 14,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{10.data.sdGenerationJob.generationId}}",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{LEONARDO_API_KEY}}"
+        }
+      ]
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 2700,
+        "y": 400
+      }
+    }
+  },
+  {
+    "id": 15,
+    "module": "http:makeRequest",
+    "version": 3,
+    "parameters": {
+      "url": "{{BLOTATO_API_URL}}/post",
+      "method": "POST",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{BLOTATO_API_KEY}}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": "{\"platforms\": [\"instagram\", \"facebook\", \"linkedin\", \"twitter\", \"tiktok\", \"youtube\"], \"content\": {\"instagram\": {\"text\": \"{{5.instagram.content}}\", \"media\": [\"{{13.data.generations[0].url}}\"], \"hashtags\": \"{{5.instagram.hashtags}}\"}, \"facebook\": {\"text\": \"{{5.facebook.content}}\", \"media\": [\"{{12.data.generations[0].url}}\"]}, \"linkedin\": {\"text\": \"{{5.linkedin.content}}\", \"media\": [\"{{12.data.generations[0].url}}\"]}, \"twitter\": {\"text\": \"{{5.twitter.content}}\", \"media\": [\"{{12.data.generations[0].url}}\"]}, \"tiktok\": {\"text\": \"{{5.tiktok.content}}\", \"media\": [\"{{14.data.generations[0].url}}\"], \"hashtags\": \"{{5.tiktok.hashtags}}\"}, \"youtube\": {\"title\": \"{{5.youtube.title}}\", \"description\": \"{{5.youtube.description}}\", \"thumbnail\": \"{{12.data.generations[0].url}}\"}}}",
+      "timeout": 300
+    },
+    "mapper": {},
+    "metadata": {
+      "designer": {
+        "x": 3000,
+        "y": 0
+      }
+    },
+    "filter": {
+      "name": "Auto Post Filter",
+      "conditions": [
+        [
+          {
+            "a": "{{1.auto_post}}",
+            "b": true,
+            "o": "boolean:equal"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "module": "google-sheets:addRow",
+    "version": 2,
+    "parameters": {
+      "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+      "sheetName": "LR_Performance_Tracking",
+      "includesHeaders": true,
+      "valueInputOption": "USER_ENTERED"
+    },
+    "mapper": {
+      "values": [
+        [
+          "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"
+        ],
+        [
+          "{{1.youtube_url}}"
+        ],
+        [
+          "{{1.content_title}}"
+        ],
+        [
+          "{{1.lr_focus}}"
+        ],
+        [
+          "{{1.target_platforms}}"
+        ],
+        [
+          "{{1.urgency_level}}"
+        ],
+        [
+          "Leonardo YouTube: {{12.data.generations[0].status}}"
+        ],
+        [
+          "Leonardo Instagram: {{13.data.generations[0].status}}"
+        ],
+        [
+          "Leonardo TikTok: {{14.data.generations[0].status}}"
+        ],
+        [
+          "Blotato Posting: {{if(15.status; \"SUCCESS\"; \"FAILED\")}}"
+        ],
+        [
+          "Transcript Length: {{length(3.data.transcript)}}"
+        ],
+        [
+          "Status: LR LAMBO AUTOMATION COMPLETE ✅"
+        ]
+      ]
+    },
+    "metadata": {
+      "designer": {
+        "x": 3300,
+        "y": 0
+      }
+    }
+  }
+]
