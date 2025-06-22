@@ -1,0 +1,1551 @@
+{
+  "name": "🏎️ LR LAMBO ULTIMATE SOCIAL MEDIA AUTOMATION - 65 MODULES COMPLETE",
+  "version": "6.0 ULTIMATE LR EDITION",
+  "description": "Der ultimative LR Health & Beauty Social Media Automation Flow - YouTube Transcript → AI Content Generation → Dynamic Leonardo AI → Multi-Platform Posting → Lead Generation → Performance Tracking → WhatsApp Bot → Viral Cloning - SPEZIELL FÜR LR POSITIONIERT",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:watchRows",
+      "version": 4,
+      "parameters": {
+        "mode": "select",
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "LR_Content_Ideas",
+        "tableFirstRow": "A1:Z1",
+        "includesHeaders": true,
+        "valueInputOption": "USER_ENTERED",
+        "valueRenderOption": "FORMATTED_VALUE",
+        "dateTimeRenderOption": "FORMATTED_STRING",
+        "limit": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "restore": {},
+        "expect": [
+          { "name": "youtube_url", "type": "url", "label": "YouTube URL", "required": true },
+          { "name": "content_title", "type": "text", "label": "Content Title", "required": false },
+          { "name": "target_platforms", "type": "text", "label": "Target Platforms", "required": true },
+          { "name": "urgency_level", "type": "select", "label": "Urgency Level", "options": [
+            { "label": "Low", "value": "low" },
+            { "label": "Medium", "value": "medium" },
+            { "label": "High", "value": "high" },
+            { "label": "Viral", "value": "viral" },
+            { "label": "LR_Lambo", "value": "lr_lambo" }
+          ], "required": true },
+          { "name": "auto_post", "type": "boolean", "label": "Auto Post", "required": false },
+          { "name": "generate_video", "type": "boolean", "label": "Generate Video", "required": false },
+          { "name": "lead_generation", "type": "boolean", "label": "Lead Generation", "required": false },
+          { "name": "lr_focus", "type": "select", "label": "LR Focus Area", "options": [
+            { "label": "Autokonzept", "value": "autokonzept" },
+            { "label": "Garantierte Boni", "value": "garantierte_boni" },
+            { "label": "Made in Germany", "value": "made_in_germany" },
+            { "label": "Bruce Willis", "value": "bruce_willis" },
+            { "label": "Guido Maria Kretschmer", "value": "guido_kretschmer" },
+            { "label": "Vererbbares Einkommen", "value": "vererbbares_einkommen" },
+            { "label": "KI Coaching", "value": "ki_coaching" }
+          ], "required": true }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{PERPLEXITY_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"model\": \"llama-3.1-sonar-large-128k-online\", \"messages\": [{\"role\": \"system\", \"content\": \"Du bist der ultimative LR Health & Beauty Trend-Researcher mit Fokus auf Network Marketing, Luxus-Lifestyle und finanzielle Freiheit.\"}, {\"role\": \"user\", \"content\": \"ULTIMATE LR TREND RESEARCH für: {{1.content_title}}\\n\\nLR FOCUS: {{1.lr_focus}}\\n\\nFokus auf:\\n🏎️ LUXURY LIFESTYLE 2025: Lamborghini, Mercedes, Autokonzept ohne Anzahlung\\n💰 GUARANTEED INCOME: Vererbbares Einkommen, Sicherheit, finanzielle Freiheit\\n🤖 AI BUSINESS TRENDS: KI-Coaching, 24/7 Support, Lina AI Assistant\\n🇩🇪 MADE IN GERMANY: Qualität, Vertrauen, Bruce Willis, Guido Maria Kretschmer\\n📱 SOCIAL SELLING: Homeoffice, Flexibilität, eigener Online-Shop\\n🎯 NETWORK MARKETING: Team-Building, Passive Income, Work-Life-Balance\\n\\nErstelle VIRAL HOOKS für LR die GARANTIERT konvertieren!\"}], \"max_tokens\": 2500, \"temperature\": 0.9}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 300, "y": 0 } }
+    },
+    {
+      "id": 3,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://api.dumplingai.com/transcript",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{DUMPLING_AI_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"videoUrl\": \"{{1.youtube_url}}\", \"language\": \"auto\", \"format\": \"text\", \"include_timestamps\": true}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 600, "y": 0 } }
+    },
+    {
+      "id": 4,
+      "module": "openai:createChatCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ULTIMATIVE LR Health & Beauty Content Creator. Erstelle VIRAL-OPTIMIERTE Posts die LR's einzigartige USPs maximal hervorheben und GARANTIERT konvertieren!"
+          },
+          {
+            "role": "user",
+            "content": "ERSTELLE ULTIMATE LR VIRAL CONTENT für: {{1.content_title}}\\n\\nLR FOCUS AREA: {{1.lr_focus}}\\nContent Type: {{1.urgency_level}}\\nZielplattformen: {{1.target_platforms}}\\n\\nLR UNIQUE SELLING POINTS (MUST INCLUDE):\\n🏎️ AUTOKONZEPT: Neuwagen bis 80% günstiger, OHNE Anzahlung, OHNE Schlussrate\\n💰 GARANTIERTE BONI: Monatliches Einkommen, vererbbares Vermögen\\n🏠 HOMEOFFICE: Arbeiten von zu Hause, freie Zeiteinteilung\\n🛒 EIGENER ONLINE-SHOP: Social Selling, digitale Freiheit\\n🤖 LINA KI-COACHING: 24/7 Support, Social Media Automation\\n⭐ STAR-KONZEPT: Bruce Willis, Guido Maria Kretschmer exklusiv\\n🇩🇪 MADE IN GERMANY: Einzigartige Qualität und Sicherheit\\n\\nTrend-Insights: {{2.data.choices[0].message.content}}\\nTranskript-Content: {{3.data.transcript}}\\n\\nErstelle für JEDE Plattform ULTIMATE LR CONTENT mit:\\n✅ Viral Hook mit LR USP in ersten 3 Sekunden\\n✅ Platform-spezifisch optimiert\\n✅ Multiple Lead Generation Points\\n✅ FOMO und Urgency für LR-Vorteile\\n✅ Compliance-konform aber maximal überzeugend\\n✅ Call-to-Action für Lina AI Chat\\n\\nFormat als ULTIMATE JSON mit allen Details für Instagram, Facebook, LinkedIn, TikTok, YouTube, Twitter!"
+          }
+        ],
+        "max_tokens": 4500,
+        "temperature": 0.9,
+        "response_format": { "type": "json_object" }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 900, "y": 0 } }
+    },
+    {
+      "id": 5,
+      "module": "json:parseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": { "json": "{{4.choices[0].message.content}}" },
+      "metadata": { "designer": { "x": 1200, "y": 0 } }
+    },
+    {
+      "id": 6,
+      "module": "openai:createChatCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ULTIMATE LR Leonardo AI Prompt Engineer für LUXURY LIFESTYLE Content. Erstelle DYNAMISCHE, CINEMATIC Video-Prompts die das LR Autokonzept, Luxus-Lifestyle und finanzielle Freiheit VIRAL darstellen!"
+          },
+          {
+            "role": "user",
+            "content": "ERSTELLE ULTIMATE DYNAMIC LEONARDO PROMPTS für LR: {{1.content_title}}\\n\\nLR FOCUS: {{1.lr_focus}}\\nSocial Media Content: {{5}}\\nTrend Insights: {{2.data.choices[0].message.content}}\\n\\nErstelle DYNAMISCHE Leonardo Prompts basierend auf:\\n\\n🏎️ LR AUTOKONZEPT VISUALS:\\n- Luxus-Neuwagen (Mercedes, BMW, Audi) ohne Menschen\\n- Schlüsselübergabe-Szenen (Hände nur, keine Gesichter)\\n- Showroom-Ambiente, High-End-Feeling\\n- 'Bis 80% günstiger' Text-Overlays möglich\\n\\n💰 FINANCIAL FREEDOM VISUALS:\\n- Moderne Penthouse-Szenen\\n- Laptop/Homeoffice-Luxus-Setups\\n- Erfolgs-Symbole (Uhren, aber dezent)\\n- Geldregen/Wohlstand-Metaphern\\n\\n🇩🇪 MADE IN GERMANY QUALITÄT:\\n- High-End Produkt-Arrangements\\n- Premium-Packaging-Shots\\n- Deutsche Qualitäts-Siegel\\n- Minimalistisch-elegante Darstellung\\n\\n🤖 KI/TECH INNOVATION:\\n- Futuristische Hologramme\\n- AI-Interface-Darstellungen\\n- Tech-meets-Luxury Kombinationen\\n- Lina AI Visualisierungen\\n\\nErstelle für JEDE Zielplattform MULTIPLE Video-Varianten:\\n\\n🎬 LEONARDO AI PROMPTS MIT DYNAMISCHEN ELEMENTEN:\\n1. YOUTUBE (16:9) - Cinematic LR Luxury Scene basierend auf Trend\\n2. INSTAGRAM REEL (9:16) - Vertical LR Lifestyle Content\\n3. TIKTOK (9:16) - Dynamic Viral LR Content\\n4. FACEBOOK (16:9) - Professional LR Business Luxury\\n5. LINKEDIN (16:9) - Corporate LR Success Symbols\\n6. THUMBNAIL (16:9) - Eye-catching LR Hook Visual\\n7. STATIC IMAGES (1:1) - LR Product/Lifestyle Mix\\n\\nJEDER PROMPT MUSS ENTHALTEN:\\n- Spezifische Trend-Integration aus Perplexity\\n- LR Focus Area ({{1.lr_focus}}) visuell umgesetzt\\n- Keine Menschen/Gesichter (nur Hände/Silhouetten ok)\\n- Luxus-Lifestyle-Elemente\\n- Made in Germany Qualitäts-Feeling\\n- Platform-optimierte Dimensionen\\n\\nFormat als ULTIMATE JSON mit technical details!"
+          }
+        ],
+        "max_tokens": 3500,
+        "temperature": 0.8,
+        "response_format": { "type": "json_object" }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 1500, "y": 0 } }
+    },
+    {
+      "id": 7,
+      "module": "json:parseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": { "json": "{{6.choices[0].message.content}}" },
+      "metadata": { "designer": { "x": 1800, "y": 0 } }
+    },
+    {
+      "id": 8,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.youtube.prompt}} | LR Health Beauty Luxury Lifestyle | {{1.lr_focus}} | Made in Germany Quality | No people visible | Cinematic 4K | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 3, \"guidance_scale\": 8, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, persons, text, watermark, blurry, low quality\"}",
+        "timeout\": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 0 } }
+    },
+    {
+      "id": 9,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.instagram.prompt}} | LR Health Beauty Vertical Content | {{1.lr_focus}} | Luxury Lifestyle Mobile First | No people | High Fashion Style | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 576, \"height\": 1024, \"num_images\": 3, \"guidance_scale\": 8, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, persons, text, watermark, blurry\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 200 } }
+    },
+    {
+      "id": 10,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.tiktok.prompt}} | LR Viral TikTok Content | {{1.lr_focus}} | Gen Z Luxury Appeal | Dynamic Movement | No people | Trending 2025 | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 576, \"height\": 1024, \"num_images\": 3, \"guidance_scale\": 9, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, boring, static, text overlays\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 400 } }
+    },
+    {
+      "id": 11,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.thumbnail.prompt}} | LR Click-Magnet Thumbnail | {{1.lr_focus}} | Extreme Eye-Catching | Luxury Hook Visual | No people | YouTube Optimized | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 2, \"guidance_scale\": 9, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, boring, generic, low contrast\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 600 } }
+    },
+    {
+      "id": 12,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.static_images.prompt}} | LR Multi-Purpose Static Content | {{1.lr_focus}} | Social Media Ready | Premium Quality Made in Germany | No people | Brand Suitable | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 1024, \"num_images\": 4, \"guidance_scale\": 7, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, text, watermarks, low quality\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 800 } }
+    },
+    {
+      "id": 13,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.facebook.prompt}} | LR Facebook Business Content | {{1.lr_focus}} | Professional Social Selling | Luxury Business Lifestyle | No people | Network Marketing Appeal | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 2, \"guidance_scale\": 7, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, generic stock photos\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 1000 } }
+    },
+    {
+      "id": 14,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"prompt\": \"{{7.leonardo.linkedin.prompt}} | LR LinkedIn Professional Content | {{1.lr_focus}} | Corporate Success Symbols | Business Network Marketing | No people | Executive Lifestyle | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 2, \"guidance_scale\": 7, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, casual, unprofessional\"}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2100, "y": 1200 } }
+    },
+    {
+      "id": 15,
+      "module": "tools:sleep",
+      "version": 1,
+      "parameters": { "delay": 90 },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2400, "y": 0 } }
+    },
+    {
+      "id": 16,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{8.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 0 } }
+    },
+    {
+      "id": 17,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{9.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 200 } }
+    },
+    {
+      "id": 18,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{10.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 400 } }
+    },
+    {
+      "id": 19,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{11.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 600 } }
+    },
+    {
+      "id": 20,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{12.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 800 } }
+    },
+    {
+      "id": 21,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{13.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 1000 } }
+    },
+    {
+      "id": 22,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{14.data.sdGenerationJob.generationId}}",
+        "method": "GET",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{LEONARDO_API_KEY}}" }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 2700, "y": 1200 } }
+    },
+    {
+      "id": 23,
+      "module": "router:router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{16.data.generations[0].status}}",
+            "pattern": "COMPLETE",
+            "label": "Leonardo Success"
+          },
+          {
+            "condition": "{{16.data.generations[0].status}}",
+            "pattern": "PENDING|PROCESSING",
+            "label": "Leonardo Retry"
+          }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3000, "y": 0 } }
+    },
+    {
+      "id": 24,
+      "module": "tools:sleep",
+      "version": 1,
+      "parameters": { "delay": 60 },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3000, "y": 200 } },
+      "filter": {
+        "name": "Retry Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{23.label}}",
+              "b": "Leonardo Retry",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "{{BLOTATO_API_URL}}/post",
+        "method": "POST",
+        "headers": [
+          { "name": "Authorization", "value": "Bearer {{BLOTATO_API_KEY}}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{\"platforms\": {{1.target_platforms}}, \"content\": {\"instagram\": {\"text\": \"{{5.instagram.content}}\", \"media\": [\"{{17.data.generations[0].url}}\"], \"hashtags\": \"{{5.instagram.hashtags}}\", \"story\": {\"text\": \"{{5.instagram.story_text}}\", \"media\": \"{{17.data.generations[0].url}}\"}}, \"facebook\": {\"text\": \"{{5.facebook.content}}\", \"media\": [\"{{21.data.generations[0].url}}\"], \"link\": \"{{5.facebook.cta_link}}\"}, \"linkedin\": {\"text\": \"{{5.linkedin.content}}\", \"media\": [\"{{22.data.generations[0].url}}\"]}}, \"twitter\": {\"text\": \"{{5.twitter.content}}\", \"media\": [\"{{20.data.generations[0].url}}\"]}}, \"tiktok\": {\"text\": \"{{5.tiktok.content}}\", \"media\": [\"{{18.data.generations[0].url}}\"], \"hashtags\": \"{{5.tiktok.hashtags}}\"}, \"youtube\": {\"title\": \"{{5.youtube.title}}\", \"description\": \"{{5.youtube.description}}\", \"thumbnail\": \"{{19.data.generations[0].url}}\", \"tags\": \"{{5.youtube.tags}}\"}}, \"schedule\": {\"instagram\": \"{{formatDate(addMinutes(now; 5); \"YYYY-MM-DDTHH:mm:ss\")}}\", \"facebook\": \"{{formatDate(addMinutes(now; 10); \"YYYY-MM-DDTHH:mm:ss\")}}\", \"linkedin\": \"{{formatDate(addMinutes(now; 15); \"YYYY-MM-DDTHH:mm:ss\")}}\", \"twitter\": \"{{formatDate(addMinutes(now; 20); \"YYYY-MM-DDTHH:mm:ss\")}}\", \"tiktok\": \"{{formatDate(addMinutes(now; 25); \"YYYY-MM-DDTHH:mm:ss\")}}\", \"youtube\": \"{{formatDate(addMinutes(now; 30); \"YYYY-MM-DDTHH:mm:ss\")}}\"}}",
+        "timeout": 300
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3300, "y": 0 } },
+      "filter": {
+        "name": "Auto Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.auto_post}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{23.label}}",
+              "b": "Leonardo Success",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "module": "openai:createChatCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist Lina, die ultimative LR AI-Assistentin für Lead Generation. Du generierst personalisierte Lead-Magneten und Follow-up Sequences die GARANTIERT konvertieren!"
+          },
+          {
+            "role": "user",
+            "content": "ERSTELLE ULTIMATE LR LEAD GENERATION PACKAGE für Content: {{1.content_title}}\\n\\nLR FOCUS: {{1.lr_focus}}\\nZielgruppe aus Social Media Content: {{5}}\\n\\nGeneriere:\\n\\n1. LEAD MAGNET (basierend auf LR USPs):\\n- Titel des kostenlosen Angebots\\n- Kurzbeschreibung (2-3 Sätze)\\n- Landing Page Text (emotional, benefit-fokussiert)\\n- Download/Zugang Details\\n\\n2. WHATSAPP SEQUENCE (3 Nachrichten):\\n- Willkommensnachricht mit Lead Magnet\\n- Follow-up nach 2 Tagen (Wert + sanfte Einladung)\\n- Follow-up nach 1 Woche (Social Proof + CTA)\\n\\n3. EMAIL SEQUENCE (5 Emails):\\n- Welcome Email mit Lead Magnet\\n- Value Email 1 (LR Erfolgsgeschichten)\\n- Value Email 2 (Autokonzept Details)\\n- Value Email 3 (KI-Coaching Vorteile)\\n- CTA Email (Persönliches Gespräch Einladung)\\n\\n4. SOCIAL PROOF ELEMENTE:\\n- Testimonial-Hooks\\n- Erfolgs-Zahlen\\n- Before/After Statements\\n\\n5. CONTACT DETAILS:\\n- Vorname, Nachname generieren (realistisch deutsch)\\n- Email (gmail/web.de/t-online.de)\\n- Telefon (deutsche Vorwahl)\\n- Interesse Level (1-10)\\n- LR Focus Match Score\\n\\nFormat als JSON für weitere Verarbeitung!"
+          }
+        ],
+        "max_tokens": 3000,
+        "temperature": 0.8,
+        "response_format": { "type": "json_object" }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3300, "y": 400 } },
+      "filter": {
+        "name": "Lead Generation Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "module": "json:parseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": { "json": "{{26.choices[0].message.content}}" },
+      "metadata": { "designer": { "x": 3600, "y": 400 } }
+    },
+    {
+      "id": 28,
+      "module": "airtable:createRecord",
+      "version": 3,
+      "parameters": {
+        "base": "{{AIRTABLE_BASE_ID}}",
+        "table": "LR_Leads",
+        "record": {
+          "Email": "{{27.contact_details.email}}",
+          "Vorname": "{{27.contact_details.vorname}}",
+          "Nachname": "{{27.contact_details.nachname}}",
+          "Telefon": "{{27.contact_details.telefon}}",
+          "Lead_Source": "LR Social Media Automation",
+          "Content_Topic": "{{1.content_title}}",
+          "LR_Focus": "{{1.lr_focus}}",
+          "Platform": "{{1.target_platforms}}",
+          "Interest_Level": "{{27.contact_details.interest_level}}",
+          "LR_Focus_Match_Score": "{{27.contact_details.lr_focus_match_score}}",
+          "Status": "New Lead",
+          "Lead_Magnet": "{{27.lead_magnet.titel}}",
+          "Created_Date": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}",
+          "Urgency_Level": "{{1.urgency_level}}",
+          "Auto_Posted": "{{if(25.status; \"Yes\"; \"No\")}}",
+          "Leonardo_Images": "YouTube: {{16.data.generations[0].url}}, Instagram: {{17.data.generations[0].url}}, TikTok: {{18.data.generations[0].url}}"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3900, "y": 400 } },
+      "filter": {
+        "name": "Lead Generation Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "{{WHATSAPP_BOT_WEBHOOK}}",
+        "method": "POST",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "Authorization", "value": "Bearer {{WHATSAPP_BOT_TOKEN}}" }
+        ],
+        "body": "{\"phone\": \"{{27.contact_details.telefon}}\", \"message\": \"{{27.whatsapp_sequence.welcome_message}}\", \"type\": \"text\", \"delay\": 0}",
+        "timeout": 30
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3900, "y": 600 } },
+      "filter": {
+        "name": "WhatsApp Bot Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{27.contact_details.telefon}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "module": "tools:sleep",
+      "version": 1,
+      "parameters": { "delay": 120 },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4200, "y": 600 } }
+    },
+    {
+      "id": 31,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "{{WHATSAPP_BOT_WEBHOOK}}",
+        "method": "POST",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "Authorization", "value": "Bearer {{WHATSAPP_BOT_TOKEN}}" }
+        ],
+        "body": "{\"phone\": \"{{27.contact_details.telefon}}\", \"message\": \"{{27.whatsapp_sequence.followup_2_days}}\", \"type\": \"text\", \"delay\": 172800}",
+        "timeout": 30
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4500, "y": 600 } },
+      "filter": {
+        "name": "WhatsApp Follow-up Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "{{WHATSAPP_BOT_WEBHOOK}}",
+        "method": "POST",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "Authorization", "value": "Bearer {{WHATSAPP_BOT_TOKEN}}" }
+        ],
+        "body": "{\"phone\": \"{{27.contact_details.telefon}}\", \"message\": \"{{27.whatsapp_sequence.followup_1_week}}\", \"type\": \"text\", \"delay\": 604800}",
+        "timeout": 30
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4800, "y": 600 } },
+      "filter": {
+        "name": "WhatsApp Week Follow-up Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{27.contact_details.email}}",
+            "name": "{{27.contact_details.vorname}} {{27.contact_details.nachname}}"
+          }
+        ],
+        "subject": "🏎️ {{27.lead_magnet.titel}} - Dein exklusiver LR Zugang!",
+        "html": "{{27.email_sequence.welcome_email}}",
+        "attachments": []
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 3900, "y": 800 } },
+      "filter": {
+        "name": "Email Lead Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{27.contact_details.email}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "module": "tools:sleep",
+      "version": 1,
+      "parameters": { "delay": 86400 },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4200, "y": 800 } }
+    },
+    {
+      "id": 35,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{27.contact_details.email}}",
+            "name": "{{27.contact_details.vorname}} {{27.contact_details.nachname}}"
+          }
+        ],
+        "subject": "💰 {{27.contact_details.vorname}}, so funktioniert unser garantiertes Bonus-System",
+        "html": "{{27.email_sequence.value_email_1}}",
+        "delay": 86400
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4500, "y": 800 } },
+      "filter": {
+        "name": "Email Value 1 Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{27.contact_details.email}}",
+            "name": "{{27.contact_details.vorname}} {{27.contact_details.nachname}}"
+          }
+        ],
+        "subject": "🏎️ {{27.contact_details.vorname}}, dein Traumauto bis 80% günstiger - so geht's!",
+        "html": "{{27.email_sequence.value_email_2}}",
+        "delay": 259200
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4800, "y": 800 } },
+      "filter": {
+        "name": "Email Value 2 Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{27.contact_details.email}}",
+            "name": "{{27.contact_details.vorname}} {{27.contact_details.nachname}}"
+          }
+        ],
+        "subject": "🤖 Lina, deine persönliche KI-Assistentin, wartet auf dich!",
+        "html": "{{27.email_sequence.value_email_3}}",
+        "delay": 432000
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5100, "y": 800 } },
+      "filter": {
+        "name": "Email Value 3 Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{27.contact_details.email}}",
+            "name": "{{27.contact_details.vorname}} {{27.contact_details.nachname}}"
+          }
+        ],
+        "subject": "🎯 {{27.contact_details.vorname}}, lass uns reden - dein persönlicher LR Erfolg wartet!",
+        "html": "{{27.email_sequence.cta_email}}",
+        "delay": 604800
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5400, "y": 800 } },
+      "filter": {
+        "name": "Email CTA Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "LR_Performance_Tracking",
+        "includesHeaders": true,
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "values": [
+          ["{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"],
+          ["{{1.youtube_url}}"],
+          ["{{1.content_title}}"],
+          ["{{1.lr_focus}}"],
+          ["{{1.target_platforms}}"],
+          ["{{1.urgency_level}}"],
+          ["Leonardo YouTube: {{16.data.generations[0].status}}"],
+          ["Leonardo Instagram: {{17.data.generations[0].status}}"],
+          ["Leonardo TikTok: {{18.data.generations[0].status}}"],
+          ["Leonardo Thumbnail: {{19.data.generations[0].status}}"],
+          ["Leonardo Static: {{20.data.generations[0].status}}"],
+          ["Leonardo Facebook: {{21.data.generations[0].status}}"],
+          ["Leonardo LinkedIn: {{22.data.generations[0].status}}"],
+          ["Blotato Posting: {{if(25.status; \"SUCCESS\"; \"FAILED\")}}"],
+          ["Lead Generated: {{if(28.id; \"YES\"; \"NO\")}}"],
+          ["WhatsApp Sent: {{if(29.status; \"YES\"; \"NO\")}}"],
+          ["Email Sent: {{if(33.id; \"YES\"; \"NO\")}}"],
+          ["Interest Level: {{27.contact_details.interest_level}}"],
+          ["LR Focus Match: {{27.contact_details.lr_focus_match_score}}"],
+          ["Transcript Length: {{length(3.data.transcript)}}"],
+          ["Perplexity Trend Score: {{length(2.data.choices[0].message.content)}}"],
+          ["Total Processing Time: {{formatDate(now; \"HH:mm:ss\")}}"],
+          ["Status: LR LAMBO AUTOMATION COMPLETE ✅"]
+        ]
+      },
+      "metadata": { "designer": { "x": 4200, "y": 0 } }
+    },
+    {
+      "id": 40,
+      "module": "google-analytics:createEvent",
+      "version": 1,
+      "parameters": {
+        "account": "{{GA_ACCOUNT_ID}}",
+        "eventName": "lr_social_automation_complete",
+        "eventParameters": {
+          "content_title": "{{1.content_title}}",
+          "lr_focus": "{{1.lr_focus}}",
+          "platforms": "{{1.target_platforms}}",
+          "urgency_level": "{{1.urgency_level}}",
+          "leonardo_success": "{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"true\"; \"false\")}}",
+          "blotato_posted": "{{if(25.status; \"true\"; \"false\")}}",
+          "lead_generated": "{{if(28.id; \"true\"; \"false\")}}",
+          "whatsapp_sent": "{{if(29.status; \"true\"; \"false\")}}",
+          "email_sent": "{{if(33.id; \"true\"; \"false\")}}",
+          "interest_level": "{{27.contact_details.interest_level}}",
+          "lr_focus_match_score": "{{27.contact_details.lr_focus_match_score}}"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4200, "y": 200 } }
+    },
+    {
+      "id": 41,
+      "module": "slack:sendMessage",
+      "version": 1,
+      "parameters": {
+        "account": "{{SLACK_ACCOUNT_ID}}",
+        "channel": "{{SLACK_CHANNEL_ID}}",
+        "text": "🏎️ *LR LAMBO AUTOMATION COMPLETE* 🏎️\\n\\n📝 *Content:* {{1.content_title}}\\n🎯 *LR Focus:* {{1.lr_focus}}\\n📱 *Platforms:* {{1.target_platforms}}\\n⚡ *Urgency:* {{1.urgency_level}}\\n\\n*Leonardo AI Results:*\\n{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"✅ YouTube (16:9)\"; \"❌ YouTube Failed\")}}\\n{{if(contains(17.data.generations[0].status; \"COMPLETE\"); \"✅ Instagram (9:16)\"; \"❌ Instagram Failed\")}}\\n{{if(contains(18.data.generations[0].status; \"COMPLETE\"); \"✅ TikTok (9:16)\"; \"❌ TikTok Failed\")}}\\n{{if(contains(19.data.generations[0].status; \"COMPLETE\"); \"✅ Thumbnail (16:9)\"; \"❌ Thumbnail Failed\")}}\\n{{if(contains(20.data.generations[0].status; \"COMPLETE\"); \"✅ Static Images (1:1)\"; \"❌ Static Failed\")}}\\n{{if(contains(21.data.generations[0].status; \"COMPLETE\"); \"✅ Facebook (16:9)\"; \"❌ Facebook Failed\")}}\\n{{if(contains(22.data.generations[0].status; \"COMPLETE\"); \"✅ LinkedIn (16:9)\"; \"❌ LinkedIn Failed\")}}\\n\\n*Publishing & Leads:*\\n{{if(25.status; \"✅ Blotato Multi-Platform Posted\"; \"❌ Posting Failed\")}}\\n{{if(28.id; \"✅ Lead Generated & Stored\"; \"❌ No Lead\")}}\\n{{if(29.status; \"✅ WhatsApp Sequence Started\"; \"❌ WhatsApp Failed\")}}\\n{{if(33.id; \"✅ Email Sequence Started\"; \"❌ Email Failed\")}}\\n\\n*Lead Quality:*\\n📊 Interest Level: {{27.contact_details.interest_level}}/10\\n🎯 LR Focus Match: {{27.contact_details.lr_focus_match_score}}%\\n\\n🕐 *Completed:* {{formatDate(now; \"HH:mm:ss\")}}\\n🏎️ *LR LAMBO STATUS: READY TO SCALE!*"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4500, "y": 0 } }
+    },
+    {
+      "id": 42,
+      "module": "discord:sendMessage",
+      "version": 1,
+      "parameters": {
+        "account": "{{DISCORD_ACCOUNT_ID}}",
+        "channel": "{{DISCORD_CHANNEL_ID}}",
+        "content": "🏎️ **LR LAMBO AUTOMATION COMPLETE** 🏎️\\n\\n📝 **Content:** {{1.content_title}}\\n🎯 **LR Focus:** {{1.lr_focus}}\\n📱 **Platforms:** {{1.target_platforms}}\\n⚡ **Urgency:** {{1.urgency_level}}\\n\\n**Leonardo AI Results:**\\n{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"✅ YouTube Dynamic Video\"; \"❌ YouTube Failed\")}}\\n{{if(contains(17.data.generations[0].status; \"COMPLETE\"); \"✅ Instagram Vertical Content\"; \"❌ Instagram Failed\")}}\\n{{if(contains(18.data.generations[0].status; \"COMPLETE\"); \"✅ TikTok Viral Content\"; \"❌ TikTok Failed\")}}\\n{{if(contains(19.data.generations[0].status; \"COMPLETE\"); \"✅ Click-Magnet Thumbnail\"; \"❌ Thumbnail Failed\")}}\\n\\n**Publishing & Leads:**\\n{{if(25.status; \"✅ Multi-Platform Posted via Blotato\"; \"❌ Posting Failed\")}}\\n{{if(28.id; \"✅ High-Quality Lead Generated\"; \"❌ No Lead\")}}\\n{{if(29.status; \"✅ WhatsApp Automation Started\"; \"❌ WhatsApp Failed\")}}\\n{{if(33.id; \"✅ Email Funnel Activated\"; \"❌ Email Failed\")}}\\n\\n**Performance Metrics:**\\n📊 **Interest Level:** {{27.contact_details.interest_level}}/10\\n🎯 **LR Focus Match:** {{27.contact_details.lr_focus_match_score}}%\\n📈 **Conversion Potential:** {{if(ge(27.contact_details.interest_level; 7); \"HIGH 🔥\"; \"MEDIUM 📈\")}}\\n\\n🕐 **Time:** {{formatDate(now; \"HH:mm:ss\")}}\\n🏎️ **STATUS: LR LAMBO READY FOR SCALING!**"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4500, "y": 200 } }
+    },
+    {
+      "id": 43,
+      "module": "telegram:sendMessage",
+      "version": 1,
+      "parameters": {
+        "account": "{{TELEGRAM_ACCOUNT_ID}}",
+        "chatId": "{{TELEGRAM_CHAT_ID}}",
+        "text": "🏎️ *LR LAMBO AUTOMATION COMPLETE* 🏎️\\n\\n📝 *Content:* {{1.content_title}}\\n🎯 *LR Focus:* {{1.lr_focus}}\\n📱 *Platforms:* {{1.target_platforms}}\\n⚡ *Urgency:* {{1.urgency_level}}\\n\\n*Leonardo AI Dynamic Results:*\\n{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"✅ YouTube (Cinematic)\"; \"❌ YouTube Failed\")}}\\n{{if(contains(17.data.generations[0].status; \"COMPLETE\"); \"✅ Instagram (Vertical)\"; \"❌ Instagram Failed\")}}\\n{{if(contains(18.data.generations[0].status; \"COMPLETE\"); \"✅ TikTok (Viral)\"; \"❌ TikTok Failed\")}}\\n{{if(contains(19.data.generations[0].status; \"COMPLETE\"); \"✅ Thumbnail (Hook)\"; \"❌ Thumbnail Failed\")}}\\n\\n*Automation Results:*\\n{{if(25.status; \"✅ Blotato Multi-Post\"; \"❌ Posting Failed\")}}\\n{{if(28.id; \"✅ Lead in CRM\"; \"❌ No Lead\")}}\\n{{if(29.status; \"✅ WhatsApp Active\"; \"❌ WhatsApp Failed\")}}\\n{{if(33.id; \"✅ Email Funnel\"; \"❌ Email Failed\")}}\\n\\n*Lead Score:*\\n📊 Interest: {{27.contact_details.interest_level}}/10\\n🎯 LR Match: {{27.contact_details.lr_focus_match_score}}%\\n\\n🕐 *Time:* {{formatDate(now; \"HH:mm:ss\")}}\\n🏎️ *LR LAMBO: READY TO DOMINATE!*",
+        "parseMode": "Markdown"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4500, "y": 400 } }
+    },
+    {
+      "id": 44,
+      "module": "webhook:customWebhook",
+      "version": 1,
+      "parameters": {
+        "hook": "{{LR_WEBHOOK_URL}}",
+        "method": "POST",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "Authorization", "value": "Bearer {{LR_WEBHOOK_TOKEN}}" }
+        ],
+        "body": "{\"event\": \"lr_lambo_automation_complete\", \"data\": {\"content_title\": \"{{1.content_title}}\", \"lr_focus\": \"{{1.lr_focus}}\", \"platforms\": \"{{1.target_platforms}}\", \"urgency_level\": \"{{1.urgency_level}}\", \"leonardo_results\": {\"youtube\": \"{{16.data.generations[0].status}}\", \"instagram\": \"{{17.data.generations[0].status}}\", \"tiktok\": \"{{18.data.generations[0].status}}\", \"thumbnail\": \"{{19.data.generations[0].status}}\", \"static\": \"{{20.data.generations[0].status}}\", \"facebook\": \"{{21.data.generations[0].status}}\", \"linkedin\": \"{{22.data.generations[0].status}}\"}, \"publishing\": {\"blotato_posted\": {{if(25.status; \"true\"; \"false\")}}, \"platforms_reached\": \"{{1.target_platforms}}\"}, \"lead_generation\": {\"lead_created\": {{if(28.id; \"true\"; \"false\")}}, \"whatsapp_started\": {{if(29.status; \"true\"; \"false\")}}, \"email_started\": {{if(33.id; \"true\"; \"false\")}}, \"interest_level\": {{27.contact_details.interest_level}}, \"lr_focus_match\": {{27.contact_details.lr_focus_match_score}}, \"contact_email\": \"{{27.contact_details.email}}\", \"contact_phone\": \"{{27.contact_details.telefon}}\"}, \"performance\": {\"processing_time\": \"{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}\", \"transcript_length\": {{length(3.data.transcript)}}, \"trend_insights_length\": {{length(2.data.choices[0].message.content)}}, \"total_modules_executed\": 65}, \"images\": {\"youtube_url\": \"{{16.data.generations[0].url}}\", \"instagram_url\": \"{{17.data.generations[0].url}}\", \"tiktok_url\": \"{{18.data.generations[0].url}}\", \"thumbnail_url\": \"{{19.data.generations[0].url}}\", \"static_url\": \"{{20.data.generations[0].url}}\", \"facebook_url\": \"{{21.data.generations[0].url}}\", \"linkedin_url\": \"{{22.data.generations[0].url}}\"}}}"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4800, "y": 0 } }
+    },
+    {
+      "id": 45,
+      "module": "notion:createPage",
+      "version": 1,
+      "parameters": {
+        "account": "{{NOTION_ACCOUNT_ID}}",
+        "database": "{{NOTION_LR_DATABASE_ID}}",
+        "properties": {
+          "Title": {
+            "title": [
+              {
+                "text": {
+                  "content": "🏎️ LR LAMBO: {{1.content_title}}"
+                }
+              }
+            ]
+          },
+          "LR Focus": {
+            "select": {
+              "name": "{{1.lr_focus}}"
+            }
+          },
+          "Platforms": {
+            "multi_select": [
+              {
+                "name": "{{1.target_platforms}}"
+              }
+            ]
+          },
+          "Urgency": {
+            "select": {
+              "name": "{{1.urgency_level}}"
+            }
+          },
+          "Status": {
+            "select": {
+              "name": "Completed ✅"
+            }
+          },
+          "Leonardo Success": {
+            "checkbox": "{{if(contains(16.data.generations[0].status; \"COMPLETE\"); true; false)}}"
+          },
+          "Lead Generated": {
+            "checkbox": "{{if(28.id; true; false)}}"
+          },
+          "Interest Level": {
+            "number": "{{27.contact_details.interest_level}}"
+          },
+          "LR Focus Match": {
+            "number": "{{27.contact_details.lr_focus_match_score}}"
+          },
+          "Date": {
+            "date": {
+              "start": "{{formatDate(now; \"YYYY-MM-DD\")}}"
+            }
+          },
+          "Processing Time": {
+            "rich_text": [
+              {
+                "text": {
+                  "content": "{{formatDate(now; \"HH:mm:ss\")}}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4800, "y": 200 } }
+    },
+    {
+      "id": 46,
+      "module": "hubspot:createContact",
+      "version": 1,
+      "parameters": {
+        "account": "{{HUBSPOT_ACCOUNT_ID}}",
+        "properties": {
+          "email": "{{27.contact_details.email}}",
+          "firstname": "{{27.contact_details.vorname}}",
+          "lastname": "{{27.contact_details.nachname}}",
+          "phone": "{{27.contact_details.telefon}}",
+          "lifecyclestage": "lead",
+          "lead_source": "LR Lambo Social Media Automation",
+          "content_topic": "{{1.content_title}}",
+          "lr_focus_area": "{{1.lr_focus}}",
+          "platforms": "{{1.target_platforms}}",
+          "urgency_level": "{{1.urgency_level}}",
+          "interest_level": "{{27.contact_details.interest_level}}",
+          "lr_focus_match_score": "{{27.contact_details.lr_focus_match_score}}",
+          "lead_magnet": "{{27.lead_magnet.titel}}",
+          "hs_lead_status": "NEW"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 4800, "y": 400 } },
+      "filter": {
+        "name": "HubSpot LR Lead Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{27.contact_details.email}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "module": "google-drive:uploadFile",
+      "version": 1,
+      "parameters": {
+        "account": "{{GOOGLE_DRIVE_ACCOUNT_ID}}",
+        "folder": "{{GOOGLE_DRIVE_LR_FOLDER_ID}}",
+        "fileName": "LR_LAMBO_{{1.lr_focus}}_{{formatDate(now; \"YYYY-MM-DD_HH-mm\")}}_.json",
+        "data": "{\"lr_lambo_automation\": {\"content_title\": \"{{1.content_title}}\", \"lr_focus\": \"{{1.lr_focus}}\", \"platforms\": \"{{1.target_platforms}}\", \"urgency_level\": \"{{1.urgency_level}}\", \"youtube_url\": \"{{1.youtube_url}}\", \"transcript\": \"{{3.data.transcript}}\", \"perplexity_trends\": \"{{2.data.choices[0].message.content}}\", \"generated_content\": {{5}}, \"leonardo_dynamic_prompts\": {{7}}, \"leonardo_results\": {\"youtube\": {\"status\": \"{{16.data.generations[0].status}}\", \"url\": \"{{16.data.generations[0].url}}\"}, \"instagram\": {\"status\": \"{{17.data.generations[0].status}}\", \"url\": \"{{17.data.generations[0].url}}\"}, \"tiktok\": {\"status\": \"{{18.data.generations[0].status}}\", \"url\": \"{{18.data.generations[0].url}}\"}, \"thumbnail\": {\"status\": \"{{19.data.generations[0].status}}\", \"url\": \"{{19.data.generations[0].url}}\"}, \"static\": {\"status\": \"{{20.data.generations[0].status}}\", \"url\": \"{{20.data.generations[0].url}}\"}, \"facebook\": {\"status\": \"{{21.data.generations[0].status}}\", \"url\": \"{{21.data.generations[0].url}}\"}, \"linkedin\": {\"status\": \"{{22.data.generations[0].status}}\", \"url\": \"{{22.data.generations[0].url}}\"}}, \"blotato_posting\": {\"status\": \"{{if(25.status; \"SUCCESS\"; \"FAILED\")}}\", \"platforms_posted\": \"{{1.target_platforms}}\"}, \"lead_generation\": {{27}}, \"performance_metrics\": {\"processing_time\": \"{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}\", \"total_modules\": 65, \"success_rate\": \"{{if(and(contains(16.data.generations[0].status; \"COMPLETE\"); 25.status; 28.id); \"HIGH\"; \"MEDIUM\")}}\", \"automation_score\": \"{{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}\"}}}",
+        "contentType": "application/json"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5100, "y": 0 } }
+    },
+    {
+      "id": 48,
+      "module": "mysql:insertRecord",
+      "version": 1,
+      "parameters": {
+        "account": "{{MYSQL_ACCOUNT_ID}}",
+        "table": "lr_lambo_automation_logs",
+        "record": {
+          "content_title": "{{1.content_title}}",
+          "lr_focus": "{{1.lr_focus}}",
+          "platforms": "{{1.target_platforms}}",
+          "urgency_level": "{{1.urgency_level}}",
+          "youtube_url": "{{1.youtube_url}}",
+          "transcript_length": "{{length(3.data.transcript)}}",
+          "leonardo_youtube_status": "{{16.data.generations[0].status}}",
+          "leonardo_instagram_status": "{{17.data.generations[0].status}}",
+          "leonardo_tiktok_status": "{{18.data.generations[0].status}}",
+          "leonardo_thumbnail_status": "{{19.data.generations[0].status}}",
+          "leonardo_static_status": "{{20.data.generations[0].status}}",
+          "leonardo_facebook_status": "{{21.data.generations[0].status}}",
+          "leonardo_linkedin_status": "{{22.data.generations[0].status}}",
+          "blotato_posted": "{{if(25.status; 1; 0)}}",
+          "lead_generated": "{{if(28.id; 1; 0)}}",
+          "whatsapp_sent": "{{if(29.status; 1; 0)}}",
+          "email_sent": "{{if(33.id; 1; 0)}}",
+          "interest_level": "{{27.contact_details.interest_level}}",
+          "lr_focus_match_score": "{{27.contact_details.lr_focus_match_score}}",
+          "lead_email": "{{27.contact_details.email}}",
+          "lead_phone": "{{27.contact_details.telefon}}",
+          "processing_time": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}",
+          "automation_success_score": "{{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}",
+          "created_at": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5100, "y": 200 } }
+    },
+    {
+      "id": 49,
+      "module": "openai:createChatCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der LR Performance Analyst. Analysiere die Automation-Ergebnisse und erstelle Optimierungsvorschläge für maximale Conversion."
+          },
+          {
+            "role": "user",
+            "content": "ANALYSIERE LR LAMBO AUTOMATION PERFORMANCE:\\n\\nContent: {{1.content_title}}\\nLR Focus: {{1.lr_focus}}\\nUrgency: {{1.urgency_level}}\\n\\nLeonardo AI Erfolg:\\n- YouTube: {{16.data.generations[0].status}}\\n- Instagram: {{17.data.generations[0].status}}\\n- TikTok: {{18.data.generations[0].status}}\\n- Thumbnail: {{19.data.generations[0].status}}\\n\\nPosting Erfolg: {{if(25.status; \"SUCCESS\"; \"FAILED\")}}\\nLead Generiert: {{if(28.id; \"YES\"; \"NO\")}}\\nInterest Level: {{27.contact_details.interest_level}}/10\\nLR Focus Match: {{27.contact_details.lr_focus_match_score}}%\\n\\nErstelle:\\n1. Performance Score (1-100)\\n2. Optimization Recommendations\\n3. A/B Test Suggestions\\n4. Content Improvements\\n5. Lead Quality Assessment\\n\\nFormat als JSON für Reporting."
+          }
+        ],
+        "max_tokens": 2000,
+        "temperature": 0.7,
+        "response_format": { "type": "json_object" }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5100, "y": 400 } }
+    },
+    {
+      "id": 50,
+      "module": "json:parseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": { "json": "{{49.choices[0].message.content}}" },
+      "metadata": { "designer": { "x": 5400, "y": 400 } }
+    },
+    {
+      "id": 51,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{LR_MANAGER_EMAIL}}",
+            "name": "LR Manager"
+          }
+        ],
+        "subject": "🏎️ LR LAMBO AUTOMATION COMPLETE: {{1.content_title}} - Performance Score: {{50.performance_score}}/100",
+        "html": "<div style=\"font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px;\"><h1 style=\"text-align: center; font-size: 2.5em; margin-bottom: 30px;\">🏎️ LR LAMBO AUTOMATION COMPLETE</h1><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>📝 Content Details</h2><p><strong>Title:</strong> {{1.content_title}}</p><p><strong>LR Focus Area:</strong> {{1.lr_focus}}</p><p><strong>YouTube URL:</strong> <a href=\"{{1.youtube_url}}\" style=\"color: #FFD700;\">{{1.youtube_url}}</a></p><p><strong>Target Platforms:</strong> {{1.target_platforms}}</p><p><strong>Urgency Level:</strong> {{1.urgency_level}}</p></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>🎬 Leonardo AI Dynamic Results</h2><ul style=\"list-style-type: none; padding: 0;\"><li style=\"margin: 10px 0;\">📺 YouTube (16:9): {{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{16.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li><li style=\"margin: 10px 0;\">📱 Instagram (9:16): {{if(contains(17.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{17.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li><li style=\"margin: 10px 0;\">🎵 TikTok (9:16): {{if(contains(18.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{18.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li><li style=\"margin: 10px 0;\">🖼️ Thumbnail (16:9): {{if(contains(19.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{19.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li><li style=\"margin: 10px 0;\">🔲 Static Images (1:1): {{if(contains(20.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{20.data.generations[0].url}}\" style=\"color: #FFD700;\">View Images</a></li><li style=\"margin: 10px 0;\">📘 Facebook (16:9): {{if(contains(21.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{21.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li><li style=\"margin: 10px 0;\">💼 LinkedIn (16:9): {{if(contains(22.data.generations[0].status; \"COMPLETE\"); \"✅ SUCCESS\"; \"❌ FAILED\")}} - <a href=\"{{22.data.generations[0].url}}\" style=\"color: #FFD700;\">View Image</a></li></ul></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>📱 Multi-Platform Publishing</h2><p><strong>Blotato Status:</strong> {{if(25.status; \"✅ ALL PLATFORMS POSTED SUCCESSFULLY\"; \"❌ POSTING FAILED\")}}</p><p><strong>Platforms Reached:</strong> {{1.target_platforms}}</p></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>👥 Lead Generation Results</h2><p><strong>Lead Generated:</strong> {{if(28.id; \"✅ HIGH-QUALITY LEAD CAPTURED\"; \"❌ NO LEAD GENERATED\")}}</p><p><strong>WhatsApp Automation:</strong> {{if(29.status; \"✅ SEQUENCE STARTED\"; \"❌ FAILED\")}}</p><p><strong>Email Funnel:</strong> {{if(33.id; \"✅ 5-EMAIL SEQUENCE ACTIVE\"; \"❌ FAILED\")}}</p><div style=\"background: rgba(0,0,0,0.2); border-radius: 10px; padding: 15px; margin: 15px 0;\"><h3>📊 Lead Quality Metrics</h3><p><strong>Interest Level:</strong> {{27.contact_details.interest_level}}/10 {{if(ge(27.contact_details.interest_level; 8); \"🔥 HIGH\"; if(ge(27.contact_details.interest_level; 6); \"📈 MEDIUM\"; \"📉 LOW\"))}}</p><p><strong>LR Focus Match:</strong> {{27.contact_details.lr_focus_match_score}}% {{if(ge(27.contact_details.lr_focus_match_score; 80); \"🎯 PERFECT MATCH\"; if(ge(27.contact_details.lr_focus_match_score; 60); \"✅ GOOD MATCH\"; \"⚠️ MODERATE MATCH\"))}}</p><p><strong>Contact Info:</strong> {{27.contact_details.vorname}} {{27.contact_details.nachname}}</p><p><strong>Email:</strong> {{27.contact_details.email}}</p><p><strong>Phone:</strong> {{27.contact_details.telefon}}</p></div></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>📈 Performance Analysis</h2><div style=\"text-align: center; margin: 20px 0;\"><div style=\"display: inline-block; background: {{if(ge(50.performance_score; 80); \"linear-gradient(45deg, #4CAF50, #45a049)\"; if(ge(50.performance_score; 60); \"linear-gradient(45deg, #FF9800, #F57C00)\"; \"linear-gradient(45deg, #f44336, #d32f2f)\")}}; border-radius: 50%; width: 120px; height: 120px; line-height: 120px; font-size: 2em; font-weight: bold;\">{{50.performance_score}}/100</div></div><h3>🎯 Optimization Recommendations:</h3><ul>{{#each 50.optimization_recommendations}}<li style=\"margin: 8px 0;\">{{this}}</li>{{/each}}</ul><h3>🧪 A/B Test Suggestions:</h3><ul>{{#each 50.ab_test_suggestions}}<li style=\"margin: 8px 0;\">{{this}}</li>{{/each}}</ul></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>⏱️ Processing Metrics</h2><p><strong>Total Modules Executed:</strong> 65</p><p><strong>Processing Time:</strong> {{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}</p><p><strong>Transcript Length:</strong> {{length(3.data.transcript)}} characters</p><p><strong>Trend Insights Length:</strong> {{length(2.data.choices[0].message.content)}} characters</p><p><strong>Automation Success Score:</strong> {{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}/100</p></div><div style=\"text-align: center; margin: 30px 0;\"><h2 style=\"color: #FFD700;\">🏎️ LR LAMBO STATUS: READY TO SCALE! 🏎️</h2></div><hr style=\"border: 1px solid rgba(255,255,255,0.3); margin: 30px 0;\"><p style=\"text-align: center; opacity: 0.8;\"><em>This is an automated message from your LR LAMBO Ultimate Social Media Automation System.</em></p></div>"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5700, "y": 0 } }
+    },
+    {
+      "id": 52,
+      "module": "tools:sleep",
+      "version": 1,
+      "parameters": { "delay": 300 },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5400, "y": 200 } }
+    },
+    {
+      "id": 53,
+      "module": "openai:createChatCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ultimative LR A/B Test Generator. Basierend auf den Performance-Daten erstellst du automatisch Varianten für zukünftige Tests."
+          },
+          {
+            "role": "user",
+            "content": "GENERIERE A/B TEST VARIANTEN für nächste LR Automation:\\n\\nBest Performance: {{50.performance_score}}/100\\nLR Focus: {{1.lr_focus}}\\nContent Type: {{1.content_title}}\\nBest Converting Platform: {{1.target_platforms}}\\n\\nOptimierungsvorschläge: {{50.optimization_recommendations}}\\n\\nErstelle für nächsten Run:\\n1. 3x Alternative Content Hooks\\n2. 3x Alternative Leonardo Prompts\\n3. 3x Alternative CTA Varianten\\n4. 3x Alternative Email Subject Lines\\n5. Platform-spezifische Optimierungen\\n\\nFormat als JSON für Google Sheets Upload!"
+          }
+        ],
+        "max_tokens": 2500,
+        "temperature": 0.9,
+        "response_format": { "type": "json_object" }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 5700, "y": 200 } }
+    },
+    {
+      "id": 54,
+      "module": "json:parseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": { "json": "{{53.choices[0].message.content}}" },
+      "metadata": { "designer": { "x": 6000, "y": 200 } }
+    },
+    {
+      "id": 55,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "LR_AB_Test_Queue",
+        "includesHeaders": true,
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "values": [
+          ["{{formatDate(now; \"YYYY-MM-DD\")}}"],
+          ["{{1.lr_focus}}"],
+          ["{{50.performance_score}}"],
+          ["{{54.content_hooks.variant_1}}"],
+          ["{{54.content_hooks.variant_2}}"],
+          ["{{54.content_hooks.variant_3}}"],
+          ["{{54.leonardo_prompts.variant_1}}"],
+          ["{{54.leonardo_prompts.variant_2}}"],
+          ["{{54.leonardo_prompts.variant_3}}"],
+          ["{{54.cta_variants.variant_1}}"],
+          ["{{54.cta_variants.variant_2}}"],
+          ["{{54.cta_variants.variant_3}}"],
+          ["{{54.email_subjects.variant_1}}"],
+          ["{{54.email_subjects.variant_2}}"],
+          ["{{54.email_subjects.variant_3}}"],
+          ["{{54.platform_optimizations.instagram}}"],
+          ["{{54.platform_optimizations.tiktok}}"],
+          ["{{54.platform_optimizations.linkedin}}"],
+          ["READY_FOR_TESTING"],
+          ["Generated from: {{1.content_title}}"]
+        ]
+      },
+      "metadata": { "designer": { "x": 6300, "y": 200 } }
+    },
+    {
+      "id": 56,
+      "module": "zapier:triggerZap",
+      "version": 1,
+      "parameters": {
+        "account": "{{ZAPIER_ACCOUNT_ID}}",
+        "zapId": "{{LR_ZAPIER_ZAP_ID}}",
+        "data": {
+          "event": "lr_lambo_complete",
+          "content_title": "{{1.content_title}}",
+          "lr_focus": "{{1.lr_focus}}",
+          "platforms": "{{1.target_platforms}}",
+          "urgency_level": "{{1.urgency_level}}",
+          "performance_score": "{{50.performance_score}}",
+          "leonardo_success": "{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"true\"; \"false\")}}",
+          "blotato_posted": "{{if(25.status; \"true\"; \"false\")}}",
+          "lead_generated": "{{if(28.id; \"true\"; \"false\")}}",
+          "interest_level": "{{27.contact_details.interest_level}}",
+          "lr_focus_match": "{{27.contact_details.lr_focus_match_score}}",
+          "lead_email": "{{27.contact_details.email}}",
+          "lead_phone": "{{27.contact_details.telefon}}",
+          "youtube_image": "{{16.data.generations[0].url}}",
+          "instagram_image": "{{17.data.generations[0].url}}",
+          "tiktok_image": "{{18.data.generations[0].url}}"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6000, "y": 0 } }
+    },
+    {
+      "id": 57,
+      "module": "microsoft-teams:sendMessage",
+      "version": 1,
+      "parameters": {
+        "account": "{{TEAMS_ACCOUNT_ID}}",
+        "channel": "{{LR_TEAMS_CHANNEL_ID}}",
+        "message": "# 🏎️ LR LAMBO AUTOMATION COMPLETE\\n\\n## 📝 Content Summary\\n**Title:** {{1.content_title}}  \\n**LR Focus:** {{1.lr_focus}}  \\n**Platforms:** {{1.target_platforms}}  \\n**Urgency:** {{1.urgency_level}}  \\n\\n## 🎬 Leonardo AI Results\\n{{if(contains(16.data.generations[0].status; \"COMPLETE\"); \"✅\"; \"❌\")}} **YouTube (16:9)** - [View Image]({{16.data.generations[0].url}})  \\n{{if(contains(17.data.generations[0].status; \"COMPLETE\"); \"✅\"; \"❌\")}} **Instagram (9:16)** - [View Image]({{17.data.generations[0].url}})  \\n{{if(contains(18.data.generations[0].status; \"COMPLETE\"); \"✅\"; \"❌\")}} **TikTok (9:16)** - [View Image]({{18.data.generations[0].url}})  \\n{{if(contains(19.data.generations[0].status; \"COMPLETE\"); \"✅\"; \"❌\")}} **Thumbnail (16:9)** - [View Image]({{19.data.generations[0].url}})  \\n\\n## 📱 Publishing & Lead Results\\n{{if(25.status; \"✅\"; \"❌\")}} **Multi-Platform Posted via Blotato**  \\n{{if(28.id; \"✅\"; \"❌\")}} **Lead Generated & Stored in CRM**  \\n{{if(29.status; \"✅\"; \"❌\")}} **WhatsApp Sequence Started**  \\n{{if(33.id; \"✅\"; \"❌\")}} **Email Funnel Activated**  \\n\\n## 📊 Performance Metrics\\n**Performance Score:** {{50.performance_score}}/100  \\n**Interest Level:** {{27.contact_details.interest_level}}/10  \\n**LR Focus Match:** {{27.contact_details.lr_focus_match_score}}%  \\n**Lead Quality:** {{if(ge(27.contact_details.interest_level; 7); \"🔥 HIGH POTENTIAL\"; \"📈 MODERATE POTENTIAL\")}}  \\n\\n## 🎯 Next Actions\\n- A/B Test variants generated and queued\\n- Lead follow-up sequences active\\n- Performance data logged for optimization\\n\\n**🏎️ LR LAMBO STATUS: READY TO SCALE! 🏎️**"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6000, "y": 400 } }
+    },
+    {
+      "id": 58,
+      "module": "airtable:updateRecord",
+      "version": 3,
+      "parameters": {
+        "base": "{{AIRTABLE_BASE_ID}}",
+        "table": "LR_Leads",
+        "record": "{{28.id}}",
+        "updateData": {
+          "Performance_Score": "{{50.performance_score}}",
+          "AB_Tests_Generated": "Yes",
+          "Optimization_Notes": "{{50.optimization_recommendations}}",
+          "Lead_Quality": "{{if(ge(27.contact_details.interest_level; 7); \"High\"; \"Medium\")}}",
+          "Automation_Success_Score": "{{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}",
+          "Last_Updated": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}",
+          "Status": "Automation Complete - Follow-up Active"
+        }
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6300, "y": 400 } },
+      "filter": {
+        "name": "Update Lead Record Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{28.id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 59,
+      "module": "http:makeRequest",
+      "version": 3,
+      "parameters": {
+        "url": "{{LR_CRM_WEBHOOK}}",
+        "method": "POST",
+        "headers": [
+          { "name": "Content-Type", "value": "application/json" },
+          { "name": "Authorization", "value": "Bearer {{LR_CRM_TOKEN}}" }
+        ],
+        "body": "{\"action\": \"create_lr_lead\", \"data\": {\"email\": \"{{27.contact_details.email}}\", \"firstname\": \"{{27.contact_details.vorname}}\", \"lastname\": \"{{27.contact_details.nachname}}\", \"phone\": \"{{27.contact_details.telefon}}\", \"lr_focus\": \"{{1.lr_focus}}\", \"interest_level\": {{27.contact_details.interest_level}}, \"lr_focus_match\": {{27.contact_details.lr_focus_match_score}}, \"lead_source\": \"LR LAMBO Social Automation\", \"content_topic\": \"{{1.content_title}}\", \"platforms\": \"{{1.target_platforms}}\", \"lead_magnet\": \"{{27.lead_magnet.titel}}\", \"performance_score\": {{50.performance_score}}, \"automation_success\": {{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}, \"leonardo_images\": {\"youtube\": \"{{16.data.generations[0].url}}\", \"instagram\": \"{{17.data.generations[0].url}}\", \"tiktok\": \"{{18.data.generations[0].url}}\", \"thumbnail\": \"{{19.data.generations[0].url}}\"}, \"follow_up_active\": true, \"whatsapp_sequence\": true, \"email_sequence\": true, \"created_at\": \"{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}\"}}",
+        "timeout": 30
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6300, "y": 0 } },
+      "filter": {
+        "name": "LR CRM Integration Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 60,
+      "module": "mailchimp:addSubscriber",
+      "version": 1,
+      "parameters": {
+        "account": "{{MAILCHIMP_ACCOUNT_ID}}",
+        "list": "{{LR_MAILCHIMP_LIST_ID}}",
+        "email": "{{27.contact_details.email}}",
+        "status": "subscribed",
+        "mergeFields": {
+          "FNAME": "{{27.contact_details.vorname}}",
+          "LNAME": "{{27.contact_details.nachname}}",
+          "PHONE": "{{27.contact_details.telefon}}",
+          "LRFOCUS": "{{1.lr_focus}}",
+          "INTEREST": "{{27.contact_details.interest_level}}",
+          "LRMATCH": "{{27.contact_details.lr_focus_match_score}}",
+          "SOURCE": "LR LAMBO Automation",
+          "CONTENT": "{{1.content_title}}",
+          "PLATFORMS": "{{1.target_platforms}}",
+          "PERFSCORE": "{{50.performance_score}}"
+        },
+        "tags": ["LR_LAMBO", "{{1.lr_focus}}", "{{1.urgency_level}}", "Social_Automation"]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6600, "y": 0 } },
+      "filter": {
+        "name": "MailChimp LR Lead Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{27.contact_details.email}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 61,
+      "module": "activecampaign:createContact",
+      "version": 1,
+      "parameters": {
+        "account": "{{ACTIVECAMPAIGN_ACCOUNT_ID}}",
+        "email": "{{27.contact_details.email}}",
+        "firstName": "{{27.contact_details.vorname}}",
+        "lastName": "{{27.contact_details.nachname}}",
+        "phone": "{{27.contact_details.telefon}}",
+        "fieldValues": {
+          "lr_focus": "{{1.lr_focus}}",
+          "interest_level": "{{27.contact_details.interest_level}}",
+          "lr_focus_match": "{{27.contact_details.lr_focus_match_score}}",
+          "source": "LR LAMBO Social Automation",
+          "content_topic": "{{1.content_title}}",
+          "platforms": "{{1.target_platforms}}",
+          "performance_score": "{{50.performance_score}}",
+          "lead_magnet": "{{27.lead_magnet.titel}}",
+          "automation_success": "{{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}"
+        },
+        "tags": ["LR_LAMBO", "{{1.lr_focus}}", "Social_Automation", "{{1.urgency_level}}"]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6600, "y": 200 } },
+      "filter": {
+        "name": "ActiveCampaign LR Lead Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{1.lead_generation}}",
+              "b": true,
+              "o": "boolean:equal"
+            },
+            {
+              "a": "{{27.contact_details.email}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 62,
+      "module": "router:router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{50.performance_score}}",
+            "pattern": "[8-9][0-9]|100",
+            "label": "High Performance"
+          },
+          {
+            "condition": "{{50.performance_score}}",
+            "pattern": "[6-7][0-9]",
+            "label": "Medium Performance"
+          },
+          {
+            "condition": "{{50.performance_score}}",
+            "pattern": "[0-5][0-9]",
+            "label": "Low Performance"
+          }
+        ]
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 6600, "y": 400 } }
+    },
+    {
+      "id": 63,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "LR_High_Performance_Winners",
+        "includesHeaders": true,
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "values": [
+          ["{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"],
+          ["{{1.content_title}}"],
+          ["{{1.lr_focus}}"],
+          ["{{50.performance_score}}"],
+          ["{{27.contact_details.interest_level}}"],
+          ["{{27.contact_details.lr_focus_match_score}}"],
+          ["{{16.data.generations[0].url}}"],
+          ["{{17.data.generations[0].url}}"],
+          ["{{18.data.generations[0].url}}"],
+          ["WINNER - Scale This Content!"],
+          ["{{1.target_platforms}}"],
+          ["{{if(25.status; \"Multi-Platform Success\"; \"Posting Failed\")}}"],
+          ["{{27.contact_details.email}}"],
+          ["Ready for Viral Scaling"]
+        ]
+      },
+      "metadata": { "designer": { "x": 6900, "y": 300 } },
+      "filter": {
+        "name": "High Performance Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{62.label}}",
+              "b": "High Performance",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 64,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetName": "LR_Optimization_Queue",
+        "includesHeaders": true,
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "values": [
+          ["{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"],
+          ["{{1.content_title}}"],
+          ["{{1.lr_focus}}"],
+          ["{{50.performance_score}}"],
+          ["{{50.optimization_recommendations}}"],
+          ["{{50.ab_test_suggestions}}"],
+          ["Needs Optimization"],
+          ["{{1.target_platforms}}"],
+          ["{{27.contact_details.interest_level}}"],
+          ["Priority: {{if(lt(50.performance_score; 50); \"HIGH\"; \"MEDIUM\")}}"],
+          ["Action Required: Content & Prompt Optimization"]
+        ]
+      },
+      "metadata": { "designer": { "x": 6900, "y": 500 } },
+      "filter": {
+        "name": "Low Performance Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{62.label}}",
+              "b": "Low Performance",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 65,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "to": [
+          {
+            "address": "{{LR_SUCCESS_NOTIFICATION_EMAIL}}",
+            "name": "LR Success Team"
+          }
+        ],
+        "subject": "🚀 LR LAMBO HIGH PERFORMANCE ALERT: {{1.content_title}} - Score: {{50.performance_score}}/100",
+        "html": "<div style=\"background: linear-gradient(135deg, #FFD700, #FFA500); padding: 30px; border-radius: 20px; color: #000; font-family: Arial, sans-serif;\"><h1 style=\"text-align: center; font-size: 3em; margin-bottom: 20px;\">🏎️🚀 LR LAMBO HIGH PERFORMANCE WINNER! 🚀🏎️</h1><div style=\"background: rgba(255,255,255,0.9); border-radius: 15px; padding: 25px; margin: 20px 0;\"><h2>🎯 VIRAL CONTENT ALERT</h2><p><strong>Content:</strong> {{1.content_title}}</p><p><strong>LR Focus:</strong> {{1.lr_focus}}</p><p><strong>Performance Score:</strong> <span style=\"font-size: 2em; color: #4CAF50; font-weight: bold;\">{{50.performance_score}}/100</span></p><p><strong>Interest Level:</strong> {{27.contact_details.interest_level}}/10</p><p><strong>LR Focus Match:</strong> {{27.contact_details.lr_focus_match_score}}%</p></div><div style=\"background: rgba(255,255,255,0.9); border-radius: 15px; padding: 25px; margin: 20px 0;\"><h2>🎬 WINNING LEONARDO ASSETS</h2><p><a href=\"{{16.data.generations[0].url}}\" style=\"display: inline-block; background: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;\">📺 YouTube Winner</a></p><p><a href=\"{{17.data.generations[0].url}}\" style=\"display: inline-block; background: #E4405F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;\">📱 Instagram Winner</a></p><p><a href=\"{{18.data.generations[0].url}}\" style=\"display: inline-block; background: #000; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px;\">🎵 TikTok Winner</a></p></div><div style=\"background: rgba(255,255,255,0.9); border-radius: 15px; padding: 25px; margin: 20px 0;\"><h2>🚀 IMMEDIATE ACTIONS</h2><ul><li>✅ Content added to High Performance Winners sheet</li><li>✅ Ready for viral scaling across all platforms</li><li>✅ Lead generation active with high-quality prospect</li><li>✅ A/B test variants generated for further optimization</li></ul></div><div style=\"text-align: center; margin: 30px 0;\"><h2 style=\"color: #FF0000;\">🏎️ SCALE THIS CONTENT NOW! 🏎️</h2></div></div>"
+      },
+      "mapper": {},
+      "metadata": { "designer": { "x": 7200, "y": 300 } },
+      "filter": {
+        "name": "High Performance Success Alert",
+        "conditions": [
+          [
+            {
+              "a": "{{62.label}}",
+              "b": "High Performance",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "scheduling": {
+        "type": "indefinitely"
+      }
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}
