@@ -1,0 +1,2465 @@
+{
+  "name": "🏁 LAMBORGHINI v6.0 ULTIMATE PERFEKT - Complete Perfect",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:watchRows",
+      "version": 4,
+      "parameters": {
+        "mode": "select",
+        "limit": 1,
+        "includesHeaders": true,
+        "valueRenderOption": "FORMATTED_VALUE",
+        "dateTimeRenderOption": "FORMATTED_STRING"
+      },
+      "mapper": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "sheetId": "Content_Ideas",
+        "tableFirstRow": "A1:Z1"
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "perplexity-ai:createAChatCompletion",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "model": "sonar-pro",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Recherchiere aktuelle Trends, Studien und News zu: {{1.1}} ({{1.2}})\n\nFokus auf:\n- Neueste wissenschaftliche Erkenntnisse 2025\n- Gesundheits- und Wellness-Trends\n- LR Health & Beauty relevante Informationen\n- Viral Content Potenzial\n- Deutsche Zielgruppe\n- Social Media Trends\n\nLiefere fundierte, aktuelle Basis für Social Media Content."
+          }
+        ],
+        "max_tokens": 1000,
+        "temperature": 0.3,
+        "web_search_options": {
+          "search_context_size": "medium"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "model": "chatgpt-4o-latest",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ULTIMATIVE Social Media Content Creator für LR Health & Beauty mit 50 Jahren Erfahrung. Du erstellst VIRAL-OPTIMIERTE Inhalte, die garantiert funktionieren und Leads generieren."
+          },
+          {
+            "role": "user",
+            "content": "Erstelle VIRAL CONTENT für LR Health & Beauty basierend auf aktuellen Trends:\n\nContent Idee: {{1.1}}\nBedürfnis Zielgruppe: {{1.2}}\nErklärung: {{1.3}}\nAktuelle Trends: {{2.choices[].message.content}}\n\n🤖 LINA AI COMPETITIVE ADVANTAGES:\n- 24/7 KI-Business-Assistent kostenlos\n- Social Media Inhalte automatisch erstellen\n- WhatsApp Vorlagen & Gesprächsführung\n- Ruft Interessenten in Echtzeit an\n- Produktberatung wie ein LR Profi\n- Video & Bild Erstellung für Marketing\n\n💰 LR HEALTH & BEAUTY INTEGRATION:\n- Autokonzept: Mercedes, Audi, VW, BMW ab 99€ ohne Anzahlung und ohne Schlussrate\n- Star-Power: Bruce Willis, Guido Maria Kretschmer\n- Made in Germany seit 1985 - Premium Qualität\n- Vererbbares Geschäftsmodell - Ein Leben lang Provisionen\n- Fast Track Bonus: 300€, 1100€ oder 2000€ garantiert\n- Passive Income von zu Hause - Laptop Lifestyle\n\n🎯 VIRAL CONTENT FORMELN:\n- Hook: Erste 3 Sekunden entscheiden über Viral-Potenzial\n- FOMO: \"Nur noch 48h verfügbar\" / \"Limitierte Plätze\"\n- Social Proof: \"Über 10.000 erfolgreiche Partner\"\n- Urgency: \"Jetzt starten oder Chance verpassen\"\n- Curiosity Gap: \"Das Geheimnis erfolgreicher Menschen\"\n- Problem/Solution: \"Von 0 auf 5000€ passiv in 90 Tagen\"\n\n📱 COMMENT AUTOMATION HOOKS:\n- \"Kommentiere 'LINA' für kostenlosen AI-Zugang\"\n- \"Schreibe 'AUTO' für Mercedes/Audi/BMW Konfigurator\"\n- \"Kommentiere 'START' für 300€ Fast Track Bonus\"\n- \"Schreibe 'FREI' für Laptop Lifestyle Guide\"\n- \"Kommentiere 'ERFOLG' für Bruce Willis Strategie\"\n- \"Schreibe 'INFO' für exklusive Details\"\n- \"Kommentiere 'BUSINESS' für Geschäftsmöglichkeiten\"\n- \"Schreibe 'VIRAL' für Geheimtipp\"\n\nFormat als JSON mit platform-spezifischen Varianten:\n{\n  \"instagram_post\": {\n    \"content\": \"Viral Instagram Post mit Hook + Lina AI + CTA\",\n    \"hashtags\": \"#LinaAI #LRHealthBeauty #PassiveIncome #AutoKonzept #Success #BruceWillis #MadeInGermany #LaptopLifestyle #NetworkMarketing #Erfolg\",\n    \"cta\": \"Kommentiere 'LINA' für kostenlosen AI-Zugang!\",\n    \"keywords\": [\"LINA\", \"AUTO\", \"START\", \"FREI\", \"ERFOLG\"]\n  },\n  \"facebook_post\": {\n    \"content\": \"Facebook Post mit Story + Social Proof + Lina AI Benefits\",\n    \"hashtags\": \"#NetworkMarketing #LRHealthBeauty #LinaAI #AutoKonzept #Erfolg #PassiveIncome\",\n    \"cta\": \"Kommentiere 'INFO' für exklusive Details!\",\n    \"keywords\": [\"INFO\", \"LINA\", \"AUTO\", \"BUSINESS\"]\n  },\n  \"linkedin_post\": {\n    \"content\": \"Professional LinkedIn Post mit Business Focus + Lina AI + LR\",\n    \"hashtags\": \"#BusinessOpportunity #LRHealthBeauty #LinaAI #Entrepreneurship #Success #NetworkMarketing\",\n    \"cta\": \"Kommentiere 'BUSINESS' für Geschäftsmöglichkeiten!\",\n    \"keywords\": [\"BUSINESS\", \"LINA\", \"ERFOLG\", \"START\"]\n  },\n  \"tiktok_script\": {\n    \"content\": \"TikTok Script mit Trend + Hook + Quick CTA\",\n    \"hashtags\": \"#LinaAI #LRHealthBeauty #Success #Viral #AutoKonzept #PassiveIncome #BruceWillis\",\n    \"cta\": \"Kommentiere 'VIRAL' für Geheimtipp!\",\n    \"keywords\": [\"VIRAL\", \"LINA\", \"AUTO\", \"SUCCESS\"]\n  },\n  \"youtube_video\": {\n    \"title\": \"{{1.1}} - Wie Lina AI dein Leben verändert\",\n    \"description\": \"YouTube Description mit Education + Entertainment + Lina AI + LR Benefits\",\n    \"hashtags\": \"#LinaAI #LRHealthBeauty #NetworkMarketing #Success #AutoKonzept #PassiveIncome\",\n    \"cta\": \"Kommentiere 'LINA' für kostenlosen Zugang!\",\n    \"keywords\": [\"LINA\", \"AUTO\", \"START\", \"ERFOLG\"]\n  },\n  \"twitter_thread\": {\n    \"content\": \"Twitter Thread mit Hook + Lina AI + Quick Facts\",\n    \"hashtags\": \"#LinaAI #LRHealthBeauty #Success #NetworkMarketing #AutoKonzept\",\n    \"cta\": \"Reply 'LINA' für Details!\",\n    \"keywords\": [\"LINA\", \"AUTO\", \"INFO\"]\n  },\n  \"heygen_script\": \"Hi! Ich bin deine KI-Assistentin und möchte dir heute zeigen, wie Lina AI und LR Health & Beauty dein Leben komplett verändern können. {{1.1}} - das war auch mein Wendepunkt. Mit dem LR Autokonzept fährst du Mercedes, Audi, VW oder BMW ab nur 99€ ohne Anzahlung und ohne Schlussrate. Lina AI arbeitet 24/7 für dich, und Bruce Willis vertraut auf dieses System. Bist du bereit für deine Transformation? Kommentiere 'LINA' und ich zeige dir, wie es geht!\",\n  \"lead_magnets\": {\n    \"LINA\": {\n      \"title\": \"Lina AI Demo - 7 Tage kostenlos\",\n      \"description\": \"Teste Lina AI 7 Tage kostenlos und lass dir zeigen, wie sie 24/7 für dich arbeitet\",\n      \"url\": \"https://lina-ai.com/demo\"\n    },\n    \"AUTO\": {\n      \"title\": \"Auto Konfigurator - Mercedes, Audi, VW, BMW ab 99€\",\n      \"description\": \"Konfiguriere dein Traumauto ohne Anzahlung und ohne Schlussrate\",\n      \"url\": \"https://lina-ai.com/auto-konfigurator\"\n    },\n    \"START\": {\n      \"title\": \"Fast Track Bonus - 300€, 1100€ oder 2000€ garantiert\",\n      \"description\": \"Sichere dir deinen garantierten Fast Track Bonus und starte sofort durch\",\n      \"url\": \"https://lina-ai.com/fast-track\"\n    },\n    \"FREI\": {\n      \"title\": \"Laptop Lifestyle Guide - Arbeite von überall\",\n      \"description\": \"Lerne, wie du ortsunabhängig arbeitest und finanzielle Freiheit erreichst\",\n      \"url\": \"https://lina-ai.com/laptop-lifestyle\"\n    },\n    \"ERFOLG\": {\n      \"title\": \"Bruce Willis Strategie - Star-Erfolgsgeheimnisse\",\n      \"description\": \"Entdecke die Erfolgsgeheimnisse, die Bruce Willis zu LR gebracht haben\",\n      \"url\": \"https://lina-ai.com/bruce-willis-strategie\"\n    },\n    \"INFO\": {\n      \"title\": \"LR Business Info-Paket - Alle Details\",\n      \"description\": \"Erhalte alle Informationen über das LR Business und deine Möglichkeiten\",\n      \"url\": \"https://lina-ai.com/business-info\"\n    },\n    \"BUSINESS\": {\n      \"title\": \"Business Opportunity Check - Ist LR für dich?\",\n      \"description\": \"Finde heraus, ob das LR Business zu dir passt und wie du starten kannst\",\n      \"url\": \"https://lina-ai.com/business-check\"\n    },\n    \"VIRAL\": {\n      \"title\": \"Viral Marketing Secrets - Geheimtipps für Erfolg\",\n      \"description\": \"Lerne die Geheimnisse erfolgreicher Viral-Marketer und werde selbst viral\",\n      \"url\": \"https://lina-ai.com/viral-secrets\"\n    }\n  }\n}"
+          }
+        ],
+        "max_tokens": 4000,
+        "temperature": 0.9,
+        "response_format": "json_object"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 4,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "json": "{{3.choices[].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 900,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 5,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "model": "chatgpt-4o-latest",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ULTIMATE Leonardo AI Prompt Engineer mit 50 Jahren Erfahrung. Erstelle filmische, photorealistische Prompts für Bilder UND Videos ohne Menschen/Gesichter."
+          },
+          {
+            "role": "user",
+            "content": "Erstelle LEONARDO AI PROMPTS für Bilder UND Videos:\n\nContent: {{1.1}}\nZielgruppe: {{1.2}}\nTrends: {{2.choices[].message.content}}\n\n🎬 FILMISCHE TECHNIKEN:\n- Cinematic shot, golden hour lighting, 8K quality\n- Professional color grading, depth of field\n- Smooth camera movements, establishing shots\n- Luxury atmosphere, premium feel\n\n🚗 PREMIUM-AUTOS (Hauptfokus):\n- Mercedes-Benz C-Class in Obsidian Black, elegant lines\n- Audi A4 in Glacier White, sophisticated design\n- BMW 3 Series in Storm Bay, dynamic silhouette\n- Volkswagen Arteon in Deep Black Pearl, premium details\n- Modern car dealership with premium atmosphere\n- Luxury car keys on marble surface\n- Professional car interior with leather seats\n\n🏢 ERFOLGS-UMGEBUNGEN:\n- Modern office with city skyline view\n- Luxury home office with premium furniture\n- Professional business meeting room\n- High-end coworking space\n- Success symbols: watches, laptops, documents\n\n🚫 WICHTIGE AUSSCHLÜSSE:\n- NO people, NO faces, NO hands visible\n- NO product bottles or supplements\n- NO text overlays or logos\n- Focus on premium lifestyle and success symbols\n\nFormat als JSON:\n{\n  \"image_prompts\": {\n    \"main_image\": \"Hauptbild für alle Plattformen (1:1)\",\n    \"youtube_thumbnail\": \"Eye-catching thumbnail (16:9)\",\n    \"story_background\": \"Instagram/Facebook Story Background (9:16)\"\n  },\n  \"video_prompts\": {\n    \"main_video\": \"Hauptvideo für alle Plattformen - cinematic, premium lifestyle\",\n    \"short_video\": \"Kurzes Video für TikTok/Reels - dynamic, engaging\",\n    \"background_video\": \"Hintergrund für HeyGen Avatar - subtle, professional\"\n  }\n}"
+          }
+        ],
+        "max_tokens": 2000,
+        "temperature": 0.8,
+        "response_format": "json_object"
+      },
+      "metadata": {
+        "designer": {
+          "x": 1200,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 6,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "json": "{{5.choices[].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 1500,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 7,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{1.4}}",
+            "pattern": "viral|high|lr_lambo",
+            "label": "High Priority Content"
+          },
+          {
+            "condition": "{{1.4}}",
+            "pattern": "medium",
+            "label": "Medium Priority Content"
+          },
+          {
+            "condition": "{{1.4}}",
+            "pattern": "low",
+            "label": "Low Priority Content"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 1800,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 8,
+      "module": "leonardo-ai:generateImage",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "prompt": "{{6.image_prompts.main_image}}",
+        "modelId": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3",
+        "width": 1024,
+        "height": 1024,
+        "num_images": "{{if(7.label = 'High Priority Content'; 3; if(7.label = 'Medium Priority Content'; 2; 1))}}",
+        "guidance_scale": "{{if(7.label = 'High Priority Content'; 8; 7)}}",
+        "presetStyle": "CINEMATIC",
+        "promptMagic": true,
+        "photoReal": true,
+        "photoRealVersion": "v2",
+        "negativePrompt": "people, faces, humans, persons, text, watermark, blurry, low quality"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 9,
+      "module": "leonardo-ai:generateImage",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "prompt": "{{6.image_prompts.youtube_thumbnail}}",
+        "modelId": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3",
+        "width": 1024,
+        "height": 576,
+        "num_images": "{{if(7.label = 'High Priority Content'; 2; 1)}}",
+        "guidance_scale": "{{if(7.label = 'High Priority Content'; 9; 7)}}",
+        "presetStyle": "CINEMATIC",
+        "promptMagic": true,
+        "photoReal": true,
+        "photoRealVersion": "v2",
+        "negativePrompt": "people, faces, humans, boring, generic, low contrast"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 10,
+      "module": "leonardo-ai:generateImage",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "prompt": "{{6.image_prompts.story_background}}",
+        "modelId": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3",
+        "width": 576,
+        "height": 1024,
+        "num_images": "{{if(7.label = 'High Priority Content'; 2; 1)}}",
+        "guidance_scale": "{{if(7.label = 'High Priority Content'; 8; 7)}}",
+        "presetStyle": "CINEMATIC",
+        "promptMagic": true,
+        "photoReal": true,
+        "photoRealVersion": "v2",
+        "negativePrompt": "people, faces, humans, text, watermark"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 11,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations-text-to-video",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"prompt\": \"{{6.video_prompts.main_video}}\",\n  \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\",\n  \"width\": 1024,\n  \"height\": 576,\n  \"motion_strength\": {{if(7.label = 'High Priority Content'; 6; 5)}},\n  \"num_videos\": 1\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 12,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations-text-to-video",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"prompt\": \"{{6.video_prompts.short_video}}\",\n  \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\",\n  \"width\": 576,\n  \"height\": 1024,\n  \"motion_strength\": {{if(7.label = 'High Priority Content'; 8; 7)}},\n  \"num_videos\": 1\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": 200
+        }
+      }
+    },
+    {
+      "id": 13,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations-text-to-video",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"prompt\": \"{{6.video_prompts.background_video}}\",\n  \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"motion_strength\": 3,\n  \"num_videos\": 1\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2100,
+          "y": 300
+        }
+      }
+    },
+    {
+      "id": 14,
+      "module": "tools:Sleep",
+      "version": 1,
+      "parameters": {
+        "delay": "{{if(7.label = 'High Priority Content'; 60; 45)}}"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 2400,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 15,
+      "module": "leonardo-ai:getGeneration",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "generationId": "{{8.data.sdGenerationJob.generationId}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 16,
+      "module": "leonardo-ai:getGeneration",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "generationId": "{{9.data.sdGenerationJob.generationId}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 17,
+      "module": "leonardo-ai:getGeneration",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "generationId": "{{10.data.sdGenerationJob.generationId}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 18,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{11.data.textToVideoGenerationJob.generationId}}",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 19,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{12.data.textToVideoGenerationJob.generationId}}",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": 200
+        }
+      }
+    },
+    {
+      "id": 20,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations/{{13.data.textToVideoGenerationJob.generationId}}",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{LEONARDO_API_KEY}}"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "metadata": {
+        "designer": {
+          "x": 2700,
+          "y": 300
+        }
+      }
+    },
+    {
+      "id": 21,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{contains(lower(15.data.generations_by_pk.generated_images[].status); 'complete')}}",
+            "pattern": "true",
+            "label": "Leonardo Success"
+          },
+          {
+            "condition": "{{contains(lower(15.data.generations_by_pk.generated_images[].status); 'pending')}}",
+            "pattern": "true",
+            "label": "Leonardo Retry"
+          },
+          {
+            "condition": "{{contains(lower(15.data.generations_by_pk.generated_images[].status); 'failed')}}",
+            "pattern": "true",
+            "label": "Leonardo Failed"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3000,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 22,
+      "module": "tools:Sleep",
+      "version": 1,
+      "parameters": {
+        "delay": 30
+      },
+      "mapper": {},
+      "filter": {
+        "name": "Leonardo Retry Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{21.label}}",
+              "b": "Leonardo Retry",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3000,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 23,
+      "module": "leonardo-ai:getGeneration",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "generationId": "{{8.data.sdGenerationJob.generationId}}"
+      },
+      "filter": {
+        "name": "Leonardo Retry Filter 2",
+        "conditions": [
+          [
+            {
+              "a": "{{21.label}}",
+              "b": "Leonardo Retry",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3300,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 24,
+      "module": "heygen:createAnAvatarVideoV2",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "test": false,
+        "title": "LR Content {{formatDate(now; 'YYYY-MM-DD')}}",
+        "caption": false,
+        "dimension": {
+          "width": 720,
+          "height": 1280
+        },
+        "video_inputs": [
+          {
+            "voice": {
+              "type": "text",
+              "pitch": 50,
+              "speed": 1,
+              "emotion": "Friendly",
+              "voice_id": "{{HEYGEN_VOICE_ID}}",
+              "input_text": "{{4.heygen_script}}"
+            },
+            "character": {
+              "type": "avatar",
+              "scale": 1,
+              "offset": {},
+              "matting": false,
+              "avatar_id": "{{HEYGEN_AVATAR_ID}}",
+              "avatar_style": "normal"
+            },
+            "background": {
+              "type": "image",
+              "url": "{{20.data.generations_by_pk.generated_videos[].url}}"
+            }
+          }
+        ]
+      },
+      "filter": {
+        "name": "HeyGen Avatar Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{contains(lower(1.3); 'avatar')}}",
+              "o": "boolean:equal",
+              "b": true
+            },
+            {
+              "a": "{{21.label}}",
+              "b": "Leonardo Success",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3300,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 25,
+      "module": "tools:Sleep",
+      "version": 1,
+      "parameters": {
+        "delay": 90
+      },
+      "mapper": {},
+      "filter": {
+        "name": "HeyGen Processing Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{24.video_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3600,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 26,
+      "module": "heygen:getVideo",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "video_id": "{{24.video_id}}"
+      },
+      "filter": {
+        "name": "HeyGen Get Video Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{24.video_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 3900,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 27,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{26.status}}",
+            "pattern": "completed",
+            "label": "HeyGen Success"
+          },
+          {
+            "condition": "{{26.status}}",
+            "pattern": "processing|pending",
+            "label": "HeyGen Retry"
+          },
+          {
+            "condition": "{{26.status}}",
+            "pattern": "failed|error",
+            "label": "HeyGen Failed"
+          }
+        ]
+      },
+      "filter": {
+        "name": "HeyGen Status Check Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{26.status}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 4200,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 28,
+      "module": "tools:Sleep",
+      "version": 1,
+      "parameters": {
+        "delay": 60
+      },
+      "mapper": {},
+      "filter": {
+        "name": "HeyGen Retry Sleep Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{27.label}}",
+              "b": "HeyGen Retry",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 4500,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 29,
+      "module": "heygen:getVideo",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "video_id": "{{24.video_id}}"
+      },
+      "filter": {
+        "name": "HeyGen Retry Get Video Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{27.label}}",
+              "b": "HeyGen Retry",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 4800,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 30,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{1.5}}",
+            "pattern": "true",
+            "label": "Auto Publish"
+          },
+          {
+            "condition": "{{1.5}}",
+            "pattern": "false",
+            "label": "Manual Review"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5100,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 31,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/media",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"url\": \"{{if(26.video_url; 26.video_url; if(29.video_url; 29.video_url; 18.data.generations_by_pk.generated_videos[].url))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Auto Publish Main Video Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5400,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 32,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/media",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"url\": \"{{19.data.generations_by_pk.generated_videos[].url}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Auto Publish Short Video Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5400,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 33,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/media",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"url\": \"{{15.data.generations_by_pk.generated_images[].url}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Auto Publish Main Image Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5400,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 34,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/media",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"url\": \"{{16.data.generations_by_pk.generated_images[].url}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Auto Publish Thumbnail Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5400,
+          "y": 200
+        }
+      }
+    },
+    {
+      "id": 35,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{INSTAGRAM_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"content\": \"{{4.instagram_post.content}}\\n\\n{{4.instagram_post.hashtags}}\\n\\n{{4.instagram_post.cta}}\",\n    \"media\": [{\n      \"id\": \"{{32.data.id}}\",\n      \"type\": \"video\"\n    }]\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 2; 5))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Instagram Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'instagram')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 36,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{FACEBOOK_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"content\": \"{{4.facebook_post.content}}\\n\\n{{4.facebook_post.hashtags}}\\n\\n{{4.facebook_post.cta}}\",\n    \"media\": [{\n      \"id\": \"{{31.data.id}}\",\n      \"type\": \"video\"\n    }]\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 5; 8))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Facebook Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'facebook')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 37,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{LINKEDIN_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"content\": \"{{4.linkedin_post.content}}\\n\\n{{4.linkedin_post.hashtags}}\\n\\n{{4.linkedin_post.cta}}\",\n    \"media\": [{\n      \"id\": \"{{33.data.id}}\",\n      \"type\": \"image\"\n    }]\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 8; 12))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "LinkedIn Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'linkedin')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 38,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{TIKTOK_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"content\": \"{{4.tiktok_script.content}}\\n\\n{{4.tiktok_script.hashtags}}\\n\\n{{4.tiktok_script.cta}}\",\n    \"media\": [{\n      \"id\": \"{{32.data.id}}\",\n      \"type\": \"video\"\n    }]\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 10; 15))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "TikTok Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'tiktok')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 39,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{YOUTUBE_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"title\": \"{{4.youtube_video.title}}\",\n    \"content\": \"{{4.youtube_video.description}}\\n\\n{{4.youtube_video.hashtags}}\\n\\n{{4.youtube_video.cta}}\",\n    \"media\": [{\n      \"id\": \"{{31.data.id}}\",\n      \"type\": \"video\"\n    }],\n    \"thumbnail\": \"{{34.data.id}}\"\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 15; 20))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "YouTube Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'youtube')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": 200
+        }
+      }
+    },
+    {
+      "id": 40,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://backend.blotato.com/v2/posts",
+        "method": "post",
+        "headers": [
+          {
+            "name": "blotato-api-key",
+            "value": "{{BLOTATO_API_KEY}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"accounts\": [\"{{TWITTER_ACCOUNT_ID}}\"],\n  \"post\": {\n    \"content\": \"{{4.twitter_thread.content}}\\n\\n{{4.twitter_thread.hashtags}}\\n\\n{{4.twitter_thread.cta}}\",\n    \"media\": [{\n      \"id\": \"{{33.data.id}}\",\n      \"type\": \"image\"\n    }]\n  },\n  \"publish_date\": \"{{addMinutes(now; if(7.label = 'High Priority Content'; 12; 18))}}\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Twitter Post Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{30.label}}",
+              "b": "Auto Publish",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{contains(lower(1.6); 'twitter')}}",
+              "o": "boolean:equal",
+              "b": true
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 5700,
+          "y": 300
+        }
+      }
+    },
+    {
+      "id": 41,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "mode": "select",
+        "insertDataOption": "INSERT_ROWS",
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "range": "Campaign_Tracking!A:Z",
+        "values": [
+          [
+            "{{formatDate(now; 'YYYY-MM-DD HH:mm:ss')}}",
+            "{{1.1}}",
+            "{{1.2}}",
+            "{{1.3}}",
+            "{{1.4}}",
+            "{{1.5}}",
+            "{{1.6}}",
+            "{{7.label}}",
+            "{{21.label}}",
+            "{{if(27.label; 27.label; 'No HeyGen')}}",
+            "{{30.label}}",
+            "{{35.data.post_id}}",
+            "{{36.data.post_id}}",
+            "{{37.data.post_id}}",
+            "{{38.data.post_id}}",
+            "{{39.data.post_id}}",
+            "{{40.data.post_id}}",
+            "{{if(26.video_url; 26.video_url; if(29.video_url; 29.video_url; 18.data.generations_by_pk.generated_videos[].url))}}",
+            "{{32.data.id}}",
+            "{{31.data.id}}",
+            "{{33.data.id}}",
+            "{{34.data.id}}",
+            "{{join(4.instagram_post.keywords; ', ')}}",
+            "{{join(4.facebook_post.keywords; ', ')}}",
+            "{{join(4.linkedin_post.keywords; ', ')}}",
+            "{{join(4.tiktok_script.keywords; ', ')}}",
+            "{{join(4.youtube_video.keywords; ', ')}}",
+            "{{join(4.twitter_thread.keywords; ', ')}}",
+            "{{2.choices[].message.content}}",
+            "{{4}}",
+            "{{6}}",
+            "Published",
+            "Lamborghini_v6.0_ULTIMATE"
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6000,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 42,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "{{WHATSAPP_WEBHOOK_URL}}",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{WHATSAPP_BOT_TOKEN}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"phone\": \"{{TEAM_PHONE_NUMBER}}\",\n  \"message\": \"🏁 LAMBO v6.0 AUTOMATION COMPLETE! 🏁\\n\\n📝 Content: {{1.1}}\\n🎯 Priority: {{7.label}}\\n📱 Platforms: {{1.6}}\\n\\n🎬 Assets:\\n{{if(35.data.post_id; '✅ Instagram: ' + 35.data.post_id; '❌ Instagram: Failed')}}\\n{{if(36.data.post_id; '✅ Facebook: ' + 36.data.post_id; '❌ Facebook: Failed')}}\\n{{if(37.data.post_id; '✅ LinkedIn: ' + 37.data.post_id; '❌ LinkedIn: Failed')}}\\n{{if(38.data.post_id; '✅ TikTok: ' + 38.data.post_id; '❌ TikTok: Failed')}}\\n{{if(39.data.post_id; '✅ YouTube: ' + 39.data.post_id; '❌ YouTube: Failed')}}\\n{{if(40.data.post_id; '✅ Twitter: ' + 40.data.post_id; '❌ Twitter: Failed')}}\\n\\n🤖 HeyGen: {{if(26.video_url; 'SUCCESS'; 'NOT USED')}}\\n🎨 Leonardo: {{21.label}}\\n\\n🚀 READY FOR LEAD GENERATION!\",\n  \"type\": \"text\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "WhatsApp Notification Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{WHATSAPP_WEBHOOK_URL}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6000,
+          "y": 200
+        }
+      }
+    },
+    {
+      "id": 43,
+      "module": "email:sendEmail",
+      "version": 3,
+      "parameters": {
+        "account": "{{EMAIL_ACCOUNT_ID}}",
+        "parseMode": "html"
+      },
+      "mapper": {
+        "to": [
+          {
+            "address": "{{NOTIFICATION_EMAIL}}",
+            "name": "LR Team"
+          }
+        ],
+        "subject": "🏁 LAMBO v6.0 AUTOMATION COMPLETE: {{1.1}} - {{7.label}}",
+        "html": "<div style=\"font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 20px;\"><h1 style=\"text-align: center; font-size: 2.5em; margin-bottom: 30px;\">🏁 LAMBORGHINI v6.0 ULTIMATE - COMPLETE SUCCESS!</h1><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>📝 Campaign Details</h2><p><strong>Content:</strong> {{1.1}}</p><p><strong>Zielgruppe:</strong> {{1.2}}</p><p><strong>Erklärung:</strong> {{1.3}}</p><p><strong>Priority Level:</strong> {{7.label}}</p><p><strong>Auto Publish:</strong> {{30.label}}</p><p><strong>Target Platforms:</strong> {{1.6}}</p></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>🎬 Leonardo AI Results</h2><p><strong>Status:</strong> {{21.label}}</p><p><strong>Main Image:</strong> <a href=\"{{15.data.generations_by_pk.generated_images[].url}}\" style=\"color: #FFD700;\">View Image</a></p><p><strong>YouTube Thumbnail:</strong> <a href=\"{{16.data.generations_by_pk.generated_images[].url}}\" style=\"color: #FFD700;\">View Image</a></p><p><strong>Story Background:</strong> <a href=\"{{17.data.generations_by_pk.generated_images[].url}}\" style=\"color: #FFD700;\">View Image</a></p><p><strong>Main Video:</strong> <a href=\"{{18.data.generations_by_pk.generated_videos[].url}}\" style=\"color: #FFD700;\">View Video</a></p><p><strong>Short Video:</strong> <a href=\"{{19.data.generations_by_pk.generated_videos[].url}}\" style=\"color: #FFD700;\">View Video</a></p></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>🤖 HeyGen Avatar Results</h2><p><strong>Status:</strong> {{if(27.label; 27.label; 'Not Used')}}</p>{{if(26.video_url; '<p><strong>Avatar Video:</strong> <a href=\"' + 26.video_url + '\" style=\"color: #FFD700;\">View Avatar Video</a></p>'; '')}}{{if(29.video_url; '<p><strong>Avatar Video (Retry):</strong> <a href=\"' + 29.video_url + '\" style=\"color: #FFD700;\">View Avatar Video</a></p>'; '')}}</div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>🚀 Social Media Posts Published</h2><ul style=\"list-style-type: none; padding: 0;\">{{if(35.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>Instagram:</strong> Post ID ' + 35.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>Instagram:</strong> Not Published</li>')}}{{if(36.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>Facebook:</strong> Post ID ' + 36.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>Facebook:</strong> Not Published</li>')}}{{if(37.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>LinkedIn:</strong> Post ID ' + 37.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>LinkedIn:</strong> Not Published</li>')}}{{if(38.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>TikTok:</strong> Post ID ' + 38.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>TikTok:</strong> Not Published</li>')}}{{if(39.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>YouTube:</strong> Post ID ' + 39.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>YouTube:</strong> Not Published</li>')}}{{if(40.data.post_id; '<li style=\"margin: 10px 0;\">✅ <strong>Twitter:</strong> Post ID ' + 40.data.post_id + '</li>'; '<li style=\"margin: 10px 0;\">❌ <strong>Twitter:</strong> Not Published</li>')}}</ul></div><div style=\"background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin-bottom: 20px;\"><h2>🎯 Lead Generation Keywords</h2><p><strong>Instagram:</strong> {{join(4.instagram_post.keywords; ', ')}}</p><p><strong>Facebook:</strong> {{join(4.facebook_post.keywords; ', ')}}</p><p><strong>LinkedIn:</strong> {{join(4.linkedin_post.keywords; ', ')}}</p><p><strong>TikTok:</strong> {{join(4.tiktok_script.keywords; ', ')}}</p><p><strong>YouTube:</strong> {{join(4.youtube_video.keywords; ', ')}}</p><p><strong>Twitter:</strong> {{join(4.twitter_thread.keywords; ', ')}}</p></div><div style=\"text-align: center; margin: 30px 0;\"><h2 style=\"color: #FFD700;\">🏁 LAMBORGHINI v6.0 - MISSION ACCOMPLISHED! 🏁</h2><p style=\"font-size: 1.2em;\">All systems operational. Ready for lead generation and engagement monitoring.</p></div><hr style=\"border: 1px solid rgba(255,255,255,0.3); margin: 30px 0;\"><p style=\"text-align: center; opacity: 0.8;\"><em>Powered by Leonardo AI, HeyGen, Blotato & Perplexity AI</em><br><em>LAMBORGHINI v6.0 ULTIMATE AUTOMATION SYSTEM</em></p></div>"
+      },
+      "filter": {
+        "name": "Email Notification Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{NOTIFICATION_EMAIL}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6000,
+          "y": 400
+        }
+      }
+    },
+    {
+      "id": 44,
+      "module": "tools:Sleep",
+      "version": 1,
+      "parameters": {
+        "delay": "{{if(7.label = 'High Priority Content'; 180; 300)}}"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 6300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 45,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{1.7}}",
+            "pattern": "true",
+            "label": "Comment Monitoring Active"
+          },
+          {
+            "condition": "{{1.7}}",
+            "pattern": "false",
+            "label": "Comment Monitoring Disabled"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6600,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 46,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://graph.instagram.com/v18.0/{{INSTAGRAM_ACCOUNT_ID}}/media/{{35.data.post_id}}/comments",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{INSTAGRAM_ACCESS_TOKEN}}"
+          }
+        ],
+        "qs": [
+          {
+            "name": "fields",
+            "value": "id,text,username,timestamp"
+          },
+          {
+            "name": "limit",
+            "value": "50"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Instagram Comments Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{45.label}}",
+              "b": "Comment Monitoring Active",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{35.data.post_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6900,
+          "y": -200
+        }
+      }
+    },
+    {
+      "id": 47,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://www.googleapis.com/youtube/v3/commentThreads",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{YOUTUBE_ACCESS_TOKEN}}"
+          }
+        ],
+        "qs": [
+          {
+            "name": "part",
+            "value": "snippet"
+          },
+          {
+            "name": "videoId",
+            "value": "{{39.data.video_id}}"
+          },
+          {
+            "name": "maxResults",
+            "value": "50"
+          },
+          {
+            "name": "order",
+            "value": "time"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "YouTube Comments Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{45.label}}",
+              "b": "Comment Monitoring Active",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{39.data.video_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6900,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 48,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://graph.facebook.com/v18.0/{{36.data.post_id}}/comments",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{FACEBOOK_ACCESS_TOKEN}}"
+          }
+        ],
+        "qs": [
+          {
+            "name": "fields",
+            "value": "id,message,from,created_time"
+          },
+          {
+            "name": "limit",
+            "value": "50"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "Facebook Comments Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{45.label}}",
+              "b": "Comment Monitoring Active",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{36.data.post_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6900,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 49,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "https://open-api.tiktok.com/v1.3/post/comment/list/",
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{TIKTOK_ACCESS_TOKEN}}"
+          }
+        ],
+        "qs": [
+          {
+            "name": "open_id",
+            "value": "{{TIKTOK_OPEN_ID}}"
+          },
+          {
+            "name": "video_id",
+            "value": "{{38.data.video_id}}"
+          },
+          {
+            "name": "count",
+            "value": "50"
+          }
+        ],
+        "bodyType": "raw",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "TikTok Comments Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{45.label}}",
+              "b": "Comment Monitoring Active",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{38.data.video_id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 6900,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 50,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "model": "chatgpt-4o-latest",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist der ULTIMATE Comment Analyzer für LR Health & Beauty Lead Generation v6.0. Analysiere Kommentare mit höchster Präzision und identifiziere potenzielle Leads basierend auf Keywords und Interesse-Level."
+          },
+          {
+            "role": "user",
+            "content": "ULTIMATE COMMENT ANALYSIS v6.0 für Lead Generation:\n\nKeywords: {{join(4.instagram_post.keywords; ', ')}}, {{join(4.facebook_post.keywords; ', ')}}, {{join(4.youtube_video.keywords; ', ')}}, {{join(4.tiktok_script.keywords; ', ')}}\n\nInstagram Comments: {{46.data}}\nYouTube Comments: {{47.data}}\nFacebook Comments: {{48.data}}\nTikTok Comments: {{49.data}}\n\nLead Magnets verfügbar:\n{{4.lead_magnets}}\n\n🎯 ENHANCED LEAD SCORING CRITERIA v6.0:\nHOT (90-100%): sofort, jetzt, heute, kaufen, bestellen, will haben, brauche das, interessiert mich sehr, wie geht das, wo bekomme ich\nWARM (60-89%): später, überlegen, vielleicht, info, details, interessant, klingt gut, erzähl mehr, möchte wissen\nCOLD (0-59%): nein, nicht, kein interesse, spam, fake, schlecht, betrug, abzocke\n\n📱 INTELLIGENT AUTO RESPONSES für Keywords:\nLINA: \"Hi {{username}}! 🤖 Danke für dein Interesse! Hier ist dein kostenloser Lina AI Zugang: {{4.lead_magnets.LINA.url}} - Lina meldet sich in 5 Min! 🚀\"\nAUTO: \"Wow {{username}}! 🚗 Hier ist dein Auto-Konfigurator: {{4.lead_magnets.AUTO.url}} - Mercedes, Audi, VW, BMW ab 99€! 💎\"\nSTART: \"Perfect {{username}}! ⭐ Hier ist dein Fast Track Bonus: {{4.lead_magnets.START.url}} - 300€, 1100€ oder 2000€ garantiert! 🔥\"\nFREI: \"Amazing {{username}}! 💰 Hier ist dein Laptop Lifestyle Guide: {{4.lead_magnets.FREI.url}} - Arbeite von überall! ✈️\"\nERFOLG: \"Incredible {{username}}! 🌟 Hier sind Bruce Willis Erfolgsgeheimnisse: {{4.lead_magnets.ERFOLG.url}} - Star-Power! 🎬\"\nINFO: \"Super {{username}}! 📋 Hier ist dein LR Business Info-Paket: {{4.lead_magnets.INFO.url}} - Alle Details! 📊\"\nBUSINESS: \"Excellent {{username}}! 💼 Hier ist dein Business Opportunity Check: {{4.lead_magnets.BUSINESS.url}} - Perfekt für dich! 🎯\"\nVIRAL: \"Fantastic {{username}}! 🚀 Hier sind die Viral Marketing Secrets: {{4.lead_magnets.VIRAL.url}} - Werde viral! 📈\"\n\n🔍 ENHANCED ANALYSE AUFGABEN v6.0:\n1. Identifiziere ALLE Kommentare mit Trigger-Keywords (auch ähnliche Begriffe)\n2. Bewerte Lead-Potenzial mit Prozent-Genauigkeit (0-100%)\n3. Wähle passende Auto-Response mit Personalisierung\n4. Erstelle detaillierten Lead-Datensatz für CRM\n5. Generiere Follow-up-Strategie basierend auf Platform und Lead-Score\n6. Priorisiere Leads nach Conversion-Wahrscheinlichkeit\n7. Analysiere Sentiment und Engagement-Level\n\nPRIORITY: {{7.label}} Content - entsprechend aggressiver bei Lead-Scoring!\n\nFormat als PERFECT JSON v6.0:\n{\n  \"qualified_leads\": [\n    {\n      \"platform\": \"instagram/youtube/facebook/tiktok\",\n      \"comment_id\": \"Comment ID\",\n      \"username\": \"Username\",\n      \"comment_text\": \"Original Comment\",\n      \"triggered_keyword\": \"Keyword that triggered\",\n      \"lead_score_percentage\": \"Percentage 0-100\",\n      \"lead_score_category\": \"HOT/WARM/COLD\",\n      \"auto_response\": \"Personalized auto response with username\",\n      \"lead_magnet_url\": \"URL des Lead Magnets\",\n      \"follow_up_strategy\": \"Detailed follow-up recommendation\",\n      \"conversion_probability\": \"Percentage\",\n      \"post_id\": \"ID des ursprünglichen Posts\",\n      \"sentiment\": \"positive/neutral/negative\",\n      \"engagement_level\": \"high/medium/low\",\n      \"priority_level\": \"urgent/high/medium/low\",\n      \"estimated_revenue_potential\": \"€ amount\",\n      \"recommended_contact_time\": \"immediate/within_1h/within_24h/within_week\"\n    }\n  ],\n  \"summary\": {\n    \"total_comments_analyzed\": \"Number\",\n    \"qualified_leads_found\": \"Number\",\n    \"hot_leads\": \"Number\",\n    \"warm_leads\": \"Number\",\n    \"cold_leads\": \"Number\",\n    \"keywords_triggered\": [\"List of triggered keywords\"],\n    \"average_lead_score\": \"Percentage\",\n    \"estimated_total_revenue_potential\": \"€ amount\",\n    \"priority_leads_count\": \"Number of urgent/high priority leads\",\n    \"recommended_actions\": [\"Action 1\", \"Action 2\", \"Action 3\"]\n  }\n}"
+          }
+        ],
+        "max_tokens": 4000,
+        "temperature": 0.7,
+        "response_format": "json_object"
+      },
+      "filter": {
+        "name": "Comment Analysis Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{45.label}}",
+              "b": "Comment Monitoring Active",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 7200,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 51,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "json": "{{50.choices[].message.content}}"
+      },
+      "filter": {
+        "name": "JSON Parse Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{50.choices[].message.content}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 7500,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 52,
+      "module": "builtin:Iterator",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "array": "{{51.qualified_leads}}"
+      },
+      "filter": {
+        "name": "Lead Iterator Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{51.qualified_leads}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 7800,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 53,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "mode": "select",
+        "insertDataOption": "INSERT_ROWS",
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "range": "Leads_Database_v6!A:Z",
+        "values": [
+          [
+            "{{formatDate(now; 'YYYY-MM-DD HH:mm:ss')}}",
+            "{{52.platform}}",
+            "{{52.username}}",
+            "{{52.comment_text}}",
+            "{{52.triggered_keyword}}",
+            "{{52.lead_score_category}}",
+            "{{52.lead_score_percentage}}",
+            "{{52.conversion_probability}}",
+            "{{52.lead_magnet_url}}",
+            "{{52.follow_up_strategy}}",
+            "{{52.post_id}}",
+            "{{52.comment_id}}",
+            "{{1.1}}",
+            "{{1.2}}",
+            "{{52.priority_level}}",
+            "{{52.sentiment}}",
+            "{{52.engagement_level}}",
+            "{{52.estimated_revenue_potential}}",
+            "{{52.recommended_contact_time}}",
+            "Pending",
+            "New",
+            "{{formatDate(now; 'YYYY-MM-DD')}}",
+            "{{7.label}}",
+            "Comment Automation v6.0",
+            "{{52.auto_response}}",
+            "Active"
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 8100,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 54,
+      "module": "flow:Router",
+      "version": 1,
+      "parameters": {
+        "mode": "choose",
+        "rules": [
+          {
+            "condition": "{{52.lead_score_category}}",
+            "pattern": "HOT",
+            "label": "HOT Lead - Immediate Action"
+          },
+          {
+            "condition": "{{52.lead_score_category}}",
+            "pattern": "WARM",
+            "label": "WARM Lead - Schedule Follow-up"
+          },
+          {
+            "condition": "{{52.lead_score_category}}",
+            "pattern": "COLD",
+            "label": "COLD Lead - Low Priority"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 8400,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 55,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "{{if(52.platform = 'instagram'; 'https://graph.instagram.com/v18.0/' + 52.comment_id + '/replies'; if(52.platform = 'facebook'; 'https://graph.facebook.com/v18.0/' + 52.comment_id + '/comments'; if(52.platform = 'youtube'; 'https://www.googleapis.com/youtube/v3/comments'; 'https://open-api.tiktok.com/v1.3/comment/reply/')))}}",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "{{if(52.platform = 'instagram'; 'Bearer ' + INSTAGRAM_ACCESS_TOKEN; if(52.platform = 'facebook'; 'Bearer ' + FACEBOOK_ACCESS_TOKEN; if(52.platform = 'youtube'; 'Bearer ' + YOUTUBE_ACCESS_TOKEN; 'Bearer ' + TIKTOK_ACCESS_TOKEN)))}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{{if(52.platform = 'instagram'; '{\"message\": \"' + 52.auto_response + '\"}'; if(52.platform = 'facebook'; '{\"message\": \"' + 52.auto_response + '\"}'; if(52.platform = 'youtube'; '{\"part\": \"snippet\", \"resource\": {\"snippet\": {\"parentId\": \"' + 52.comment_id + '\", \"textOriginal\": \"' + 52.auto_response + '\"}}}'; '{\"text\": \"' + 52.auto_response + '\", \"video_id\": \"' + 52.post_id + '\", \"comment_id\": \"' + 52.comment_id + '\"}')))}}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "HOT Lead Auto Reply Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{54.label}}",
+              "b": "HOT Lead - Immediate Action",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 8700,
+          "y": -100
+        }
+      }
+    },
+    {
+      "id": 56,
+      "module": "telegram:sendMessage",
+      "version": 1,
+      "parameters": {
+        "parse_mode": "HTML"
+      },
+      "mapper": {
+        "chatId": "{{TELEGRAM_CHAT_ID}}",
+        "text": "🔥 <b>HOT LEAD v6.0 DETECTED!</b> 🔥\\n\\n👤 <b>Username:</b> {{52.username}}\\n📱 <b>Platform:</b> {{52.platform}}\\n🎯 <b>Keyword:</b> {{52.triggered_keyword}}\\n📊 <b>Lead Score:</b> {{52.lead_score_percentage}}% ({{52.lead_score_category}})\\n💬 <b>Comment:</b> {{52.comment_text}}\\n\\n🤖 <b>Auto-Response sent:</b>\\n{{52.auto_response}}\\n\\n🎁 <b>Lead Magnet:</b> {{52.lead_magnet_url}}\\n📈 <b>Conversion Probability:</b> {{52.conversion_probability}}%\\n💰 <b>Revenue Potential:</b> {{52.estimated_revenue_potential}}\\n😊 <b>Sentiment:</b> {{52.sentiment}}\\n🔥 <b>Engagement:</b> {{52.engagement_level}}\\n⚡ <b>Priority:</b> {{52.priority_level}}\\n⏰ <b>Contact Time:</b> {{52.recommended_contact_time}}\\n\\n✅ <b>Next Steps:</b> {{52.follow_up_strategy}}\\n\\n🏁 <b>LAMBO v6.0 LEAD MACHINE AKTIV!</b>"
+      },
+      "filter": {
+        "name": "HOT Lead Notification Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{54.label}}",
+              "b": "HOT Lead - Immediate Action",
+              "o": "text:equal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 8700,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 57,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": true,
+        "useNewZLibDeCompress": true,
+        "timeout": 300
+      },
+      "mapper": {
+        "url": "{{WHATSAPP_WEBHOOK_URL}}",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{WHATSAPP_BOT_TOKEN}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "data": "{\n  \"phone\": \"{{TEAM_PHONE_NUMBER}}\",\n  \"message\": \"🔥 HOT LEAD ALERT! 🔥\\n\\n👤 User: {{52.username}}\\n📱 Platform: {{52.platform}}\\n📊 Score: {{52.lead_score_percentage}}%\\n💰 Revenue: {{52.estimated_revenue_potential}}\\n⚡ Priority: {{52.priority_level}}\\n\\n💬 Comment: {{52.comment_text}}\\n\\n🎯 Keyword: {{52.triggered_keyword}}\\n🤖 Auto-Response: SENT\\n⏰ Contact: {{52.recommended_contact_time}}\\n\\n🚀 FOLLOW UP IMMEDIATELY!\",\n  \"type\": \"text\"\n}",
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true
+      },
+      "filter": {
+        "name": "HOT Lead WhatsApp Alert Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{54.label}}",
+              "b": "HOT Lead - Immediate Action",
+              "o": "text:equal"
+            },
+            {
+              "a": "{{WHATSAPP_WEBHOOK_URL}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 8700,
+          "y": 100
+        }
+      }
+    },
+    {
+      "id": 58,
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "parameters": {
+        "mode": "select",
+        "insertDataOption": "INSERT_ROWS",
+        "valueInputOption": "USER_ENTERED"
+      },
+      "mapper": {
+        "spreadsheetId": "{{GOOGLE_SHEET_ID}}",
+        "range": "Lead_Summary_v6!A:Z",
+        "values": [
+          [
+            "{{formatDate(now; 'YYYY-MM-DD HH:mm:ss')}}",
+            "{{1.1}}",
+            "{{7.label}}",
+            "{{51.summary.total_comments_analyzed}}",
+            "{{51.summary.qualified_leads_found}}",
+            "{{51.summary.hot_leads}}",
+            "{{51.summary.warm_leads}}",
+            "{{51.summary.cold_leads}}",
+            "{{join(51.summary.keywords_triggered; ', ')}}",
+            "{{51.summary.average_lead_score}}",
+            "{{51.summary.estimated_total_revenue_potential}}",
+            "{{51.summary.priority_leads_count}}",
+            "{{join(51.summary.recommended_actions; ' | ')}}",
+            "{{35.data.post_id}}",
+            "{{36.data.post_id}}",
+            "{{37.data.post_id}}",
+            "{{38.data.post_id}}",
+            "{{39.data.post_id}}",
+            "{{40.data.post_id}}",
+            "{{if(51.summary.hot_leads > 0; 'High'; if(51.summary.warm_leads > 0; 'Medium'; 'Low'))}}",
+            "{{round(divide(51.summary.qualified_leads_found; 51.summary.total_comments_analyzed) * 100; 2)}}%",
+            "{{21.label}}",
+            "{{if(27.label; 27.label; 'No HeyGen')}}",
+            "{{30.label}}",
+            "Lamborghini_v6.0_ULTIMATE"
+          ]
+        ]
+      },
+      "filter": {
+        "name": "Lead Summary Filter",
+        "conditions": [
+          [
+            {
+              "a": "{{51.summary}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 9000,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 59,
+      "module": "telegram:sendMessage",
+      "version": 1,
+      "parameters": {
+        "parse_mode": "HTML"
+      },
+      "mapper": {
+        "chatId": "{{TELEGRAM_CHAT_ID}}",
+        "text": "🏁 <b>LAMBORGHINI v6.0 ULTIMATE - COMPLETE SUCCESS!</b> 🏁\\n\\n📊 <b>Final Campaign Results:</b>\\n• Content: {{1.1}}\\n• Priority: {{7.label}}\\n• Auto Publish: {{30.label}}\\n• Platforms: {{1.6}}\\n\\n🎬 <b>Assets Created:</b>\\n• Leonardo Status: {{21.label}}\\n• HeyGen Status: {{if(27.label; 27.label; 'Not Used')}}\\n• Main Image: ✅ {{15.data.generations_by_pk.generated_images[].url}}\\n• YouTube Thumbnail: ✅ {{16.data.generations_by_pk.generated_images[].url}}\\n• Story Background: ✅ {{17.data.generations_by_pk.generated_images[].url}}\\n• Main Video: ✅ {{18.data.generations_by_pk.generated_videos[].url}}\\n• Short Video: ✅ {{19.data.generations_by_pk.generated_videos[].url}}\\n{{if(26.video_url; '• HeyGen Avatar: ✅ ' + 26.video_url; '• HeyGen Avatar: Not Used')}}\\n\\n🚀 <b>Posts Published:</b>\\n{{if(35.data.post_id; '• ✅ Instagram: ' + addMinutes(now; if(7.label = 'High Priority Content'; 2; 5)) + ' (ID: ' + 35.data.post_id + ')'; '• ❌ Instagram: Not Published')}}\\n{{if(36.data.post_id; '• ✅ Facebook: ' + addMinutes(now; if(7.label = 'High Priority Content'; 5; 8)) + ' (ID: ' + 36.data.post_id + ')'; '• ❌ Facebook: Not Published')}}\\n{{if(37.data.post_id; '• ✅ LinkedIn: ' + addMinutes(now; if(7.label = 'High Priority Content'; 8; 12)) + ' (ID: ' + 37.data.post_id + ')'; '• ❌ LinkedIn: Not Published')}}\\n{{if(38.data.post_id; '• ✅ TikTok: ' + addMinutes(now; if(7.label = 'High Priority Content'; 10; 15)) + ' (ID: ' + 38.data.post_id + ')'; '• ❌ TikTok: Not Published')}}\\n{{if(39.data.post_id; '• ✅ YouTube: ' + addMinutes(now; if(7.label = 'High Priority Content'; 15; 20)) + ' (ID: ' + 39.data.post_id + ')'; '• ❌ YouTube: Not Published')}}\\n{{if(40.data.post_id; '• ✅ Twitter: ' + addMinutes(now; if(7.label = 'High Priority Content'; 12; 18)) + ' (ID: ' + 40.data.post_id + ')'; '• ❌ Twitter: Not Published')}}\\n\\n💰 <b>Lead Generation Results v6.0:</b>\\n• Comments Analyzed: {{51.summary.total_comments_analyzed}}\\n• Qualified Leads: {{51.summary.qualified_leads_found}}\\n• 🔥 HOT Leads: {{51.summary.hot_leads}}\\n• 🔶 WARM Leads: {{51.summary.warm_leads}}\\n• ❄️ COLD Leads: {{51.summary.cold_leads}}\\n• Average Lead Score: {{51.summary.average_lead_score}}%\\n• Revenue Potential: {{51.summary.estimated_total_revenue_potential}}\\n• Priority Leads: {{51.summary.priority_leads_count}}\\n• Keywords Triggered: {{join(51.summary.keywords_triggered; ', ')}}\\n• Conversion Rate: {{round(divide(51.summary.qualified_leads_found; 51.summary.total_comments_analyzed) * 100; 2)}}%\\n\\n🎯 <b>Lead Magnets Active v6.0:</b>\\n• LINA: Lina AI Demo (7 Tage kostenlos)\\n• AUTO: Auto Konfigurator (Mercedes, Audi, VW, BMW ab 99€)\\n• START: Fast Track Bonus (300€, 1100€, 2000€)\\n• FREI: Laptop Lifestyle Guide\\n• ERFOLG: Bruce Willis Strategie\\n• INFO: LR Business Info-Paket\\n• BUSINESS: Business Opportunity Check\\n• VIRAL: Viral Marketing Secrets\\n\\n🚗 <b>LR Autokonzept v6.0:</b> Mercedes, Audi, VW, BMW ab 99€ ohne Anzahlung und ohne Schlussrate\\n🤖 <b>Lina AI v6.0:</b> 24/7 KI-Assistent aktiviert und bereit\\n⭐ <b>Star-Power:</b> Bruce Willis & Guido Maria Kretschmer\\n\\n📈 <b>Next Actions v6.0:</b>\\n{{join(51.summary.recommended_actions; '\\n')}}\\n\\n<i>🏁 LAMBORGHINI v6.0 ULTIMATE AUTOMATION</i>\\n<i>✅ Leonardo AI + HeyGen + Blotato + Perplexity AI</i>\\n<i>✅ Google Sheets CRM + Comment Automation v6.0</i>\\n<i>✅ WhatsApp + Telegram + Email Notifications</i>\\n<i>✅ Priority-Based Processing + Smart Routing</i>\\n<i>✅ Enhanced Lead Scoring + Revenue Prediction</i>\\n\\n<b>🚀 MISSION ACCOMPLISHED - READY FOR DOMINATION! 🚀</b>"
+      },
+      "metadata": {
+        "designer": {
+          "x": 9300,
+          "y": 0
+        }
+      }
+    }
+  ],
+  "routes": [
+    {
+      "from": 1,
+      "to": 2
+    },
+    {
+      "from": 2,
+      "to": 3
+    },
+    {
+      "from": 3,
+      "to": 4
+    },
+    {
+      "from": 4,
+      "to": 5
+    },
+    {
+      "from": 5,
+      "to": 6
+    },
+    {
+      "from": 6,
+      "to": 7
+    },
+    {
+      "from": 7,
+      "to": 8
+    },
+    {
+      "from": 7,
+      "to": 9
+    },
+    {
+      "from": 7,
+      "to": 10
+    },
+    {
+      "from": 7,
+      "to": 11
+    },
+    {
+      "from": 7,
+      "to": 12
+    },
+    {
+      "from": 7,
+      "to": 13
+    },
+    {
+      "from": 8,
+      "to": 14
+    },
+    {
+      "from": 9,
+      "to": 14
+    },
+    {
+      "from": 10,
+      "to": 14
+    },
+    {
+      "from": 11,
+      "to": 14
+    },
+    {
+      "from": 12,
+      "to": 14
+    },
+    {
+      "from": 13,
+      "to": 14
+    },
+    {
+      "from": 14,
+      "to": 15
+    },
+    {
+      "from": 14,
+      "to": 16
+    },
+    {
+      "from": 14,
+      "to": 17
+    },
+    {
+      "from": 14,
+      "to": 18
+    },
+    {
+      "from": 14,
+      "to": 19
+    },
+    {
+      "from": 14,
+      "to": 20
+    },
+    {
+      "from": 15,
+      "to": 21
+    },
+    {
+      "from": 16,
+      "to": 21
+    },
+    {
+      "from": 17,
+      "to": 21
+    },
+    {
+      "from": 18,
+      "to": 21
+    },
+    {
+      "from": 19,
+      "to": 21
+    },
+    {
+      "from": 20,
+      "to": 21
+    },
+    {
+      "from": 21,
+      "to": 22
+    },
+    {
+      "from": 21,
+      "to": 24
+    },
+    {
+      "from": 21,
+      "to": 30
+    },
+    {
+      "from": 22,
+      "to": 23
+    },
+    {
+      "from": 23,
+      "to": 30
+    },
+    {
+      "from": 24,
+      "to": 25
+    },
+    {
+      "from": 25,
+      "to": 26
+    },
+    {
+      "from": 26,
+      "to": 27
+    },
+    {
+      "from": 27,
+      "to": 28
+    },
+    {
+      "from": 27,
+      "to": 30
+    },
+    {
+      "from": 28,
+      "to": 29
+    },
+    {
+      "from": 29,
+      "to": 30
+    },
+    {
+      "from": 30,
+      "to": 31
+    },
+    {
+      "from": 30,
+      "to": 32
+    },
+    {
+      "from": 30,
+      "to": 33
+    },
+    {
+      "from": 30,
+      "to": 34
+    },
+    {
+      "from": 31,
+      "to": 35
+    },
+    {
+      "from": 31,
+      "to": 36
+    },
+    {
+      "from": 31,
+      "to": 39
+    },
+    {
+      "from": 32,
+      "to": 35
+    },
+    {
+      "from": 32,
+      "to": 38
+    },
+    {
+      "from": 33,
+      "to": 37
+    },
+    {
+      "from": 33,
+      "to": 40
+    },
+    {
+      "from": 34,
+      "to": 39
+    },
+    {
+      "from": 35,
+      "to": 41
+    },
+    {
+      "from": 36,
+      "to": 41
+    },
+    {
+      "from": 37,
+      "to": 41
+    },
+    {
+      "from": 38,
+      "to": 41
+    },
+    {
+      "from": 39,
+      "to": 41
+    },
+    {
+      "from": 40,
+      "to": 41
+    },
+    {
+      "from": 41,
+      "to": 42
+    },
+    {
+      "from": 41,
+      "to": 43
+    },
+    {
+      "from": 42,
+      "to": 44
+    },
+    {
+      "from": 43,
+      "to": 44
+    },
+    {
+      "from": 44,
+      "to": 45
+    },
+    {
+      "from": 45,
+      "to": 46
+    },
+    {
+      "from": 45,
+      "to": 47
+    },
+    {
+      "from": 45,
+      "to": 48
+    },
+    {
+      "from": 45,
+      "to": 49
+    },
+    {
+      "from": 46,
+      "to": 50
+    },
+    {
+      "from": 47,
+      "to": 50
+    },
+    {
+      "from": 48,
+      "to": 50
+    },
+    {
+      "from": 49,
+      "to": 50
+    },
+    {
+      "from": 50,
+      "to": 51
+    },
+    {
+      "from": 51,
+      "to": 52
+    },
+    {
+      "from": 52,
+      "to": 53
+    },
+    {
+      "from": 53,
+      "to": 54
+    },
+    {
+      "from": 54,
+      "to": 55
+    },
+    {
+      "from": 54,
+      "to": 56
+    },
+    {
+      "from": 54,
+      "to": 57
+    },
+    {
+      "from": 55,
+      "to": 58
+    },
+    {
+      "from": 56,
+      "to": 58
+    },
+    {
+      "from": 57,
+      "to": 58
+    },
+    {
+      "from": 52,
+      "to": 58
+    },
+    {
+      "from": 58,
+      "to": 59
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "scheduling": {
+        "type": "indefinitely"
+      }
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}
