@@ -1,0 +1,168 @@
+{
+  "name": "Raketen-Flow V6 - Teil 1: Input & Recherche",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:watchRows",
+      "version": 2,
+      "parameters": {
+        "from": "drive",
+        "mode": "select",
+        "limit": 1,
+        "sheetId": "Content-Ideen_f_r_Reels___Posts",
+        "__IMTCONN__": "IHRE_GOOGLE_SHEETS_CONNECTION_ID",
+        "spreadsheetId": "{{G_SHEET_ID}}",
+        "tableFirstRow": "A1:Z1",
+        "includesHeaders": true,
+        "valueRenderOption": "FORMATTED_VALUE",
+        "dateTimeRenderOption": "FORMATTED_STRING"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0,
+          "name": "[1] Trigger: Neue Content Idee"
+        },
+        "expect": [
+            {
+                "name": "A",
+                "type": "text",
+                "label": "Nr."
+            },
+            {
+                "name": "B",
+                "type": "text",
+                "label": "Content_Idee_Titel"
+            },
+            {
+                "name": "C",
+                "type": "text",
+                "label": "Zielgruppen_Beduerfnis"
+            },
+            {
+                "name": "D",
+                "type": "text",
+                "label": "Erklaerung_Hintergrund"
+            },
+            {
+                "name": "E",
+                "type": "text",
+                "label": "Spezifischer_USP_Fokus"
+            },
+            {
+                "name": "F",
+                "type": "text",
+                "label": "Gewuenschter_Avatar_Einsatz"
+            }
+            // Fügen Sie hier weitere Spalten hinzu, falls Ihr Sheet mehr hat
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "perplexity-ai:createAChatCompletion",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": "IHRE_PERPLEXITY_CONNECTION_ID"
+      },
+      "mapper": {
+        "model": "sonar-pro",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Recherchiere für das Thema '{{1.B}}' (basierend auf Zielgruppen-Bedürfnis '{{1.C}}') top-aktuelle Trends (Stand Juni 2025), überraschende Fakten, Studien und einzigartige Blickwinkel. Fokus für LR Health & Beauty im deutschen Markt:\n\n1.  **LR Kern-USPs integrieren/unterstützen:**\n    *   Garantierte Boni & vererbbares Einkommen.\n    *   Exklusives Autokonzept (Luxusneuwagen stark vergünstigt).\n    *   Lina AI als 24/7 KI-Coaching & Business-Tool.\n    *   'Made in Germany' Qualität & Star-Kooperationen.\n    *   Flexibilität & Homeoffice-Lifestyle.\n2.  **Zielgruppe (25-55, v.a. ambitionierte Frauen) ansprechen:**\n    *   Träume von finanzieller Sicherheit, Luxus, Anerkennung.\n    *   Überwindung von Zukunftsängsten, Wunsch nach digitalem Business.\n3.  **Viral-Potenzial & Einzigartigkeit:**\n    *   Finde 'Pattern Interrupts', kontroverse (aber seriöse) Thesen oder emotionale Aufhänger.\n    *   Welche aktuellen Social Media Hypes passen?\n\n**Output-Anforderungen (STRUKTURIERT als JSON - falls API direkt unterstützt, sonst als Text mit klarer Struktur):**\nGib mir 3-5 prägnante Kernbotschaften/Angles zurück. Zu jeder Botschaft:\n*   max. 2 unterstützende Fakten/Statistiken/kurze Studienzusammenfassungen.\n*   1-2 Vorschläge für einen extrem starken, neugierweckenden Hook (erste 3 Sekunden!).\n*   Gib dies als JSON-Objekt zurück mit dem Key 'research_insights' der ein Array von Objekten enthält (jedes Objekt mit 'angle', 'supporting_facts' Array, 'suggested_hooks' Array), z.B.:\n    {\n      \"research_insights\": [\n        {\n          \"angle\": \"Beschreibung des Angles...\",\n          \"supporting_facts\": [\"Fakt 1...\", \"Fakt 2...\"],\n          \"suggested_hooks\": [\"Hook A...\", \"Hook B...\"]\n        }\n      ]\n    }\nStelle sicher, dass alle Informationen ethisch, seriös und für Premium-Markenkommunikation geeignet sind."
+          }
+        ],
+        "max_tokens": 2500,
+        "temperature": 0.6,
+        "response_format": {"type": "json_object"},
+        "web_search_options": {
+          "search_context_size": "high"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0,
+          "name": "[2] Perplexity AI: Recherche"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "json": "{{2.choices[0].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0,
+          "name": "[3] Parse Perplexity Output"
+        },
+        "expect": [ // Beispielhafter Output von Perplexity, den dieser Parser erwartet
+            {
+                "name": "research_insights",
+                "type": "array",
+                "label": "Research Insights",
+                "spec": [
+                    {
+                        "name": "angle",
+                        "type": "text",
+                        "label": "Angle"
+                    },
+                    {
+                        "name": "supporting_facts",
+                        "type": "array",
+                        "label": "Supporting Facts",
+                        "spec": [
+                            {"type": "text", "name": "fact"}
+                        ]
+                    },
+                    {
+                        "name": "suggested_hooks",
+                        "type": "array",
+                        "label": "Suggested Hooks",
+                        "spec": [
+                            {"type": "text", "name": "hook"}
+                        ]
+                    }
+                ]
+            }
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "from": 1,
+      "to": 2
+    },
+    {
+      "from": 2,
+      "to": 3
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": true,
+      "freshVariables": true
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "IHRE_MAKE_COM_ZONE" // z.B. eu1.make.com oder us1.make.com
+  }
+}
