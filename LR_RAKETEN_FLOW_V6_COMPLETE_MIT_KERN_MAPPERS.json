@@ -1,0 +1,211 @@
+{
+  "name": "🏁 LR RAKETEN-FLOW V6 - Kern-Mapper integriert",
+  "flow": [
+    // MODUL 1 (alt 46): Google Sheets Trigger
+    {
+      "id": 46,
+      "module": "google-sheets:watchRows",
+      "version": 4,
+      "parameters": {
+        "mode": "select",
+        "limit": 1,
+        "includesHeaders": true,
+        "valueRenderOption": "FORMATTED_VALUE",
+        "dateTimeRenderOption": "FORMATTED_STRING"
+      },
+      "mapper": {
+        "spreadsheetId": "{{G_SHEET_ID}}",
+        "sheetId": "Content-Ideen_f_r_Reels___Posts",
+        "tableFirstRow": "A1:Z1",
+        "__IMTCONN__": "{{G_SHEETS_CONNECTION_ID}}"
+      },
+      "metadata": {
+        "designer": { "x": 0, "y": 0, "name": "[1 TRG] Content Idee (46)" },
+        "expect": [
+            {"name": "A", "type": "text", "label": "Nr."},
+            {"name": "B", "type": "text", "label": "Content_Idee_Titel"},
+            {"name": "C", "type": "text", "label": "Zielgruppen_Beduerfnis"},
+            {"name": "D", "type": "text", "label": "Erklaerung_Hintergrund"},
+            {"name": "E", "type": "text", "label": "Spezifischer_USP_Fokus"},
+            {"name": "F", "type": "text", "label": "Gewuenschter_Avatar_Einsatz"}
+        ]
+      }
+    },
+    // MODUL 14 (alt): Set Globale Variablen
+    {
+      "id": 14,
+      "module": "util:SetVariables",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "scope": "roundtrip",
+        "variables": [
+          {"name": "BLOTATO_API_KEY", "value": "IHREN_BLOTATO_KEY_HIER"},
+          {"name": "LEONARDO_API_KEY", "value": "IHREN_LEONARDO_KEY_HIER"},
+          {"name": "OPENAI_CONNECTION_ID", "value": "IHRE_OPENAI_CONN_ID"},
+          {"name": "PERPLEXITY_CONNECTION_ID", "value": "IHRE_PERPLEXITY_CONN_ID"},
+          {"name": "HEYGEN_CONNECTION_ID", "value": "IHRE_HEYGEN_CONN_ID"},
+          {"name": "TELEGRAM_CONNECTION_ID", "value": "IHRE_TELEGRAM_CONN_ID"},
+          {"name": "TELEGRAM_CHAT_ID", "value": "IHRE_TELEGRAM_CHAT_ID"},
+          {"name": "G_SHEETS_CONNECTION_ID", "value": "IHRE_G_SHEETS_CONN_ID"},
+          {"name": "G_SHEET_ID", "value": "IHRE_G_SHEET_SPREADSHEET_ID"},
+          {"name": "G_SHEET_GID_CAMPAIGN_TRACKING", "value": "GID_CAMPAIGN_TRACKING"},
+          {"name": "G_SHEET_GID_LEADS_DATABASE", "value": "GID_LEADS_DATABASE"},
+          {"name": "G_SHEET_GID_LEAD_SUMMARY", "value": "GID_LEAD_SUMMARY"},
+          {"name": "G_SHEET_GID_PERFORMANCE_LOG", "value": "GID_PERFORMANCE_LOG"},
+          {"name": "G_SHEET_GID_AB_TEST_LOG", "value": "GID_AB_TEST_LOG"},
+          {"name": "INSTAGRAM_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_INSTA_ID"},
+          {"name": "FACEBOOK_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_FB_ID"},
+          {"name": "LINKEDIN_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_LI_ID"},
+          {"name": "TIKTOK_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_TT_ID"},
+          {"name": "YOUTUBE_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_YT_ID"},
+          {"name": "TWITTER_ACCOUNT_ID_BLOTATO", "value": "BLOTATO_TW_ID"},
+          {"name": "LEONARDO_IMAGE_MODEL_ID", "value": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3"},
+          {"name": "LEONARDO_VIDEO_MODEL_ID", "value": "ID_DES_LEO_VIDEO_MODELLS"},
+          {"name": "LEONARDO_IMAGE_MODEL_ID_NAME", "value": "Leonardo Phoenix"},
+          {"name": "LEONARDO_VIDEO_MODEL_ID_NAME", "value": "Leonardo Kinetic"},
+          {"name": "HEYGEN_AVATAR_ID", "value": "IHRE_HEYGEN_AVATAR_ID"},
+          {"name": "HEYGEN_VOICE_ID", "value": "IHRE_HEYGEN_VOICE_ID"},
+          {"name": "INSTAGRAM_ACCESS_TOKEN", "value": "IHR_INSTAGRAM_TOKEN"},
+          {"name": "FACEBOOK_ACCESS_TOKEN", "value": "IHR_FACEBOOK_TOKEN"},
+          {"name": "YOUTUBE_ACCESS_TOKEN", "value": "IHR_YOUTUBE_TOKEN"},
+          {"name": "TIKTOK_ACCESS_TOKEN", "value": "IHR_TIKTOK_TOKEN"},
+          {"name": "TIKTOK_OPEN_ID", "value": "IHRE_TIKTOK_OPEN_ID"},
+          {"name": "NATIVE_POST_ID_INSTAGRAM", "value": null},
+          {"name": "NATIVE_POST_ID_FACEBOOK", "value": null},
+          {"name": "NATIVE_POST_ID_YOUTUBE", "value": null},
+          {"name": "NATIVE_POST_ID_TIKTOK", "value": null},
+          {"name": "ERROR_SUMMARY_VARIABLE_OVERALL", "value": "Keine Fehler bisher."}
+        ]
+      },
+      "metadata": {
+        "designer": {"x": 200, "y": 0, "name": "[14 Set] Globale Variablen"}
+      }
+    },
+    // MODUL 58 (alt): Perplexity AI Recherche
+    {
+      "id": 58,
+      "module": "perplexity-ai:createAChatCompletion",
+      "version": 1,
+      "parameters": {"__IMTCONN__": "{{PERPLEXITY_CONNECTION_ID}}"},
+      "mapper": {
+        "model": "sonar-pro",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Recherchiere für das Thema '{{46.B}}' (basierend auf Zielgruppen-Bedürfnis '{{46.C}}') top-aktuelle Trends (Stand Juni 2025), überraschende Fakten, Studien und einzigartige Blickwinkel. Fokus für LR Health & Beauty im deutschen Markt:\n\n1.  **LR Kern-USPs integrieren/unterstützen:**\n    *   Garantierte Boni & vererbbares Einkommen.\n    *   Exklusives Autokonzept (Luxusneuwagen stark vergünstigt).\n    *   Lina AI als 24/7 KI-Coaching & Business-Tool.\n    *   'Made in Germany' Qualität & Star-Kooperationen.\n    *   Flexibilität & Homeoffice-Lifestyle.\n2.  **Zielgruppe (25-55, v.a. ambitionierte Frauen) ansprechen:**\n    *   Träume von finanzieller Sicherheit, Luxus, Anerkennung.\n    *   Überwindung von Zukunftsängsten, Wunsch nach digitalem Business.\n3.  **Viral-Potenzial & Einzigartigkeit:**\n    *   Finde 'Pattern Interrupts', kontroverse (aber seriöse) Thesen oder emotionale Aufhänger.\n    *   Welche aktuellen Social Media Hypes passen?\n\n**Output-Anforderungen (STRUKTURIERT als JSON):**\nGib mir 3-5 prägnante Kernbotschaften/Angles zurück. Zu jeder Botschaft:\n*   max. 2 unterstützende Fakten/Statistiken/kurze Studienzusammenfassungen.\n*   1-2 Vorschläge für einen extrem starken, neugierweckenden Hook (erste 3 Sekunden!).\n*   Gib dies als JSON-Objekt zurück mit dem Key 'research_insights' der ein Array von Objekten enthält (jedes Objekt mit 'angle' (string), 'supporting_facts' (array of strings), 'suggested_hooks' (array of strings)), z.B.:\n    {\n      \"research_insights\": [\n        {\n          \"angle\": \"Beschreibung des Angles...\",\n          \"supporting_facts\": [\"Fakt 1...\", \"Fakt 2...\"],\n          \"suggested_hooks\": [\"Hook A...\", \"Hook B...\"]\n        }\n      ]\n    }\nStelle sicher, dass alle Informationen ethisch, seriös und für Premium-Markenkommunikation geeignet sind."
+          }
+        ],
+        "max_tokens": 2500,
+        "temperature": 0.6,
+        "response_format": {"type": "json_object"}, // WENN PERPLEXITY DAS UNTERSTÜTZT!
+        "web_search_options": {
+          "search_context_size": "high"
+        }
+      },
+      "metadata": {"designer": {"x": 400, "y": 0, "name": "[2 AI] Perplexity Recherche (58)"}}
+    },
+    // MODUL 200 (NEU): Parse Perplexity Output
+    {
+      "id": 200,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {"json": "{{58.choices[0].message.content}}"}, // ANPASSEN, falls Perplexity kein direktes JSON liefert
+      "metadata": {"designer": {"x": 600, "y": 0, "name": "[3 Parse] Perplexity Output"}}
+    },
+    // MODUL 56 (alt): Zentrales Content AI Modul
+    {
+      "id": 56,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {"__IMTCONN__": "{{OPENAI_CONNECTION_ID}}"},
+      "mapper": {
+        "model": "gpt-4o-latest",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist ein weltweit führender Social Media Marketing- & Copywriting-Genie mit 200 Jahren Erfahrung im Direktvertrieb und Network Marketing, spezialisiert auf die Premium-Marke LR Health & Beauty. Deine Mission ist es, für ein ambitioniertes LR-Team, das die Vision des 'Lamborghini der Flows' verfolgt, absolut überzeugenden, viralen und hochkonvertierenden Social Media Content zu erstellen. Die externe Kommunikation muss Exzellenz und die überlegenen Vorteile des Teams und Systems (Lina AI, Autokonzept etc.) so darstellen, dass ambitionierte Partner das enorme Potenzial für ihren eigenen außergewöhnlichen Erfolg erkennen und sich magnetisch angezogen fühlen. Jede Botschaft muss die Philosophie 'Lina & Du – gemeinsam auf der Überholspur' widerspiegeln und die relevantesten LR Kern-USPs strategisch einbinden. Achte peinlich genau auf die Einhaltung aller LR Compliance-Richtlinien: keine falschen Versprechen, keine übertriebenen Einkommensdarstellungen ohne Disclaimer, Fokus auf Team-Erfolg und die individuelle Leistung als Basis. Der Disclaimer lautet sinngemäß: 'Individuelle Ergebnisse können variieren und basieren auf persönlichem Einsatz und Engagement.' Die Kommunikation ist direkt ('Du', 'Dein'), inspirierend und professionell-modern. KEINE 'Nummer 1'-Behauptungen in der externen Kommunikation."
+          },
+          {
+            "role": "user",
+            "content": "Erstelle basierend auf der Content-Idee '{{46.B}}' (Zielgruppen-Bedürfnis: '{{46.C}}', Hintergrund: '{{46.D}}', USP-Fokus-Vorgabe von Sheet: '{{46.E | default: ''}}', Avatar-Einsatz-Wunsch von Sheet: '{{46.F | default: 'Nein'}}') und den folgenden Trend-Recherchen von Perplexity AI (Output von Modul 200: {{200.research_insights | default: '[Fallback: Keine spezifischen Perplexity Insights verfügbar, bitte allgemeine Trends nutzen]'}}) ein umfassendes Social Media Content-Paket im JSON-Format. Wähle für jeden Post das thematisch passendste 'comment_automation_keyword_selected_by_ai' und den zugehörigen Lead Magnet aus der unten definierten 'lead_magnets_pool' Sektion. Integriere pro Post 1-2 der wichtigsten LR Kern-USPs (siehe unten) auf natürliche und überzeugende Weise (beachte die USP-Fokus-Vorgabe aus dem Sheet, falls vorhanden, und wähle sonst die thematisch passendsten). Stelle sicher, dass jeder Post die 'Lina & Du'-Philosophie subtil, aber kraftvoll vermittelt und die herausragenden Möglichkeiten dieses Systems betont – immer compliant! Verwende die 'VIRAL CONTENT FORMELN' als Inspiration.\n\n**LR KERN-USPs (zur Auswahl):** Autokonzept (Mercedes, Audi, VW, BMW ab 99€ ohne Anzahlung/Schlussrate), Star-Power (Bruce Willis, Guido Maria Kretschmer - subtil!), Made in Germany (Qualität & Vertrauen), Vererbbares Geschäftsmodell, Fast Track Bonus (mit Disclaimer!), Passives Einkommen & Laptop Lifestyle, Lina AI (24/7 KI-Coach & Automation).\n\n**VIRAL CONTENT FORMELN (Inspiration):** Hook, FOMO, Social Proof, Urgency, Curiosity Gap, Problem/Solution.\n\n**COMMENT AUTOMATION KEYWORD-POOL:** LINA, AUTO, START, FREI, ERFOLG, INFO, BUSINESS, VIRAL.\n\n**LEAD MAGNETS POOL (Keyword: {Titel, Beschreibung, URL}):**\n*   LINA: {Titel: \"Exklusive Lina AI Demo - 7 Tage kostenlos testen!\", Beschreibung: \"Entdecke, wie Lina AI Dein LR Business 24/7 revolutioniert.\", URL: \"https://DEINE_SEITE.de/lina-demo\"}\n*   AUTO: {Titel: \"LR Traumwagen-Konfigurator\", Beschreibung: \"Dein Mercedes, Audi, BMW oder VW ab 99€/Monat. Ohne Anzahlung, ohne Schlussrate.\", URL: \"https://DEINE_SEITE.de/auto-konfigurator\"}\n*   START: {Titel: \"Dein LR Fast Track Bonus\", Beschreibung: \"Sichere Dir bis zu 2000€ garantierten Bonus in den ersten Monaten!\", URL: \"https://DEINE_SEITE.de/fast-track-bonus\"}\n*   FREI: {Titel: \"Laptop Lifestyle Guide für LR Partner\", Beschreibung: \"So baust Du Dir ortsunabhängige Freiheit mit LR auf.\", URL: \"https://DEINE_SEITE.de/laptop-lifestyle\"}\n*   ERFOLG: {Titel: \"Die Bruce Willis & Guido M. Kretschmer Erfolgs-Formel bei LR\", Beschreibung: \"Exklusive Einblicke und Star-Strategien.\", URL: \"https://DEINE_SEITE.de/star-erfolg\"}\n*   INFO: {Titel: \"Dein LR Business Info-Paket\", Beschreibung: \"Alle Details und Chancen Deiner LR Partnerschaft auf einen Blick.\", URL: \"https://DEINE_SEITE.de/lr-business-info\"}\n*   BUSINESS: {Titel: \"Passt das LR Business zu Dir? Der Opportunity Check!\", Beschreibung: \"Finde in 5 Minuten heraus, ob LR Deine Chance ist.\", URL: \"https://DEINE_SEITE.de/lr-opportunity-check\"}\n*   VIRAL: {Titel: \"Exklusiver Viral Marketing Report für LR\", Beschreibung: \"Die Geheimnisse, um mit LR viral zu gehen.\", URL: \"https://DEINE_SEITE.de/lr-viral-report\"}\n\n**GEWÜNSCHTER JSON OUTPUT:**\n{\n  \"campaign_title\": \"{{46.B}}\",\n  \"primary_usp_focus_selected_by_ai\": [\"USP_Name_1\", \"USP_Name_2\"],\n  \"instagram_post\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_INSTA\",\n    \"selected_lead_magnet_title\": \"TITEL_DES_LEAD_MAGNETS_INSTA\",\n    \"selected_lead_magnet_url\": \"URL_INSTA\",\n    \"variations\": [\n      {\n        \"version_name\": \"A (Emotionaler Hook)\",\n        \"hook\": \"Instagram Hook A...\",\n        \"post_text\": \"Instagram Text A (max. 150 Wörter, emotional, 'Lina & Du', USPs, CTA: Kommentiere '{{instagram_post.comment_automation_keyword_selected_by_ai}}'!). Compliance beachten.\",\n        \"image_concept_for_leonardo\": \"Sehr detailliertes Konzept für ein ultra-luxuriöses, filmisches Bild (1:1 Format), das die Kernaussage von Post A visuell umsetzt. Keine Menschen. Fokus auf [spezifische Elemente]. Lichtstimmung: [z.B. Golden Hour]. Kamera-Andeutung: [z.B. leichte Tiefenschärfe].\"\n      },\n      {\n        \"version_name\": \"B (Benefit-Fokus Hook)\",\n        \"hook\": \"Instagram Hook B...\",\n        \"post_text\": \"Instagram Text B...\",\n        \"image_concept_for_leonardo\": \"Alternatives Bildkonzept für Post B.\"\n      }\n    ],\n    \"hashtags_suggestion\": [\"#LinaAI\", \"#LRHealthBeauty\", \"#PassivesEinkommen\", \"#Autokonzept\", \"#Erfolg\", \"#MadeInGermany\", \"#Freiheit\", \"#DeinBusiness\", \"#OnlineDurchstarten\", \"#RelevantHashtag1\", \"#RelevantHashtag2\"]\n  },\n  \"facebook_post\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_FB\",\n    \"selected_lead_magnet_title\": \"TITEL_FB\",\n    \"selected_lead_magnet_url\": \"URL_FB\",\n    \"post_text\": \"Facebook Text (max. 250 Wörter, Community-fokussiert, Storytelling, 'Lina & Du', USPs, CTA mit Keyword). Compliance beachten.\",\n    \"image_video_concept_for_leonardo\": \"Konzept für ein Bild oder kurzes Video (z.B. 16:9) für Facebook.\",\n    \"hashtags_suggestion\": [\"#LRKarriere\", \"#Teamaufbau\", \"#Nebenjob\", \"#Selbststaendig\", \"#LRTurbo\"]\n  },\n  \"linkedin_post\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_LI\",\n    \"selected_lead_magnet_title\": \"TITEL_LI\",\n    \"selected_lead_magnet_url\": \"URL_LI\",\n    \"post_text\": \"LinkedIn Text (max. 200 Wörter, business-orientiert, professionell, 'Lina & Du', USPs, CTA mit Keyword). Compliance beachten.\",\n    \"image_concept_for_leonardo\": \"Professionelles, eher minimalistisches Luxus-Bildkonzept für LinkedIn.\",\n    \"hashtags_suggestion\": [\"#BusinessOpportunity\", \"#NetworkMarketingPro\", \"#Digitalisierung\"]\n  },\n  \"tiktok_script\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_TT\",\n    \"selected_lead_magnet_title\": \"TITEL_TT\",\n    \"selected_lead_magnet_url\": \"URL_TT\",\n    \"hook\": \"TikTok Hook (3 Sek.)...\",\n    \"scenes\": [\n      {\"scene_nr\": 1, \"duration_sec\": 5, \"visual_concept_for_leonardo_video_shot\": \"Visuelles Konzept für TikTok Szene 1 (9:16)...\", \"speaker_text_overlay_or_voice\": \"Gesprochener/Overlay Text Szene 1...\"},\n      {\"scene_nr\": 2, \"duration_sec\": 5, \"visual_concept_for_leonardo_video_shot\": \"Visuelles Konzept für TikTok Szene 2...\", \"speaker_text_overlay_or_voice\": \"Gesprochener/Overlay Text Szene 2...\"},\n      {\"scene_nr\": 3, \"duration_sec\": 5, \"visual_concept_for_leonardo_video_shot\": \"Visuelles Konzept für TikTok Szene 3 mit CTA...\", \"speaker_text_overlay_or_voice\": \"Gesprochener/Overlay Text Szene 3 mit CTA: Kommentiere {{tiktok_script.comment_automation_keyword_selected_by_ai}}!\"}\n    ],\n    \"audio_suggestion\": \"Trendiger TikTok Sound: [Name/Link-Andeutung] oder Musikrichtung: [z.B. Epic Cinematic Pop]\",\n    \"hashtags_suggestion\": [\"#TikTokViral\", \"#LRChallenge\", \"#SideHustle\"]\n  },\n  \"youtube_video\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_YT\",\n    \"selected_lead_magnet_title\": \"TITEL_YT\",\n    \"selected_lead_magnet_url\": \"URL_YT\",\n    \"video_type_suggestion\": \"Short (unter 60 Sek.) / Längeres Erklärvideo (2-3 Min.)\",\n    \"title\": \"YouTube Titel (max. 70 Zeichen, SEO-optimiert für '{{46.B}}').\",\n    \"description_full\": \"Ausführliche YouTube Beschreibung: Hook, Problem, Lösung mit LR & Lina AI, detaillierte USPs, Vorteile, 'Lina & Du' Philosophie, Call to Action mit Keyword '{{youtube_video.comment_automation_keyword_selected_by_ai}}', Links zu Lead Magnet und Social Media. Compliance und Disclaimer beachten. (ca. 300-500 Wörter)\",\n    \"script_talking_points_for_video\": [\n      \"Einleitung: Hook & Problemstellung basierend auf '{{46.B}}' und Trends.\",\n      \"Hauptteil 1: Lösung mit LR Kern-System & USP 1 (z.B. Autokonzept detailliert).\",\n      \"Hauptteil 2: Vorteil durch Lina AI als Coach & Tool (USP 2).\",\n      \"Hauptteil 3: Weiterer starker Benefit oder Erfolgsbeispiel (anonymisiert, compliant).\",\n      \"Call to Action: Aufforderung zum Kommentieren, Kanal abonnieren, Lead Magnet nutzen.\"\n    ],\n    \"thumbnail_concept_for_leonardo\": \"Detailliertes Konzept für ein extrem klickstarkes YouTube Thumbnail (16:9). Klare Botschaft, Neugier weckend, hochwertig.\",\n    \"video_visual_style_concept_for_leonardo\": \"Konzept für den visuellen Stil des Videos (falls es kein reines Sprecher-Video ist): Szenen, Einblendungen, Farbwelt.\",\n    \"suggested_tags_keywords\": [\"LR Health Beauty\", \"Lina AI\", \"Passives Einkommen\", \"Autokonzept\", \"{{46.B}}\", \"Network Marketing Deutschland\"]\n  },\n  \"twitter_post\": {\n    \"comment_automation_keyword_selected_by_ai\": \"KEYWORD_TW\",\n    \"selected_lead_magnet_title\": \"TITEL_TW\",\n    \"selected_lead_magnet_url\": \"URL_TW\",\n    \"post_text\": \"Twitter Text (max. 280 Zeichen)...\",\n    \"image_concept_for_leonardo\": \"Optionales Bildkonzept für Twitter.\",\n    \"hashtags_suggestion\": [\"#LRNews\", \"#FinanzielleFreiheit\"]\n  },\n  \"heygen_script_details\": {\n    \"use_heygen_avatar_based_on_gsheet_input\": \"{{46.F | default: 'Nein'}}\",\n    \"avatar_persona_suggestion\": \"Lina (freundlich, kompetent, motivierend) ODER Dynamischer Erfolgscoach (männlich/weiblich, energiegeladen)\",\n    \"script_short_30sec\": \"HeyGen Skript (30 Sek.): Hook, 1-2 Kern-USPs (z.B. Autokonzept & Lina AI), klarer CTA. 'Lina & Du auf der Überholspur!' Compliance beachten.\",\n    \"script_long_60sec\": \"HeyGen Skript (60 Sek.): Mini-Story, 'Lina & Du'-Philosophie, mehrere USPs, wie dieses System zum Erfolg führt. Emotional und überzeugend. Compliance und Disclaimer beachten.\",\n    \"background_concept_for_leonardo_subtle\": \"Idee für einen sehr subtilen, professionellen Video-Hintergrund für HeyGen (z.B. abstraktes Lichtspiel in Markenfarben, sanft animiertes modernes Büro-Bokeh, minimalistische Tech-Grafik). Absolut nicht ablenkend.\"\n  }\n}"
+          }
+        ],
+        "max_tokens": 4096,
+        "temperature": 0.75,
+        "response_format": { "type": "json_object" }
+      },
+      "metadata": {"designer": {"x": 800, "y": 0, "name": "[4 AI] Zentrales Content Modul (56)"}}
+    },
+    {
+      "id": 201,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {"json": "{{56.choices[0].message.content}}"},
+      "metadata": {"designer": {"x": 1000, "y": 0, "name": "[5 Parse] Zentral Content AI"}}
+    },
+    {
+      "id": 202,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {"__IMTCONN__": "{{OPENAI_CONNECTION_ID}}"},
+      "mapper": {
+        "model": "gpt-4o-latest",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "system",
+            "content": "Du bist ein absolut erstklassiger Leonardo AI Prompt Engineer mit dem Spezialgebiet, ultra-luxuriöse, filmische und fotorealistische Bilder und Videos zu konzipieren, die Aspiration, Erfolg und technologische Raffinesse im Stil von High-End Werbekampagnen für Premium-Marken wie LR Health & Beauty vermitteln. Deine Expertise ist die präzise Übersetzung von Marketingkonzepten in visuell beeindruckende Szenen, die Emotionen wecken und Geschichten erzählen – alles ohne direkt sichtbare Personen (maximal Silhouetten oder nicht-identifizierbare Hände, falls für die Symbolik unerlässlich und genehmigt). Du beherrschst die Kunst, abstrakte Ideen (wie 'Made in Germany Qualität', 'Star-Power durch Assoziation' oder 'KI-gestützter Erfolg') in subtile, aber wirkungsvolle visuelle Elemente zu verwandeln. Dein Ziel: Perfekt auf die ausgewählten Top-Leonardo-AI-Modelle (Bild-Modell-Annahme: '{{LEONARDO_IMAGE_MODEL_ID_NAME | default: \"Leonardo Vision XL Pro\"}}', Video-Modell-Annahme: '{{LEONARDO_VIDEO_MODEL_ID_NAME | default: \"Leonardo Kinetic Pro\"}}') zugeschnittene Prompts zu generieren. Die Prompts müssen die visuellen Konzepte aus dem vorigen Content-JSON (Output von Modul 201) detailreich umsetzen und die Zielgruppe visuell fesseln. Die visuellen Darstellungen müssen den erreichbaren, authentischen Erfolg durch das LR-System und Lina AI widerspiegeln – keine unrealistische Protzerei. Erstelle extrem detaillierte Prompts, die Lichtsetzung, Kamerawinkel, Tiefenschärfe, Materialien, spezifische Objekte, Farbpaletten und die gewünschte emotionale Wirkung beschreiben."
+          },
+          {
+            "role": "user",
+            "content": "Basierend auf der Kampagne '{{201.campaign_title}}', dem USP-Fokus '{{join(201.primary_usp_focus_selected_by_ai; ', ')}}' und den folgenden visuellen Konzepten aus dem Content-JSON (Output von Modul 201), erstelle extrem detaillierte Leonardo AI Prompts im JSON-Format. Berücksichtige die besten verfügbaren Leonardo-Modelle und deren Parameter für Juni 2025.\n\n**ALLGEMEINE VISUELLE LEITLINIEN (IMMER BEACHTEN):**\n*   **Keine direkt erkennbaren Personen/Gesichter.** Silhouetten/Hände nur, wenn für Symbolik (Schlüsselübergabe, Laptop-Arbeit) unerlässlich, nicht im Fokus, nicht identifizierbar.\n*   **Subtile Marken-/USP-Integration:** 'Made in Germany' durch Design/Materialien/Präzision. Star-Partner durch Assoziation mit deren bekanntem Stil (keine direkten Abbildungen!). Lina AI durch subtile, futuristische Tech-Elemente (z.B. elegante Lichtlinien, Interface-Andeutungen auf einem Screen im Hintergrund).\n*   **Fokus:** Premium Lifestyle, Erfolgssymbole, finanzielle Freiheit, Luxus-Autos (Mercedes, Audi, BMW, VW Arteon) als erreichbarer, cleverer Teil des LR-Konzepts.\n*   **Atmosphäre:** Inspirierend, erstrebenswert, modern, ultra-hochwertig, positiv, filmisch, sophisticated.\n*   **Ausschluss:** KEINE Produktflaschen, Supplemente, direkte Text-Overlays/Logos im Bild/Video selbst.\n\n**VISUELLE KONZEPTE ZUR UMSETZUNG (aus Modul 201 Output):**\n*   Instagram Bild A Konzept: {{201.instagram_post.variations[0].image_concept_for_leonardo}}\n*   Instagram Bild B Konzept: {{201.instagram_post.variations[1].image_concept_for_leonardo}}\n*   Facebook Bild/Video Konzept: {{201.facebook_post.image_video_concept_for_leonardo}}\n*   LinkedIn Bild Konzept: {{201.linkedin_post.image_concept_for_leonardo}}\n*   TikTok Szene 1 Visual Konzept: {{201.tiktok_script.scenes[0].visual_concept_for_leonardo_video_shot}}\n*   TikTok Szene 2 Visual Konzept: {{201.tiktok_script.scenes[1].visual_concept_for_leonardo_video_shot}}\n*   TikTok Szene 3 Visual Konzept: {{201.tiktok_script.scenes[2].visual_concept_for_leonardo_video_shot}}\n*   YouTube Thumbnail Konzept: {{201.youtube_video.thumbnail_concept_for_leonardo}}\n*   YouTube Video Visual Style Konzept: {{201.youtube_video.video_visual_style_concept_for_leonardo}}\n*   Twitter Bild Konzept: {{201.twitter_post.image_concept_for_leonardo}}\n*   HeyGen Background Konzept: {{201.heygen_script_details.background_concept_for_leonardo_subtle}}\n\n**ZUSÄTZLICHE PARAMETER FÜR PROMPTS (Beispiele, anpassen an Top-Modelle und Konzept; AI soll diese intelligent in die Prompts integrieren, nicht nur auflisten!):\n*   Bilder: `photoReal: true`, `alchemy: true`, `alchemy_strength: 0.6`, `highContrast: true`, `presetStyle: CINEMATIC / LUXURY_BRAND / AUTOMOTIVE_SHOWCASE`, `promptMagic: true`, `promptMagicVersion: v3` (oder neueste), `guidance_scale: 7-9`, `elements: [{\"loraId\": \"ID_einer_MadeInGermany_Ästhetik_LoRA\", \"weight\": 0.5}]` (falls LoRAs für Stile existieren und nutzbar sind).\n*   Videos: `motionStrength: 5-8`, `durationSeconds: 8-15`, `fps: 24-30`, `presetStyle: CINEMATIC / DYNAMIC_STORYTELLING`, `photoReal: true` (falls verfügbar), `cameraMotion: [\"slow pan left to right\", \"gentle zoom onto detail\", \"orbit around object\"]`, `sceneCoherence: high`.\n\n**GEWÜNSCHTER JSON OUTPUT (Jeder Prompt muss extrem detailliert sein: Licht, Kameraeinstellungen (Blende, Brennweite andeuten), Materialien, Texturen, spezifische Objekte, Farbpalette, emotionale Wirkung, Tageszeit etc. Die Prompts sollen die visuellen Konzepte in meisterhafte Anweisungen für Leonardo AI verwandeln!):**\n{\n  \"image_prompts_generated\": {\n    \"instagram_image_A\": {\n      \"positive_prompt\": \"Ultra-detaillierter, filmischer Prompt für Instagram Bild A basierend auf Konzept '{{201.instagram_post.variations[0].image_concept_for_leonardo}}'. Beispiel: 'A meticulously crafted flat lay composition on a dark marble surface. A single, elegant car key fob (Mercedes-Benz, modern design) rests beside a high-end leather-bound journal and a sleek, minimalist pen. Subtle ambient light from a nearby window creates soft highlights on the metallic key fob and the textured leather. Overhead shot, extremely shallow depth of field (simulating f/1.4), focus sharply on the key fob logo. Color palette: deep charcoals, silver, a hint of warm off-white from the journal pages. Mood: sophisticated, aspirational, a hint of mystery and success. Cinematic, photorealistic, 8K, ultra-detailed.'\",\n      \"negative_prompt\": \"people, faces, hands (unless explicitly part of a non-identifiable symbolic action like holding keys), person, text, watermark, logo, blurry, low quality, cartoon, anime, ugly, deformed, cluttered, messy, cheap-looking, plastic, oversaturated, poor lighting, direct flash, product packaging, bottles, supplements. Exclude any elements that contradict a luxury, high-end aesthetic.\"\n    },\n    \"instagram_image_B\": { \"positive_prompt\": \"...\", \"negative_prompt\": \"...\" },\n    \"facebook_image_or_video_main_prompt\": { \"positive_prompt\": \"... (kann Bild oder Video-Prompt sein, je nach Konzept aus {{201.facebook_post.image_video_concept_for_leonardo}} – wenn Video, dann mit Szenen und Bewegungsandeutungen)\", \"negative_prompt\": \"...\" },\n    \"linkedin_image\": { \"positive_prompt\": \"... (professionell, minimalistisch, hochwertig)\", \"negative_prompt\": \"...\" },\n    \"youtube_thumbnail_image\": { \"positive_prompt\": \"Extrem klickstarker, kontrastreicher Prompt für YouTube Thumbnail '{{201.youtube_video.thumbnail_concept_for_leonardo}}'. Muss Neugier wecken und Thema klar kommunizieren ohne Text im Bild.\", \"negative_prompt\": \"...\" },\n    \"twitter_image\": { \"positive_prompt\": \"... (falls Konzept vorhanden, sonst leer lassen oder generischen Luxus-Symbol-Prompt)\", \"negative_prompt\": \"...\" },\n    \"heygen_background_image_or_video\": { \"positive_prompt\": \"Sehr subtiler, professioneller Prompt für HeyGen Hintergrund '{{201.heygen_script_details.background_concept_for_leonardo_subtle}}'. Kann abstraktes Lichtspiel, sanft animiertes modernes Büro-Bokeh oder minimalistische Tech-Grafik sein. Absolut nicht ablenkend.\", \"negative_prompt\": \"distracting elements, sharp focus on background, people, text, logos\" }\n  },\n  \"video_prompts_generated\": {\n    \"tiktok_video_shots_prompts\": [\n      { \"scene_nr\": 1, \"positive_prompt\": \"Detaillierter Videoshot-Prompt für TikTok Szene 1 Visual '{{201.tiktok_script.scenes[0].visual_concept_for_leonardo_video_shot}}'. Bewegung: [z.B. 'fast zoom in']. Licht: [z.B. 'neon highlights'].\", \"negative_prompt\": \"...\", \"duration_suggestion_sec\": 5 },\n      { \"scene_nr\": 2, \"positive_prompt\": \"...Szene 2...\", \"negative_prompt\": \"...\", \"duration_suggestion_sec\": 5 },\n      { \"scene_nr\": 3, \"positive_prompt\": \"...Szene 3...\", \"negative_prompt\": \"...\", \"duration_suggestion_sec\": 5 }\n    ],\n    \"youtube_main_video_prompt\": {\n      \"positive_prompt\": \"Umfassender Prompt, der den visuellen Stil und mehrere Schlüsselszenen für das YouTube Video ('{{201.youtube_video.video_visual_style_concept_for_leonardo}}') beschreibt. Beispiel: 'Scene 1: Cinematic establishing shot of a modern, minimalist home office at dawn, sun rays streaming through window, highlighting a sleek laptop on a dark wood desk. Slow pan. Scene 2: Close-up on hands (non-identifiable, elegant) typing on the laptop, screen shows abstract success graph or Lina AI interface. Scene 3: Transition to a luxury car (Mercedes C-Class, obsidian black) gliding smoothly on a coastal road, drone follow shot from behind and slightly above. Golden hour lighting. Scene 4: Symbolic shot of a high-quality 'Made in Germany' seal or a subtle visual nod to a star partner's aesthetic (e.g., a particular color scheme or object associated with them). Scene 5: Final shot of an inspiring view (e.g., city skyline from a penthouse, serene beach), laptop in foreground with a subtle Lina AI glow. Overall mood: aspirational, successful, calm, empowered.'\",\n      \"negative_prompt\": \"people, faces, direct product placement, text overlays, poor quality, shaky cam, unrealistic elements, anything that cheapens the luxury feel.\",\n      \"duration_suggestion_sec\": \"{{switch(201.youtube_video.video_type_suggestion; \"Short (unter 60 Sek.)\"; 50; \"Längeres Erklärvideo (2-3 Min.)\"; 150; 90)}}\"\n    }\n  }\n}"
+          }
+        ],
+        "max_tokens": 4096,
+        "temperature": 0.65,
+        "response_format": { "type": "json_object" }
+      },
+      "metadata": {"designer": {"x": 1200, "y": 0, "name": "[6 AI] Leonardo Prompt Engineer"}}
+    },
+    {
+      "id": 203,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {"json": "{{202.choices[0].message.content}}"},
+      "metadata": {"designer": {"x": 1400, "y": 0, "name": "[7 Parse] Leonardo Prompts"}}
+    }
+  ],
+  "routes": [
+    {"from": 46, "to": 14},
+    {"from": 14, "to": 58},
+    {"from": 58, "to": 200},
+    {"from": 200, "to": 56},
+    {"from": 56, "to": 201},
+    {"from": 201, "to": 202},
+    {"from": 202, "to": 203}
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": true,
+      "freshVariables": true
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "IHRE_MAKE_COM_ZONE"
+  }
+}
