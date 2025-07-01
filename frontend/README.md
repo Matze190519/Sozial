@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+Before using any of the commands below, run `npm install` in this `frontend` directory. This installs `react-scripts` and other dependencies required for `npm start` and `npm test` to function correctly.
+
 ## Available Scripts
 
 In the project directory, you can run:
