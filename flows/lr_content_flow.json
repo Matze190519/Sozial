@@ -1,0 +1,49 @@
+{
+  "id": "lr_content_flow",
+  "name": "LR Content Flow",
+  "nodes": [
+    {
+      "id": "trigger-node",
+      "type": "trigger",
+      "data": {
+        "label": "Trigger"
+      },
+      "position": { "x": 0, "y": 0 }
+    },
+    {
+      "id": "input-router-node",
+      "type": "inputRouter",
+      "data": {
+        "label": "Input Router"
+      },
+      "position": { "x": 200, "y": 0 }
+    },
+    {
+      "id": "trend-discovery-node",
+      "type": "trendDiscovery",
+      "data": {
+        "label": "Trend Discovery"
+      },
+      "position": { "x": 400, "y": 0 }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-trigger-router",
+      "source": "trigger-node",
+      "sourceHandle": "output",
+      "target": "input-router-node",
+      "targetHandle": "input",
+      "type": "default"
+    },
+    {
+      "id": "e-router-trend",
+      "source": "input-router-node",
+      "sourceHandle": "output",
+      "target": "trend-discovery-node",
+      "targetHandle": "input",
+      "type": "default"
+    }
+  ],
+  "viewport": { "x": 0, "y": 0, "zoom": 1 }
+}
