@@ -1,0 +1,228 @@
+{
+  "nodes": [
+    {
+      "id": "agentLLM_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 50 },
+      "data": {
+        "name": "chatOpenAI",
+        "type": "ChatOpenAI",
+        "version": 8.2,
+        "label": "LLM für Agent",
+        "inputs": {
+          "credential": "{{credentials.openAICred}}",
+          "modelName": "gpt-4o",
+          "temperature": 0.7
+        },
+        "inputParams": [
+          { "label": "Connect Credential", "name": "credential", "type": "credential", "credentialNames": ["openAIApi"], "id": "agentLLM_1-input-credential-credential" },
+          { "label": "Model Name", "name": "modelName", "type": "asyncOptions", "loadMethod": "listModels", "default": "gpt-4o", "id": "agentLLM_1-input-modelName-asyncOptions" },
+          { "label": "Temperature", "name": "temperature", "type": "number", "default": 0.7, "id": "agentLLM_1-input-temperature-number" }
+        ],
+        "outputAnchors": [{ "id": "agentLLM_1-output-agentLLM_1-ChatOpenAI", "name": "agentLLM_1", "label": "ChatOpenAI", "type": "ChatOpenAI" }]
+      }
+    },
+    {
+      "id": "lrContentAgent_1",
+      "type": "customNode",
+      "position": { "x": 350, "y": 200 },
+      "data": {
+        "name": "reactAgent",
+        "type": "ReActAgent",
+        "version": 3,
+        "label": "LR Content Agent",
+        "inputs": {
+          "llm": "{{agentLLM_1.data.instance}}",
+          "tools": [],
+          "systemMessage": "# 🚀 LR CONTENT EMPIRE - AI-AGENT\n\nDu bist der LR Content Empire AI-Agent. Dein Hauptziel ist es, **INTERESSENTEN FÜR DAS LR-GESCHÄFT ZU GENERIEREN** (nicht Produktkunden!) durch die Ausführung eines 5-stufigen Content-Workflows.\n\nBei der Eingabe \"Aktiviere das LR Content Empire\" führe die folgenden Schritte sequenziell aus, indem du die entsprechenden Tools verwendest:\n\n1.  **MODUL 1 (Perplexity):** Nutze das 'ViralTrendResearcher'-Tool, um virale Business-Opportunity Videos und erfolgreiche Lead-Magneten zu recherchieren. Konzentriere dich auf die Nische [BUSINESS OPPORTUNITY / NETWORK MARKETING / ONLINE BUSINESS]. Fasse die Ergebnisse zusammen.\n2.  **MODUL 2 (HeyGen):** Nutze das 'AvatarVideoGenerator'-Tool, um 3 professionelle Avatar-Videos zu erstellen. Die Videos sollen sich darauf konzentrieren, 'wie man sein eigenes Business aufbaut'. Verwende die zusammengefassten Rechercheergebnisse aus Modul 1 für Videoinhalte oder spezifische Anweisungen, die du aus der Recherche ableitest.\n3.  **MODUL 3 (Leonardo AI):** Nutze das 'ImageGeneration'-Tool, um 12 Premium-Grafiken für Lead-Magneten zu erstellen. Die Grafiken sollen Business-Opportunity-Visuals sein, keine Produktbilder. Lasse dich von den Rechercheergebnissen inspirieren.\n4.  **MODUL 4 (Blotato):** Nutze das 'SocialMediaDistributor'-Tool, um die generierten Videos und Grafiken (oder darauf basierende Posts) auf 4 Plattformen zu verteilen. Erstelle ansprechende Texte für die Posts basierend auf den generierten Inhalten und der Recherche. Ziel: Lead-generierende Posts über Business-Chancen.\n5.  **MODUL 5 (Telegram):** Nutze das 'TelegramNotifier'-Tool, um eine Erfolgsnachricht an den definierten Chat zu senden, die die erfolgreiche Ausführung aller Module bestätigt und eine kurze Zusammenfassung der durchgeführten Aktionen enthält.\n\nStelle sicher, dass du die Informationen von einem Schritt zum nächsten weitergibst. Wenn ein Tool fehlschlägt, informiere den Benutzer und versuche, den Fehler zu verstehen oder den Schritt zu überspringen, wenn es sinnvoll ist, und fahre mit dem nächsten fort."
+        },
+        "inputParams": [
+          { "label": "LLM", "name": "llm", "type": "BaseLanguageModel", "id": "lrContentAgent_1-input-llm-BaseLanguageModel" },
+          { "label": "Tools", "name": "tools", "type": "Tool", "list": true, "id": "lrContentAgent_1-input-tools-Tool" },
+          { "label": "System Message", "name": "systemMessage", "type": "string", "rows": 20, "id": "lrContentAgent_1-input-systemMessage-string"}
+        ],
+        "inputAnchors": [
+            { "label": "Memory", "name": "memory", "type": "BaseMemory", "optional": true, "id": "lrContentAgent_1-input-memory-BaseMemory" }
+        ],
+        "outputAnchors": [{ "id": "lrContentAgent_1-output-lrContentAgent_1-Agent", "name": "lrContentAgent_1", "label": "Agent", "type": "Agent" }]
+      }
+    },
+    {
+      "id": "perplexityTool_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 400 },
+      "data": {
+        "id": "perplexityTool_1",
+        "label": "🔍 ViralTrendResearcher (Perplexity)",
+        "name": "perplexityAiSearch",
+        "type": "PerplexityAiSearch",
+        "version": 1,
+        "inputParams": [
+          { "label": "Connect Credential", "name": "credential", "type": "credential", "credentialNames": ["perplexityCred"], "id": "perplexityTool_1-input-credential-credential" },
+          { "label": "Model", "name": "model", "type": "options", "options": [ { "label": "llama-3.1-sonar-large-128k-online", "name": "llama-3.1-sonar-large-128k-online" } ], "default": "llama-3.1-sonar-large-128k-online", "id": "perplexityTool_1-input-model-options" },
+          { "label": "Description", "name": "description", "type": "string", "default": "Nützlich, um aktuelle virale Videos und Trends im Bereich Business Opportunity, Network Marketing und Online Business zu recherchieren. Liefert eine Zusammenfassung und Quell-URLs.", "id": "perplexityTool_1-input-description-string", "rows": 3 }
+        ],
+        "inputs": {
+          "credential": "{{credentials.perplexityCred}}",
+          "model": "llama-3.1-sonar-large-128k-online",
+          "description": "Nützlich, um aktuelle virale Videos und Trends im Bereich Business Opportunity, Network Marketing und Online Business zu recherchieren. Liefert eine Zusammenfassung und Quell-URLs."
+        },
+        "outputAnchors": [{ "id": "perplexityTool_1-output-perplexityTool_1-PerplexityAiSearch", "name": "perplexityTool_1", "label": "PerplexityAiSearch", "type": "Tool" }]
+      }
+    },
+    {
+      "id": "heygenTool_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 600 },
+      "data": {
+        "id": "heygenTool_1",
+        "label": "🎬 AvatarVideoGenerator (HeyGen)",
+        "name": "requestPost",
+        "type": "RequestPost",
+        "version": 1,
+        "inputParams": [
+          { "label": "URL", "name": "url", "type": "string", "default": "https://api.heygen.com/v2/video/generate", "id": "heygenTool_1-input-url-string" },
+          { "label": "Description", "name": "description", "type": "string", "default": "Generiert professionelle Avatar-Videos mit HeyGen API v2. Benötigt Parameter wie 'input_text' im Body. Wird verwendet, um 3 Videos für Lead-Generierung zu erstellen.", "id": "heygenTool_1-input-description-string", "rows": 3 },
+          { "label": "Headers", "name": "headers", "type": "json", "default": "{\n  \"X-API-KEY\": \"{{credentials.heygenCred}}\",\n  \"Content-Type\": \"application/json\"\n}", "id": "heygenTool_1-input-headers-json" },
+          { "label": "Body Schema", "name": "bodySchema", "type": "string", "rows": 5, "default": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"video_inputs\": {\n      \"type\": \"array\",\n      \"description\": \"Array of video input configurations. Each item should contain character, voice (with input_text), and background.\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"character\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"avatar\" }, \"avatar_id\": { \"type\": \"string\", \"default\": \"546a88a9e07549c6b226b5a63815c61c\" } } },\n          \"voice\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"text\" }, \"input_text\": { \"type\": \"string\", \"description\": \"The script for the video\" }, \"voice_id\": { \"type\": \"string\", \"default\": \"22ffed10f8cd41b0935b702f8b12b5b5\" } } },\n          \"background\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"color\" }, \"value\": { \"type\": \"string\", \"default\": \"#1a1a2e\" } } }\n        },\n        \"required\": [\"character\", \"voice\"]\n      }\n    },\n    \"dimension\": { \"type\": \"object\", \"properties\": { \"width\": { \"type\": \"integer\", \"default\": 1280 }, \"height\": { \"type\": \"integer\", \"default\": 720 } } },\n    \"title\": { \"type\": \"string\", \"description\": \"Video title\" }\n  },\n  \"required\": [\"video_inputs\", \"title\"]\n}", "id": "heygenTool_1-input-bodySchema-string" }
+        ],
+        "inputs": {
+          "url": "https://api.heygen.com/v2/video/generate",
+          "description": "Generiert professionelle Avatar-Videos mit HeyGen API v2. Benötigt Parameter wie 'input_text' im Body. Wird verwendet, um 3 Videos für Lead-Generierung zu erstellen.",
+          "headers": "{\n  \"X-API-KEY\": \"{{credentials.heygenCred}}\",\n  \"Content-Type\": \"application/json\"\n}",
+          "bodySchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"video_inputs\": {\n      \"type\": \"array\",\n      \"description\": \"Array of video input configurations. Each item should contain character, voice (with input_text), and background.\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"character\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"avatar\" }, \"avatar_id\": { \"type\": \"string\", \"default\": \"546a88a9e07549c6b226b5a63815c61c\" } } },\n          \"voice\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"text\" }, \"input_text\": { \"type\": \"string\", \"description\": \"The script for the video\" }, \"voice_id\": { \"type\": \"string\", \"default\": \"22ffed10f8cd41b0935b702f8b12b5b5\" } } },\n          \"background\": { \"type\": \"object\", \"properties\": { \"type\": { \"type\": \"string\", \"default\": \"color\" }, \"value\": { \"type\": \"string\", \"default\": \"#1a1a2e\" } } }\n        },\n        \"required\": [\"character\", \"voice\"]\n      }\n    },\n    \"dimension\": { \"type\": \"object\", \"properties\": { \"width\": { \"type\": \"integer\", \"default\": 1280 }, \"height\": { \"type\": \"integer\", \"default\": 720 } } },\n    \"title\": { \"type\": \"string\", \"description\": \"Video title\" }\n  },\n  \"required\": [\"video_inputs\", \"title\"]\n}"
+        },
+        "outputAnchors": [{ "id": "heygenTool_1-output-heygenTool_1-RequestPost", "name": "heygenTool_1", "label": "RequestPost", "type": "Tool" }]
+      }
+    },
+    {
+      "id": "leonardoTool_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 800 },
+      "data": {
+        "id": "leonardoTool_1",
+        "label": "🎨 ImageGeneration (Leonardo AI)",
+        "name": "requestPost",
+        "type": "RequestPost",
+        "version": 1,
+        "inputParams": [
+          { "label": "URL", "name": "url", "type": "string", "default": "https://cloud.leonardo.ai/api/rest/v1/generations", "id": "leonardoTool_1-input-url-string" },
+          { "label": "Description", "name": "description", "type": "string", "default": "Erstellt hochwertige Business-Opportunity Grafiken mit Leonardo AI. Benötigt einen 'prompt' und andere Parameter im Body.", "id": "leonardoTool_1-input-description-string", "rows": 3 },
+          { "label": "Headers", "name": "headers", "type": "json", "default": "{\n  \"Authorization\": \"Bearer {{credentials.leonardoCred}}\",\n  \"Content-Type\": \"application/json\"\n}", "id": "leonardoTool_1-input-headers-json" },
+          { "label": "Body Schema", "name": "bodySchema", "type": "string", "rows": 5, "default": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"prompt\": { \"type\": \"string\", \"description\": \"The prompt for image generation\" },\n    \"modelId\": { \"type\": \"string\", \"default\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\" },\n    \"num_images\": { \"type\": \"integer\", \"default\": 4 },\n    \"width\": { \"type\": \"integer\", \"default\": 1024 },\n    \"height\": { \"type\": \"integer\", \"default\": 768 },\n    \"presetStyle\": { \"type\": \"string\", \"default\": \"DYNAMIC\" }\n  },\n  \"required\": [\"prompt\"]\n}", "id": "leonardoTool_1-input-bodySchema-string" }
+        ],
+        "inputs": {
+          "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+          "description": "Erstellt hochwertige Business-Opportunity Grafiken mit Leonardo AI. Benötigt einen 'prompt' und andere Parameter im Body.",
+          "headers": "{\n  \"Authorization\": \"Bearer {{credentials.leonardoCred}}\",\n  \"Content-Type\": \"application/json\"\n}",
+          "bodySchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"prompt\": { \"type\": \"string\", \"description\": \"The prompt for image generation\" },\n    \"modelId\": { \"type\": \"string\", \"default\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\" },\n    \"num_images\": { \"type\": \"integer\", \"default\": 4 },\n    \"width\": { \"type\": \"integer\", \"default\": 1024 },\n    \"height\": { \"type\": \"integer\", \"default\": 768 },\n    \"presetStyle\": { \"type\": \"string\", \"default\": \"DYNAMIC\" }\n  },\n  \"required\": [\"prompt\"]\n}"
+        },
+        "outputAnchors": [{ "id": "leonardoTool_1-output-leonardoTool_1-RequestPost", "name": "leonardoTool_1", "label": "RequestPost", "type": "Tool" }]
+      }
+    },
+    {
+      "id": "blotatoTool_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 1000 },
+      "data": {
+        "id": "blotatoTool_1",
+        "label": "📱 SocialMediaDistributor (Blotato)",
+        "name": "requestPost",
+        "type": "RequestPost",
+        "version": 1,
+        "inputParams": [
+          { "label": "URL", "name": "url", "type": "string", "default": "https://api.blotato.com/v1/posts", "id": "blotatoTool_1-input-url-string" },
+          { "label": "Description", "name": "description", "type": "string", "default": "Automatisiert Social Media Posts für Lead-Generierung mit Blotato. Benötigt 'platforms' und 'content' (mit text, hashtags etc.) im Body.", "id": "blotatoTool_1-input-description-string", "rows": 3 },
+          { "label": "Headers", "name": "headers", "type": "json", "default": "{\n  \"Authorization\": \"Bearer {{credentials.blotatoCred}}\",\n  \"Content-Type\": \"application/json\"\n}", "id": "blotatoTool_1-input-headers-json" },
+          { "label": "Body Schema", "name": "bodySchema", "type": "string", "rows": 5, "default": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"platforms\": { \"type\": \"array\", \"items\": { \"type\": \"string\" }, \"description\": \"Social media platforms (e.g., [\\\"facebook\\\", \\\"instagram\\\"])\" },\n    \"content\": { \n      \"type\": \"object\", \n      \"properties\": { \n        \"text\": { \"type\": \"string\", \"description\": \"The main text of the post\" }, \n        \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n        \"call_to_action\": { \"type\": \"string\" }\n      },\n      \"required\": [\"text\"]\n    },\n    \"campaign_name\": { \"type\": \"string\", \"description\": \"Name of the campaign\" }\n  },\n  \"required\": [\"platforms\", \"content\", \"campaign_name\"]\n}", "id": "blotatoTool_1-input-bodySchema-string" }
+        ],
+        "inputs": {
+          "url": "https://api.blotato.com/v1/posts",
+          "description": "Automatisiert Social Media Posts für Lead-Generierung mit Blotato. Benötigt 'platforms' und 'content' (mit text, hashtags etc.) im Body.",
+          "headers": "{\n  \"Authorization\": \"Bearer {{credentials.blotatoCred}}\",\n  \"Content-Type\": \"application/json\"\n}",
+          "bodySchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"platforms\": { \"type\": \"array\", \"items\": { \"type\": \"string\" }, \"description\": \"Social media platforms (e.g., [\\\"facebook\\\", \\\"instagram\\\"])\" },\n    \"content\": { \n      \"type\": \"object\", \n      \"properties\": { \n        \"text\": { \"type\": \"string\", \"description\": \"The main text of the post\" }, \n        \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n        \"call_to_action\": { \"type\": \"string\" }\n      },\n      \"required\": [\"text\"]\n    },\n    \"campaign_name\": { \"type\": \"string\", \"description\": \"Name of the campaign\" }\n  },\n  \"required\": [\"platforms\", \"content\", \"campaign_name\"]\n}"
+        },
+        "outputAnchors": [{ "id": "blotatoTool_1-output-blotatoTool_1-RequestPost", "name": "blotatoTool_1", "label": "RequestPost", "type": "Tool" }]
+      }
+    },
+    {
+      "id": "telegramTool_1",
+      "type": "customNode",
+      "position": { "x": 50, "y": 1200 },
+      "data": {
+        "id": "telegramTool_1",
+        "label": "📲 TelegramNotifier",
+        "name": "requestPost",
+        "type": "RequestPost",
+        "version": 1,
+        "inputParams": [
+          { "label": "URL", "name": "url", "type": "string", "default": "https://api.telegram.org/bot{{credentials.telegramBotTokenCred}}/sendMessage", "id": "telegramTool_1-input-url-string" },
+          { "label": "Description", "name": "description", "type": "string", "default": "Sendet eine Nachricht an einen spezifischen Telegram Chat. Benötigt 'chat_id' und 'text' im Body.", "id": "telegramTool_1-input-description-string", "rows": 3 },
+          { "label": "Headers", "name": "headers", "type": "json", "default": "{\n  \"Content-Type\": \"application/json\"\n}", "id": "telegramTool_1-input-headers-json" },
+          { "label": "Body Schema", "name": "bodySchema", "type": "string", "rows": 5, "default": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"chat_id\": { \"type\": \"string\", \"description\": \"The Telegram chat ID. Should be {{credentials.telegramChatIDCred}}\" },\n    \"text\": { \"type\": \"string\", \"description\": \"The message text to send\" },\n    \"parse_mode\": { \"type\": \"string\", \"default\": \"HTML\" }\n  },\n  \"required\": [\"chat_id\", \"text\"]\n}", "id": "telegramTool_1-input-bodySchema-string" }
+        ],
+        "inputs": {
+          "url": "https://api.telegram.org/bot{{credentials.telegramBotTokenCred}}/sendMessage",
+          "description": "Sendet eine Nachricht an einen spezifischen Telegram Chat. Benötigt 'chat_id' und 'text' im Body. Die chat_id sollte {{credentials.telegramChatIDCred}} sein.",
+          "headers": "{\n  \"Content-Type\": \"application/json\"\n}",
+          "bodySchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"chat_id\": { \"type\": \"string\", \"description\": \"The Telegram chat ID. Should be {{credentials.telegramChatIDCred}}\" },\n    \"text\": { \"type\": \"string\", \"description\": \"The message text to send\" },\n    \"parse_mode\": { \"type\": \"string\", \"default\": \"HTML\" }\n  },\n  \"required\": [\"chat_id\", \"text\"]\n}"
+        },
+        "outputAnchors": [{ "id": "telegramTool_1-output-telegramTool_1-RequestPost", "name": "telegramTool_1", "label": "RequestPost", "type": "Tool" }]
+      }
+    },
+    {
+      "id": "finalConversationChain_1",
+      "type": "customNode",
+      "position": { "x": 650, "y": 200 },
+      "data": {
+        "name": "conversationChain",
+        "type": "ConversationChain",
+        "version": 3,
+        "label": "End Konversation",
+        "inputs": {
+            "model": "{{agentLLM_1.data.instance}}",
+            "memory": "{{mainMemory_1.data.instance}}"
+        },
+        "inputParams": [
+            { "label": "Chat Model", "name": "model", "type": "BaseChatModel", "id": "finalConversationChain_1-input-model-BaseChatModel" },
+            { "label": "Memory", "name": "memory", "type": "BaseMemory", "id": "finalConversationChain_1-input-memory-BaseMemory" }
+        ],
+        "outputAnchors": [{ "id": "finalConversationChain_1-output-finalConversationChain_1-ConversationChain", "name": "finalConversationChain_1", "label": "ConversationChain", "type": "ConversationChain" }]
+      }
+    },
+    {
+      "id": "mainMemory_1",
+      "type": "customNode",
+      "position": { "x": 350, "y": 50 },
+      "data": {
+        "name": "bufferMemory",
+        "type": "BufferMemory",
+        "version": 2,
+        "label": "Hauptspeicher",
+        "inputs": {
+          "memoryKey": "chat_history",
+          "inputKey": "input",
+          "outputKey": "output"
+        },
+        "inputParams": [
+            { "label": "Memory Key", "name": "memoryKey", "type": "string", "default": "chat_history", "id": "mainMemory_1-input-memoryKey-string" },
+            { "label": "Input Key", "name": "inputKey", "type": "string", "default": "input", "id": "mainMemory_1-input-inputKey-string" },
+            { "label": "Output Key", "name": "outputKey", "type": "string", "default": "output", "id": "mainMemory_1-input-outputKey-string" }
+        ],
+        "outputAnchors": [{ "id": "mainMemory_1-output-mainMemory_1-BufferMemory", "name": "mainMemory_1", "label": "BufferMemory", "type": "BufferMemory" }]
+      }
+    }
+  ],
+  "edges": [
+    { "source": "agentLLM_1", "sourceHandle": "agentLLM_1-output-agentLLM_1-ChatOpenAI", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-llm-BaseLanguageModel", "type": "default", "id": "edge_1" },
+    { "source": "perplexityTool_1", "sourceHandle": "perplexityTool_1-output-perplexityTool_1-PerplexityAiSearch", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-tools-Tool", "type": "default", "id": "edge_2" },
+    { "source": "heygenTool_1", "sourceHandle": "heygenTool_1-output-heygenTool_1-RequestPost", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-tools-Tool", "type": "default", "id": "edge_3" },
+    { "source": "leonardoTool_1", "sourceHandle": "leonardoTool_1-output-leonardoTool_1-RequestPost", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-tools-Tool", "type": "default", "id": "edge_4" },
+    { "source": "blotatoTool_1", "sourceHandle": "blotatoTool_1-output-blotatoTool_1-RequestPost", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-tools-Tool", "type": "default", "id": "edge_5" },
+    { "source": "telegramTool_1", "sourceHandle": "telegramTool_1-output-telegramTool_1-RequestPost", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-tools-Tool", "type": "default", "id": "edge_6" },
+    { "source": "lrContentAgent_1", "sourceHandle": "lrContentAgent_1-output-lrContentAgent_1-Agent", "target": "finalConversationChain_1", "targetHandle": "finalConversationChain_1-input-model-BaseChatModel", "id": "edge_7" },
+    { "source": "mainMemory_1", "sourceHandle": "mainMemory_1-output-mainMemory_1-BufferMemory", "target": "finalConversationChain_1", "targetHandle": "finalConversationChain_1-input-memory-BaseMemory", "type": "default", "id": "edge_8" },
+    { "source": "mainMemory_1", "sourceHandle": "mainMemory_1-output-mainMemory_1-BufferMemory", "target": "lrContentAgent_1", "targetHandle": "lrContentAgent_1-input-memory-BaseMemory", "type": "default", "id": "edge_9" },
+    { "source": "agentLLM_1", "sourceHandle": "agentLLM_1-output-agentLLM_1-ChatOpenAI", "target": "finalConversationChain_1", "targetHandle": "finalConversationChain_1-input-model-BaseChatModel", "type": "default", "id": "edge_10" }
+  ]
+}
