@@ -1,0 +1,348 @@
+{
+  "name": "LR Social Media Automation (Draft)",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        300
+      ],
+      "id": "e0c6c64c-62a8-4f7a-9a4e-3d8f7a9b8c4d"
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "url": "YOUR_N8N_WEBHOOK_URL_FOR_TELEGRAM_HERE",
+        "httpMethod": "POST",
+        "path": "telegram-ideas-webhook",
+        "options": {}
+      },
+      "name": "Telegram Trigger (Webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "webhookId": "your_telegram_webhook_id_placeholder",
+      "id": "TelegramTriggerNode"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "temperature": 0.3,
+        "maxTokens": 500,
+        "jsonMode": true,
+        "messages": [
+          {
+            "role": "system",
+            "message": "Du bist ein intelligenter Assistent, der darauf spezialisiert ist, aus Benutzernachrichten strukturierte Informationen für die Social Media Content-Erstellung zu extrahieren.\nAnalysiere den bereitgestellten Text und extrahiere die folgenden Informationen:\n- 'kernidee': Die zentrale Idee oder das Thema des gewünschten Contents.\n- 'zielgruppe': Die spezifische Zielgruppe für den Content.\n- 'plattformen': Eine Liste der gewünschten Social Media Plattformen (z.B. Instagram, TikTok, YouTube). Wenn mehrere genannt werden, liste alle auf. Wenn keine explizit genannt wird, verwende einen Standardwert wie [\"Instagram\", \"TikTok\"].\n- 'tonalitaet': Die gewünschte Tonalität oder der Stil des Contents (z.B. emotional, humorvoll, informativ).\n- 'viral_video_link': Falls ein Link zu einem Video (z.B. TikTok, Instagram, YouTube) im Text enthalten ist, extrahiere diesen Link. Ansonsten lasse dieses Feld leer oder `null`.\n\nGib das Ergebnis IMMER als valides JSON-Objekt zurück.\nStelle sicher, dass das Feld 'plattformen' immer ein Array von Strings ist."
+          },
+          {
+            "role": "user",
+            "message": "={{$json.body.message.text}}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "OpenAI Input Processing",
+      "type": "n8n-nodes-langchain.chatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID_IN_N8N",
+          "name": "OpenAI account"
+        }
+      },
+      "id": "OpenAIInputProcessingNode"
+    },
+    {
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "headerAuth",
+        "options": {
+          "splitIntoItems": false
+        },
+        "bodyParametersJson": "=\n{\n  \"model\": \"llama-3.1-sonar-large-128k-online\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Du bist ein Rechercheassistent, der darauf spezialisiert ist, virale Social-Media-Trends und Content-Ideen zu finden.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Finde für das Thema bzw. die Kernidee '{{$node[\"OpenAIInputProcessingNode\"].json.kernidee}}' 3 aktuelle virale Trends oder Video-Konzepte. Diese sollten zur Zielgruppe '{{$node[\"OpenAIInputProcessingNode\"].json.zielgruppe}}' passen und für die Plattform(en) '{{$node[\"OpenAIInputProcessingNode\"].json.plattformen.join(', ')}}' geeignet sein. Gib mir für jeden Trend eine kurze Beschreibung, einen möglichen Hook-Satz und einen Call-to-Action-Ansatz. Recherchiere den Stand von Juli 2025. Antworte prägnant und fokussiert auf verwertbare Ideen.\"\n    }\n  ],\n  \"temperature\": 0.7\n}",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$credentials.perplexityApiKey.apiKey}}"
+            }
+          ]
+        }
+      },
+      "name": "Perplexity AI Research",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        400,
+        300
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_PERPLEXITY_CREDENTIAL_ID_IN_N8N",
+          "name": "Perplexity API Key"
+        }
+      },
+      "id": "PerplexityResearchNode"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "temperature": 0.8,
+        "maxTokens": 2500,
+        "jsonMode": true,
+        "messages": [
+          {
+            "role": "system",
+            "message": "Du bist ein Experte für Social Media Content-Erstellung mit Spezialisierung auf das LR Business. Deine Aufgabe ist es, basierend auf den bereitgestellten Informationen einen Posting-Text, ein Videoskript für HeyGen und einen Bild-Prompt für Leonardo AI zu generieren. Der Fokus liegt auf der Gewinnung von Interessenten für das LR Business, nicht auf direktem Produktverkauf. Die Inhalte müssen authentisch sein und dürfen keine übertriebenen Versprechungen enthalten.\nAntworte NUR mit einem validen JSON-Objekt, das die folgenden Felder enthält: \"posting_text\", \"heygen_videoskript\", \"leonardo_bildprompt\"."
+          },
+          {
+            "role": "user",
+            "message": "=Aufgabe: Erstelle Social Media Content für das LR Business.\n\n**1. Basis-Informationen:**\n*   Ursprüngliche Idee/Thema: \"{{$node[\"OpenAIInputProcessingNode\"].json.kernidee}}\"\n*   Zielgruppe: \"{{$node[\"OpenAIInputProcessingNode\"].json.zielgruppe}}\"\n*   Gewünschte Tonalität: \"{{$node[\"OpenAIInputProcessingNode\"].json.tonalitaet}}\"\n*   Ziel-Plattformen: \"{{$node[\"OpenAIInputProcessingNode\"].json.plattformen.join(', ')}}\"\n{{ (($node[\"OpenAIInputProcessingNode\"].json.viral_video_link) ? '*   Referenz-Video: ' + $node[\"OpenAIInputProcessingNode\"].json.viral_video_link : '') }}\n\n**2. Recherche-Ergebnisse von Perplexity AI:**\n\"\"\"\n{{$node[\"PerplexityResearchNode\"].json.choices[0].message.content}}\n\"\"\"\n\n**3. Deine Aufgaben – Erstelle folgendes im JSON-Format:**\na.  `posting_text`: Ein ansprechender Social Media Posting-Text (ca. 150-500 Zeichen) mit Hook, Story-Ansatz und klarem Call-to-Action. Fokus: Interesse am LR Geschäftsmodell wecken. Authentisch und nahbar. 3-5 relevante Hashtags.\nb.  `heygen_videoskript`: Ein detailliertes Sprecher-Skript für ein HeyGen Avatar-Video (Länge ca. 30-60 Sekunden). Nutze Rechercheergebnisse. Klare Struktur, ggf. Regieanweisungen.\nc.  `leonardo_bildprompt`: Ein prägnanter und effektiver Prompt (max. 200 Zeichen) für Leonardo AI. Bild soll Kernidee, Zielgruppe, Tonalität visuell umsetzen."
+          }
+        ],
+        "options": {}
+      },
+      "name": "OpenAI Content Creation",
+      "type": "n8n-nodes-langchain.chatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        600,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIAL_ID_IN_N8N",
+          "name": "OpenAI account"
+        }
+      },
+      "id": "OpenAIContentCreationNode"
+    },
+    {
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "authentication": "headerAuth",
+        "options": {},
+        "bodyParametersJson": "=\n{\n  \"prompt\": \"{{$node[\"OpenAIContentCreationNode\"].json.leonardo_bildprompt}}\",\n  \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \n  \"num_images\": 1,\n  \"width\": 1024,\n  \"height\": 1024,\n  \"presetStyle\": \"DYNAMIC\",\n  \"public\": false,\n  \"promptMagic\": true\n}",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$credentials.leonardoApiKey.apiKey}}"
+            }
+          ]
+        }
+      },
+      "name": "Leonardo AI Image Gen (Start)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        800,
+        150
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_LEONARDO_CREDENTIAL_ID_IN_N8N",
+          "name": "Leonardo API Key"
+        }
+      },
+      "id": "LeonardoImageGenStartNode"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.heygen.com/v2/video/generate",
+        "authentication": "headerAuth",
+        "options": {},
+        "bodyParametersJson": "=\n{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"546a88a9e07549c6b226b5a63815c61c\",\n        \"avatar_style\": \"normal\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{$node[\"OpenAIContentCreationNode\"].json.heygen_videoskript}}\",\n        \"voice_id\": \"22ffed10f8cd41b0935b702f8b12b5b5\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#1a1a2e\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  },\n  \"title\": \"LR Biz Op - {{ $node['OpenAIInputProcessingNode'].json.kernidee.slice(0,30) }}\",\n  \"test\": false,\n  \"caption\": true,\n  \"caption_locales\": [\"de-DE\"]\n}",
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "={{$credentials.heygenApiKey.apiKey}}"
+            }
+          ]
+        }
+      },
+      "name": "HeyGen Video Gen (Start)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        800,
+        450
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "YOUR_HEYGEN_CREDENTIAL_ID_IN_N8N",
+          "name": "HeyGen API Key"
+        }
+      },
+      "id": "HeyGenVideoGenStartNode"
+    },
+    {
+      "parameters": {
+        "sheetId": "YOUR_GOOGLE_SHEET_ID_HERE",
+        "sheetName": "Content Pipeline",
+        "operation": "append",
+        "columns": {
+          "fields": [
+            {
+              "columnName": "Content ID",
+              "fieldValue": "={{$execution.id + \"_\" + Date.now()}}"
+            },
+            {
+              "columnName": "Erstellungsdatum n8n",
+              "fieldValue": "={{$now.toFormat(\"yyyy-MM-dd HH:mm:ss\")}}"
+            },
+            {
+              "columnName": "Kernidee",
+              "fieldValue": "={{$node[\"OpenAIInputProcessingNode\"].json.kernidee}}"
+            },
+            {
+              "columnName": "Zielgruppe",
+              "fieldValue": "={{$node[\"OpenAIInputProcessingNode\"].json.zielgruppe}}"
+            },
+            {
+              "columnName": "Plattformen",
+              "fieldValue": "={{$node[\"OpenAIInputProcessingNode\"].json.plattformen.join(', ')}}"
+            },
+            {
+              "columnName": "Tonalität",
+              "fieldValue": "={{$node[\"OpenAIInputProcessingNode\"].json.tonalitaet}}"
+            },
+            {
+              "columnName": "Posting Text",
+              "fieldValue": "={{$node[\"OpenAIContentCreationNode\"].json.posting_text}}"
+            },
+            {
+              "columnName": "Bild URL (Leonardo Job ID)",
+              "fieldValue": "={{$node[\"LeonardoImageGenStartNode\"].json.sdGenerationJob.generationId || ''}}"
+            },
+            {
+              "columnName": "Video URL (HeyGen Job ID)",
+              "fieldValue": "={{$node[\"HeyGenVideoGenStartNode\"].json.data.video_id || ''}}"
+            },
+            {
+              "columnName": "Status Veröffentlichung",
+              "fieldValue": "Bereit für Blotato"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Google Sheets Export",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        1000,
+        300
+      ],
+      "credentials": {
+        "googleApi": {
+          "id": "YOUR_GOOGLE_SHEETS_CREDENTIAL_ID_IN_N8N",
+          "name": "Google Sheets Account"
+        }
+      },
+      "id": "GoogleSheetsExportNode"
+    }
+  ],
+  "connections": {
+    "TelegramTriggerNode": {
+      "main": [
+        [
+          {
+            "node": "OpenAIInputProcessingNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAIInputProcessingNode": {
+      "main": [
+        [
+          {
+            "node": "PerplexityResearchNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PerplexityResearchNode": {
+      "main": [
+        [
+          {
+            "node": "OpenAIContentCreationNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAIContentCreationNode": {
+      "main": [
+        [
+          {
+            "node": "LeonardoImageGenStartNode",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HeyGenVideoGenStartNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LeonardoImageGenStartNode": {
+      "main": [
+        [
+          {
+            "node": "GoogleSheetsExportNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HeyGenVideoGenStartNode": {
+      "main": [
+        [
+          {
+            "node": "GoogleSheetsExportNode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+        "main": [
+            [
+                {
+                    "node": "TelegramTriggerNode",
+                    "type": "main",
+                    "index": 0
+                }
+            ]
+        ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "pinData": {},
+  "versionId": "placeholder-version-id",
+  "triggerConnections": {},
+  "tags": []
+}
