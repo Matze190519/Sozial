@@ -436,42 +436,18 @@
     },
     "mapper": {
       "values": [
-        [
-          "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"
-        ],
-        [
-          "{{1.youtube_url}}"
-        ],
-        [
-          "{{1.content_title}}"
-        ],
-        [
-          "{{1.lr_focus}}"
-        ],
-        [
-          "{{1.target_platforms}}"
-        ],
-        [
-          "{{1.urgency_level}}"
-        ],
-        [
-          "Leonardo YouTube: {{12.data.generations[0].status}}"
-        ],
-        [
-          "Leonardo Instagram: {{13.data.generations[0].status}}"
-        ],
-        [
-          "Leonardo TikTok: {{14.data.generations[0].status}}"
-        ],
-        [
-          "Blotato Posting: {{if(15.status; \"SUCCESS\"; \"FAILED\")}}"
-        ],
-        [
-          "Transcript Length: {{length(3.data.transcript)}}"
-        ],
-        [
-          "Status: LR LAMBO AUTOMATION COMPLETE ✅"
-        ]
+        ["{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}"],
+        ["{{1.youtube_url}}"],
+        ["{{1.content_title}}"],
+        ["{{1.lr_focus}}"],
+        ["{{1.target_platforms}}"],
+        ["{{1.urgency_level}}"],
+        ["Leonardo YouTube: {{12.data.generations[0].status}}"],
+        ["Leonardo Instagram: {{13.data.generations[0].status}}"],
+        ["Leonardo TikTok: {{14.data.generations[0].status}}"],
+        ["Blotato Posting: {{if(15.status; \"SUCCESS\"; \"FAILED\")}}"],
+        ["Transcript Length: {{length(3.data.transcript)}}"],
+        ["Status: LR LAMBO AUTOMATION COMPLETE ✅"]
       ]
     },
     "metadata": {

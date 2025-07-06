@@ -23,28 +23,76 @@
         "designer": { "x": 0, "y": 0 },
         "restore": {},
         "expect": [
-          { "name": "youtube_url", "type": "url", "label": "YouTube URL", "required": true },
-          { "name": "content_title", "type": "text", "label": "Content Title", "required": false },
-          { "name": "target_platforms", "type": "text", "label": "Target Platforms", "required": true },
-          { "name": "urgency_level", "type": "select", "label": "Urgency Level", "options": [
-            { "label": "Low", "value": "low" },
-            { "label": "Medium", "value": "medium" },
-            { "label": "High", "value": "high" },
-            { "label": "Viral", "value": "viral" },
-            { "label": "LR_Lambo", "value": "lr_lambo" }
-          ], "required": true },
-          { "name": "auto_post", "type": "boolean", "label": "Auto Post", "required": false },
-          { "name": "generate_video", "type": "boolean", "label": "Generate Video", "required": false },
-          { "name": "lead_generation", "type": "boolean", "label": "Lead Generation", "required": false },
-          { "name": "lr_focus", "type": "select", "label": "LR Focus Area", "options": [
-            { "label": "Autokonzept", "value": "autokonzept" },
-            { "label": "Garantierte Boni", "value": "garantierte_boni" },
-            { "label": "Made in Germany", "value": "made_in_germany" },
-            { "label": "Bruce Willis", "value": "bruce_willis" },
-            { "label": "Guido Maria Kretschmer", "value": "guido_kretschmer" },
-            { "label": "Vererbbares Einkommen", "value": "vererbbares_einkommen" },
-            { "label": "KI Coaching", "value": "ki_coaching" }
-          ], "required": true }
+          {
+            "name": "youtube_url",
+            "type": "url",
+            "label": "YouTube URL",
+            "required": true
+          },
+          {
+            "name": "content_title",
+            "type": "text",
+            "label": "Content Title",
+            "required": false
+          },
+          {
+            "name": "target_platforms",
+            "type": "text",
+            "label": "Target Platforms",
+            "required": true
+          },
+          {
+            "name": "urgency_level",
+            "type": "select",
+            "label": "Urgency Level",
+            "options": [
+              { "label": "Low", "value": "low" },
+              { "label": "Medium", "value": "medium" },
+              { "label": "High", "value": "high" },
+              { "label": "Viral", "value": "viral" },
+              { "label": "LR_Lambo", "value": "lr_lambo" }
+            ],
+            "required": true
+          },
+          {
+            "name": "auto_post",
+            "type": "boolean",
+            "label": "Auto Post",
+            "required": false
+          },
+          {
+            "name": "generate_video",
+            "type": "boolean",
+            "label": "Generate Video",
+            "required": false
+          },
+          {
+            "name": "lead_generation",
+            "type": "boolean",
+            "label": "Lead Generation",
+            "required": false
+          },
+          {
+            "name": "lr_focus",
+            "type": "select",
+            "label": "LR Focus Area",
+            "options": [
+              { "label": "Autokonzept", "value": "autokonzept" },
+              { "label": "Garantierte Boni", "value": "garantierte_boni" },
+              { "label": "Made in Germany", "value": "made_in_germany" },
+              { "label": "Bruce Willis", "value": "bruce_willis" },
+              {
+                "label": "Guido Maria Kretschmer",
+                "value": "guido_kretschmer"
+              },
+              {
+                "label": "Vererbbares Einkommen",
+                "value": "vererbbares_einkommen"
+              },
+              { "label": "KI Coaching", "value": "ki_coaching" }
+            ],
+            "required": true
+          }
         ]
       }
     },
@@ -73,7 +121,10 @@
         "url": "https://api.dumplingai.com/transcript",
         "method": "POST",
         "headers": [
-          { "name": "Authorization", "value": "Bearer {{DUMPLING_AI_API_KEY}}" },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{DUMPLING_AI_API_KEY}}"
+          },
           { "name": "Content-Type", "value": "application/json" }
         ],
         "body": "{\"videoUrl\": \"{{1.youtube_url}}\", \"language\": \"auto\", \"format\": \"text\", \"include_timestamps\": true}",
@@ -156,7 +207,7 @@
           { "name": "Content-Type", "value": "application/json" }
         ],
         "body": "{\"prompt\": \"{{7.leonardo.youtube.prompt}} | LR Health Beauty Luxury Lifestyle | {{1.lr_focus}} | Made in Germany Quality | No people visible | Cinematic 4K | {{2.data.choices[0].message.content}}\", \"modelId\": \"6bef9f1b-29cb-40c7-b9df-32b51c1f67d3\", \"width\": 1024, \"height\": 576, \"num_images\": 3, \"guidance_scale\": 8, \"presetStyle\": \"CINEMATIC\", \"promptMagic\": true, \"photoReal\": true, \"photoRealVersion\": \"v2\", \"negativePrompt\": \"people, faces, humans, persons, text, watermark, blurry, low quality\"}",
-        "timeout\": 300
+        "timeout": 300
       },
       "mapper": {},
       "metadata": { "designer": { "x": 2100, "y": 0 } }
@@ -829,7 +880,9 @@
           ["Interest Level: {{27.contact_details.interest_level}}"],
           ["LR Focus Match: {{27.contact_details.lr_focus_match_score}}"],
           ["Transcript Length: {{length(3.data.transcript)}}"],
-          ["Perplexity Trend Score: {{length(2.data.choices[0].message.content)}}"],
+          [
+            "Perplexity Trend Score: {{length(2.data.choices[0].message.content)}}"
+          ],
           ["Total Processing Time: {{formatDate(now; \"HH:mm:ss\")}}"],
           ["Status: LR LAMBO AUTOMATION COMPLETE ✅"]
         ]
@@ -1325,7 +1378,12 @@
           "PLATFORMS": "{{1.target_platforms}}",
           "PERFSCORE": "{{50.performance_score}}"
         },
-        "tags": ["LR_LAMBO", "{{1.lr_focus}}", "{{1.urgency_level}}", "Social_Automation"]
+        "tags": [
+          "LR_LAMBO",
+          "{{1.lr_focus}}",
+          "{{1.urgency_level}}",
+          "Social_Automation"
+        ]
       },
       "mapper": {},
       "metadata": { "designer": { "x": 6600, "y": 0 } },
@@ -1368,7 +1426,12 @@
           "lead_magnet": "{{27.lead_magnet.titel}}",
           "automation_success": "{{add(mul(if(contains(16.data.generations[0].status; \"COMPLETE\"); 20; 0); 1); mul(if(25.status; 30; 0); 1); mul(if(28.id; 50; 0); 1))}}"
         },
-        "tags": ["LR_LAMBO", "{{1.lr_focus}}", "Social_Automation", "{{1.urgency_level}}"]
+        "tags": [
+          "LR_LAMBO",
+          "{{1.lr_focus}}",
+          "Social_Automation",
+          "{{1.urgency_level}}"
+        ]
       },
       "mapper": {},
       "metadata": { "designer": { "x": 6600, "y": 200 } },
@@ -1480,7 +1543,9 @@
           ["Needs Optimization"],
           ["{{1.target_platforms}}"],
           ["{{27.contact_details.interest_level}}"],
-          ["Priority: {{if(lt(50.performance_score; 50); \"HIGH\"; \"MEDIUM\")}}"],
+          [
+            "Priority: {{if(lt(50.performance_score; 50); \"HIGH\"; \"MEDIUM\")}}"
+          ],
           ["Action Required: Content & Prompt Optimization"]
         ]
       },

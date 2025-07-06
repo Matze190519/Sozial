@@ -21,14 +21,64 @@
         "designer": { "x": 0, "y": 0 },
         "restore": {},
         "expect": [
-          { "name": "youtube_url", "type": "url", "label": "YouTube URL", "required": true },
-          { "name": "content_title", "type": "text", "label": "Content Title", "required": false },
-          { "name": "target_platforms", "type": "text", "label": "Target Platforms", "required": true },
-          { "name": "urgency_level", "type": "select", "label": "Urgency Level", "options": ["low", "medium", "high", "viral", "lr_lambo"], "required": true },
-          { "name": "auto_post", "type": "boolean", "label": "Auto Post", "required": false },
-          { "name": "generate_video", "type": "boolean", "label": "Generate Video", "required": false },
-          { "name": "lead_generation", "type": "boolean", "label": "Lead Generation", "required": false },
-          { "name": "lr_focus", "type": "select", "label": "LR Focus Area", "options": ["autokonzept", "garantierte_boni", "made_in_germany", "bruce_willis", "guido_kretschmer", "vererbbares_einkommen", "ki_coaching"], "required": true }
+          {
+            "name": "youtube_url",
+            "type": "url",
+            "label": "YouTube URL",
+            "required": true
+          },
+          {
+            "name": "content_title",
+            "type": "text",
+            "label": "Content Title",
+            "required": false
+          },
+          {
+            "name": "target_platforms",
+            "type": "text",
+            "label": "Target Platforms",
+            "required": true
+          },
+          {
+            "name": "urgency_level",
+            "type": "select",
+            "label": "Urgency Level",
+            "options": ["low", "medium", "high", "viral", "lr_lambo"],
+            "required": true
+          },
+          {
+            "name": "auto_post",
+            "type": "boolean",
+            "label": "Auto Post",
+            "required": false
+          },
+          {
+            "name": "generate_video",
+            "type": "boolean",
+            "label": "Generate Video",
+            "required": false
+          },
+          {
+            "name": "lead_generation",
+            "type": "boolean",
+            "label": "Lead Generation",
+            "required": false
+          },
+          {
+            "name": "lr_focus",
+            "type": "select",
+            "label": "LR Focus Area",
+            "options": [
+              "autokonzept",
+              "garantierte_boni",
+              "made_in_germany",
+              "bruce_willis",
+              "guido_kretschmer",
+              "vererbbares_einkommen",
+              "ki_coaching"
+            ],
+            "required": true
+          }
         ]
       }
     },
@@ -57,7 +107,10 @@
         "url": "https://api.dumplingai.com/transcript",
         "method": "POST",
         "headers": [
-          { "name": "Authorization", "value": "Bearer {{DUMPLING_AI_API_KEY}}" },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{DUMPLING_AI_API_KEY}}"
+          },
           { "name": "Content-Type", "value": "application/json" }
         ],
         "body": "{\"videoUrl\": \"{{1.youtube_url}}\", \"language\": \"auto\", \"format\": \"text\", \"include_timestamps\": true}",
@@ -551,7 +604,9 @@
           ["Interest Level: {{23.contact_details.interest_level}}"],
           ["LR Focus Match: {{23.contact_details.lr_focus_match_score}}"],
           ["Transcript Length: {{length(3.data.transcript)}}"],
-          ["Perplexity Trend Score: {{length(2.data.choices[0].message.content)}}"],
+          [
+            "Perplexity Trend Score: {{length(2.data.choices[0].message.content)}}"
+          ],
           ["Total Processing Time: {{formatDate(now; \"HH:mm:ss\")}}"],
           ["Status: LR LAMBO AUTOMATION COMPLETE ✅"]
         ]
