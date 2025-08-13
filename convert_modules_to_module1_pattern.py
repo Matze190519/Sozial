@@ -19,7 +19,7 @@ def convert_module_to_module1_pattern():
             'name': 'Module 2: Avatar Lead Generation'
         },
         {
-            'file': 'V_OMEGA_MODULE_3_VISUAL_3D_GENERATOR_OPTIMIZED_FINAL.json',
+            'file': 'V_OMEGA_MODULE_3_VISUAL_3D_GENERATOR_REAL_APIS.json',
             'name': 'Module 3: Visual & 3D Generator'
         },
         {
