@@ -960,7 +960,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"width\": 1920,\n  \"height\": 1080,\n  \"fps\": 30,\n  \"frames\": [\n    {\n      \"name\": \"video_layer\",\n      \"video_url\": \"{{ $node['kling_master_018'].json.video_url || $node['runway_gen3_026'].json.video_url }}\"\n    },\n    {\n      \"name\": \"watermark\",\n      \"text\": \"LR Lifestyle Team\",\n      \"font_family\": \"Montserrat\",\n      \"font_size\": 36,\n      \"font_weight\": \"bold\",\n      \"color\": \"rgba(255,215,0,0.8)\",\n      \"position_x\": \"right\",\n      \"position_y\": \"bottom\",\n      \"effect\": \"glass_etching\"\n    }\n  ]\n}",
+        "jsonBody": "{\n  \"width\": 1920,\n  \"height\": 1080,\n  \"fps\": 30,\n  \"frames\": [\n    {\n      \"name\": \"video_layer\",\n      \"video_url\": \"{{ $node['kling_master_018'].json.video_url || $node['runway_gen3_026'].json.video_url }}\"\n    },\n    {\n      \"name\": \"logo_watermark\",\n      \"image_url\": \"./lr_lifestyle_logo_flat.jpg\",\n      \"width\": 120,\n      \"height\": 120,\n      \"opacity\": 0.8,\n      \"position_x\": \"right\",\n      \"position_y\": \"bottom\",\n      \"effect\": \"glass_etching\",\n      \"blend_mode\": \"overlay\"\n    }\n  ]\n}",
         "options": {
           "timeout": 90000
         }
