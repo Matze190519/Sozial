@@ -51,7 +51,7 @@ const alienConfig = {
 - **fal.ai**: 15+ models (Flux Pro v1.1 Ultra, Kling 2.1, MiniMax Hailuo, etc.)
 - **HeyGen v2**: Avatar video generation with motion types
 - **ElevenLabs**: VSMR audio with eleven_turbo_v2_5
-- **Runway Gen-3 Turbo**: Reality distortion video effects
+- **Runway Gen-4 Turbo**: Reality distortion video effects
 - **Luma Dream Loop**: Quantum wealth visualization
 - **Leonardo Ultra**: Hyperrealistic crystal lion environments
 

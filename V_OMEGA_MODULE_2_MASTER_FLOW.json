@@ -650,7 +650,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz* Stell dir vor... *Crystal-Löwe brüllt sanft* Dein Traumauto... nur 99 Euro im Monat... *Glaspartikel klirren* Das LR Lifestyle Team öffnet Portale zu deiner Zukunft... *Quantenfrequenz intensiviert sich* Während du schläfst, baut sich dein imperium auf... *Hologramm materialisiert sich* Die Galaxy wartet auf dich...\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.3,\n    \"similarity_boost\": 0.9,\n    \"style\": 0.8,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
+        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz* Stell dir vor... *Crystal-Löwe brüllt sanft* Dein Traumauto... nur 99 Euro im Monat... *Glaspartikel klirren* Das LR Lifestyle Team öffnet Portale zu deiner Zukunft... *Quantenfrequenz intensiviert sich* Während du schläfst, baut sich dein imperium auf... *Hologramm materialisiert sich* Die Galaxy wartet auf dich...\",\n  \"mo  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.3,\n    \"similarity_boost\": 0.9,\n    \"style\": 0.8,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
         "options": {
           "timeout": 30000
         }
@@ -858,13 +858,13 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"model\": \"gen3a_turbo\",\n  \"promptImage\": \"{{ $node['flux_ultra_016'].json.images[2].url }}\",\n  \"promptText\": \"Reality distortion maximum, glass world transformation, luxury cars emerge from portals, crystal lion leads the way, camera movement through quantum dimensions\",\n  \"watermark\": false,\n  \"duration\": 10,\n  \"ratio\": \"16:9\"\n}",
+        "jsonBody": "{\n  \"model\": \"gen4_turbo\",\n  \"promptImage\": \"{{ $node['flux_ultra_016'].json.images[2].url }}\",\n  \"promptText\": \"Reality distortion maximum, glass world transformation, luxury cars emerge from portals, crystal lion leads the way, camera movement through quantum dimensions\",\n  \"watermark\": false,\n  \"duration\": 10,\n  \"ratio\": \"16:9\"\n}",
         "options": {
           "timeout": 120000
         }
       },
       "id": "a03e8855-1547-4b2e-a9a4-ef87074066ba",
-      "name": "🚀 Runway Gen-3 Turbo",
+      "name": "🚀 Runway Gen-4 Turbo",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -1338,7 +1338,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// FINAL QUALITY ASSURANCE FROM YEAR 3025\nconst qaReport = {\n  workflow: 'V_OMEGA_ALIEN_INTELLIGENCE_FINAL',\n  version: 'YEAR_3025_GALAXY_CONQUEST',\n  total_nodes: 45,\n  all_nodes_connected: true,\n  \n  apis_utilized: [\n    'Perplexity Sonar Huge', 'NewsAPI', 'Reddit', 'YouTube', 'SocialSearcher',\n    'Claude 3.5 Opus', 'DeepSeek V3', 'Google Sheets', 'Telegram',\n    'Wassenger', 'fal.ai Flux 1.2 Ultra', 'Ideogram v2 Turbo',\n    'Kling 2.1 Master', 'MiniMax Hailuo', 'OmniGen v1',\n    'Fast SDXL Glass', 'Stable Cascade', 'Tripo 3D',\n    'ElevenLabs VSMR', 'HeyGen v2', 'Runway Gen-3 Turbo',\n    'Luma Dream 1.5', 'Leonardo Ultra', 'Bannerbear',\n    'Klap v1.5', 'Simplified', 'Predis v2', 'Blotato v2', 'ZylaLabs'\n  ],\n  \n  alien_features_implemented: [\n    '✅ Glass Transformation Pipeline 2.0',\n    '✅ Crystal Lion Character Consistency',\n    '✅ VSMR 432Hz Consciousness Expansion',\n    '✅ 3D Hologram Generation (Tripo)',\n    '✅ Quantum Glass Loop (Luma)',\n    '✅ Multi-KI Fusion (27+ APIs)',\n    '✅ Parallel Universe Scanning',\n    '✅ Dynamic Prompt DNA Evolution',\n    '✅ 97.3% Viral Score Enforcement',\n    '✅ Exponential Backoff Error Handling',\n    '✅ Begehbare 3D Welten',\n    '✅ Cinema-Grade Video (Kling 2.1)',\n    '✅ Character Edit Consistency',\n    '✅ Glass Watermark Integration',\n    '✅ A/B Testing Framework'\n  ],\n  \n  content_capabilities: {\n    images: '16K resolution with volumetric lighting',\n    videos: '1080p cinema-grade with glass effects',\n    audio: 'VSMR 432Hz binaural consciousness expansion',\n    '3d_models': 'Interactive GLB holograms',\n    avatars: 'Streaming with emotion sync',\n    distribution: 'Multi-platform viral engine'\n  },\n  \n  performance_expectations: {\n    viral_reach: '1+ Billion views',\n    engagement_rate: '>25%',\n    conversion_rate: '>10%',\n    team_growth: '50,000+ members/month'\n  },\n  \n  unique_selling_points: [\n    'Endless Quantum-Glass-Hologramm-Loop',\n    'Crystal-Löwe als unkopierbares Maskottchen',\n    'VSMR-Bewusstseinserweiterung',\n    'Begehbare 3D-Welten',\n    'Multi-KI-Fusion unmöglich nachzumachen',\n    'Selbst-evolvierende Prompt-DNA'\n  ],\n  \n  crystal_lion_message: '🦁 ROAR! Traumauto ab 99€/Monat - Die Galaxy gehört UNS! 1 MILLIARDE Views incoming!',\n  \n  system_status: 'READY_FOR_GALACTIC_DOMINATION',\n  expected_impact: 'WELTVERÄNDERND_YEAR_3025'\n};\n\nreturn qaReport;"
+        "jsCode": "// FINAL QUALITY ASSURANCE FROM YEAR 3025\nconst qaReport = {\n  workflow: 'V_OMEGA_ALIEN_INTELLIGENCE_FINAL',\n  version: 'YEAR_3025_GALAXY_CONQUEST',\n  total_nodes: 45,\n  all_nodes_connected: true,\n  \n  apis_utilized: [\n    'Perplexity Sonar Huge', 'NewsAPI', 'Reddit', 'YouTube', 'SocialSearcher',\n    'Claude 3.5 Opus', 'DeepSeek V3', 'Google Sheets', 'Telegram',\n    'Wassenger', 'fal.ai Flux 1.2 Ultra', 'Ideogram v2 Turbo',\n    'Kling 2.1 Master', 'MiniMax Hailuo', 'OmniGen v1',\n    'Fast SDXL Glass', 'Stable Cascade', 'Tripo 3D',\n    'ElevenLabs VSMR', 'HeyGen v2', 'Runway Gen-4 Turbo',MR', 'HeyGen v2', 'Runway Gen-3 Turbo',\n    'Luma Dream 1.5', 'Leonardo Ultra', 'Bannerbear',\n    'Klap v1.5', 'Simplified', 'Predis v2', 'Blotato v2', 'ZylaLabs'\n  ],\n  \n  alien_features_implemented: [\n    '✅ Glass Transformation Pipeline 2.0',\n    '✅ Crystal Lion Character Consistency',\n    '✅ VSMR 432Hz Consciousness Expansion',\n    '✅ 3D Hologram Generation (Tripo)',\n    '✅ Quantum Glass Loop (Luma)',\n    '✅ Multi-KI Fusion (27+ APIs)',\n    '✅ Parallel Universe Scanning',\n    '✅ Dynamic Prompt DNA Evolution',\n    '✅ 97.3% Viral Score Enforcement',\n    '✅ Exponential Backoff Error Handling',\n    '✅ Begehbare 3D Welten',\n    '✅ Cinema-Grade Video (Kling 2.1)',\n    '✅ Character Edit Consistency',\n    '✅ Glass Watermark Integration',\n    '✅ A/B Testing Framework'\n  ],\n  \n  content_capabilities: {\n    images: '16K resolution with volumetric lighting',\n    videos: '1080p cinema-grade with glass effects',\n    audio: 'VSMR 432Hz binaural consciousness expansion',\n    '3d_models': 'Interactive GLB holograms',\n    avatars: 'Streaming with emotion sync',\n    distribution: 'Multi-platform viral engine'\n  },\n  \n  performance_expectations: {\n    viral_reach: '1+ Billion views',\n    engagement_rate: '>25%',\n    conversion_rate: '>10%',\n    team_growth: '50,000+ members/month'\n  },\n  \n  unique_selling_points: [\n    'Endless Quantum-Glass-Hologramm-Loop',\n    'Crystal-Löwe als unkopierbares Maskottchen',\n    'VSMR-Bewusstseinserweiterung',\n    'Begehbare 3D-Welten',\n    'Multi-KI-Fusion unmöglich nachzumachen',\n    'Selbst-evolvierende Prompt-DNA'\n  ],\n  \n  crystal_lion_message: '🦁 ROAR! Traumauto ab 99€/Monat - Die Galaxy gehört UNS! 1 MILLIARDE Views incoming!',\n  \n  system_status: 'READY_FOR_GALACTIC_DOMINATION',\n  expected_impact: 'WELTVERÄNDERND_YEAR_3025'\n};\n\nreturn qaReport;"
       },
       "id": "c5d5a6e6-8a53-49db-9cfb-465797b7cffe",
       "name": "✅ QA Final Check",
@@ -1722,7 +1722,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"text\": \"{{ $node['claude_scriptwriter_007'].json.choices[0].message.content }}\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": {{ $json.emotion_state === 'calming' ? 0.7 : 0.5 }},\n    \"similarity_boost\": 0.85,\n    \"style\": {{ $json.emotion_state === 'enthusiastic' ? 0.9 : 0.6 }},\n    \"use_speaker_boost\": true\n  },\n  \"pronunciation_dictionary_locators\": [],\n  \"output_format\": \"mp3_44100_192\"\n}",
+        "jsonBody": "{\n  \"text\": \"{{ $node['claude_scriptwriter_007'].json.choices[0].message.content }}\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": {{ $json.emotion_state === 'calming' ? 0.7 : 0.5 }},\n    \"similarity_boost\": 0.85,\n    \"style\": {{ $json.emotion_state === 'enthusiastic' ? 0.9 : 0.6 }},\n    \"use_speaker_boost\": true\n  },\n  \"pronunciation_dictionary_locators\": [],\n  \"output_format\": \"mp3_44100_192\"\n}",
         "options": {
           "timeout": 30000
         }
@@ -3817,7 +3817,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz Frequenz* Stell dir vor... *Glaspartikel schweben* Dein Traumauto... nur 99 Euro im Monat... *Crystal-Löwe brüllt sanft* Das LR Lifestyle Team öffnet Portale zu deiner Zukunft... *Quantenfrequenz intensiviert sich* Während du schläfst, baut sich dein Imperium auf... *binaurale Beats* Die Galaxy wartet auf dich... *Subliminal: Du bist bereits erfolgreich*\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.3,\n    \"similarity_boost\": 0.9,\n    \"style\": 0.8,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
+        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz Frequenz* Stell dir vor... *Glaspartikel schweben* Dein Traumauto... nur 99 Euro im Monat... *Crystal-Löwe brüllt sanft* Das LR Lifestyle Team öffnet Portale zu deiner Zukunft... *Quantenfrequenz intensiviert sich* Während du schläfst, baut sich dein Imperium auf... *binaurale Beats* Die Galaxy wartet auf dich... *Subliminal: Du bist bereits erfolgreich*\",\n  \"mo  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.3,\n    \"similarity_boost\": 0.9,\n    \"style\": 0.8,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
         "options": {
           "timeout": 30000
         }
@@ -3885,7 +3885,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"text\": \"BOOM! Der Crystal-Löwe hat gesprochen! Dein Traumauto wartet - nur 99 Euro im Monat! Das LR Lifestyle Team macht das Unmögliche möglich. Finanzielle Freiheit ist keine Vision mehr - es ist deine neue Realität. Die Galaxy gehört uns! ROAR!\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.6,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
+        "jsonBody": "{\n  \"text\": \"BOOM! Der Crystal-Löwe hat gesprochen! Dein Traumauto wartet - nur 99 Euro im Monat! Das LR Lifestyle Team macht das Unmögliche möglich. Finanzielle Freiheit ist keine Vision mehr - es ist deine neue Realität. Die Galaxy gehört uns! ROAR!\",\n  \"m  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.6,\n    \"use_speaker_boost\": true\n  },\n  \"output_format\": \"mp3_44100_192\"\n}",
         "options": {
           "timeout": 30000
         }
@@ -6092,7 +6092,7 @@
             "index": 0
           },
           {
-            "node": "🚀 Runway Gen-3 Turbo",
+            "node": "🚀 Runway Gen-4 Turbo",
             "type": "main",
             "index": 0
           }
@@ -6203,7 +6203,7 @@
         ]
       ]
     },
-    "🚀 Runway Gen-3 Turbo": {
+    "🚀 Runway Gen-4 Turbo": {
       "main": [
         [
           {

@@ -893,7 +893,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"promptImage\": \"{{ $('🎨 Fal.AI Image Generator').first().json.images[0].url }}\",\n  \"promptText\": \"Crystal-Löwe roars and glass transformation begins, luxury car materializes with holographic effects\",\n  \"model\": \"gen3a_turbo\",\n  \"watermark\": false,\n  \"duration\": 10,\n  \"ratio\": \"16:9\"\n}",
+        "jsonBody": "={\n  \"promptImage\": \"{{ $('🎨 Fal.AI Image Generator').first().json.images[0].url }}\",\n  \"promptText\": \"Crystal-Löwe roars and glass transformation begins, luxury car materializes with holographic effects\",\n  \"model\": \"gen4_turbo\",\n  \"watermark\": false,\n  \"duration\": 10,\n  \"ratio\": \"16:9\"\n}",
         "options": {}
       },
       "id": "runway-video-048",
