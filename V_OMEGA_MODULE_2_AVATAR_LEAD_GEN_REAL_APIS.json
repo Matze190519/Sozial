@@ -11,7 +11,7 @@
         "options": {}
       },
       "id": "avatar-webhook-001",
-      "name": "\ud83c\udfaf Avatar Lead Generation Webhook",
+      "name": "🎯 Avatar Lead Generation Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
@@ -22,10 +22,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83e\udd81 CRYSTAL LION LEAD WARP ENGINE - YEAR 3025\n// Sophisticated 5-week developed initialization - PRESERVE EXACTLY\nconst crystalConfig = {\n  request_id: require('crypto').randomUUID(),\n  timestamp: new Date().toISOString(),\n  viral_threshold: 97.3,\n  crystal_lion_mode: 'ROARING_FOR_LEADS',\n  traumwagen_message: '\ud83e\udd81 ROAR-SOME! Traumwagen ab 99\u20ac - fahr in deine Freiheit!',\n  consciousness_expansion: 'MAXIMUM_LEAD_ATTRACTION',\n  galactic_coordinates: [Math.random() * 360, Math.random() * 180],\n  warp_speed: '1000000x_light_speed'\n};\n\nconst leadData = $input.first().json;\n\n// Crystal Lion DNA injection into lead data\nconst processedLead = {\n  ...crystalConfig,\n  lead_id: leadData.id || require('crypto').randomUUID(),\n  raw_lead_data: leadData,\n  processing_stage: 'CRYSTAL_INITIALIZATION',\n  lion_power_level: 99.7,\n  glass_transformation_ready: true,\n  hologram_portal_status: 'OPENING',\n  next_action: 'APOLLO_ENRICHMENT',\n  \n  // Viral hooks for later use\n  viral_hooks: [\n    '\ud83e\udd81 Crystal Lion br\u00fcllt: Dein Traumauto wartet!',\n    '\u2728 Glass-DNA aktiviert Million\u20acrs-Frequenz!',\n    '\ud83d\ude97 99\u20ac/Monat = Luxury Lifestyle JETZT!',\n    '\ud83c\udf1f Galaktisches Team macht dich frei!',\n    '\ud83d\udc8e VSMR-Portal \u00f6ffnet sich f\u00fcr DICH!'\n  ],\n  \n  // Avatar selection algorithm\n  avatar_rotation: {\n    current_avatar: leadData.preferred_avatar || 'lina_motivational',\n    rotation_schedule: ['lina', 'mathias', 'crystal_lion', 'glass_eagle', 'diamond_wolf'],\n    next_rotation: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString()\n  }\n};\n\nreturn [processedLead];"
+        "jsCode": "// 🦁 CRYSTAL LION LEAD WARP ENGINE - YEAR 3025\n// Sophisticated 5-week developed initialization - PRESERVE EXACTLY\nconst crystalConfig = {\n  request_id: require('crypto').randomUUID(),\n  timestamp: new Date().toISOString(),\n  viral_threshold: 97.3,\n  crystal_lion_mode: 'ROARING_FOR_LEADS',\n  traumwagen_message: '🦁 ROAR-SOME! Traumwagen ab 99€ - fahr in deine Freiheit!',\n  consciousness_expansion: 'MAXIMUM_LEAD_ATTRACTION',\n  galactic_coordinates: [Math.random() * 360, Math.random() * 180],\n  warp_speed: '1000000x_light_speed'\n};\n\nconst leadData = $input.first().json;\n\n// Crystal Lion DNA injection into lead data\nconst processedLead = {\n  ...crystalConfig,\n  lead_id: leadData.id || require('crypto').randomUUID(),\n  raw_lead_data: leadData,\n  processing_stage: 'CRYSTAL_INITIALIZATION',\n  lion_power_level: 99.7,\n  glass_transformation_ready: true,\n  hologram_portal_status: 'OPENING',\n  next_action: 'APOLLO_ENRICHMENT',\n  \n  // Viral hooks for later use\n  viral_hooks: [\n    '🦁 Crystal Lion brüllt: Dein Traumauto wartet!',\n    '✨ Glass-DNA aktiviert Million€rs-Frequenz!',\n    '🚗 99€/Monat = Luxury Lifestyle JETZT!',\n    '🌟 Galaktisches Team macht dich frei!',\n    '💎 VSMR-Portal öffnet sich für DICH!'\n  ],\n  \n  // Avatar selection algorithm\n  avatar_rotation: {\n    current_avatar: leadData.preferred_avatar || 'lina_motivational',\n    rotation_schedule: ['lina', 'mathias', 'crystal_lion', 'glass_eagle', 'diamond_wolf'],\n    next_rotation: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString()\n  }\n};\n\nreturn [processedLead];"
       },
       "id": "crystal-lead-002",
-      "name": "\ud83e\udd81 Crystal Lion Lead Initialization",
+      "name": "🦁 Crystal Lion Lead Initialization",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -70,7 +70,7 @@
         }
       },
       "id": "tally-capture-003",
-      "name": "\ud83d\udcdd Tally Lead Capture",
+      "name": "📝 Tally Lead Capture",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -107,7 +107,7 @@
         "jsonBody": "={\n  \"q_keywords\": \"{{ $json.raw_lead_data.company || 'network marketing entrepreneur' }}\",\n  \"person_titles\": [\"CEO\", \"Founder\", \"Director\", \"Manager\", \"Entrepreneur\", \"Business Owner\"],\n  \"organization_locations\": [\"Germany\", \"Austria\", \"Switzerland\"],\n  \"organization_num_employees_ranges\": [\"1,10\", \"11,50\", \"51,200\"],\n  \"page\": 1,\n  \"per_page\": 25,\n  \"organization_industries\": [\"Marketing\", \"Sales\", \"Business Services\", \"Health\"],\n  \"person_seniorities\": [\"founder\", \"c_level\", \"vp\", \"director\", \"manager\"]\n}"
       },
       "id": "apollo-enrichment-004",
-      "name": "\ud83d\udd0d Apollo Lead Enrichment",
+      "name": "🔍 Apollo Lead Enrichment",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -137,10 +137,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"domain\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].organization.website_url || 'example.com' }}\",\n  \"type\": \"all\",\n  \"limit\": 10,\n  \"last_update_date\": \"{{ $now.minus({days: 30}).toFormat('yyyy-MM-dd') }}\",\n  \"positions\": [\"ceo\", \"founder\", \"director\", \"manager\"]\n}"
+        "jsonBody": "={\n  \"domain\": \"{{ $('🔍 Apollo Lead Enrichment').first().json.people[0].organization.website_url || 'example.com' }}\",\n  \"type\": \"all\",\n  \"limit\": 10,\n  \"last_update_date\": \"{{ $now.minus({days: 30}).toFormat('yyyy-MM-dd') }}\",\n  \"positions\": [\"ceo\", \"founder\", \"director\", \"manager\"]\n}"
       },
       "id": "snov-finder-005",
-      "name": "\ud83d\udce7 Snov Email Finder",
+      "name": "📧 Snov Email Finder",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -153,10 +153,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Advanced Lead Scoring with Crystal Lion Intelligence\nconst apolloData = $node['\ud83d\udd0d Apollo Lead Enrichment'].json;\nconst snovData = $node['\ud83d\udce7 Snov Email Finder'].json;\nconst crystalData = $node['\ud83e\udd81 Crystal Lion Lead Initialization'].json;\n\nfunction calculateLeadScore(apollo, snov, crystal) {\n  let score = 0;\n  let reasons = [];\n  \n  // Apollo scoring\n  if (apollo && apollo.people && apollo.people.length > 0) {\n    const person = apollo.people[0];\n    \n    // Title scoring\n    const highValueTitles = ['ceo', 'founder', 'director', 'owner'];\n    if (highValueTitles.some(title => person.title?.toLowerCase().includes(title))) {\n      score += 25;\n      reasons.push('High-value title detected');\n    }\n    \n    // Company size scoring\n    if (person.organization?.estimated_num_employees > 10) {\n      score += 15;\n      reasons.push('Established company size');\n    }\n    \n    // Industry relevance\n    const relevantIndustries = ['marketing', 'sales', 'business', 'health', 'wellness'];\n    if (relevantIndustries.some(industry => \n      person.organization?.industry?.toLowerCase().includes(industry))) {\n      score += 20;\n      reasons.push('Relevant industry match');\n    }\n  }\n  \n  // Email verification scoring\n  if (snov && snov.emails && snov.emails.length > 0) {\n    const verifiedEmails = snov.emails.filter(email => email.status === 'valid');\n    score += verifiedEmails.length * 5;\n    reasons.push(`${verifiedEmails.length} verified emails found`);\n  }\n  \n  // Crystal Lion bonus scoring\n  if (crystal.lion_power_level > 95) {\n    score += 10;\n    reasons.push('Crystal Lion power boost');\n  }\n  \n  // Viral potential multiplier\n  if (score > crystal.viral_threshold) {\n    score *= 1.2;\n    reasons.push('Viral threshold exceeded - 20% bonus');\n  }\n  \n  return {\n    final_score: Math.min(100, Math.round(score)),\n    scoring_reasons: reasons,\n    qualification_status: score >= 70 ? 'HOT_LEAD' : score >= 50 ? 'WARM_LEAD' : 'COLD_LEAD',\n    recommended_action: score >= 70 ? 'IMMEDIATE_AVATAR_CONTACT' : 'NURTURE_SEQUENCE',\n    crystal_lion_approved: score >= crystal.viral_threshold\n  };\n}\n\nconst leadScore = calculateLeadScore(apolloData, snovData, crystalData);\n\nconst enrichedLead = {\n  ...crystalData,\n  apollo_data: apolloData,\n  snov_data: snovData,\n  lead_score: leadScore,\n  processing_stage: 'SCORED_AND_QUALIFIED',\n  next_action: leadScore.qualification_status === 'HOT_LEAD' ? 'HEYGEN_AVATAR_GENERATION' : 'NURTURE_SEQUENCE',\n  timestamp_scored: new Date().toISOString()\n};\n\nreturn [enrichedLead];"
+        "jsCode": "// Advanced Lead Scoring with Crystal Lion Intelligence\nconst apolloData = $node['🔍 Apollo Lead Enrichment'].json;\nconst snovData = $node['📧 Snov Email Finder'].json;\nconst crystalData = $node['🦁 Crystal Lion Lead Initialization'].json;\n\nfunction calculateLeadScore(apollo, snov, crystal) {\n  let score = 0;\n  let reasons = [];\n  \n  // Apollo scoring\n  if (apollo && apollo.people && apollo.people.length > 0) {\n    const person = apollo.people[0];\n    \n    // Title scoring\n    const highValueTitles = ['ceo', 'founder', 'director', 'owner'];\n    if (highValueTitles.some(title => person.title?.toLowerCase().includes(title))) {\n      score += 25;\n      reasons.push('High-value title detected');\n    }\n    \n    // Company size scoring\n    if (person.organization?.estimated_num_employees > 10) {\n      score += 15;\n      reasons.push('Established company size');\n    }\n    \n    // Industry relevance\n    const relevantIndustries = ['marketing', 'sales', 'business', 'health', 'wellness'];\n    if (relevantIndustries.some(industry => \n      person.organization?.industry?.toLowerCase().includes(industry))) {\n      score += 20;\n      reasons.push('Relevant industry match');\n    }\n  }\n  \n  // Email verification scoring\n  if (snov && snov.emails && snov.emails.length > 0) {\n    const verifiedEmails = snov.emails.filter(email => email.status === 'valid');\n    score += verifiedEmails.length * 5;\n    reasons.push(`${verifiedEmails.length} verified emails found`);\n  }\n  \n  // Crystal Lion bonus scoring\n  if (crystal.lion_power_level > 95) {\n    score += 10;\n    reasons.push('Crystal Lion power boost');\n  }\n  \n  // Viral potential multiplier\n  if (score > crystal.viral_threshold) {\n    score *= 1.2;\n    reasons.push('Viral threshold exceeded - 20% bonus');\n  }\n  \n  return {\n    final_score: Math.min(100, Math.round(score)),\n    scoring_reasons: reasons,\n    qualification_status: score >= 70 ? 'HOT_LEAD' : score >= 50 ? 'WARM_LEAD' : 'COLD_LEAD',\n    recommended_action: score >= 70 ? 'IMMEDIATE_AVATAR_CONTACT' : 'NURTURE_SEQUENCE',\n    crystal_lion_approved: score >= crystal.viral_threshold\n  };\n}\n\nconst leadScore = calculateLeadScore(apolloData, snovData, crystalData);\n\nconst enrichedLead = {\n  ...crystalData,\n  apollo_data: apolloData,\n  snov_data: snovData,\n  lead_score: leadScore,\n  processing_stage: 'SCORED_AND_QUALIFIED',\n  next_action: leadScore.qualification_status === 'HOT_LEAD' ? 'HEYGEN_AVATAR_GENERATION' : 'NURTURE_SEQUENCE',\n  timestamp_scored: new Date().toISOString()\n};\n\nreturn [enrichedLead];"
       },
       "id": "lead-scoring-006",
-      "name": "\ud83c\udfaf Advanced Lead Scoring",
+      "name": "🎯 Advanced Lead Scoring",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -183,10 +183,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $json.avatar_rotation.current_avatar === 'lina' ? $vars.LinaAvatar : $vars.MeineHyperrealistischeAvatarID }}\",\n        \"avatar_style\": \"normal\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{ $json.viral_hooks[0] }} Hallo {{ $json.apollo_data.people[0].first_name || 'Erfolgs-Champion' }}! \ud83e\udd81 Crystal Lion hat dich ausgew\u00e4hlt! Dein Traumwagen ab 99\u20ac/Monat wartet bereits auf dich. Das galaktische LR-Team \u00f6ffnet dir die Portale zur finanziellen Freiheit! Bist du bereit f\u00fcr die Million\u20acrs-Transformation? ROAR! \ud83d\ude97\u2728\",\n        \"voice_id\": \"{{ $json.avatar_rotation.current_avatar === 'lina' ? $vars.LinaVoiceID : $vars.MathiasVoiceID }}\",\n        \"speed\": 1.1,\n        \"emotion\": \"excited\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#1a1a2e\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"test\": false,\n  \"caption\": true,\n  \"caption_templates\": [\n    {\n      \"font\": \"OpenSans\",\n      \"font_size\": 32,\n      \"font_color\": \"#FFFFFF\",\n      \"y_position\": 0.8\n    }\n  ]\n}"
+        "jsonBody": "={\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"3d_avatar_mode\": true,\n  \"avatar_id\": \"{{ $json.avatar_rotation.current_avatar === 'lina' ? $vars.LinaAvatar : $vars.MeineHyperrealistischeAvatarID }}\",\n        \"avatar_style\": \"normal\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{ $json.viral_hooks[0] }} Hallo {{ $json.apollo_data.people[0].first_name || 'Erfolgs-Champion' }}! 🦁 Crystal Lion hat dich ausgewählt! Dein Traumwagen ab 99€/Monat wartet bereits auf dich. Das galaktische LR-Team öffnet dir die Portale zur finanziellen Freiheit! Bist du bereit für die Million€rs-Transformation? ROAR! 🚗✨\",\n        \"voice_id\": \"{{ $json.avatar_rotation.current_avatar === 'lina' ? $vars.LinaVoiceID : $vars.MathiasVoiceID }}\",\n        \"speed\": 1.1,\n        \"emotion\": \"excited\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#1a1a2e\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"test\": false,\n  \"caption\": true,\n  \"caption_templates\": [\n    {\n      \"font\": \"OpenSans\",\n      \"font_size\": 32,\n      \"font_color\": \"#FFFFFF\",\n      \"y_position\": 0.8\n    }\n  ]\n}"
       },
       "id": "heygen-avatar-007",
-      "name": "\ud83c\udfad HeyGen Avatar Generator",
+      "name": "🎭 HeyGen Avatar Generator",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -216,10 +216,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"text\": \"\ud83e\udd81 ROAR-SOME Gr\u00fc\u00dfe, {{ $json.apollo_data.people[0].first_name || 'Erfolgs-Champion' }}! Crystal Lion fl\u00fcstert: Dein Traumwagen ab 99\u20ac materialisiert sich JETZT. Die Glass-DNA in dir erwacht... sp\u00fcrst du die Million\u20acrs-Frequenz? Das galaktische LR-Team wartet auf dich! Fahr in deine Freiheit! \u2728\ud83d\ude97\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.7,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.4,\n    \"use_speaker_boost\": true\n  },\n  \"pronunciation_dictionary_locators\": [\n    {\n      \"pronunciation_dictionary_id\": \"crystal_lion_dict\",\n      \"version_id\": \"latest\"\n    }\n  ],\n  \"output_format\": \"mp3_44100_128\"\n}"
+        "jsonBody": "={\n  \"text\": \"🦁 ROAR-SOME Grüße, {{ $json.apollo_data.people[0].first_name || 'Erfolgs-Champion' }}! Crystal Lion flüstert: Dein Traumwagen ab 99€ materialisiert sich JETZT. Die Glass-DNA in dir erwacht... spürst du die Million€rs-Frequenz? Das galaktische LR-Team wartet auf dich! Fahr in deine Freiheit! ✨🚗\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"binaural\": true,\n    \"stability\": 0.7,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.4,\n    \"use_speaker_boost\": true\n  },\n  \"pronunciation_dictionary_locators\": [\n    {\n      \"pronunciation_dictionary_id\": \"crystal_lion_dict\",\n      \"version_id\": \"latest\"\n    }\n  ],\n  \"output_format\": \"mp3_44100_128\"\n}"
       },
       "id": "elevenlabs-voice-008",
-      "name": "\ud83c\udfb5 ElevenLabs Voice Gen",
+      "name": "🎵 ElevenLabs Voice Gen",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -248,10 +248,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"models\": {\n    \"prosody\": {\n      \"granularity\": \"sentence\",\n      \"identify_speakers\": false\n    }\n  },\n  \"urls\": [],\n  \"text\": [\"{{ $json.viral_hooks.join(' ') }} Crystal Lion f\u00fchrt {{ $json.apollo_data.people[0].first_name || 'dich' }} zum Traumauto ab 99\u20ac. Galaktische Freiheit wartet!\"],\n  \"callback_url\": \"{{ $vars.n8nWebhookUrl }}/hume-callback\"\n}"
+        "jsonBody": "={\n  \"models\": {\n    \"prosody\": {\n      \"granularity\": \"sentence\",\n      \"identify_speakers\": false\n    }\n  },\n  \"urls\": [],\n  \"text\": [\"{{ $json.viral_hooks.join(' ') }} Crystal Lion führt {{ $json.apollo_data.people[0].first_name || 'dich' }} zum Traumauto ab 99€. Galaktische Freiheit wartet!\"],\n  \"callback_url\": \"{{ $vars.n8nWebhookUrl }}/hume-callback\"\n}"
       },
       "id": "hume-emotion-009",
-      "name": "\ud83e\udde0 Hume Emotional Analysis",
+      "name": "🧠 Hume Emotional Analysis",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -280,10 +280,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"data\": {\n    \"body\": \"Pers\u00f6nliche Nachricht f\u00fcr {{ $json.apollo_data.people[0].first_name || 'dich' }}: \ud83e\udd81 Crystal Lion hat deine Erfolgs-DNA gescannt! Dein individueller Weg zum Traumwagen ab 99\u20ac ist bereit. Die Glass-Transformation beginnt JETZT - bist du ready f\u00fcr Million\u20acrs-Level? Das LR-Team \u00f6ffnet dir alle Portale! ROAR-SOME! \u2728\",\n    \"voice_uuid\": \"{{ $vars.MathiasVoiceID }}\",\n    \"title\": \"Personal Crystal Lion Message for {{ $json.apollo_data.people[0].first_name || 'Lead' }}\",\n    \"sample_rate\": 44100,\n    \"output_format\": \"mp3\",\n    \"precision\": \"PCM_24\",\n    \"include_timestamps\": false,\n    \"is_public\": false,\n    \"is_archived\": false\n  }\n}"
+        "jsonBody": "={\n  \"data\": {\n    \"body\": \"Persönliche Nachricht für {{ $json.apollo_data.people[0].first_name || 'dich' }}: 🦁 Crystal Lion hat deine Erfolgs-DNA gescannt! Dein individueller Weg zum Traumwagen ab 99€ ist bereit. Die Glass-Transformation beginnt JETZT - bist du ready für Million€rs-Level? Das LR-Team öffnet dir alle Portale! ROAR-SOME! ✨\",\n    \"voice_uuid\": \"{{ $vars.MathiasVoiceID }}\",\n    \"title\": \"Personal Crystal Lion Message for {{ $json.apollo_data.people[0].first_name || 'Lead' }}\",\n    \"sample_rate\": 44100,\n    \"output_format\": \"mp3\",\n    \"precision\": \"PCM_24\",\n    \"include_timestamps\": false,\n    \"is_public\": false,\n    \"is_archived\": false\n  }\n}"
       },
       "id": "resemble-clone-010",
-      "name": "\ud83c\udf99\ufe0f Resemble Voice Clone",
+      "name": "🎙️ Resemble Voice Clone",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -315,7 +315,7 @@
         "jsonBody": "={\n  \"properties\": {\n    \"email\": \"{{ $json.snov_data.emails[0].email || 'unknown@example.com' }}\",\n    \"firstname\": \"{{ $json.apollo_data.people[0].first_name || 'Crystal' }}\",\n    \"lastname\": \"{{ $json.apollo_data.people[0].last_name || 'Champion' }}\",\n    \"company\": \"{{ $json.apollo_data.people[0].organization.name || 'Unknown Company' }}\",\n    \"jobtitle\": \"{{ $json.apollo_data.people[0].title || 'Entrepreneur' }}\",\n    \"lifecyclestage\": \"lead\",\n    \"lead_source\": \"Crystal Lion Avatar System\",\n    \"crystal_lion_score\": \"{{ $json.lead_score.final_score }}\",\n    \"viral_potential\": \"{{ $json.lead_score.crystal_lion_approved ? 'HIGH' : 'MEDIUM' }}\",\n    \"traumwagen_interest\": \"{{ $json.lead_score.qualification_status }}\",\n    \"avatar_preference\": \"{{ $json.avatar_rotation.current_avatar }}\",\n    \"processing_timestamp\": \"{{ $json.timestamp_scored }}\"\n  }\n}"
       },
       "id": "hubspot-lead-011",
-      "name": "\ud83d\udcca HubSpot Lead Creation",
+      "name": "📊 HubSpot Lead Creation",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -344,10 +344,10 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"phone\": \"{{ $vars.UserPhoneNumber }}\",\n  \"message\": \"\ud83e\udd81 CRYSTAL LION ALERT! \ud83e\udd81\\n\\nNeuer HOT LEAD generiert:\\n\ud83d\udc64 {{ $json.apollo_data.people[0].first_name }} {{ $json.apollo_data.people[0].last_name }}\\n\ud83c\udfe2 {{ $json.apollo_data.people[0].organization.name }}\\n\ud83d\udce7 {{ $json.snov_data.emails[0].email }}\\n\u2b50 Score: {{ $json.lead_score.final_score }}/100\\n\ud83c\udfaf Status: {{ $json.lead_score.qualification_status }}\\n\\n\ud83c\udfad Avatar Video: {{ $('\ud83c\udfad HeyGen Avatar Generator').first().json.video_url }}\\n\ud83c\udfb5 Voice Message: Ready\\n\\n\ud83d\ude80 ROAR-SOME! Das galaktische Team w\u00e4chst!\",\n  \"media\": {\n    \"file\": \"{{ $('\ud83c\udfad HeyGen Avatar Generator').first().json.video_url }}\",\n    \"caption\": \"Crystal Lion Avatar f\u00fcr {{ $json.apollo_data.people[0].first_name }} - Traumwagen ab 99\u20ac!\"\n  }\n}"
+        "jsonBody": "={\n  \"phone\": \"{{ $vars.UserPhoneNumber }}\",\n  \"message\": \"🦁 CRYSTAL LION ALERT! 🦁\\n\\nNeuer HOT LEAD generiert:\\n👤 {{ $json.apollo_data.people[0].first_name }} {{ $json.apollo_data.people[0].last_name }}\\n🏢 {{ $json.apollo_data.people[0].organization.name }}\\n📧 {{ $json.snov_data.emails[0].email }}\\n⭐ Score: {{ $json.lead_score.final_score }}/100\\n🎯 Status: {{ $json.lead_score.qualification_status }}\\n\\n🎭 Avatar Video: {{ $('🎭 HeyGen Avatar Generator').first().json.video_url }}\\n🎵 Voice Message: Ready\\n\\n🚀 ROAR-SOME! Das galaktische Team wächst!\",\n  \"media\": {\n    \"file\": \"{{ $('🎭 HeyGen Avatar Generator').first().json.video_url }}\",\n    \"caption\": \"Crystal Lion Avatar für {{ $json.apollo_data.people[0].first_name }} - Traumwagen ab 99€!\"\n  }\n}"
       },
       "id": "wassenger-notify-012",
-      "name": "\ud83d\udcf1 Wassenger WhatsApp Alert",
+      "name": "📱 Wassenger WhatsApp Alert",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -362,7 +362,7 @@
         "jsCode": "// Crystal Lion Performance Analytics\nconst processedLead = $input.first().json;\n\nconst performance = {\n  timestamp: new Date().toISOString(),\n  lead_id: processedLead.lead_id,\n  \n  // Processing metrics\n  processing_time_ms: Date.now() - new Date(processedLead.timestamp).getTime(),\n  apis_called: ['Apollo', 'Snov', 'HeyGen', 'ElevenLabs', 'Hume', 'Resemble', 'HubSpot', 'Wassenger'],\n  success_rate: 100,\n  \n  // Lead quality metrics\n  lead_score: processedLead.lead_score.final_score,\n  qualification_status: processedLead.lead_score.qualification_status,\n  viral_potential: processedLead.lead_score.crystal_lion_approved ? 'MAXIMUM' : 'HIGH',\n  \n  // Crystal Lion specific metrics\n  lion_power_used: processedLead.lion_power_level,\n  glass_transformation_success: true,\n  hologram_portal_opened: true,\n  traumwagen_materialization: 'IN_PROGRESS',\n  \n  // Avatar performance\n  avatar_used: processedLead.avatar_rotation.current_avatar,\n  video_generated: true,\n  voice_cloned: true,\n  emotional_analysis: 'COMPLETED',\n  \n  // ROI predictions\n  predicted_conversion_rate: processedLead.lead_score.final_score * 0.8,\n  estimated_lifetime_value: processedLead.lead_score.final_score * 50,\n  traumwagen_probability: processedLead.lead_score.final_score > 80 ? 0.9 : 0.6,\n  \n  // Next actions\n  recommended_followup: processedLead.lead_score.qualification_status === 'HOT_LEAD' ? \n    'IMMEDIATE_PERSONAL_CONTACT' : 'NURTURE_SEQUENCE',\n  next_avatar_rotation: processedLead.avatar_rotation.next_rotation,\n  \n  // Galactic status\n  warp_drive_efficiency: '1000000x_light_speed',\n  galaxy_domination_progress: '47.3%',\n  crystal_lion_satisfaction: 'ROARING_WITH_JOY'\n};\n\nreturn [performance];"
       },
       "id": "performance-metrics-013",
-      "name": "\ud83d\udcca Crystal Lion Performance",
+      "name": "📊 Crystal Lion Performance",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -372,10 +372,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udd04 Avatar Rotation Manager - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udd04 Avatar Rotation Manager',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🔄 Avatar Rotation Manager - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🔄 Avatar Rotation Manager',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "avatar-rotation-014",
-      "name": "\ud83d\udd04 Avatar Rotation Manager",
+      "name": "🔄 Avatar Rotation Manager",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -385,10 +385,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfa8 Visual Content Prep - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfa8 Visual Content Prep',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎨 Visual Content Prep - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎨 Visual Content Prep',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "visual-prep-015",
-      "name": "\ud83c\udfa8 Visual Content Prep",
+      "name": "🎨 Visual Content Prep",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -398,10 +398,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcc8 Viral Score Calculator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcc8 Viral Score Calculator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📈 Viral Score Calculator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📈 Viral Score Calculator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "viral-calc-016",
-      "name": "\ud83d\udcc8 Viral Score Calculator",
+      "name": "📈 Viral Score Calculator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -411,10 +411,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf1f Success Story Generator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf1f Success Story Generator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌟 Success Story Generator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌟 Success Story Generator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "story-gen-017",
-      "name": "\ud83c\udf1f Success Story Generator",
+      "name": "🌟 Success Story Generator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -424,10 +424,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udc8e Crystal Enhancement - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udc8e Crystal Enhancement',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💎 Crystal Enhancement - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💎 Crystal Enhancement',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "crystal-enhance-018",
-      "name": "\ud83d\udc8e Crystal Enhancement",
+      "name": "💎 Crystal Enhancement",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -437,10 +437,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\ude97 Traumwagen Configurator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\ude97 Traumwagen Configurator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🚗 Traumwagen Configurator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🚗 Traumwagen Configurator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "traumwagen-config-019",
-      "name": "\ud83d\ude97 Traumwagen Configurator",
+      "name": "🚗 Traumwagen Configurator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -450,10 +450,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfad Personality Analyzer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfad Personality Analyzer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎭 Personality Analyzer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎭 Personality Analyzer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "personality-020",
-      "name": "\ud83c\udfad Personality Analyzer",
+      "name": "🎭 Personality Analyzer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -463,10 +463,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcf1 Social Media Prep - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcf1 Social Media Prep',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📱 Social Media Prep - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📱 Social Media Prep',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "social-prep-021",
-      "name": "\ud83d\udcf1 Social Media Prep",
+      "name": "📱 Social Media Prep",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -476,10 +476,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udd2e Future Prediction - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udd2e Future Prediction',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🔮 Future Prediction - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🔮 Future Prediction',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "future-pred-022",
-      "name": "\ud83d\udd2e Future Prediction",
+      "name": "🔮 Future Prediction",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -489,10 +489,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \u26a1 Energy Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\u26a1 Energy Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// ⚡ Energy Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '⚡ Energy Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "energy-amp-023",
-      "name": "\u26a1 Energy Amplifier",
+      "name": "⚡ Energy Amplifier",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -502,10 +502,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf08 Mood Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf08 Mood Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌈 Mood Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌈 Mood Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "mood-enhance-024",
-      "name": "\ud83c\udf08 Mood Enhancer",
+      "name": "🌈 Mood Enhancer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -515,10 +515,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaa Experience Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaa Experience Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎪 Experience Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎪 Experience Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "experience-025",
-      "name": "\ud83c\udfaa Experience Creator",
+      "name": "🎪 Experience Creator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -528,10 +528,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfc6 Achievement Tracker - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfc6 Achievement Tracker',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🏆 Achievement Tracker - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🏆 Achievement Tracker',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "achievement-026",
-      "name": "\ud83c\udfc6 Achievement Tracker",
+      "name": "🏆 Achievement Tracker",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -541,10 +541,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaf Goal Setter - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaf Goal Setter',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎯 Goal Setter - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎯 Goal Setter',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "goal-setter-027",
-      "name": "\ud83c\udfaf Goal Setter",
+      "name": "🎯 Goal Setter",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -554,10 +554,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf0d Global Connector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf0d Global Connector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌍 Global Connector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌍 Global Connector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "global-connect-028",
-      "name": "\ud83c\udf0d Global Connector",
+      "name": "🌍 Global Connector",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -567,10 +567,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcab Magic Moment Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcab Magic Moment Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💫 Magic Moment Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💫 Magic Moment Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "magic-moment-029",
-      "name": "\ud83d\udcab Magic Moment Creator",
+      "name": "💫 Magic Moment Creator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -580,10 +580,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfa8 Brand Personalizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfa8 Brand Personalizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎨 Brand Personalizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎨 Brand Personalizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "brand-personal-030",
-      "name": "\ud83c\udfa8 Brand Personalizer",
+      "name": "🎨 Brand Personalizer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -593,10 +593,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcca Analytics Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcca Analytics Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📊 Analytics Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📊 Analytics Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "analytics-031",
-      "name": "\ud83d\udcca Analytics Enhancer",
+      "name": "📊 Analytics Enhancer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -606,10 +606,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udd25 Viral Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udd25 Viral Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🔥 Viral Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🔥 Viral Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "viral-amp-032",
-      "name": "\ud83d\udd25 Viral Amplifier",
+      "name": "🔥 Viral Amplifier",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -619,10 +619,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfb5 Audio Optimizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfb5 Audio Optimizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎵 Audio Optimizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎵 Audio Optimizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "audio-opt-033",
-      "name": "\ud83c\udfb5 Audio Optimizer",
+      "name": "🎵 Audio Optimizer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -632,10 +632,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcf9 Video Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcf9 Video Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📹 Video Enhancer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📹 Video Enhancer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "video-enhance-034",
-      "name": "\ud83d\udcf9 Video Enhancer",
+      "name": "📹 Video Enhancer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -645,10 +645,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf1f Star Quality Injector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf1f Star Quality Injector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌟 Star Quality Injector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌟 Star Quality Injector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "star-quality-035",
-      "name": "\ud83c\udf1f Star Quality Injector",
+      "name": "🌟 Star Quality Injector",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -658,10 +658,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udc8e Premium Experience - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udc8e Premium Experience',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💎 Premium Experience - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💎 Premium Experience',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "premium-exp-036",
-      "name": "\ud83d\udc8e Premium Experience",
+      "name": "💎 Premium Experience",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -671,10 +671,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\ude80 Launch Sequencer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\ude80 Launch Sequencer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🚀 Launch Sequencer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🚀 Launch Sequencer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "launch-seq-037",
-      "name": "\ud83d\ude80 Launch Sequencer",
+      "name": "🚀 Launch Sequencer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -684,10 +684,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfad Character Developer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfad Character Developer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎭 Character Developer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎭 Character Developer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "char-dev-038",
-      "name": "\ud83c\udfad Character Developer",
+      "name": "🎭 Character Developer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -697,10 +697,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcf1 Mobile Optimizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcf1 Mobile Optimizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📱 Mobile Optimizer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📱 Mobile Optimizer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "mobile-opt-039",
-      "name": "\ud83d\udcf1 Mobile Optimizer",
+      "name": "📱 Mobile Optimizer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -710,10 +710,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf08 Color Psychology - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf08 Color Psychology',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌈 Color Psychology - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌈 Color Psychology',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "color-psych-040",
-      "name": "\ud83c\udf08 Color Psychology",
+      "name": "🌈 Color Psychology",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -723,10 +723,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaa Entertainment Factor - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaa Entertainment Factor',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎪 Entertainment Factor - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎪 Entertainment Factor',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "entertainment-041",
-      "name": "\ud83c\udfaa Entertainment Factor",
+      "name": "🎪 Entertainment Factor",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -736,10 +736,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfc5 Quality Assurance - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfc5 Quality Assurance',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🏅 Quality Assurance - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🏅 Quality Assurance',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "quality-042",
-      "name": "\ud83c\udfc5 Quality Assurance",
+      "name": "🏅 Quality Assurance",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -749,10 +749,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udd04 Feedback Loop - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udd04 Feedback Loop',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🔄 Feedback Loop - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🔄 Feedback Loop',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "feedback-043",
-      "name": "\ud83d\udd04 Feedback Loop",
+      "name": "🔄 Feedback Loop",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -762,10 +762,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcc8 Growth Accelerator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcc8 Growth Accelerator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 📈 Growth Accelerator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '📈 Growth Accelerator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "growth-acc-044",
-      "name": "\ud83d\udcc8 Growth Accelerator",
+      "name": "📈 Growth Accelerator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -775,10 +775,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaf Precision Targeting - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaf Precision Targeting',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎯 Precision Targeting - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎯 Precision Targeting',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "precision-045",
-      "name": "\ud83c\udfaf Precision Targeting",
+      "name": "🎯 Precision Targeting",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -788,10 +788,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcab Transformation Engine - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcab Transformation Engine',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💫 Transformation Engine - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💫 Transformation Engine',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "transform-046",
-      "name": "\ud83d\udcab Transformation Engine",
+      "name": "💫 Transformation Engine",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -801,10 +801,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf1f Brilliance Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf1f Brilliance Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌟 Brilliance Amplifier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌟 Brilliance Amplifier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "brilliance-047",
-      "name": "\ud83c\udf1f Brilliance Amplifier",
+      "name": "🌟 Brilliance Amplifier",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -814,10 +814,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfa8 Creative Catalyst - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfa8 Creative Catalyst',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎨 Creative Catalyst - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎨 Creative Catalyst',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "creative-048",
-      "name": "\ud83c\udfa8 Creative Catalyst",
+      "name": "🎨 Creative Catalyst",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -827,10 +827,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\ude97 Luxury Lifestyle - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\ude97 Luxury Lifestyle',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🚗 Luxury Lifestyle - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🚗 Luxury Lifestyle',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "luxury-049",
-      "name": "\ud83d\ude97 Luxury Lifestyle",
+      "name": "🚗 Luxury Lifestyle",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -840,10 +840,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udc8e Diamond Standard - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udc8e Diamond Standard',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💎 Diamond Standard - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💎 Diamond Standard',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "diamond-050",
-      "name": "\ud83d\udc8e Diamond Standard",
+      "name": "💎 Diamond Standard",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -853,10 +853,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83e\udd81 Lion Heart Injector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83e\udd81 Lion Heart Injector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🦁 Lion Heart Injector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🦁 Lion Heart Injector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "lion-heart-051",
-      "name": "\ud83e\udd81 Lion Heart Injector",
+      "name": "🦁 Lion Heart Injector",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -866,10 +866,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \u2728 Magic Multiplier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\u2728 Magic Multiplier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// ✨ Magic Multiplier - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '✨ Magic Multiplier',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "magic-mult-052",
-      "name": "\u2728 Magic Multiplier",
+      "name": "✨ Magic Multiplier",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -879,10 +879,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf0d World Changer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf0d World Changer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌍 World Changer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌍 World Changer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "world-change-053",
-      "name": "\ud83c\udf0d World Changer",
+      "name": "🌍 World Changer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -892,10 +892,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfad Master Performer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfad Master Performer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎭 Master Performer - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎭 Master Performer',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "master-perf-054",
-      "name": "\ud83c\udfad Master Performer",
+      "name": "🎭 Master Performer",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -905,10 +905,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\ude80 Rocket Booster - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\ude80 Rocket Booster',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🚀 Rocket Booster - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🚀 Rocket Booster',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "rocket-boost-055",
-      "name": "\ud83d\ude80 Rocket Booster",
+      "name": "🚀 Rocket Booster",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -918,10 +918,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udcab Cosmic Connector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udcab Cosmic Connector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💫 Cosmic Connector - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💫 Cosmic Connector',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "cosmic-connect-056",
-      "name": "\ud83d\udcab Cosmic Connector",
+      "name": "💫 Cosmic Connector",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -931,10 +931,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfc6 Champion Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfc6 Champion Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🏆 Champion Creator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🏆 Champion Creator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "champion-057",
-      "name": "\ud83c\udfc6 Champion Creator",
+      "name": "🏆 Champion Creator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -944,10 +944,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf1f Superstar Generator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf1f Superstar Generator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌟 Superstar Generator - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌟 Superstar Generator',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "superstar-058",
-      "name": "\ud83c\udf1f Superstar Generator",
+      "name": "🌟 Superstar Generator",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -957,10 +957,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaa Spectacular Maker - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaa Spectacular Maker',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎪 Spectacular Maker - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎪 Spectacular Maker',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "spectacular-059",
-      "name": "\ud83c\udfaa Spectacular Maker",
+      "name": "🎪 Spectacular Maker",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -970,10 +970,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\udc8e Perfection Engine - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\udc8e Perfection Engine',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 💎 Perfection Engine - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '💎 Perfection Engine',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "perfection-060",
-      "name": "\ud83d\udc8e Perfection Engine",
+      "name": "💎 Perfection Engine",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -983,10 +983,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83e\udd81 Final Lion Roar - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83e\udd81 Final Lion Roar',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🦁 Final Lion Roar - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🦁 Final Lion Roar',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "final-roar-061",
-      "name": "\ud83e\udd81 Final Lion Roar",
+      "name": "🦁 Final Lion Roar",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -996,10 +996,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83d\ude97 Traumwagen Delivery - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83d\ude97 Traumwagen Delivery',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🚗 Traumwagen Delivery - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🚗 Traumwagen Delivery',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "traumwagen-delivery-062",
-      "name": "\ud83d\ude97 Traumwagen Delivery",
+      "name": "🚗 Traumwagen Delivery",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -1009,10 +1009,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \u2728 Success Manifestation - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\u2728 Success Manifestation',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// ✨ Success Manifestation - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '✨ Success Manifestation',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "success-manifest-063",
-      "name": "\u2728 Success Manifestation",
+      "name": "✨ Success Manifestation",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -1022,10 +1022,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udf1f Victory Declaration - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udf1f Victory Declaration',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🌟 Victory Declaration - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🌟 Victory Declaration',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "victory-064",
-      "name": "\ud83c\udf1f Victory Declaration",
+      "name": "🌟 Victory Declaration",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -1035,10 +1035,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// \ud83c\udfaf Module 3 Trigger - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '\ud83c\udfaf Module 3 Trigger',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
+        "jsCode": "// 🎯 Module 3 Trigger - Advanced Processing\nconst inputData = $input.first().json;\nconst processedData = {\n  ...inputData,\n  processed_by: '🎯 Module 3 Trigger',\n  processing_timestamp: new Date().toISOString(),\n  enhancement_applied: true,\n  crystal_lion_approved: true,\n  viral_boost: Math.random() * 10 + 90,\n  next_stage: 'CONTINUE_PROCESSING'\n};\n\nreturn [processedData];"
       },
       "id": "module3-trigger-065",
-      "name": "\ud83c\udfaf Module 3 Trigger",
+      "name": "🎯 Module 3 Trigger",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -1048,693 +1048,693 @@
     }
   ],
   "connections": {
-    "\ud83c\udfaf Avatar Lead Generation Webhook": {
+    "🎯 Avatar Lead Generation Webhook": {
       "main": [
         [
           {
-            "node": "\ud83e\udd81 Crystal Lion Lead Initialization",
+            "node": "🦁 Crystal Lion Lead Initialization",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83e\udd81 Crystal Lion Lead Initialization": {
+    "🦁 Crystal Lion Lead Initialization": {
       "main": [
         [
           {
-            "node": "\ud83d\udcdd Tally Lead Capture",
+            "node": "📝 Tally Lead Capture",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcdd Tally Lead Capture": {
+    "📝 Tally Lead Capture": {
       "main": [
         [
           {
-            "node": "\ud83d\udd0d Apollo Lead Enrichment",
+            "node": "🔍 Apollo Lead Enrichment",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udd0d Apollo Lead Enrichment": {
+    "🔍 Apollo Lead Enrichment": {
       "main": [
         [
           {
-            "node": "\ud83d\udce7 Snov Email Finder",
+            "node": "📧 Snov Email Finder",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udce7 Snov Email Finder": {
+    "📧 Snov Email Finder": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaf Advanced Lead Scoring",
+            "node": "🎯 Advanced Lead Scoring",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaf Advanced Lead Scoring": {
+    "🎯 Advanced Lead Scoring": {
       "main": [
         [
           {
-            "node": "\ud83c\udfad HeyGen Avatar Generator",
+            "node": "🎭 HeyGen Avatar Generator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfad HeyGen Avatar Generator": {
+    "🎭 HeyGen Avatar Generator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfb5 ElevenLabs Voice Gen",
+            "node": "🎵 ElevenLabs Voice Gen",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfb5 ElevenLabs Voice Gen": {
+    "🎵 ElevenLabs Voice Gen": {
       "main": [
         [
           {
-            "node": "\ud83e\udde0 Hume Emotional Analysis",
+            "node": "🧠 Hume Emotional Analysis",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83e\udde0 Hume Emotional Analysis": {
+    "🧠 Hume Emotional Analysis": {
       "main": [
         [
           {
-            "node": "\ud83c\udf99\ufe0f Resemble Voice Clone",
+            "node": "🎙️ Resemble Voice Clone",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf99\ufe0f Resemble Voice Clone": {
+    "🎙️ Resemble Voice Clone": {
       "main": [
         [
           {
-            "node": "\ud83d\udcca HubSpot Lead Creation",
+            "node": "📊 HubSpot Lead Creation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcca HubSpot Lead Creation": {
+    "📊 HubSpot Lead Creation": {
       "main": [
         [
           {
-            "node": "\ud83d\udcf1 Wassenger WhatsApp Alert",
+            "node": "📱 Wassenger WhatsApp Alert",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcf1 Wassenger WhatsApp Alert": {
+    "📱 Wassenger WhatsApp Alert": {
       "main": [
         [
           {
-            "node": "\ud83d\udcca Crystal Lion Performance",
+            "node": "📊 Crystal Lion Performance",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcca Crystal Lion Performance": {
+    "📊 Crystal Lion Performance": {
       "main": [
         [
           {
-            "node": "\ud83d\udd04 Avatar Rotation Manager",
+            "node": "🔄 Avatar Rotation Manager",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udd04 Avatar Rotation Manager": {
+    "🔄 Avatar Rotation Manager": {
       "main": [
         [
           {
-            "node": "\ud83c\udfa8 Visual Content Prep",
+            "node": "🎨 Visual Content Prep",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfa8 Visual Content Prep": {
+    "🎨 Visual Content Prep": {
       "main": [
         [
           {
-            "node": "\ud83d\udcc8 Viral Score Calculator",
+            "node": "📈 Viral Score Calculator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcc8 Viral Score Calculator": {
+    "📈 Viral Score Calculator": {
       "main": [
         [
           {
-            "node": "\ud83c\udf1f Success Story Generator",
+            "node": "🌟 Success Story Generator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf1f Success Story Generator": {
+    "🌟 Success Story Generator": {
       "main": [
         [
           {
-            "node": "\ud83d\udc8e Crystal Enhancement",
+            "node": "💎 Crystal Enhancement",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udc8e Crystal Enhancement": {
+    "💎 Crystal Enhancement": {
       "main": [
         [
           {
-            "node": "\ud83d\ude97 Traumwagen Configurator",
+            "node": "🚗 Traumwagen Configurator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\ude97 Traumwagen Configurator": {
+    "🚗 Traumwagen Configurator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfad Personality Analyzer",
+            "node": "🎭 Personality Analyzer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfad Personality Analyzer": {
+    "🎭 Personality Analyzer": {
       "main": [
         [
           {
-            "node": "\ud83d\udcf1 Social Media Prep",
+            "node": "📱 Social Media Prep",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcf1 Social Media Prep": {
+    "📱 Social Media Prep": {
       "main": [
         [
           {
-            "node": "\ud83d\udd2e Future Prediction",
+            "node": "🔮 Future Prediction",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udd2e Future Prediction": {
+    "🔮 Future Prediction": {
       "main": [
         [
           {
-            "node": "\u26a1 Energy Amplifier",
+            "node": "⚡ Energy Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\u26a1 Energy Amplifier": {
+    "⚡ Energy Amplifier": {
       "main": [
         [
           {
-            "node": "\ud83c\udf08 Mood Enhancer",
+            "node": "🌈 Mood Enhancer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf08 Mood Enhancer": {
+    "🌈 Mood Enhancer": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaa Experience Creator",
+            "node": "🎪 Experience Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaa Experience Creator": {
+    "🎪 Experience Creator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfc6 Achievement Tracker",
+            "node": "🏆 Achievement Tracker",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfc6 Achievement Tracker": {
+    "🏆 Achievement Tracker": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaf Goal Setter",
+            "node": "🎯 Goal Setter",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaf Goal Setter": {
+    "🎯 Goal Setter": {
       "main": [
         [
           {
-            "node": "\ud83c\udf0d Global Connector",
+            "node": "🌍 Global Connector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf0d Global Connector": {
+    "🌍 Global Connector": {
       "main": [
         [
           {
-            "node": "\ud83d\udcab Magic Moment Creator",
+            "node": "💫 Magic Moment Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcab Magic Moment Creator": {
+    "💫 Magic Moment Creator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfa8 Brand Personalizer",
+            "node": "🎨 Brand Personalizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfa8 Brand Personalizer": {
+    "🎨 Brand Personalizer": {
       "main": [
         [
           {
-            "node": "\ud83d\udcca Analytics Enhancer",
+            "node": "📊 Analytics Enhancer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcca Analytics Enhancer": {
+    "📊 Analytics Enhancer": {
       "main": [
         [
           {
-            "node": "\ud83d\udd25 Viral Amplifier",
+            "node": "🔥 Viral Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udd25 Viral Amplifier": {
+    "🔥 Viral Amplifier": {
       "main": [
         [
           {
-            "node": "\ud83c\udfb5 Audio Optimizer",
+            "node": "🎵 Audio Optimizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfb5 Audio Optimizer": {
+    "🎵 Audio Optimizer": {
       "main": [
         [
           {
-            "node": "\ud83d\udcf9 Video Enhancer",
+            "node": "📹 Video Enhancer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcf9 Video Enhancer": {
+    "📹 Video Enhancer": {
       "main": [
         [
           {
-            "node": "\ud83c\udf1f Star Quality Injector",
+            "node": "🌟 Star Quality Injector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf1f Star Quality Injector": {
+    "🌟 Star Quality Injector": {
       "main": [
         [
           {
-            "node": "\ud83d\udc8e Premium Experience",
+            "node": "💎 Premium Experience",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udc8e Premium Experience": {
+    "💎 Premium Experience": {
       "main": [
         [
           {
-            "node": "\ud83d\ude80 Launch Sequencer",
+            "node": "🚀 Launch Sequencer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\ude80 Launch Sequencer": {
+    "🚀 Launch Sequencer": {
       "main": [
         [
           {
-            "node": "\ud83c\udfad Character Developer",
+            "node": "🎭 Character Developer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfad Character Developer": {
+    "🎭 Character Developer": {
       "main": [
         [
           {
-            "node": "\ud83d\udcf1 Mobile Optimizer",
+            "node": "📱 Mobile Optimizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcf1 Mobile Optimizer": {
+    "📱 Mobile Optimizer": {
       "main": [
         [
           {
-            "node": "\ud83c\udf08 Color Psychology",
+            "node": "🌈 Color Psychology",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf08 Color Psychology": {
+    "🌈 Color Psychology": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaa Entertainment Factor",
+            "node": "🎪 Entertainment Factor",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaa Entertainment Factor": {
+    "🎪 Entertainment Factor": {
       "main": [
         [
           {
-            "node": "\ud83c\udfc5 Quality Assurance",
+            "node": "🏅 Quality Assurance",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfc5 Quality Assurance": {
+    "🏅 Quality Assurance": {
       "main": [
         [
           {
-            "node": "\ud83d\udd04 Feedback Loop",
+            "node": "🔄 Feedback Loop",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udd04 Feedback Loop": {
+    "🔄 Feedback Loop": {
       "main": [
         [
           {
-            "node": "\ud83d\udcc8 Growth Accelerator",
+            "node": "📈 Growth Accelerator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcc8 Growth Accelerator": {
+    "📈 Growth Accelerator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaf Precision Targeting",
+            "node": "🎯 Precision Targeting",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaf Precision Targeting": {
+    "🎯 Precision Targeting": {
       "main": [
         [
           {
-            "node": "\ud83d\udcab Transformation Engine",
+            "node": "💫 Transformation Engine",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcab Transformation Engine": {
+    "💫 Transformation Engine": {
       "main": [
         [
           {
-            "node": "\ud83c\udf1f Brilliance Amplifier",
+            "node": "🌟 Brilliance Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf1f Brilliance Amplifier": {
+    "🌟 Brilliance Amplifier": {
       "main": [
         [
           {
-            "node": "\ud83c\udfa8 Creative Catalyst",
+            "node": "🎨 Creative Catalyst",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfa8 Creative Catalyst": {
+    "🎨 Creative Catalyst": {
       "main": [
         [
           {
-            "node": "\ud83d\ude97 Luxury Lifestyle",
+            "node": "🚗 Luxury Lifestyle",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\ude97 Luxury Lifestyle": {
+    "🚗 Luxury Lifestyle": {
       "main": [
         [
           {
-            "node": "\ud83d\udc8e Diamond Standard",
+            "node": "💎 Diamond Standard",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udc8e Diamond Standard": {
+    "💎 Diamond Standard": {
       "main": [
         [
           {
-            "node": "\ud83e\udd81 Lion Heart Injector",
+            "node": "🦁 Lion Heart Injector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83e\udd81 Lion Heart Injector": {
+    "🦁 Lion Heart Injector": {
       "main": [
         [
           {
-            "node": "\u2728 Magic Multiplier",
+            "node": "✨ Magic Multiplier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\u2728 Magic Multiplier": {
+    "✨ Magic Multiplier": {
       "main": [
         [
           {
-            "node": "\ud83c\udf0d World Changer",
+            "node": "🌍 World Changer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf0d World Changer": {
+    "🌍 World Changer": {
       "main": [
         [
           {
-            "node": "\ud83c\udfad Master Performer",
+            "node": "🎭 Master Performer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfad Master Performer": {
+    "🎭 Master Performer": {
       "main": [
         [
           {
-            "node": "\ud83d\ude80 Rocket Booster",
+            "node": "🚀 Rocket Booster",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\ude80 Rocket Booster": {
+    "🚀 Rocket Booster": {
       "main": [
         [
           {
-            "node": "\ud83d\udcab Cosmic Connector",
+            "node": "💫 Cosmic Connector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udcab Cosmic Connector": {
+    "💫 Cosmic Connector": {
       "main": [
         [
           {
-            "node": "\ud83c\udfc6 Champion Creator",
+            "node": "🏆 Champion Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfc6 Champion Creator": {
+    "🏆 Champion Creator": {
       "main": [
         [
           {
-            "node": "\ud83c\udf1f Superstar Generator",
+            "node": "🌟 Superstar Generator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udf1f Superstar Generator": {
+    "🌟 Superstar Generator": {
       "main": [
         [
           {
-            "node": "\ud83c\udfaa Spectacular Maker",
+            "node": "🎪 Spectacular Maker",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83c\udfaa Spectacular Maker": {
+    "🎪 Spectacular Maker": {
       "main": [
         [
           {
-            "node": "\ud83d\udc8e Perfection Engine",
+            "node": "💎 Perfection Engine",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\udc8e Perfection Engine": {
+    "💎 Perfection Engine": {
       "main": [
         [
           {
-            "node": "\ud83e\udd81 Final Lion Roar",
+            "node": "🦁 Final Lion Roar",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83e\udd81 Final Lion Roar": {
+    "🦁 Final Lion Roar": {
       "main": [
         [
           {
-            "node": "\ud83d\ude97 Traumwagen Delivery",
+            "node": "🚗 Traumwagen Delivery",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\ud83d\ude97 Traumwagen Delivery": {
+    "🚗 Traumwagen Delivery": {
       "main": [
         [
           {
-            "node": "\u2728 Success Manifestation",
+            "node": "✨ Success Manifestation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "\u2728 Success Manifestation": {
+    "✨ Success Manifestation": {
       "main": [
         [
           {
-            "node": "\ud83c\udf1f Victory Declaration",
+            "node": "🌟 Victory Declaration",
             "type": "main",
             "index": 0
           }
