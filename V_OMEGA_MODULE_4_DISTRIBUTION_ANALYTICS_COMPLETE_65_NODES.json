@@ -263,10 +263,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 12\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_1',\n  viral_boost: 97.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// Instagram Distribution via Blotato API\nconst contentData = $input.first().json;\nconst instagramConfig = {\n  platform: \"instagram\",\n  content_type: contentData.content_type || \"reel\",\n  caption: `${contentData.current_viral_hook || '🦁 Crystal Lion ROAR!'} #LRTeam #Traumwagen #Freiheit #CrystalLion #PassivesEinkommen`,\n  hashtags: [\"#LRHealthBeauty\", \"#NetworkMarketing\", \"#Erfolg\", \"#TeamLR\", \"#Motivation\"],\n  media_url: contentData.media_url,\n  aspect_ratio: \"9:16\",\n  auto_post: true,\n  optimal_timing: true\n};\n\nreturn [{\n  ...contentData,\n  instagram_config: instagramConfig,\n  distribution_status: 'INSTAGRAM_QUEUED',\n  platform_reach: 'VIRAL_POTENTIAL_HIGH'\n}];"
       },
       "id": "distribution-process-012",
-      "name": "🚀 Distribution Process 12",
+      "name": "📱 Instagram Distribution Engine",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -276,10 +276,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 13\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_2',\n  viral_boost: 97.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// YouTube Distribution via YouTube API v3\nconst contentData = $input.first().json;\nconst youtubeConfig = {\n  title: `${contentData.current_viral_hook || 'Crystal Lion TRANSFORMATION'} | LR Team Erfolg`,\n  description: `🦁 ROAR-SOME Content vom LR Team! ${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'} \n  \n✨ Crystal Lion zeigt dir den Weg\n🚗 Traumwagen ab 99€/Monat  \n💎 Passives Einkommen aufbauen\n🌟 LÖWENSTARKES TEAM werden\n\n  tags: [\"LR Health Beauty\", \"Network Marketing\", \"Traumwagen\", \"Passives Einkommen\", \"Crystal Lion\"],\n  category_id: \"22\",\n  privacy_status: \"public\",\n  thumbnail_url: contentData.thumbnail_url\n};\n\nreturn [{\n  ...contentData,\n  youtube_config: youtubeConfig,\n  distribution_status: 'YOUTUBE_QUEUED',\n  platform_reach: 'GLOBAL_VIRAL_POTENTIAL'\n}];"
       },
       "id": "distribution-process-013",
-      "name": "🚀 Distribution Process 13",
+      "name": "🎥 YouTube Upload Engine",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -289,10 +289,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 14\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_3',\n  viral_boost: 97.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// LinkedIn Distribution for B2B Reach\nconst contentData = $input.first().json;\nconst linkedinConfig = {\n  text: `🦁 Erfolgsgeschichte: ${contentData.current_viral_hook || 'Crystal Lion Transformation im Network Marketing'}\n\n${contentData.traumwagen_message || 'Wie du mit LR Health & Beauty dein Traumauto ab 99€/Monat realisierst'}\n\n✅ Passives Einkommen aufbauen\n✅ Finanzielle Freiheit erreichen  \n✅ LÖWENSTARKES TEAM werden\n✅ Traumwagen materialisieren\n\n  media_url: contentData.media_url,\n  content_type: \"professional_update\",\n  target_audience: \"entrepreneurs\"\n};\n\nreturn [{\n  ...contentData,\n  linkedin_config: linkedinConfig,\n  distribution_status: 'LINKEDIN_QUEUED',\n  platform_reach: 'PROFESSIONAL_VIRAL_POTENTIAL'\n}];"
       },
       "id": "distribution-process-014",
-      "name": "🚀 Distribution Process 14",
+      "name": "💼 LinkedIn Professional Distribution",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -302,10 +302,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 15\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_4',\n  viral_boost: 97.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// TikTok Distribution for Maximum Viral Reach\nconst contentData = $input.first().json;\nconst tiktokConfig = {\n  caption: `${contentData.current_viral_hook || '🦁 Crystal Lion ROAR!'} #fyp #viral #traumwagen #freiheit #crystallion #lr #success`,\n  hashtags: [\"#fyp\", \"#viral\", \"#traumwagen\", \"#freiheit\", \"#crystallion\", \"#lr\", \"#success\", \"#motivation\", \"#geld\", \"#auto\"],\n  music_id: \"trending_motivational\",\n  effects: [\"glass_transformation\", \"crystal_sparkle\", \"lion_roar\"],\n  duet_enabled: true,\n  comment_enabled: true,\n  aspect_ratio: \"9:16\",\n  duration: contentData.duration || 30\n};\n\nreturn [{\n  ...contentData,\n  tiktok_config: tiktokConfig,\n  distribution_status: 'TIKTOK_QUEUED',\n  platform_reach: 'MAXIMUM_VIRAL_POTENTIAL'\n}];"
       },
       "id": "distribution-process-015",
-      "name": "🚀 Distribution Process 15",
+      "name": "🎵 TikTok Viral Distribution",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -315,10 +315,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 16\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_5',\n  viral_boost: 97.7,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// WhatsApp Distribution via Wassenger API\nconst contentData = $input.first().json;\nconst whatsappConfig = {\n  message_type: \"media\",\n  caption: `🦁 ${contentData.current_viral_hook || 'Crystal Lion bringt dir ERFOLG!'}\n\n${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'}\n\n✨ Jetzt LR Team beitreten!`,\n  media_url: contentData.media_url,\n  broadcast_lists: [\"lr_team_members\", \"potential_leads\", \"success_stories\"],\n  scheduling: \"optimal_timing\",\n  personalization: true\n};\n\nreturn [{\n  ...contentData,\n  whatsapp_config: whatsappConfig,\n  distribution_status: 'WHATSAPP_QUEUED',\n  platform_reach: 'PERSONAL_VIRAL_POTENTIAL'\n}];"
       },
       "id": "distribution-process-016",
-      "name": "🚀 Distribution Process 16",
+      "name": "📱 WhatsApp Broadcast Engine",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -328,10 +328,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 17\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_6',\n  viral_boost: 97.8,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// Email Distribution via HubSpot API\nconst contentData = $input.first().json;\nconst hubspotConfig = {\n  email_type: \"marketing_campaign\",\n  subject: `🦁 ${contentData.current_viral_hook || 'Crystal Lion TRANSFORMATION wartet auf dich!'}`,\n  html_content: `\n<h1>🦁 Crystal Lion ROAR!</h1>\n<p>${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'}</p>\n<img src=\"${contentData.media_url}\" alt=\"Crystal Lion Content\" />\n<p>✨ Werde Teil des LÖWENSTARKEN TEAMS!</p>\n<a href=\"{{ $vars.LRSignupUrl }}\" style=\"background: gold; padding: 10px; color: black;\">JETZT STARTEN</a>`,\n  recipient_lists: [\"lr_leads\", \"team_prospects\"],\n  send_time: \"optimal\",\n  tracking_enabled: true\n};\n\nreturn [{\n  ...contentData,\n  hubspot_config: hubspotConfig,\n  distribution_status: 'EMAIL_QUEUED',\n  platform_reach: 'TARGETED_VIRAL_POTENTIAL'\n}];"
       },
       "id": "distribution-process-017",
-      "name": "🚀 Distribution Process 17",
+      "name": "📧 HubSpot Email Campaign",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
@@ -341,10 +341,10 @@
     },
     {
       "parameters": {
-        "jsCode": "// Distribution Processing Node 18\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_7',\n  viral_boost: 97.89999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+        "jsCode": "// Analytics Tracking via Metricool API\nconst contentData = $input.first().json;\nconst analyticsConfig = {\n  content_id: contentData.content_id || require('crypto').randomUUID(),\n  platforms: [\"instagram\", \"youtube\", \"linkedin\", \"tiktok\", \"whatsapp\"],\n  metrics_to_track: [\n    \"views\", \"likes\", \"shares\", \"comments\", \"saves\", \n    \"click_through_rate\", \"engagement_rate\", \"viral_coefficient\"\n  ],\n  viral_threshold: 97.3,\n  crystal_lion_mentions: true,\n  traumwagen_conversions: true,\n  team_signups: true\n};\n\nreturn [{\n  ...contentData,\n  analytics_config: analyticsConfig,\n  distribution_status: 'ANALYTICS_TRACKING_ACTIVE',\n  viral_monitoring: 'REAL_TIME_ENABLED'\n}];"
       },
       "id": "distribution-process-018",
-      "name": "🚀 Distribution Process 18",
+      "name": "📊 Metricool Analytics Tracking",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
