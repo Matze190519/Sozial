@@ -965,711 +965,689 @@
     }
   ],
   "connections": {
-    "distribution-webhook-001": {
+    "\ud83d\ude80 Distribution & Analytics Webhook": {
       "main": [
         [
           {
-            "node": "vsmr-compositor-002",
+            "node": "\ud83c\udfac VSMR Compositor Engine",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "vsmr-compositor-002": {
+    "\ud83c\udfac VSMR Compositor Engine": {
       "main": [
         [
           {
-            "node": "runway-production-003",
+            "node": "\ud83c\udfac Runway Video Production",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "runway-production-003": {
+    "\ud83c\udfac Runway Video Production": {
       "main": [
         [
           {
-            "node": "luma-enhancement-004",
+            "node": "\ud83c\udf1f Luma Dream Enhancement",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "luma-enhancement-004": {
+    "\ud83c\udf1f Luma Dream Enhancement": {
       "main": [
         [
           {
-            "node": "bannerbear-composition-005",
+            "node": "\ud83c\udfa8 Bannerbear Final Composition",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "bannerbear-composition-005": {
+    "\ud83d\udcf1 Klap Multi-Format Reframe": {
       "main": [
         [
           {
-            "node": "klap-reframe-006",
+            "node": "\ud83d\ude80 Blotato Viral Distribution",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "klap-reframe-006": {
+    "\ud83d\ude80 Blotato Viral Distribution": {
       "main": [
         [
           {
-            "node": "blotato-distribution-007",
+            "node": "\ud83d\udcc5 Predis Social Scheduling",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "blotato-distribution-007": {
+    "\ud83d\udcc5 Predis Social Scheduling": {
       "main": [
         [
           {
-            "node": "predis-scheduling-008",
+            "node": "\ud83d\udcca Metricool Analytics",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "predis-scheduling-008": {
+    "\ud83d\udcca Metricool Analytics": {
       "main": [
         [
           {
-            "node": "metricool-analytics-009",
+            "node": "\ud83c\udfaf HubSpot Lead Scoring",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "metricool-analytics-009": {
+    "\ud83c\udfaf HubSpot Lead Scoring": {
       "main": [
         [
           {
-            "node": "hubspot-scoring-010",
+            "node": "\ud83d\udcf1 Telegram Final Report",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "hubspot-scoring-010": {
+    "\ud83d\ude80 Distribution Process 12": {
       "main": [
         [
           {
-            "node": "telegram-report-011",
+            "node": "\ud83d\ude80 Distribution Process 13",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "telegram-report-011": {
+    "\ud83d\ude80 Distribution Process 13": {
       "main": [
         [
           {
-            "node": "distribution-process-012",
+            "node": "\ud83d\ude80 Distribution Process 14",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-012": {
+    "\ud83d\ude80 Distribution Process 14": {
       "main": [
         [
           {
-            "node": "distribution-process-013",
+            "node": "\ud83d\ude80 Distribution Process 15",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-013": {
+    "\ud83d\ude80 Distribution Process 15": {
       "main": [
         [
           {
-            "node": "distribution-process-014",
+            "node": "\ud83d\ude80 Distribution Process 16",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-014": {
+    "\ud83d\ude80 Distribution Process 16": {
       "main": [
         [
           {
-            "node": "distribution-process-015",
+            "node": "\ud83d\ude80 Distribution Process 17",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-015": {
+    "\ud83d\ude80 Distribution Process 17": {
       "main": [
         [
           {
-            "node": "distribution-process-016",
+            "node": "\ud83d\ude80 Distribution Process 18",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-016": {
+    "\ud83d\ude80 Distribution Process 18": {
       "main": [
         [
           {
-            "node": "distribution-process-017",
+            "node": "\ud83d\ude80 Distribution Process 19",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-017": {
+    "\ud83d\ude80 Distribution Process 19": {
       "main": [
         [
           {
-            "node": "distribution-process-018",
+            "node": "\ud83d\ude80 Distribution Process 20",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-018": {
+    "\ud83d\ude80 Distribution Process 20": {
       "main": [
         [
           {
-            "node": "distribution-process-019",
+            "node": "\ud83d\ude80 Distribution Process 21",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-019": {
+    "\ud83d\ude80 Distribution Process 21": {
       "main": [
         [
           {
-            "node": "distribution-process-020",
+            "node": "\ud83d\ude80 Distribution Process 22",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-020": {
+    "\ud83d\ude80 Distribution Process 22": {
       "main": [
         [
           {
-            "node": "distribution-process-021",
+            "node": "\ud83d\ude80 Distribution Process 23",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-021": {
+    "\ud83d\ude80 Distribution Process 23": {
       "main": [
         [
           {
-            "node": "distribution-process-022",
+            "node": "\ud83d\ude80 Distribution Process 24",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-022": {
+    "\ud83d\ude80 Distribution Process 24": {
       "main": [
         [
           {
-            "node": "distribution-process-023",
+            "node": "\ud83d\ude80 Distribution Process 25",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-023": {
+    "\ud83d\ude80 Distribution Process 25": {
       "main": [
         [
           {
-            "node": "distribution-process-024",
+            "node": "\ud83d\ude80 Distribution Process 26",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-024": {
+    "\ud83d\ude80 Distribution Process 26": {
       "main": [
         [
           {
-            "node": "distribution-process-025",
+            "node": "\ud83d\ude80 Distribution Process 27",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-025": {
+    "\ud83d\ude80 Distribution Process 27": {
       "main": [
         [
           {
-            "node": "distribution-process-026",
+            "node": "\ud83d\ude80 Distribution Process 28",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-026": {
+    "\ud83d\ude80 Distribution Process 28": {
       "main": [
         [
           {
-            "node": "distribution-process-027",
+            "node": "\ud83d\ude80 Distribution Process 29",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-027": {
+    "\ud83d\ude80 Distribution Process 29": {
       "main": [
         [
           {
-            "node": "distribution-process-028",
+            "node": "\ud83d\ude80 Distribution Process 30",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-028": {
+    "\ud83d\ude80 Distribution Process 30": {
       "main": [
         [
           {
-            "node": "distribution-process-029",
+            "node": "\ud83d\ude80 Distribution Process 31",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-029": {
+    "\ud83d\ude80 Distribution Process 31": {
       "main": [
         [
           {
-            "node": "distribution-process-030",
+            "node": "\ud83d\ude80 Distribution Process 32",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-030": {
+    "\ud83d\ude80 Distribution Process 32": {
       "main": [
         [
           {
-            "node": "distribution-process-031",
+            "node": "\ud83d\ude80 Distribution Process 33",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-031": {
+    "\ud83d\ude80 Distribution Process 33": {
       "main": [
         [
           {
-            "node": "distribution-process-032",
+            "node": "\ud83d\ude80 Distribution Process 34",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-032": {
+    "\ud83d\ude80 Distribution Process 34": {
       "main": [
         [
           {
-            "node": "distribution-process-033",
+            "node": "\ud83d\ude80 Distribution Process 35",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-033": {
+    "\ud83d\ude80 Distribution Process 35": {
       "main": [
         [
           {
-            "node": "distribution-process-034",
+            "node": "\ud83d\ude80 Distribution Process 36",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-034": {
+    "\ud83d\ude80 Distribution Process 36": {
       "main": [
         [
           {
-            "node": "distribution-process-035",
+            "node": "\ud83d\ude80 Distribution Process 37",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-035": {
+    "\ud83d\ude80 Distribution Process 37": {
       "main": [
         [
           {
-            "node": "distribution-process-036",
+            "node": "\ud83d\ude80 Distribution Process 38",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-036": {
+    "\ud83d\ude80 Distribution Process 38": {
       "main": [
         [
           {
-            "node": "distribution-process-037",
+            "node": "\ud83d\ude80 Distribution Process 39",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-037": {
+    "\ud83d\ude80 Distribution Process 39": {
       "main": [
         [
           {
-            "node": "distribution-process-038",
+            "node": "\ud83d\ude80 Distribution Process 40",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-038": {
+    "\ud83d\ude80 Distribution Process 40": {
       "main": [
         [
           {
-            "node": "distribution-process-039",
+            "node": "\ud83d\ude80 Distribution Process 41",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-039": {
+    "\ud83d\ude80 Distribution Process 41": {
       "main": [
         [
           {
-            "node": "distribution-process-040",
+            "node": "\ud83d\ude80 Distribution Process 42",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-040": {
+    "\ud83d\ude80 Distribution Process 42": {
       "main": [
         [
           {
-            "node": "distribution-process-041",
+            "node": "\ud83d\ude80 Distribution Process 43",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-041": {
+    "\ud83d\ude80 Distribution Process 43": {
       "main": [
         [
           {
-            "node": "distribution-process-042",
+            "node": "\ud83d\ude80 Distribution Process 44",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-042": {
+    "\ud83d\ude80 Distribution Process 44": {
       "main": [
         [
           {
-            "node": "distribution-process-043",
+            "node": "\ud83d\ude80 Distribution Process 45",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-043": {
+    "\ud83d\ude80 Distribution Process 45": {
       "main": [
         [
           {
-            "node": "distribution-process-044",
+            "node": "\ud83d\ude80 Distribution Process 46",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-044": {
+    "\ud83d\ude80 Distribution Process 46": {
       "main": [
         [
           {
-            "node": "distribution-process-045",
+            "node": "\ud83d\ude80 Distribution Process 47",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-045": {
+    "\ud83d\ude80 Distribution Process 47": {
       "main": [
         [
           {
-            "node": "distribution-process-046",
+            "node": "\ud83d\ude80 Distribution Process 48",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-046": {
+    "\ud83d\ude80 Distribution Process 48": {
       "main": [
         [
           {
-            "node": "distribution-process-047",
+            "node": "\ud83d\ude80 Distribution Process 49",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-047": {
+    "\ud83d\ude80 Distribution Process 49": {
       "main": [
         [
           {
-            "node": "distribution-process-048",
+            "node": "\ud83d\ude80 Distribution Process 50",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-048": {
+    "\ud83d\ude80 Distribution Process 50": {
       "main": [
         [
           {
-            "node": "distribution-process-049",
+            "node": "\ud83d\ude80 Distribution Process 51",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-049": {
+    "\ud83d\ude80 Distribution Process 51": {
       "main": [
         [
           {
-            "node": "distribution-process-050",
+            "node": "\ud83d\ude80 Distribution Process 52",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-050": {
+    "\ud83d\ude80 Distribution Process 52": {
       "main": [
         [
           {
-            "node": "distribution-process-051",
+            "node": "\ud83d\ude80 Distribution Process 53",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-051": {
+    "\ud83d\ude80 Distribution Process 53": {
       "main": [
         [
           {
-            "node": "distribution-process-052",
+            "node": "\ud83d\ude80 Distribution Process 54",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-052": {
+    "\ud83d\ude80 Distribution Process 54": {
       "main": [
         [
           {
-            "node": "distribution-process-053",
+            "node": "\ud83d\ude80 Distribution Process 55",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-053": {
+    "\ud83d\ude80 Distribution Process 55": {
       "main": [
         [
           {
-            "node": "distribution-process-054",
+            "node": "\ud83d\ude80 Distribution Process 56",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-054": {
+    "\ud83d\ude80 Distribution Process 56": {
       "main": [
         [
           {
-            "node": "distribution-process-055",
+            "node": "\ud83d\ude80 Distribution Process 57",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-055": {
+    "\ud83d\ude80 Distribution Process 57": {
       "main": [
         [
           {
-            "node": "distribution-process-056",
+            "node": "\ud83d\ude80 Distribution Process 58",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-056": {
+    "\ud83d\ude80 Distribution Process 58": {
       "main": [
         [
           {
-            "node": "distribution-process-057",
+            "node": "\ud83d\ude80 Distribution Process 59",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-057": {
+    "\ud83d\ude80 Distribution Process 59": {
       "main": [
         [
           {
-            "node": "distribution-process-058",
+            "node": "\ud83d\ude80 Distribution Process 60",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-058": {
+    "\ud83d\ude80 Distribution Process 60": {
       "main": [
         [
           {
-            "node": "distribution-process-059",
+            "node": "\ud83d\ude80 Distribution Process 61",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-059": {
+    "\ud83d\ude80 Distribution Process 61": {
       "main": [
         [
           {
-            "node": "distribution-process-060",
+            "node": "\ud83d\ude80 Distribution Process 62",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-060": {
+    "\ud83d\ude80 Distribution Process 62": {
       "main": [
         [
           {
-            "node": "distribution-process-061",
+            "node": "\ud83d\ude80 Distribution Process 63",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-061": {
+    "\ud83d\ude80 Distribution Process 63": {
       "main": [
         [
           {
-            "node": "distribution-process-062",
+            "node": "\ud83d\ude80 Distribution Process 64",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-062": {
+    "\ud83d\ude80 Distribution Process 64": {
       "main": [
         [
           {
-            "node": "distribution-process-063",
+            "node": "\ud83d\ude80 Distribution Process 65",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "distribution-process-063": {
-      "main": [
-        [
-          {
-            "node": "distribution-process-064",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "distribution-process-064": {
-      "main": [
-        [
-          {
-            "node": "distribution-process-065",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "distribution-process-065": {
+    "\ud83d\ude80 Distribution Process 65": {
       "main": []
     }
   },
