@@ -8,10 +8,11 @@
         "httpMethod": "POST",
         "path": "v-omega-visual-3d-generator",
         "responseMode": "responseNode",
-        "options": {}
+        "options": {},
+        "jsCode": "// V-OMEGA Initialization from Year 3025\nconst uuid = () => crypto.randomUUID ? crypto.randomUUID() : Array.from({length:36},(_,i)=>[8,13,18,23].includes(i)?'-':(Math.random()*16|0).toString(16)).join('');\nconst nowIso = new Date().toISOString();\n\n// Alien Intelligence Parameters\nconst alienConfig = {\n  request_id: uuid(),\n  timestamp: nowIso,\n  viral_threshold: 97.3,\n  galaxy_target: '5_BILLION_VIEWS',\n  crystal_lion_mode: 'ROARING',\n  glass_transformation: 'QUANTUM',\n  vsmr_frequency: 432,\n  consciousness_expansion: 'MAXIMUM',\n  alien_tech_level: 'YEAR_3025'\n};\n\n// Dynamic Prompts from the Future\nconst dynamicPrompts = [\n  'Crystal-Löwe explodiert aus 4D-Hologramm - Traumauto ab 99€ materialisiert sich',\n  'Glas-DNA verwandelt Realität - Passives Einkommen fließt wie flüssiger Diamant',\n  'VSMR-Hypnose: Während du schläfst, baut sich dein Team auf',\n  'Begehbare 3D-Welt: Crystal-Löwe führt durch deine Zukunft',\n  'Quantum-Loop: Endlos-Content generiert sich selbst'\n];\n\nreturn {\n  config: alienConfig,\n  prompts: dynamicPrompts,\n  control: {\n    max_retries: 3,\n    backoff_ms: [1000, 3000, 9000],\n    viral_threshold: 97.3\n  }\n};"
       },
       "id": "visual-webhook-001",
-      "name": "🎨 Visual 3D Generator Webhook",
+      "name": "⚡ V-OMEGA Init",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
