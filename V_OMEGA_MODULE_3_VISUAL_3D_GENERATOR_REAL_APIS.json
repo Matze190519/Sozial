@@ -563,7 +563,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-021",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -648,7 +648,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-026",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 3",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -733,7 +733,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-031",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 4",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -818,7 +818,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-036",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 5",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -903,7 +903,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-041",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 6",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -988,7 +988,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-046",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 7",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -1073,7 +1073,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-051",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 8",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -1158,7 +1158,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-056",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 9",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -1243,7 +1243,7 @@
         "jsonBody": "={\n  \"prompt\": \"Crystal Lion visual enhancement with Stability AI - {{ $json.visual_viral_hooks[0] }} Advanced glass transformation, luxury traumwagen, 432Hz frequency visualization, hyperrealistic quality.\",\n  \"model\": \"latest\",\n  \"size\": \"1024x1024\",\n  \"quality\": \"hd\",\n  \"response_format\": \"url\"\n}"
       },
       "id": "processing-061",
-      "name": "🎨 Stability AI Enhancement",
+      "name": "🎨 Stability AI Enhancement 10",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -1477,7 +1477,7 @@
       "main": [
         [
           {
-            "node": "🔮 Visual Processing Node 62",
+            "node": "🔮 Visual Processing Node 17",
             "type": "main",
             "index": 0
           }
@@ -1521,7 +1521,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 2": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 22",
             "type": "main",
             "index": 0
           }
@@ -1565,7 +1576,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 3": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 27",
             "type": "main",
             "index": 0
           }
@@ -1609,7 +1631,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 4": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 32",
             "type": "main",
             "index": 0
           }
@@ -1653,7 +1686,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 5": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 37",
             "type": "main",
             "index": 0
           }
@@ -1697,7 +1741,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 6": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 42",
             "type": "main",
             "index": 0
           }
@@ -1741,7 +1796,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 7": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 47",
             "type": "main",
             "index": 0
           }
@@ -1785,7 +1851,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 8": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 52",
             "type": "main",
             "index": 0
           }
@@ -1829,7 +1906,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 9": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 57",
             "type": "main",
             "index": 0
           }
@@ -1873,7 +1961,18 @@
       "main": [
         [
           {
-            "node": "🎨 Stability AI Enhancement",
+            "node": "🎨 Stability AI Enhancement 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Stability AI Enhancement 10": {
+      "main": [
+        [
+          {
+            "node": "🔮 Visual Processing Node 62",
             "type": "main",
             "index": 0
           }
