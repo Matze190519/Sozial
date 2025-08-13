@@ -358,7 +358,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 8192,\n  \"temperature\": 0.95,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Du bist ein Alien-Content-Stratege aus dem Jahr 3025. Erstelle 10 Content-Ideen die 1 MILLIARDE Views überschreiten.\\n\\nVirale Muster: {{ JSON.stringify($json.viral_patterns) }}\\n\\nJede Idee MUSS haben:\\n1. Glass-Transformation (Produkt zu Glas/Diamant/Hologramm)\\n2. Crystal-Löwe (witzig + motivierend)\\n3. VSMR-Technologie (432Hz Bewusstseinserweiterung)\\n4. 3D-Hologramm-Elemente\\n5. Begehbare Welten\\n6. Traumauto ab 99€\\n7. Quantum-Loop (endlos)\\n8. Multi-KI-Fusion\\n\\nOutput als JSON mit: title, hook, visual_description, audio_elements, 3d_elements, viral_score_prediction\"\n    }\n  ]\n}",
+        "jsonBody": "{\n  \"model\": \"claude-4.1-opus-20250801\",\n  \"max_tokens\": 8192,\n  \"temperature\": 0.95,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Du bist ein Alien-Content-Stratege aus dem Jahr 3025. Erstelle 10 Content-Ideen die 1 MILLIARDE Views überschreiten.\\n\\nVirale Muster: {{ JSON.stringify($json.viral_patterns) }}\\n\\nJede Idee MUSS haben:\\n1. Glass-Transformation (Produkt zu Glas/Diamant/Hologramm)\\n2. Crystal-Löwe (witzig + motivierend)\\n3. VSMR-Technologie (432Hz Bewusstseinserweiterung)\\n4. 3D-Hologramm-Elemente\\n5. Begehbare Welten\\n6. Traumauto ab 99€\\n7. Quantum-Loop (endlos)\\n8. Multi-KI-Fusion\\n\\nOutput als JSON mit: title, hook, visual_description, audio_elements, 3d_elements, viral_score_prediction\"\n    }\n  ]\n}",
         "options": {
           "timeout": 45000
         }
@@ -480,7 +480,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.98,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"🚨 KRITISCH! Score nur {{ $json.viral_score }}! Brauche 97.3+ für Galaxy-Domination!\\n\\nOPTIMIERE SOFORT:\\n1. MEHR Glass-Transformation\\n2. EXTREMER Crystal-Löwe\\n3. HYPNOTISCHES VSMR\\n4. BEGEHBARE 3D-Welten\\n5. QUANTUM-LOOPS\\n6. 1-MILLIARDE-VIEWS Features\\n\\nMAKE IT ALIEN!\"\n    }\n  ]\n}",
+        "jsonBody": "{\n  \"model\": \"claude-4.1-opus-20250801\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.98,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"🚨 KRITISCH! Score nur {{ $json.viral_score }}! Brauche 97.3+ für Galaxy-Domination!\\n\\nOPTIMIERE SOFORT:\\n1. MEHR Glass-Transformation\\n2. EXTREMER Crystal-Löwe\\n3. HYPNOTISCHES VSMR\\n4. BEGEHBARE 3D-Welten\\n5. QUANTUM-LOOPS\\n6. 1-MILLIARDE-VIEWS Features\\n\\nMAKE IT ALIEN!\"\n    }\n  ]\n}",
         "options": {
           "timeout": 30000
         }

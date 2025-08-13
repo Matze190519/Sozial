@@ -8,7 +8,7 @@ Du musst diese API Keys in N8N unter "Credentials" hinzufügen:
 **Wichtige APIs (Priorität 1):**
 - `{{ $vars.PerplexityApi }}` → Perplexity API Key (Model: sonar-reasoning-pro)
 - `{{ $vars.FalAiApi }}` → fal.ai API Key (für alle Flux/Kling/Leonardo Modelle)
-- `{{ $vars.ClaudeApi }}` → Anthropic Claude API Key (Model: claude-3-5-sonnet-20241022)
+- `{{ $vars.ClaudeApi }}` → Anthropic Claude API Key (Model: claude-4.1-opus-20250801)
 - `{{ $vars.DeepSeekApi }}` → DeepSeek API Key (Model: deepseek-reasoner)
 - `{{ $vars.ElevenLabsApi }}` → ElevenLabs API Key (Model: eleven_turbo_v2_6)
 
