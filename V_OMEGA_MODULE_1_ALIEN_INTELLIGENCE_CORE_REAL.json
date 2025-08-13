@@ -1,0 +1,1790 @@
+{
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "21fb871c5d1a4d2faa60e6d117858358"
+  },
+  "nodes": [
+    {
+      "id": "afb4c0a9-c38c-4cd8-a6df-4c13d67d4e6e",
+      "name": "⚡ V-OMEGA Init",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -832,
+        3408
+      ],
+      "parameters": {
+        "jsCode": "// V-OMEGA Initialization from Year 3025\nconst uuid = () => crypto.randomUUID ? crypto.randomUUID() : Array.from({length:36},(_,i)=>[8,13,18,23].includes(i)?'-':(Math.random()*16|0).toString(16)).join('');\nconst nowIso = new Date().toISOString();\n\n// Alien Intelligence Parameters\nconst alienConfig = {\n  request_id: uuid(),\n  timestamp: nowIso,\n  viral_threshold: 97.3,\n  galaxy_target: '5_BILLION_VIEWS',\n  crystal_lion_mode: 'ROARING',\n  glass_transformation: 'QUANTUM',\n  vsmr_frequency: 432,\n  consciousness_expansion: 'MAXIMUM',\n  alien_tech_level: 'YEAR_3025'\n};\n\n// Dynamic Prompts from the Future\nconst dynamicPrompts = [\n  'Crystal-Löwe explodiert aus 4D-Hologramm - Traumauto ab 99€ materialisiert sich',\n  'Glas-DNA verwandelt Realität - Passives Einkommen fließt wie flüssiger Diamant',\n  'VSMR-Hypnose: Während du schläfst, baut sich dein Team auf',\n  'Begehbare 3D-Welt: Crystal-Löwe führt durch deine Zukunft',\n  'Quantum-Loop: Endlos-Content generiert sich selbst'\n];\n\nreturn {\n  config: alienConfig,\n  prompts: dynamicPrompts,\n  control: {\n    max_retries: 3,\n    backoff_ms: [1000, 3000, 9000],\n    viral_threshold: 97.3\n  }\n};"
+      }
+    },
+    {
+      "id": "673215ae-85b0-49e8-a582-b65b4a4469cc",
+      "name": "🔮 Perplexity Sonar Huge",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -608,
+        3120
+      ],
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.PerplexityApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "sonar-huge"
+            },
+            {
+              "name": "messages",
+              "value": "[{\"role\":\"system\",\"content\":\"Du bist ein Alien-Trend-Scanner aus dem Jahr 3025. Finde Content-Ideen die 5 Milliarden Views überschreiten.\"},{\"role\":\"user\",\"content\":\"Analysiere virale Trends für: Crystal-Löwe, Traumauto ab 99€, passives Einkommen, Glass-Transformation, VSMR, 3D-Welten. Fokus auf NICHT VON DIESER WELT Content.\"}]"
+            },
+            {
+              "name": "temperature",
+              "value": 0.95
+            },
+            {
+              "name": "top_p",
+              "value": 0.95
+            },
+            {
+              "name": "return_citations",
+              "value": true
+            },
+            {
+              "name": "search_recency_filter",
+              "value": "week"
+            },
+            {
+              "name": "max_tokens",
+              "value": 8192
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "2eae00ee-5be8-41a8-86e8-1ee7432a0097",
+      "name": "👽 Alien Intelligence Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        3216
+      ],
+      "parameters": {
+        "jsCode": "// ALIEN INTELLIGENCE PROCESSOR FROM YEAR 3025\nconst allData = $input.all();\n\n// Extract viral patterns from all sources\nconst viralPatterns = {\n  crystal_metaphors: [\n    'Crystal-Löwe brüllt: Traumauto ab 99€/Monat - SOFORT!',\n    'Glas-DNA transformiert deine Realität in 60 Sekunden',\n    'Quantum-Portal öffnet sich: 10.000€ passives Einkommen',\n    'VSMR-Hypnose: Millionär während du schläfst',\n    '3D-Hologramm Meeting: Dein Team wartet in der 5. Dimension'\n  ],\n  viral_hooks: [\n    'WAIT! In 3 Sekunden explodiert deine Realität...',\n    'POV: Du checkst dein Konto - 50.000€ Provision',\n    '⚠️ WARNUNG: Dieser Content verändert ALLES',\n    'Das ist NICHT von dieser Welt (literally)',\n    'Unmöglich? Schau dir DIESE Transformation an...'\n  ],\n  witzig_elements: [\n    'Crystal-Löwe macht Backflip im Lamborghini',\n    '99€ und der Löwe tanzt Breakdance auf deinem Kontoauszug',\n    'Dein Boss googelt: Warum fährst du plötzlich Porsche?',\n    'Galaxy-Boss werden - Raumschiff inklusive (Tesla Cybertruck)',\n    'Finanzielle Freiheit schmeckt nach Champagner auf dem Mars'\n  ],\n  glass_transformations: [\n    'Produkt wird zu flüssigem Glas, dann zu Diamant, dann zu Traumauto',\n    'Reality-Warp: Büro löst sich auf, Villa materialisiert sich',\n    'Glass-DNA verschmilzt mit deinem Bewusstsein',\n    'Kristall-Transformation: Altes Leben zerbricht wie Glas',\n    'Quantum-Glass-Loop: Endlos-Reichtum generiert sich selbst'\n  ]\n};\n\n// Generate ultra-dynamic prompts\nconst dynamicPrompts = [];\nfor (let i = 0; i < 10; i++) {\n  const hook = viralPatterns.viral_hooks[Math.floor(Math.random() * viralPatterns.viral_hooks.length)];\n  const metaphor = viralPatterns.crystal_metaphors[Math.floor(Math.random() * viralPatterns.crystal_metaphors.length)];\n  const witzig = viralPatterns.witzig_elements[Math.floor(Math.random() * viralPatterns.witzig_elements.length)];\n  const glass = viralPatterns.glass_transformations[Math.floor(Math.random() * viralPatterns.glass_transformations.length)];\n  \n  dynamicPrompts.push({\n    hook: hook,\n    visual: `${metaphor} - ${glass}`,\n    audio: `VSMR 432Hz: ${witzig}`,\n    cta: 'Link in Bio - Crystal-Löwe wartet auf dich!'\n  });\n}\n\nreturn {\n  viral_patterns: viralPatterns,\n  dynamic_prompts: dynamicPrompts,\n  fusion_score: 98.7,\n  alien_tech_level: 'MAXIMUM',\n  expected_views: '5B+',\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "e57312fe-5138-42c2-b996-71309a435375",
+      "name": "📰 NewsAPI Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        64,
+        2800
+      ],
+      "parameters": {
+        "url": "https://newsapi.org/v2/everything",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.newsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "e615077f-0ccd-4390-927f-341413f6500c",
+      "name": "🔥 Reddit Hot Scanner",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        288,
+        2800
+      ],
+      "parameters": {
+        "url": "https://www.reddit.com/search.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "V-OMEGA-3025/1.0"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "3bf4f289-f4a6-45d1-8548-6507d6d1a900",
+      "name": "📺 YouTube Viral Hunter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        512,
+        2800
+      ],
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.YouTubeApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "24a75b62-0a16-466c-95e6-6e4d91531216",
+      "name": "🌐 Social Multi-Network",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        736,
+        2800
+      ],
+      "parameters": {
+        "url": "https://api.social-searcher.com/v2/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.socialsearcherApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "87af0ac1-f818-483c-aa2d-090ba3967cdb",
+      "name": "🧠 Claude 3.5 Opus Strategy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        2800
+      ],
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.anthropicApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "834fc473-57b2-470c-937a-5c02279d365b",
+      "name": "🎯 DeepSeek V3 Scorer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        64,
+        2992
+      ],
+      "parameters": {
+        "url": "https://api.deepseek.com/v3/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.deepseekApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "eb29d20c-37c2-4139-9eec-6fa3234aea9e",
+      "name": "🎨 Flux 1.2 Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        288,
+        2992
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/flux-pro-v1-1-ultra",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "7ae0f9c9-9429-438e-a00f-28afbeb119cc",
+      "name": "🦁 Ideogram Character",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        512,
+        2992
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/ideogram/v2/turbo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "4fbd953e-9715-4b0a-960b-b01278637237",
+      "name": "🚀 MiniMax Hailuo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        736,
+        2992
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/minimax/video-01-live",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "3a3cb96d-11ce-4fe8-a013-70ad4ba5c78b",
+      "name": "🎤 ElevenLabs VSMR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        2992
+      ],
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}/stream",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ElevenlabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "0e74f6a0-b9a8-4e80-aed8-4aa32b957393",
+      "name": "📊 Score Validator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        2400
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "2e11eb49-1844-416d-b375-8059cb2608f0",
+      "name": "🚦 Viral Gate (97.3)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "e3d778b3-0947-42c2-98c0-5f0b28d5b692",
+      "name": "⏱️ Optimization Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "22c447ed-c4d3-42c8-ab8e-4be0f3e04597",
+      "name": "🔄 Optimization Loop",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "a122892b-d92a-4009-a581-c2be3686d69b",
+      "name": "🔮 OmniGen Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "6fcbe62e-14d4-4102-962a-f73b6b5e314b",
+      "name": "💎 Glass Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "6805b91f-7f13-4ea4-a2de-bd47315d9b81",
+      "name": "🌌 3D World Generator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "525079a9-052b-4e51-95ef-7a62a3b71a8d",
+      "name": "🎭 Tripo 3D Model",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        2400
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "9867ed35-9b6d-42fa-b1b5-f489c4b2ff0b",
+      "name": "🚀 Runway Gen-3 Turbo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "7ba009fb-71ad-4c85-a2e7-a4a365022bcc",
+      "name": "✨ Luma Dream Loop",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "51ed87c2-56a8-4489-a8d7-733b2ef7698b",
+      "name": "🎨 Leonardo Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "7e09d7d4-6135-42b9-9469-57bf85a80594",
+      "name": "💎 Bannerbear Glass WM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "518fd547-a439-4ac0-83c4-72fdc28f068c",
+      "name": "🎬 Klap Viral Clips",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "fac82ca8-9635-4eab-b8da-78144c57a773",
+      "name": "📱 Simplified UGC",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "e9a9ea80-468e-4ac6-82d6-335e341c8720",
+      "name": "📅 Predis v2 Scheduler",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "a86f3351-64b6-4c8c-b56f-f5eea00a597e",
+      "name": "🚀 Blotato Viral v2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        2550
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "f4bd189c-4239-4419-a862-b15d5c65add2",
+      "name": "📦 Ultimate Aggregator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        2700
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "6a901c88-1048-43cb-a55d-50ecfca76b07",
+      "name": "📝 Google Sheets Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "b8dcbadb-a3b7-4c75-b073-a12f3511b415",
+      "name": "🧬 Prompt DNA Evolution",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "58849084-1405-4a99-a042-1184b1925999",
+      "name": "📱 Telegram Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "89602161-9724-4c67-aac6-ab196c971c3c",
+      "name": "🛡️ Error Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        2700
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "6e893cca-b8b9-41d3-a2b0-dbc861fa1f33",
+      "name": "📊 Performance Metrics",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "12685ea8-197a-47f8-8e06-b362ae1ac593",
+      "name": "🔍 Snov.io Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "5a593afa-3745-45f9-a67e-c8be58340ee3",
+      "name": "🎯 Apollo Lead Mining",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        2700
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "211408bb-f51d-4149-aff6-dcdbe884d209",
+      "name": "🎭 Avatar Casting System",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        2850
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "3eb3aa48-cacd-4758-b0dd-62cb84e6d366",
+      "name": "🎬 Claude Script Master",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "d55d248f-9394-4182-9835-8fac28735bec",
+      "name": "👤 HeyGen Avatar Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "0ccf95ee-f89e-43ca-a181-f1fbacfe4789",
+      "name": "⏱️ Video Processing",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "b32c4ad3-3d03-4d3b-9a12-d750d81298ba",
+      "name": "🔄 Check Video Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "dd213439-6faf-4fe4-955e-86dc77d4e6a0",
+      "name": "🎭 SadTalker Motion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "60df12ac-7e37-489d-92f1-23889dea563d",
+      "name": "🎤 ElevenLabs Voice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "9e306656-1a19-453d-b06f-a0ce410f11d2",
+      "name": "🌌 Flux Background Gen",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        2850
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "9c3726c0-60ec-45d5-91ff-e7cf2e7a4202",
+      "name": "🎥 MiniMax Video Gen",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "54a60247-c54b-4417-b6bc-7a99b593e44a",
+      "name": "🎬 Video Compositor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "4a30ef6c-f2f2-4302-a4e1-5881691ce3a7",
+      "name": "📱 WhatsApp Sender",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "1f8dfca7-849a-466f-b7cb-e6ec4afee0fc",
+      "name": "📧 Email Automation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "493e544d-cba5-4d65-a691-c73af06c9baf",
+      "name": "📊 Analytics Tracker",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "e6cdd158-c475-42f6-a80b-cffe4be9d3e9",
+      "name": "🔄 Feedback Loop",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        3000
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "e08d7236-c4aa-4859-95e2-9b83e089725f",
+      "name": "🎯 Lead Scorer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        3000
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "dc0ac0de-a5d0-4648-9c72-c10c3a724e9a",
+      "name": "📈 Performance Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        3000
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "23cf545b-038c-4983-bc76-4dd6ab05802e",
+      "name": "🚀 Viral Amplifier",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        3150
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "97360eca-08bf-4cf6-9493-d2885d098a5d",
+      "name": "💎 Crystal Lion Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        3150
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "fa2a74d2-2208-4b64-83a8-69b7bb419d9a",
+      "name": "🌟 VSMR Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        3150
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "56bc8109-37ed-497e-84bb-4c1c1d4af6a0",
+      "name": "🔮 Quantum Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        3150
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "d38e425c-9acf-487c-8d23-6da715031310",
+      "name": "🎭 Avatar Selector",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        3150
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "e478fd76-8c46-40b6-975a-5ac6eb8e58cb",
+      "name": "📱 Multi-Platform Publisher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        3150
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "f3689142-f6ec-45b2-adc4-3266b6e18a56",
+      "name": "🎵 Audio Enhancer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        3150
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "c51d6d06-e84d-49ea-b78b-cf9656db0d15",
+      "name": "🖼️ Image Optimizer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        3150
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "e050aea0-521f-46e2-a68e-85b9929e8a1a",
+      "name": "🎬 Video Enhancer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        3300
+      ],
+      "parameters": {
+        "url": "https://api.example.com"
+      }
+    },
+    {
+      "id": "f77d0b18-e5d4-4887-8624-67cea5612c9b",
+      "name": "📊 Metrics Collector",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        3300
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "b58605e3-acb9-4c15-8768-81682f464cc2",
+      "name": "🔄 System Monitor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        3300
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    },
+    {
+      "id": "b2e0e701-0f5b-4b91-84c3-5257d66dbd06",
+      "name": "⚡ Emergency Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        3300
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    }
+  ],
+  "connections": {
+    "⚡ V-OMEGA Init": {
+      "main": [
+        [
+          {
+            "node": "🔮 Perplexity Sonar Huge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔮 Perplexity Sonar Huge": {
+      "main": [
+        [
+          {
+            "node": "👽 Alien Intelligence Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "👽 Alien Intelligence Processor": {
+      "main": [
+        [
+          {
+            "node": "📰 NewsAPI Ultra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📰 NewsAPI Ultra": {
+      "main": [
+        [
+          {
+            "node": "🔥 Reddit Hot Scanner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔥 Reddit Hot Scanner": {
+      "main": [
+        [
+          {
+            "node": "📺 YouTube Viral Hunter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📺 YouTube Viral Hunter": {
+      "main": [
+        [
+          {
+            "node": "🌐 Social Multi-Network",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌐 Social Multi-Network": {
+      "main": [
+        [
+          {
+            "node": "🧠 Claude 3.5 Opus Strategy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧠 Claude 3.5 Opus Strategy": {
+      "main": [
+        [
+          {
+            "node": "🎯 DeepSeek V3 Scorer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎯 DeepSeek V3 Scorer": {
+      "main": [
+        [
+          {
+            "node": "🎨 Flux 1.2 Ultra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Flux 1.2 Ultra": {
+      "main": [
+        [
+          {
+            "node": "🦁 Ideogram Character",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🦁 Ideogram Character": {
+      "main": [
+        [
+          {
+            "node": "🚀 MiniMax Hailuo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 MiniMax Hailuo": {
+      "main": [
+        [
+          {
+            "node": "🎤 ElevenLabs VSMR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎤 ElevenLabs VSMR": {
+      "main": [
+        [
+          {
+            "node": "📊 Score Validator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Score Validator": {
+      "main": [
+        [
+          {
+            "node": "🚦 Viral Gate (97.3)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚦 Viral Gate (97.3)": {
+      "main": [
+        [
+          {
+            "node": "⏱️ Optimization Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏱️ Optimization Wait": {
+      "main": [
+        [
+          {
+            "node": "🔄 Optimization Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Optimization Loop": {
+      "main": [
+        [
+          {
+            "node": "🔮 OmniGen Transform",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔮 OmniGen Transform": {
+      "main": [
+        [
+          {
+            "node": "💎 Glass Transform",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💎 Glass Transform": {
+      "main": [
+        [
+          {
+            "node": "🌌 3D World Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌌 3D World Generator": {
+      "main": [
+        [
+          {
+            "node": "🎭 Tripo 3D Model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎭 Tripo 3D Model": {
+      "main": [
+        [
+          {
+            "node": "🚀 Runway Gen-3 Turbo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Runway Gen-3 Turbo": {
+      "main": [
+        [
+          {
+            "node": "✨ Luma Dream Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "✨ Luma Dream Loop": {
+      "main": [
+        [
+          {
+            "node": "🎨 Leonardo Ultra",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Leonardo Ultra": {
+      "main": [
+        [
+          {
+            "node": "💎 Bannerbear Glass WM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💎 Bannerbear Glass WM": {
+      "main": [
+        [
+          {
+            "node": "🎬 Klap Viral Clips",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Klap Viral Clips": {
+      "main": [
+        [
+          {
+            "node": "📱 Simplified UGC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 Simplified UGC": {
+      "main": [
+        [
+          {
+            "node": "📅 Predis v2 Scheduler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📅 Predis v2 Scheduler": {
+      "main": [
+        [
+          {
+            "node": "🚀 Blotato Viral v2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Blotato Viral v2": {
+      "main": [
+        [
+          {
+            "node": "📦 Ultimate Aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📦 Ultimate Aggregator": {
+      "main": [
+        [
+          {
+            "node": "📝 Google Sheets Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Google Sheets Log": {
+      "main": [
+        [
+          {
+            "node": "🧬 Prompt DNA Evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧬 Prompt DNA Evolution": {
+      "main": [
+        [
+          {
+            "node": "📱 Telegram Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 Telegram Report": {
+      "main": [
+        [
+          {
+            "node": "🛡️ Error Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛡️ Error Handler": {
+      "main": [
+        [
+          {
+            "node": "📊 Performance Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Performance Metrics": {
+      "main": [
+        [
+          {
+            "node": "🔍 Snov.io Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔍 Snov.io Enrichment": {
+      "main": [
+        [
+          {
+            "node": "🎯 Apollo Lead Mining",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎯 Apollo Lead Mining": {
+      "main": [
+        [
+          {
+            "node": "🎭 Avatar Casting System",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎭 Avatar Casting System": {
+      "main": [
+        [
+          {
+            "node": "🎬 Claude Script Master",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Claude Script Master": {
+      "main": [
+        [
+          {
+            "node": "👤 HeyGen Avatar Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "👤 HeyGen Avatar Video": {
+      "main": [
+        [
+          {
+            "node": "⏱️ Video Processing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⏱️ Video Processing": {
+      "main": [
+        [
+          {
+            "node": "🔄 Check Video Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Check Video Status": {
+      "main": [
+        [
+          {
+            "node": "🎭 SadTalker Motion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎭 SadTalker Motion": {
+      "main": [
+        [
+          {
+            "node": "🎤 ElevenLabs Voice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎤 ElevenLabs Voice": {
+      "main": [
+        [
+          {
+            "node": "🌌 Flux Background Gen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌌 Flux Background Gen": {
+      "main": [
+        [
+          {
+            "node": "🎥 MiniMax Video Gen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎥 MiniMax Video Gen": {
+      "main": [
+        [
+          {
+            "node": "🎬 Video Compositor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Video Compositor": {
+      "main": [
+        [
+          {
+            "node": "📱 WhatsApp Sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 WhatsApp Sender": {
+      "main": [
+        [
+          {
+            "node": "📧 Email Automation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📧 Email Automation": {
+      "main": [
+        [
+          {
+            "node": "📊 Analytics Tracker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Analytics Tracker": {
+      "main": [
+        [
+          {
+            "node": "🔄 Feedback Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔄 Feedback Loop": {
+      "main": [
+        [
+          {
+            "node": "🎯 Lead Scorer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎯 Lead Scorer": {
+      "main": [
+        [
+          {
+            "node": "📈 Performance Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📈 Performance Optimizer": {
+      "main": [
+        [
+          {
+            "node": "🚀 Viral Amplifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Viral Amplifier": {
+      "main": [
+        [
+          {
+            "node": "💎 Crystal Lion Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💎 Crystal Lion Engine": {
+      "main": [
+        [
+          {
+            "node": "🌟 VSMR Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 VSMR Generator": {
+      "main": [
+        [
+          {
+            "node": "🔮 Quantum Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔮 Quantum Processor": {
+      "main": [
+        [
+          {
+            "node": "🎭 Avatar Selector",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎭 Avatar Selector": {
+      "main": [
+        [
+          {
+            "node": "📱 Multi-Platform Publisher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 Multi-Platform Publisher": {
+      "main": [
+        [
+          {
+            "node": "🎵 Audio Enhancer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎵 Audio Enhancer": {
+      "main": [
+        [
+          {
+            "node": "🖼️ Image Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🖼️ Image Optimizer": {
+      "main": [
+        [
+          {
+            "node": "🎬 Video Enhancer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Video Enhancer": {
+      "main": [
+        [
+          {
+            "node": "📊 Metrics Collector",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Metrics Collector": {
+      "main": [
+        [
+          {
+            "node": "🔄 System Monitor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
