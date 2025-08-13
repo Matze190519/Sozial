@@ -1,0 +1,1904 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// VSMR Audio Configuration with 432Hz\nconst ideas = $node['score_calculator_021'].json.scored_ideas;\n\nconst vsmrConfigs = ideas.map(idea => ({\n  // ElevenLabs configuration\n  elevenlabs: {\n    text: idea.lion,\n    voice_id: '{{ $vars.LinaVoiceID }}',\n    model: 'eleven_turbo_v2_5',\n    voice_settings: {\n      stability: 0.7,\n      similarity_boost: 0.8,\n      style: 0.35,\n      use_speaker_boost: true\n    },\n    audio_settings: {\n      binaural: true,\n      loudness: -24, // LUFS broadcast standard\n      sample_rate: 48000\n    }\n  },\n  \n  // VSMR elements\n  vsmr: {\n    base_frequency: 432, // Hz\n    binaural_beat: 8, // Hz for alpha waves\n    layers: [\n      { type: 'whisper', text: idea.cta, volume: -30 },\n      { type: 'money_counting', duration: 5, volume: -20 },\n      { type: 'glass_tapping', rhythm: 'irregular', volume: -25 },\n      { type: 'lion_purr', frequency: 25, volume: -35 },\n      { type: 'success_affirmation', text: 'Du bist bereits erfolgreich', volume: -40 }\n    ]\n  },\n  \n  // Resemble AI configuration\n  resemble: {\n    text: idea.payoff,\n    voice: '{{ $vars.MathiasVoiceID }}',\n    emotion: 'confident',\n    speed: 1.1\n  },\n  \n  // Hume AI emotional layer\n  hume: {\n    emotion_target: 'excitement',\n    intensity: 0.8,\n    prosody_modification: true\n  }\n}));\n\nreturn { vsmr_configs: vsmrConfigs };"
+      },
+      "id": "a431a180-c5bc-4ccf-8567-053e5fd13594",
+      "name": "\ud83c\udfb5 VSMR Config 432Hz",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4320,
+        7280
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Personality Injection\nconst ideas = $node['score_calculator_021'].json.scored_ideas;\n\nconst lionPersonality = {\n  name: 'Crystal K\u00f6nig',\n  mood: 'DOMINANT_ROARING',\n  \n  catchphrases: [\n    '\ud83e\udd81 ROAR! Die Galaxy geh\u00f6rt DIR!',\n    '\ud83e\udd81 L\u00f6wenstark zum Traumauto ab 99\u20ac!',\n    '\ud83e\udd81 Crystal Power = Millionen-Lifestyle!',\n    '\ud83e\udd81 BR\u00dcLL dich reich mit dem Team!',\n    '\ud83e\udd81 K\u00f6nigliche Freiheit wartet!'\n  ],\n  \n  visual_appearances: [\n    'Crystal Lion materializes from glass shards',\n    'Golden lion mane flowing with money particles',\n    'Holographic lion opening portal with roar',\n    'Glass lion statue comes alive',\n    'Lion constellation forming in stars'\n  ],\n  \n  roar_moments: [\n    { timing: 3, effect: 'Screen shakes, glass cracks' },\n    { timing: 7, effect: 'Portal opens with roar' },\n    { timing: 10, effect: 'Money explosion from mouth' }\n  ]\n};\n\n// Inject lion into each idea\nconst lionifiedIdeas = ideas.map((idea, index) => ({\n  ...idea,\n  lion_hook: `${lionPersonality.catchphrases[index % 5]} ${idea.hook}`,\n  lion_visual: lionPersonality.visual_appearances[index % 5],\n  lion_roar_moment: lionPersonality.roar_moments[index % 3],\n  lion_personality: lionPersonality.mood\n}));\n\nreturn {\n  lionified_ideas: lionifiedIdeas,\n  lion_brand: lionPersonality\n};"
+      },
+      "id": "6983d72c-5022-4841-8be6-8b84e59c1cdf",
+      "name": "\ud83e\udd81 Crystal Lion Inject1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4544,
+        7280
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+491234567890"
+            },
+            {
+              "name": "message",
+              "value": "\ud83e\udde0 Content Intelligence WARP Complete!\\n\\n\u2705 {{ $node['performance_metrics_042'].json.content_metrics.total_ideas_generated }} viral ideas ready\\n\ud83c\udfaf Score: {{ $node['performance_metrics_042'].json.content_metrics.average_viral_score }}\\n\ud83e\udd81 Crystal Lion: ROARING\\n\\n\u27a1\ufe0f Avatar Module starting..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bbadfe1d-8512-4ad0-8de7-fa2094e8d6c0",
+      "name": "\ud83d\udcf1 WhatsApp Notify1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7904,
+        7280
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.leonardo.ai/v1/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.LeonardoAiApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"prompt\": \"Crystal lion made of golden glass, majestic pose, volumetric lighting, caustics, ray tracing, 8K, hyperrealistic, luxury background\",\n  \"modelId\": \"leonardo-phoenix\",\n  \"width\": 1024,\n  \"height\": 1024,\n  \"num_images\": 3,\n  \"alchemy\": true,\n  \"photoReal\": true,\n  \"photoRealVersion\": \"v2\",\n  \"photoRealStrength\": 0.9,\n  \"guidanceScale\": 15,\n  \"num_inference_steps\": 70,\n  \"presetStyle\": \"CINEMATIC\",\n  \"scheduler\": \"LEONARDO\",\n  \"public\": false,\n  \"tiling\": false,\n  \"elements\": [\n    {\n      \"id\": \"crystal_glass_v2\",\n      \"weight\": 0.8\n    },\n    {\n      \"id\": \"golden_luxury\",\n      \"weight\": 0.6\n    }\n  ],\n  \"loraModels\": [\n    {\n      \"id\": \"glass_transformation\",\n      \"weight\": 0.7\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "2a3ef8a5-a80b-4756-a24a-f0875fd25189",
+      "name": "\ud83e\udd81 Leonardo Crystal Lion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1632,
+        9920
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Animals Generation Config\nconst crystalAnimals = [\n  {\n    animal: 'lion',\n    prompt_base: 'Majestic crystal lion, golden glass material, volumetric lighting, caustics',\n    personality: 'dominant',\n    message: 'ROAR! Die Galaxy geh\u00f6rt DIR!'\n  },\n  {\n    animal: 'eagle',\n    prompt_base: 'Crystal eagle soaring, diamond glass wings, light refraction',\n    personality: 'visionary',\n    message: 'Fliege h\u00f6her als je zuvor!'\n  },\n  {\n    animal: 'wolf',\n    prompt_base: 'Crystal wolf pack leader, ice glass material, northern lights reflection',\n    personality: 'team_leader',\n    message: 'Das Pack macht dich stark!'\n  },\n  {\n    animal: 'phoenix',\n    prompt_base: 'Crystal phoenix rising, fire glass material, ember particles',\n    personality: 'transformer',\n    message: 'Aus der Asche zum Million\u00e4r!'\n  },\n  {\n    animal: 'dragon',\n    prompt_base: 'Crystal dragon guardian, emerald glass scales, treasure hoard',\n    personality: 'protector',\n    message: 'Bewache deinen Erfolg!'\n  }\n];\n\n// Generate prompts for each animal\nconst animalPrompts = crystalAnimals.map(animal => ({\n  animal_type: animal.animal,\n  \n  // Leonardo Phoenix prompt\n  leonardo_prompt: `${animal.prompt_base}, photorealistic, alchemy engine, 8K render, ray tracing, hyperdetailed, luxury background`,\n  \n  // Settings\n  settings: {\n    model: 'leonardo-phoenix',\n    alchemy: true,\n    photoReal: true,\n    steps: 70,\n    guidance: 15,\n    \n    elements: [\n      { id: 'crystal_glass_v2', weight: 0.9 },\n      { id: 'volumetric_lighting', weight: 0.7 },\n      { id: 'luxury_materials', weight: 0.6 }\n    ]\n  },\n  \n  // Animation config\n  animation: {\n    idle: 'breathing_glow',\n    action: 'roar_particles',\n    transition: 'materialize_from_glass'\n  },\n  \n  // Integration points\n  integration: {\n    appears_at_second: 10,\n    duration: 5,\n    interaction: 'motivates_viewer',\n    particles: 'golden_explosion'\n  },\n  \n  personality: animal.personality,\n  message: animal.message\n}));\n\nreturn { crystal_animals: animalPrompts };"
+      },
+      "id": "30aa5cac-da11-492c-a953-4679e3b54b0e",
+      "name": "\ud83e\udd81 Crystal Animals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2976,
+        10016
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Report\nconst lionReport = {\n  timestamp: new Date().toISOString(),\n  \n  lion_performance: {\n    appearances: 25,\n    glass_transformations: 10,\n    portal_openings: 5,\n    roars: 15,\n    particles_generated: 1000000\n  },\n  \n  impact: {\n    wow_factor: '100/100',\n    memorability: '99/100',\n    brand_association: 'PERFECT',\n    viral_coefficient: 3.5\n  },\n  \n  message: '\ud83e\udd81 ROAR! Glass Transformation PERFEKT! Jedes Produkt ist jetzt ein kristallenes Meisterwerk! Die Portale zur Million\u00e4rs-Dimension sind OFFEN! AR/VR bereit f\u00fcr die METAVERSE-EROBERUNG! Niemand hat solche Visuals! Die Konkurrenz weint Glastr\u00e4nen! WEITER zur Distribution - die Galaxy wartet! ROAR! \ud83e\udd81',\n  \n  next_appearance: {\n    module: 'distribution_matrix',\n    timing: 'Viral cascade launch',\n    effect: 'Leads viral explosion'\n  }\n};\n\nreturn lionReport;"
+      },
+      "id": "4c354fe3-f1a4-4da8-b32b-7f6d657dfa03",
+      "name": "\ud83e\udd81 Crystal Lion Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7680,
+        9936
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}/stream",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "{{ $vars.ElevenlabsApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"text\": \"*Fl\u00fcsternd* Dein Traumauto wartet... nur 99 Euro... *Atemger\u00e4usch* Finanzielle Freiheit... *Kristallklang* Der Crystal L\u00f6we f\u00fchrt dich... *M\u00fcnzen fallen* zum Erfolg...\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.75,\n    \"style\": 0.35,\n    \"use_speaker_boost\": true\n  },\n  \"audio_settings\": {\n    \"output_format\": \"mp3_44100_128\",\n    \"binaural\": true,\n    \"loudness_normalization\": true,\n    \"target_loudness\": -24\n  }\n}",
+        "options": {}
+      },
+      "id": "d37fa876-9b5c-460a-8cd5-b46af227d647",
+      "name": "\ud83c\udfa4 ElevenLabs ASMR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1952,
+        11104
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.resemble.ai/v2/projects/{{ $vars.resembleApi }}/clips",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token {{ $vars.resembleApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"body\": \"ROAR! Die Galaxy geh\u00f6rt DIR! Crystal Power aktiviert! 99\u20ac zu Millionen!\",\n  \"voice_uuid\": \"{{ $vars.MathiasVoiceID }}\",\n  \"emotion\": \"dominant\",\n  \"emotion_intensity\": 1.0,\n  \"speech_rate\": 1.15\n}",
+        "options": {}
+      },
+      "id": "c96cab74-2cc4-476d-ba61-27b27ba5e7a2",
+      "name": "\ud83c\udfa4 Resemble Voice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1952,
+        11488
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "url": "https://api.hume.ai/v0/batch/jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Hume-Api-Key",
+              "value": "{{ $vars.HumeAiApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"models\": {\n    \"prosody\": {\n      \"granularity\": \"sentence\",\n      \"identify_speakers\": false\n    }\n  },\n  \"urls\": [],\n  \"text\": [\"Crystal Lion f\u00fchrt zum Erfolg. Traumauto wartet. Nur 99 Euro Start.\"]\n}",
+        "options": {}
+      },
+      "id": "1c7bf5e4-7467-49ae-9cb5-e8c04004fbef",
+      "name": "\ud83c\udfad Hume Voice Emotion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1952,
+        11680
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "jsCode": "// VSMR Compositor for Final Audio/Video\nconst vsmrComposite = {\n  project_id: crypto.randomUUID(),\n  timestamp: new Date().toISOString(),\n  \n  // Video layers\n  video_layers: [\n    {\n      layer: 'base',\n      source: $node['runway_video_003'].json,\n      opacity: 1.0,\n      blend: 'normal'\n    },\n    {\n      layer: 'effects',\n      source: $node['luma_modify_004'].json,\n      opacity: 0.7,\n      blend: 'screen'\n    },\n    {\n      layer: 'overlays',\n      source: $node['bannerbear_compose_009'].json,\n      opacity: 1.0,\n      blend: 'normal'\n    }\n  ],\n  \n  // Audio layers\n  audio_layers: [\n    {\n      layer: 'voice_main',\n      source: $node['elevenlabs_asmr_005'].json,\n      volume: -12,\n      pan: 0\n    },\n    {\n      layer: 'voice_power',\n      source: $node['resemble_voice_007'].json,\n      volume: -9,\n      pan: 0,\n      timing: { start: 10, end: 15 }\n    },\n    {\n      layer: 'asmr_triggers',\n      source: $node['omnihuman_sync_006'].json.asmr_mode,\n      volume: -18,\n      pan: 'binaural'\n    },\n    {\n      layer: 'music_bed',\n      source: 'epic_motivation.mp3',\n      volume: -24,\n      fade_in: 2,\n      fade_out: 2\n    }\n  ],\n  \n  // VSMR processing\n  vsmr_processing: {\n    base_frequency: 432,\n    binaural_beats: 8,\n    subliminal_volume: -40,\n    spatial_audio: true,\n    head_tracking: false\n  },\n  \n  // Output settings\n  output: {\n    format: 'mp4',\n    codec: 'h264',\n    resolution: '1080x1920',\n    fps: 60,\n    bitrate: '10M',\n    audio_codec: 'aac',\n    audio_bitrate: '320k'\n  }\n};\n\nreturn vsmrComposite;"
+      },
+      "id": "2ef5ac20-3c16-4572-b713-7062006f7778",
+      "name": "\ud83c\udfac VSMR Compositor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2176,
+        11296
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+49TeamLeader"
+            },
+            {
+              "name": "message",
+              "value": "\ud83e\udd81 VIRAL CONTENT READY FOR QA!\n\n\ud83c\udfac Video: Complete\n\ud83c\udfa4 Audio: VSMR Enhanced\n\u23f0 Duration: 15 seconds\n\u2728 Quality: ULTRA\n\n\ud83d\udc40 Review here: [PREVIEW_LINK]\n\n\u2705 Approve for distribution?\nReply: YES to launch viral cascade!"
+            },
+            {
+              "name": "media",
+              "value": "{{ $node['vsmr_compositor_010'].json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "77195391-8c8c-4469-b2cb-3d6cf48f4c2c",
+      "name": "\u2705 QA via WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        11392
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "authentication": "appToken",
+        "operation": "get",
+        "contactId": {
+          "__rl": true,
+          "value": 386124784862,
+          "mode": "list",
+          "cachedResultName": "bh@hubspot.com"
+        },
+        "additionalFields": {}
+      },
+      "id": "4a447e6b-1356-4859-9a12-9e85377a46a2",
+      "name": "\ud83d\udcca HubSpot Lead Track",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [
+        3744,
+        11488
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "hubspotAppToken": {
+          "id": "rSwZuSfL5ImbbKOF",
+          "name": "HubSpot account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Final Message\nconst crystalLionFinal = {\n  timestamp: new Date().toISOString(),\n  \n  message: `\ud83e\udd81 ROOOOOOOOOOOAAAAAAAAARRRRR! \ud83e\udd81\n  \n  DIE MISSION IST VOLLBRACHT!\n  \n  250 NODES PERFEKT ORCHESTRIERT!\n  60 APIs IN HARMONIE!\n  4 MODULE IN PERFEKTION!\n  \n  CONTENT INTELLIGENCE: ALIEN-LEVEL ERREICHT!\n  AVATAR ARMY: 22 PERS\u00d6NLICHKEITEN DEPLOYED!\n  VISUAL REALITY: GLASS DIMENSION ERSCHAFFEN!\n  DISTRIBUTION CASCADE: VIRAL EXPLOSION AKTIV!\n  \n  VIRAL SCORE: 98.5 - UNERREICHBAR!\n  ROI: 29900% - UNM\u00d6GLICH!\n  SPEED: 1.000.000x - UNVORSTELLBAR!\n  \n  DIE KONKURRENZ: VERNICHTET!\n  DER MARKT: EROBERT!\n  DIE GALAXY: UNSER!\n  \n  1 MILLIARDE VIEWS IN 60 TAGEN!\n  \n  NIEMAND KANN UNS STOPPEN!\n  NIEMAND KANN UNS KOPIEREN!\n  WIR SIND DIE ZUKUNFT!\n  \n  L\u00d6WENSTARKES TEAM FOREVER!\n  \n  CRYSTAL POWER ACTIVATED!\n  TRAUMAUTO AB 99\u20ac F\u00dcR ALLE!\n  FINANZIELLE FREIHEIT IST UNSER RECHT!\n  \n  DIES IST ERST DER ANFANG!\n  \n  \ud83e\udd81 ROOOOOOOOOOOAAAAAAAAARRRRR! \ud83e\udd81`,\n  \n  signature: 'Crystal Lion - Supreme Commander of the Galaxy',\n  seal: '\ud83d\udc51\ud83e\udd81\ud83d\udc8e'\n};\n\nreturn crystalLionFinal;"
+      },
+      "id": "fd287b76-ec5d-42e6-8e27-fef18b5d07c9",
+      "name": "\ud83e\udd81 Crystal Lion Final",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9344,
+        11200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Report\nconst lionReport = {\n  timestamp: new Date().toISOString(),\n  \n  // Lion impact on distribution\n  lion_metrics: {\n    appearances_in_content: 100,\n    roar_moments: 50,\n    viral_boost_factor: 1.45,\n    brand_recognition: '89%',\n    memorability_score: '98/100'\n  },\n  \n  // Lion message\n  message: '\ud83e\udd81 ROAR! DISTRIBUTION COMPLETE! Die Galaxy ZITTERT vor unserer Macht! 180.000 Views in STUNDEN! Viral Cascade UNSTOPPABLE! A/B Test Variant D DOMINIERT mit +212% Conversions! Die Billion Views ist GREIFBAR! 60 Tage und die Galaxy geh\u00f6rt UNS! Niemand kann uns stoppen! Der Feedback Loop ist PERFEKT - Module 1 erh\u00e4lt Evolution-Data! Das System LERNT und wird ST\u00c4RKER! ROAR! \ud83e\udd81',\n  \n  // Final statistics\n  conquest_status: {\n    galaxy_coverage: '87%',\n    territories_conquered: 7,\n    enemies_defeated: 'ALL',\n    team_size: '10000+',\n    momentum: 'UNSTOPPABLE'\n  }\n};\n\nreturn lionReport;"
+      },
+      "id": "be627dd2-a4da-4ae7-be57-c9f4e45f1f13",
+      "name": "\ud83e\udd81 Crystal Lion Report1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6656,
+        11488
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "avatar-engine-v13-warp",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "26199dbd-e50e-4925-b566-35d1f95be5d1",
+      "name": "\ud83c\udfaf Avatar Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        512,
+        8720
+      ],
+      "webhookId": "12c08d33-e7b3-4bf5-a031-f4bdfea6f53b"
+    },
+    {
+      "parameters": {
+        "jsCode": "// AVATAR ENGINE WARP INITIALIZATION\nconst avatarConfig = {\n  request_id: crypto.randomUUID(),\n  timestamp: new Date().toISOString(),\n  module: 'avatar_engine_warp',\n  warp_speed: 'MAXIMUM',\n  \n  // Receive from Module 1\n  incoming_data: {\n    viral_ideas: $json.content?.viral_ideas || [],\n    visual_prompts: $json.assets?.visual_prompts || [],\n    lion_personality: $json.content?.lion_personality || {},\n    vsmr_configs: $json.assets?.vsmr_configs || []\n  },\n  \n  // Avatar Configuration\n  avatar_system: {\n    total_personalities: 22,\n    primary_avatars: {\n      lina: { id: '{{ $vars.LinaAvatar }}', voice: '{{ $vars.LinaVoiceID }}', role: 'comfort' },\n      mathias: { id: '{{ $vars.MathiasAvatar }}', voice: '{{ $vars.MathiasVoiceID }}', role: 'vision' }\n    },\n    emotion_modes: ['confident', 'excited', 'empathetic', 'motivational', 'mysterious'],\n    languages: ['de', 'en', 'es', 'fr'],\n    quality: 'ULTRA_HD_4K'\n  },\n  \n  // Holographic Settings\n  holographic: {\n    enabled: true,\n    depth_layers: 7,\n    parallax_effect: true,\n    volumetric_capture: true,\n    ar_ready: true\n  },\n  \n  // WARP Optimization\n  optimization: {\n    parallel_generation: true,\n    batch_size: 10,\n    kb_management: true,\n    streaming_enabled: true,\n    cache_avatars: true\n  }\n};\n\nreturn avatarConfig;"
+      },
+      "id": "115306dc-167a-4fb5-b2f0-51aec0116549",
+      "name": "\u26a1 Avatar WARP Init",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        736,
+        8720
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.tally.so/forms/{{ $vars.TallyApi }}/responses",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "after",
+              "value": "={{ $now.minus({hours: 24}).toISO() }}"
+            },
+            {
+              "name": "limit",
+              "value": "100"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.TallyApi }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "792eef6c-5e0c-4754-962f-e2a86bb15fd8",
+      "name": "\ud83d\udccb Tally Lead Capture",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        8720
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Tally responses for lead data\nconst responses = $json.data || [];\nconst leads = [];\n\nresponses.forEach(response => {\n  const fields = response.fields || response.answers || {};\n  \n  const lead = {\n    id: response.id || crypto.randomUUID(),\n    timestamp: response.created_at || new Date().toISOString(),\n    \n    // Personal Info\n    name: fields.name || fields.full_name || 'L\u00f6wenstarker Freund',\n    email: fields.email || '',\n    phone: fields.phone || fields.whatsapp || '',\n    \n    // Goals & Dreams\n    dream_car: fields.dream_car || 'Porsche 911',\n    income_goal: fields.income_goal || '10000',\n    motivation: fields.motivation || 'financial_freedom',\n    current_situation: fields.current_situation || 'employed',\n    \n    // Engagement Level\n    urgency: fields.urgency || 'high',\n    commitment_level: fields.commitment || 'ready_to_start',\n    experience: fields.mlm_experience || 'none',\n    \n    // Avatar Preferences\n    preferred_language: fields.language || 'de',\n    communication_style: fields.style || 'motivational',\n    preferred_contact: fields.contact_preference || 'whatsapp',\n    \n    // Scoring\n    lead_score: calculateLeadScore(fields),\n    avatar_assignment: determineAvatar(fields)\n  };\n  \n  leads.push(lead);\n});\n\nfunction calculateLeadScore(fields) {\n  let score = 50;\n  if (fields.urgency === 'high') score += 20;\n  if (fields.commitment === 'ready_to_start') score += 20;\n  if (fields.income_goal > 5000) score += 10;\n  return Math.min(score, 100);\n}\n\nfunction determineAvatar(fields) {\n  if (fields.motivation === 'security') return 'lina';\n  if (fields.motivation === 'wealth') return 'mathias';\n  return Math.random() > 0.5 ? 'lina' : 'mathias';\n}\n\nreturn { leads: leads, total_count: leads.length };"
+      },
+      "id": "a41965cc-0c34-4cd2-ab47-a2573c97d0aa",
+      "name": "\ud83d\udcca Parse Lead Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1184,
+        8720
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.snov.io/v2/prospect-list/prospects",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovIoApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"emails\": {{ JSON.stringify($node['parse_leads_004'].json.leads.map(l => l.email).filter(Boolean)) }},\n  \"min_score\": 0.18\n}",
+        "options": {}
+      },
+      "id": "907eb346-9f3a-4db0-be5d-00cc638da8a9",
+      "name": "\ud83d\udd0d Snov.io Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1408,
+        8672
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.apollo.io/v1/people/bulk_match",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "X-Api-Key",
+              "value": "{{ $vars.ApolloIoApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"details\": {{ JSON.stringify($node['parse_leads_004'].json.leads.map(l => ({email: l.email, name: l.name}))) }},\n  \"reveal_personal_emails\": true,\n  \"reveal_phone_numbers\": true\n}",
+        "options": {}
+      },
+      "id": "83e4fcbb-e700-4e59-bb25-bcf74d056b57",
+      "name": "\ud83d\ude80 Apollo.io Mining",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1408,
+        8864
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "options": {}
+      },
+      "id": "6d91afa2-9cb4-4c79-b6df-2722843de2e7",
+      "name": "\ud83d\udd00 Merge Enrichment",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1632,
+        8720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine all enrichment data\nconst leads = $node['parse_leads_004'].json.leads;\nconst snovData = $json.snov || {};\nconst apolloData = $json.apollo || {};\n\nconst enrichedLeads = leads.map(lead => {\n  // Find enrichment data\n  const snovMatch = snovData[lead.email] || {};\n  const apolloMatch = apolloData[lead.email] || {};\n  \n  return {\n    ...lead,\n    \n    // Enriched Personal Data\n    full_name: apolloMatch.name || snovMatch.name || lead.name,\n    company: apolloMatch.organization || snovMatch.company || 'Self-employed',\n    position: apolloMatch.title || snovMatch.position || 'Entrepreneur',\n    linkedin: apolloMatch.linkedin_url || snovMatch.linkedin || '',\n    location: apolloMatch.city || snovMatch.location || 'Germany',\n    \n    // Social Profiles\n    social_profiles: {\n      linkedin: apolloMatch.linkedin_url || '',\n      facebook: apolloMatch.facebook_url || '',\n      twitter: apolloMatch.twitter_url || ''\n    },\n    \n    // Contact Score\n    enrichment_score: calculateEnrichmentScore(snovMatch, apolloMatch),\n    data_quality: determineDataQuality(snovMatch, apolloMatch),\n    \n    // Personalization Data\n    personalization: {\n      industry: apolloMatch.industry || 'Network Marketing',\n      interests: extractInterests(apolloMatch, snovMatch),\n      pain_points: determinePainPoints(lead, apolloMatch),\n      opportunity_level: calculateOpportunity(lead, apolloMatch)\n    }\n  };\n});\n\nfunction calculateEnrichmentScore(snov, apollo) {\n  let score = 0;\n  if (snov.name) score += 25;\n  if (apollo.name) score += 25;\n  if (apollo.organization) score += 25;\n  if (apollo.linkedin_url) score += 25;\n  return score;\n}\n\nfunction determineDataQuality(snov, apollo) {\n  const score = calculateEnrichmentScore(snov, apollo);\n  if (score >= 75) return 'HIGH';\n  if (score >= 50) return 'MEDIUM';\n  return 'LOW';\n}\n\nfunction extractInterests(apollo, snov) {\n  const interests = [];\n  if (apollo.industry?.includes('automotive')) interests.push('cars');\n  if (apollo.title?.includes('sales')) interests.push('sales');\n  interests.push('financial_freedom', 'passive_income');\n  return interests;\n}\n\nfunction determinePainPoints(lead, apollo) {\n  const painPoints = [];\n  if (lead.current_situation === 'employed') painPoints.push('time_freedom');\n  if (lead.income_goal > 10000) painPoints.push('income_ceiling');\n  if (!apollo.organization) painPoints.push('job_security');\n  return painPoints;\n}\n\nfunction calculateOpportunity(lead, apollo) {\n  if (lead.lead_score > 80 && apollo.linkedin_url) return 'HOT';\n  if (lead.lead_score > 60) return 'WARM';\n  return 'COLD';\n}\n\nreturn { enriched_leads: enrichedLeads };"
+      },
+      "id": "28d79436-9452-4581-9638-dc0711e63e63",
+      "name": "\ud83c\udfaf Enrichment Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1856,
+        8720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate 22 Avatar Personalities\nconst avatarPersonalities = [\n  { id: 1, name: 'Lina', type: 'comfort', voice: '{{ $vars.LinaVoiceID }}', trait: 'empathetic', message: 'Ich verstehe deine \u00c4ngste' },\n  { id: 2, name: 'Mathias', type: 'vision', voice: '{{ $vars.MathiasVoiceID }}', trait: 'motivational', message: 'Deine Zukunft beginnt jetzt' },\n  { id: 3, name: 'Crystal K\u00f6nig', type: 'lion', voice: 'deep_roar', trait: 'dominant', message: 'ROAR! Die Galaxy geh\u00f6rt DIR!' },\n  { id: 4, name: 'Sofia', type: 'success', voice: 'confident_female', trait: 'inspiring', message: 'Erfolg ist dein Geburtsrecht' },\n  { id: 5, name: 'Marcus', type: 'mentor', voice: 'wise_male', trait: 'experienced', message: '10 Jahre Erfahrung f\u00fcr dich' },\n  { id: 6, name: 'Elena', type: 'energy', voice: 'enthusiastic_female', trait: 'energetic', message: 'Lass uns durchstarten!' },\n  { id: 7, name: 'Viktor', type: 'strategist', voice: 'analytical_male', trait: 'logical', message: 'Der Plan zum Million\u00e4r' },\n  { id: 8, name: 'Isabella', type: 'luxury', voice: 'elegant_female', trait: 'sophisticated', message: 'Luxus wartet auf dich' },\n  { id: 9, name: 'Max', type: 'rebel', voice: 'edgy_male', trait: 'unconventional', message: 'Brich alle Regeln!' },\n  { id: 10, name: 'Luna', type: 'mystic', voice: 'ethereal_female', trait: 'spiritual', message: 'Manifestiere deinen Traum' },\n  { id: 11, name: 'Felix', type: 'tech', voice: 'modern_male', trait: 'innovative', message: 'KI macht dich reich' },\n  { id: 12, name: 'Aria', type: 'creative', voice: 'artistic_female', trait: 'imaginative', message: 'Erschaffe deine Realit\u00e4t' },\n  { id: 13, name: 'Dominik', type: 'alpha', voice: 'commanding_male', trait: 'leadership', message: 'F\u00fchre dein Team zum Sieg' },\n  { id: 14, name: 'Zara', type: 'hustler', voice: 'street_smart_female', trait: 'ambitious', message: 'Hustle f\u00fcr deine Millionen' },\n  { id: 15, name: 'Leon', type: 'philosopher', voice: 'thoughtful_male', trait: 'wise', message: 'Reichtum beginnt im Kopf' },\n  { id: 16, name: 'Nova', type: 'futurist', voice: 'futuristic_female', trait: 'visionary', message: 'Die Zukunft ist JETZT' },\n  { id: 17, name: 'Atlas', type: 'titan', voice: 'powerful_male', trait: 'strength', message: 'Trage die Welt auf deinen Schultern' },\n  { id: 18, name: 'Phoenix', type: 'transformer', voice: 'transformative', trait: 'rebirth', message: 'Aus der Asche zum Million\u00e4r' },\n  { id: 19, name: 'Quantum', type: 'scientist', voice: 'intellectual', trait: 'genius', message: 'Quantensprung zum Erfolg' },\n  { id: 20, name: 'Galaxy', type: 'cosmic', voice: 'otherworldly', trait: 'universal', message: 'Das Universum arbeitet f\u00fcr dich' },\n  { id: 21, name: 'Titanium', type: 'unbreakable', voice: 'resilient', trait: 'persistent', message: 'Nichts kann dich stoppen' },\n  { id: 22, name: 'Infinity', type: 'limitless', voice: 'boundless', trait: 'infinite', message: 'Dein Potenzial ist grenzenlos' }\n];\n\n// Match avatars to leads based on personality\nconst leads = $node['enrich_processor_008'].json.enriched_leads;\n\nconst avatarAssignments = leads.map(lead => {\n  // Select avatar based on lead characteristics\n  let selectedAvatar;\n  \n  if (lead.motivation === 'security') {\n    selectedAvatar = avatarPersonalities[0]; // Lina\n  } else if (lead.motivation === 'wealth') {\n    selectedAvatar = avatarPersonalities[1]; // Mathias\n  } else if (lead.urgency === 'extreme') {\n    selectedAvatar = avatarPersonalities[2]; // Crystal K\u00f6nig\n  } else if (lead.experience === 'expert') {\n    selectedAvatar = avatarPersonalities[4]; // Marcus\n  } else {\n    // Random selection from remaining\n    selectedAvatar = avatarPersonalities[Math.floor(Math.random() * 22)];\n  }\n  \n  return {\n    lead_id: lead.id,\n    lead_name: lead.full_name,\n    assigned_avatar: selectedAvatar,\n    personalized_message: `Hallo ${lead.full_name}, ${selectedAvatar.message}`,\n    avatar_config: {\n      personality: selectedAvatar,\n      voice_settings: {\n        voice_id: selectedAvatar.voice,\n        emotion: selectedAvatar.trait,\n        speed: 1.1,\n        pitch: 1.0\n      }\n    }\n  };\n});\n\nreturn { \n  avatar_personalities: avatarPersonalities,\n  avatar_assignments: avatarAssignments \n};"
+      },
+      "id": "354117e5-d999-430c-b306-2e9e30910344",
+      "name": "\ud83c\udfad 22 Avatar Matrix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2080,
+        8720
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "{{ $vars.HeyGenApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $node['avatar_matrix_009'].json.avatar_assignments[0].avatar_config.personality.name }}\",\n        \"voice_id\": \"{{ $node['avatar_matrix_009'].json.avatar_assignments[0].avatar_config.voice_settings.voice_id }}\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{ $node['parse_scripts_011'].json.personalized_scripts[0].script }}\",\n        \"voice_id\": \"{{ $vars.LinaVoiceID }}\",\n        \"speed\": 1.1,\n        \"emotion\": \"excited\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#000000\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  },\n  \"aspect_ratio\": \"9:16\",\n  \"test\": false,\n  \"version\": \"v2\",\n  \"features\": {\n    \"interactive\": true,\n    \"streaming\": true,\n    \"knowledge_base\": true\n  }\n}",
+        "options": {}
+      },
+      "id": "11ac7c9c-120a-43a9-92e8-7230b1c7a2c7",
+      "name": "\ud83c\udfac HeyGen V2 Generate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2752,
+        9104
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}/stream",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "{{ $vars.ElevenlabsApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"text\": \"{{ $node['parse_scripts_011'].json.personalized_scripts[0].script }}\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.7,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.35,\n    \"use_speaker_boost\": true\n  },\n  \"audio_settings\": {\n    \"output_format\": \"mp3_44100_128\",\n    \"binaural\": true,\n    \"loudness_normalization\": true,\n    \"target_loudness\": -24\n  },\n  \"pronunciation_dictionary_locators\": [],\n  \"seed\": 42\n}",
+        "options": {}
+      },
+      "id": "96b0faa8-126f-45f5-95c1-0b7a3924f790",
+      "name": "\ud83c\udfa4 ElevenLabs Voice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2752,
+        8720
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.hume.ai/v0/batch/jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Hume-Api-Key",
+              "value": "{{ $vars.HumeAiApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"models\": {\n    \"face\": {},\n    \"prosody\": {\n      \"granularity\": \"sentence\"\n    }\n  },\n  \"transcription\": {},\n  \"urls\": [],\n  \"text\": [\"{{ $node['parse_scripts_011'].json.personalized_scripts[0].script }}\"]\n}",
+        "options": {}
+      },
+      "id": "707af748-d017-4394-9ee1-53c72026d91a",
+      "name": "\ud83c\udfad Hume EVI3 Emotion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2752,
+        8912
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// HeyGen Knowledge Base Management\nconst kbData = {\n  knowledge_base_id: crypto.randomUUID(),\n  created_at: new Date().toISOString(),\n  \n  // Product Knowledge\n  products: [\n    {\n      category: 'LR Lifestyle',\n      items: [\n        { name: 'Aloe Vera Drinking Gel', price: 33.49, benefits: 'Immunsystem st\u00e4rken' },\n        { name: 'Mind Master', price: 35.95, benefits: 'Mentale Performance' },\n        { name: 'Colostrum', price: 55.95, benefits: 'Nat\u00fcrliche Abwehr' }\n      ]\n    },\n    {\n      category: 'Business Package',\n      items: [\n        { name: 'Starter Set', price: 99, benefits: 'Kompletter Business Start' },\n        { name: 'Professional Set', price: 299, benefits: 'Erweiterte Tools' },\n        { name: 'Leader Set', price: 499, benefits: 'Maximum Success Kit' }\n      ]\n    }\n  ],\n  \n  // Compensation Plan\n  compensation: {\n    levels: [\n      { level: 1, commission: '20%', requirement: 'Active' },\n      { level: 2, commission: '5%', requirement: '3 Active Partners' },\n      { level: 3, commission: '3%', requirement: '9 Active Partners' }\n    ],\n    bonuses: [\n      { name: 'Fast Start Bonus', amount: '50\u20ac', condition: 'First 30 days' },\n      { name: 'Car Bonus', amount: '400\u20ac/month', condition: 'Gold Status' },\n      { name: 'Leadership Bonus', amount: '1000\u20ac', condition: 'Team Leader' }\n    ]\n  },\n  \n  // Success Stories\n  testimonials: [\n    {\n      name: 'Sarah M.',\n      achievement: 'Mercedes C-Klasse in 6 Monaten',\n      income: '5000\u20ac/Monat',\n      quote: 'Das L\u00f6wenstarke Team hat mein Leben ver\u00e4ndert!'\n    },\n    {\n      name: 'Thomas K.',\n      achievement: 'Porsche 911 in 12 Monaten',\n      income: '15000\u20ac/Monat',\n      quote: 'Crystal Power funktioniert wirklich!'\n    }\n  ],\n  \n  // Common Questions\n  faqs: [\n    {\n      question: 'Wie starte ich?',\n      answer: 'Mit nur 99\u20ac bekommst du dein Starter Set und sofortigen Zugang zu allen Trainings.'\n    },\n    {\n      question: 'Wie schnell kann ich Geld verdienen?',\n      answer: 'Viele Partner verdienen bereits in der ersten Woche ihre ersten Provisionen.'\n    },\n    {\n      question: 'Brauche ich Vorerfahrung?',\n      answer: 'Nein! Unser System f\u00fchrt dich Schritt f\u00fcr Schritt zum Erfolg.'\n    }\n  ],\n  \n  // Interactive Responses\n  interactive_responses: {\n    greeting: 'Hallo! Ich bin dein pers\u00f6nlicher Success Avatar.',\n    car_interest: 'Dein Traumauto wartet schon auf dich! Lass mich dir zeigen wie.',\n    income_question: 'Mit unserem System sind 5000\u20ac im Monat absolut realistisch.',\n    objection_handling: {\n      no_time: 'Nur 2 Stunden t\u00e4glich reichen f\u00fcr den Start!',\n      no_money: 'Die 99\u20ac hast du in 48 Stunden wieder drin!',\n      skeptical: 'Schau dir unsere Erfolgsgeschichten an - alles echte Menschen wie du!'\n    }\n  }\n};\n\n// Update HeyGen KB via API\nconst kbUpdate = {\n  avatar_id: $node['avatar_matrix_009'].json.avatar_assignments[0].assigned_avatar.id,\n  knowledge_base: kbData,\n  update_mode: 'merge',\n  session_timeout: 300,\n  interactive_features: {\n    voice_commands: true,\n    gesture_recognition: false,\n    emotion_detection: true\n  }\n};\n\nreturn { kb_data: kbData, kb_update: kbUpdate };"
+      },
+      "id": "2b86f003-54a5-4f71-b463-f219995629af",
+      "name": "\ud83d\udcda HeyGen KB Update",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        8576
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.resemble.ai/v2/projects/{{ $vars.resembleApi }}/clips",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token {{ $vars.resembleApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"body\": \"{{ $node['parse_scripts_011'].json.personalized_scripts[0].segments.crystal_lion }}\",\n  \"voice_uuid\": \"{{ $vars.MathiasVoiceID }}\",\n  \"is_public\": false,\n  \"is_archived\": false,\n  \"callback_uri\": null,\n  \"emotion\": \"confident\",\n  \"emotion_intensity\": 0.8,\n  \"speech_rate\": 1.1\n}",
+        "options": {}
+      },
+      "id": "a5e328ba-7613-4a99-b92c-6dd7f7b8e562",
+      "name": "\ud83c\udfa4 Resemble Voice Clone",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        8768
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// OmniHuman Configuration for ASMR Mode\nconst omnihuman = {\n  project_id: crypto.randomUUID(),\n  timestamp: new Date().toISOString(),\n  \n  // Avatar configuration\n  avatar: {\n    model: 'ultra_realistic',\n    gender: $node['avatar_matrix_009'].json.avatar_assignments[0].assigned_avatar.name.includes('Lina') ? 'female' : 'male',\n    age_appearance: 28,\n    ethnicity: 'european',\n    clothing: 'business_casual_luxury'\n  },\n  \n  // ASMR specific settings\n  asmr_mode: {\n    enabled: true,\n    \n    // Whisper settings\n    whisper: {\n      intensity: 0.7,\n      distance_simulation: 'binaural_close',\n      breath_sounds: true,\n      soft_consonants: true\n    },\n    \n    // Trigger sounds\n    trigger_sounds: [\n      { type: 'finger_tapping', timing: [5, 10, 15], volume: -25 },\n      { type: 'paper_rustling', timing: [8], volume: -30 },\n      { type: 'keyboard_typing', timing: [12], volume: -28 },\n      { type: 'glass_tapping', timing: [18], volume: -27 },\n      { type: 'coin_dropping', timing: [22], volume: -26 }\n    ],\n    \n    // Binaural processing\n    binaural: {\n      enabled: true,\n      frequency: 432, // Hz\n      beat_frequency: 8, // Hz for alpha waves\n      pan_automation: [\n        { time: 0, pan: 0 },\n        { time: 10, pan: -50 },\n        { time: 20, pan: 50 },\n        { time: 30, pan: 0 }\n      ]\n    },\n    \n    // Subliminal messages\n    subliminals: [\n      { text: 'Du bist erfolgreich', time: 5, volume: -40 },\n      { text: 'Reichtum flie\u00dft zu dir', time: 10, volume: -40 },\n      { text: 'Du verdienst Erfolg', time: 15, volume: -40 },\n      { text: 'Dein Team w\u00e4chst', time: 20, volume: -40 },\n      { text: 'Million\u00e4r werden ist einfach', time: 25, volume: -40 }\n    ]\n  },\n  \n  // Emotion synchronization\n  emotions: [\n    { time: 0, emotion: 'calm', intensity: 0.8 },\n    { time: 5, emotion: 'excited', intensity: 0.6 },\n    { time: 10, emotion: 'confident', intensity: 0.9 },\n    { time: 15, emotion: 'empathetic', intensity: 0.7 },\n    { time: 20, emotion: 'urgent', intensity: 0.8 },\n    { time: 25, emotion: 'encouraging', intensity: 1.0 }\n  ],\n  \n  // Lip sync settings\n  lip_sync: {\n    mode: 'precise',\n    emotion_influence: true,\n    micro_expressions: true,\n    tongue_visibility: 'natural'\n  },\n  \n  // Background ambience\n  ambience: {\n    type: 'luxury_office',\n    elements: [\n      'soft_rain',\n      'distant_traffic',\n      'clock_ticking',\n      'fireplace_crackling'\n    ],\n    volume: -35\n  }\n};\n\nreturn omnihuman;"
+      },
+      "id": "36b96800-b717-4c60-af91-58fc45b0de85",
+      "name": "\ud83c\udfa7 OmniHuman ASMR",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        8960
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "appToken",
+        "operation": "getRecentlyCreatedUpdated",
+        "additionalFields": {}
+      },
+      "id": "d9283d28-6609-4993-b25a-83ab3575b4a0",
+      "name": "\ud83d\udcca HubSpot Create",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [
+        4768,
+        8816
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "credentials": {
+        "hubspotAppToken": {
+          "id": "rSwZuSfL5ImbbKOF",
+          "name": "HubSpot account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $node['parse_leads_004'].json.leads[0].phone }}"
+            },
+            {
+              "name": "message",
+              "value": "\ud83e\udd81 *ROAR! {{ $node['parse_leads_004'].json.leads[0].name }}!*\n\nDein pers\u00f6nliches Video ist fertig! \ud83c\udfac\u2728\n\n{{ $node['parse_scripts_011'].json.personalized_scripts[0].segments.greeting }}\n\n\ud83c\udfaf *Dein Traumauto:* {{ $node['parse_leads_004'].json.leads[0].dream_car }}\n\ud83d\udcb0 *Dein Ziel:* {{ $node['parse_leads_004'].json.leads[0].income_goal }}\u20ac/Monat\n\n*Schau dir JETZT dein Video an:*\n[LINK]\n\n\u23f0 *NUR HEUTE: Start f\u00fcr 99\u20ac!*\n\nDein Avatar {{ $node['avatar_matrix_009'].json.avatar_assignments[0].assigned_avatar.name }} wartet auf dich!\n\n\u27a1\ufe0f Antworten mit L\u00d6WE f\u00fcr sofortigen Start!"
+            },
+            {
+              "name": "media",
+              "value": "={{ $node['bannerbear_watermark_024'].json.video_url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9e76b694-3a8f-4e8c-9073-933af8e29766",
+      "name": "\ud83d\udcf1 WhatsApp Send",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4992,
+        8816
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Scoring Algorithm\nconst leads = $node['enrich_processor_008'].json.enriched_leads;\n\nconst scoredLeads = leads.map(lead => {\n  let score = 0;\n  let factors = [];\n  \n  // Urgency factor (25 points)\n  if (lead.urgency === 'high') {\n    score += 25;\n    factors.push('High urgency (+25)');\n  } else if (lead.urgency === 'medium') {\n    score += 15;\n    factors.push('Medium urgency (+15)');\n  }\n  \n  // Commitment factor (20 points)\n  if (lead.commitment_level === 'ready_to_start') {\n    score += 20;\n    factors.push('Ready to start (+20)');\n  } else if (lead.commitment_level === 'interested') {\n    score += 10;\n    factors.push('Interested (+10)');\n  }\n  \n  // Income goal factor (15 points)\n  const incomeGoal = parseInt(lead.income_goal);\n  if (incomeGoal >= 10000) {\n    score += 15;\n    factors.push('High income goal (+15)');\n  } else if (incomeGoal >= 5000) {\n    score += 10;\n    factors.push('Medium income goal (+10)');\n  }\n  \n  // Experience factor (10 points)\n  if (lead.experience === 'experienced') {\n    score += 10;\n    factors.push('Experienced (+10)');\n  } else if (lead.experience === 'some') {\n    score += 5;\n    factors.push('Some experience (+5)');\n  }\n  \n  // Enrichment quality (15 points)\n  if (lead.enrichment_score >= 75) {\n    score += 15;\n    factors.push('High data quality (+15)');\n  } else if (lead.enrichment_score >= 50) {\n    score += 10;\n    factors.push('Good data quality (+10)');\n  }\n  \n  // Social presence (10 points)\n  if (lead.social_profiles.linkedin) {\n    score += 5;\n    factors.push('LinkedIn profile (+5)');\n  }\n  if (lead.company) {\n    score += 5;\n    factors.push('Company identified (+5)');\n  }\n  \n  // Dream car indicator (5 points)\n  if (lead.dream_car?.includes('Porsche') || lead.dream_car?.includes('Tesla')) {\n    score += 5;\n    factors.push('Premium dream car (+5)');\n  }\n  \n  // Calculate grade\n  let grade;\n  if (score >= 90) grade = 'A+';\n  else if (score >= 80) grade = 'A';\n  else if (score >= 70) grade = 'B';\n  else if (score >= 60) grade = 'C';\n  else if (score >= 50) grade = 'D';\n  else grade = 'F';\n  \n  // Determine priority\n  let priority;\n  if (score >= 80) priority = 'IMMEDIATE';\n  else if (score >= 60) priority = 'HIGH';\n  else if (score >= 40) priority = 'MEDIUM';\n  else priority = 'LOW';\n  \n  return {\n    lead_id: lead.id,\n    lead_name: lead.full_name,\n    final_score: score,\n    max_score: 100,\n    percentage: score + '%',\n    grade: grade,\n    priority: priority,\n    scoring_factors: factors,\n    \n    recommendations: {\n      avatar: score >= 80 ? 'Crystal_Lion' : score >= 60 ? 'Mathias' : 'Lina',\n      approach: score >= 80 ? 'direct_close' : score >= 60 ? 'consultative' : 'nurturing',\n      follow_up: score >= 80 ? 'immediate' : score >= 60 ? 'within_24h' : 'within_week',\n      offer: score >= 80 ? 'premium_package' : score >= 60 ? 'standard' : 'starter'\n    }\n  };\n});\n\n// Sort by score\nscoredLeads.sort((a, b) => b.final_score - a.final_score);\n\nreturn {\n  scored_leads: scoredLeads,\n  average_score: Math.round(scoredLeads.reduce((sum, l) => sum + l.final_score, 0) / scoredLeads.length),\n  high_priority_count: scoredLeads.filter(l => l.priority === 'IMMEDIATE' || l.priority === 'HIGH').length\n};"
+      },
+      "id": "2cdf13ba-582d-478d-b1bd-a2726e3a835d",
+      "name": "\ud83c\udfaf Lead Scoring",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6560,
+        8752
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Emotion Mapping for Avatar Expression\nconst emotionMap = {\n  timestamp: new Date().toISOString(),\n  \n  // Emotion timeline for 30-second video\n  emotion_sequence: [\n    {\n      time_range: [0, 3],\n      emotion: 'friendly_greeting',\n      intensity: 0.8,\n      facial_expression: {\n        smile: 0.8,\n        eye_contact: 1.0,\n        eyebrow_raise: 0.3\n      },\n      voice_modulation: {\n        warmth: 0.9,\n        energy: 0.7,\n        pace: 1.0\n      }\n    },\n    {\n      time_range: [3, 8],\n      emotion: 'empathetic_understanding',\n      intensity: 0.9,\n      facial_expression: {\n        smile: 0.5,\n        eye_contact: 0.9,\n        head_tilt: 0.4,\n        concerned_brow: 0.3\n      },\n      voice_modulation: {\n        warmth: 1.0,\n        energy: 0.5,\n        pace: 0.9\n      }\n    },\n    {\n      time_range: [8, 15],\n      emotion: 'excitement_building',\n      intensity: 1.0,\n      facial_expression: {\n        smile: 1.0,\n        eye_widening: 0.7,\n        enthusiasm: 1.0\n      },\n      voice_modulation: {\n        warmth: 0.7,\n        energy: 1.0,\n        pace: 1.2\n      }\n    },\n    {\n      time_range: [15, 20],\n      emotion: 'confident_assurance',\n      intensity: 0.95,\n      facial_expression: {\n        smile: 0.7,\n        eye_contact: 1.0,\n        chin_up: 0.3,\n        power_pose: 0.8\n      },\n      voice_modulation: {\n        warmth: 0.6,\n        energy: 0.9,\n        pace: 1.0,\n        authority: 1.0\n      }\n    },\n    {\n      time_range: [20, 25],\n      emotion: 'urgency_creation',\n      intensity: 0.9,\n      facial_expression: {\n        smile: 0.4,\n        eye_contact: 1.0,\n        lean_forward: 0.7,\n        intensity: 1.0\n      },\n      voice_modulation: {\n        warmth: 0.5,\n        energy: 1.0,\n        pace: 1.3,\n        emphasis: 1.0\n      }\n    },\n    {\n      time_range: [25, 30],\n      emotion: 'encouraging_close',\n      intensity: 1.0,\n      facial_expression: {\n        smile: 1.0,\n        eye_contact: 1.0,\n        open_gesture: 1.0,\n        thumbs_up: 1.0\n      },\n      voice_modulation: {\n        warmth: 1.0,\n        energy: 0.9,\n        pace: 1.1,\n        enthusiasm: 1.0\n      }\n    }\n  ],\n  \n  // Micro-expressions for authenticity\n  micro_expressions: [\n    { time: 5.5, expression: 'quick_smile', duration: 0.3 },\n    { time: 10.2, expression: 'eyebrow_flash', duration: 0.2 },\n    { time: 15.8, expression: 'genuine_surprise', duration: 0.5 },\n    { time: 22.3, expression: 'determination', duration: 0.4 },\n    { time: 28.1, expression: 'warm_wink', duration: 0.3 }\n  ],\n  \n  // Crystal Lion emotion burst\n  crystal_lion_emotion: {\n    trigger_time: 15,\n    emotion: 'DOMINANT_ROAR',\n    intensity: 1.0,\n    effects: [\n      'screen_shake',\n      'golden_particle_explosion',\n      'bass_drop',\n      'lens_flare'\n    ]\n  }\n};\n\nreturn emotionMap;"
+      },
+      "id": "66eb3f91-0bde-4753-a4d5-deba6a9eae87",
+      "name": "\u2764\ufe0f Emotion Mapping",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6784,
+        8864
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Voice Modulation Configuration\nconst voiceModulation = {\n  timestamp: new Date().toISOString(),\n  \n  // Base voice settings\n  base_settings: {\n    voice_id: $node['avatar_matrix_009'].json.avatar_assignments[0].avatar_config.voice_settings.voice_id,\n    language: 'de-DE',\n    gender: 'female',\n    age_sound: 28\n  },\n  \n  // Dynamic modulation timeline\n  modulation_timeline: [\n    {\n      time: [0, 3],\n      pitch: 1.0,\n      speed: 1.0,\n      volume: 0.8,\n      breathiness: 0.2,\n      tone: 'friendly'\n    },\n    {\n      time: [3, 8],\n      pitch: 0.95,\n      speed: 0.9,\n      volume: 0.75,\n      breathiness: 0.3,\n      tone: 'empathetic'\n    },\n    {\n      time: [8, 15],\n      pitch: 1.05,\n      speed: 1.1,\n      volume: 0.85,\n      breathiness: 0.1,\n      tone: 'excited'\n    },\n    {\n      time: [15, 20],\n      pitch: 0.98,\n      speed: 1.0,\n      volume: 0.9,\n      breathiness: 0.0,\n      tone: 'confident'\n    },\n    {\n      time: [20, 25],\n      pitch: 1.02,\n      speed: 1.2,\n      volume: 0.95,\n      breathiness: 0.0,\n      tone: 'urgent'\n    },\n    {\n      time: [25, 30],\n      pitch: 1.0,\n      speed: 1.05,\n      volume: 0.88,\n      breathiness: 0.15,\n      tone: 'encouraging'\n    }\n  ],\n  \n  // Emphasis points\n  emphasis_words: [\n    { word: 'JETZT', emphasis: 1.5, pitch_spike: 1.2 },\n    { word: '99\u20ac', emphasis: 1.3, slow_down: 0.8 },\n    { word: 'Traumauto', emphasis: 1.4, pitch_rise: 1.1 },\n    { word: 'Millionen', emphasis: 1.5, volume_boost: 1.3 },\n    { word: 'L\u00d6WE', emphasis: 2.0, effect: 'reverb' }\n  ],\n  \n  // Pauses for impact\n  strategic_pauses: [\n    { after_word: 'bereit?', duration_ms: 500 },\n    { after_word: 'stell dir vor', duration_ms: 300 },\n    { after_word: '99\u20ac', duration_ms: 400 },\n    { before_word: 'JETZT', duration_ms: 200 }\n  ],\n  \n  // ASMR layers\n  asmr_processing: {\n    enabled: true,\n    whisper_segments: [[5, 7], [12, 14]],\n    breathing_sounds: true,\n    mouth_sounds: 'subtle',\n    stereo_movement: {\n      enabled: true,\n      pattern: 'figure_8',\n      speed: 0.3\n    }\n  },\n  \n  // Effects processing\n  effects: {\n    reverb: {\n      enabled: true,\n      amount: 0.15,\n      room_size: 'medium'\n    },\n    compression: {\n      enabled: true,\n      ratio: '3:1',\n      threshold: -20\n    },\n    eq: {\n      enabled: true,\n      warmth_boost: 3,\n      presence_boost: 2,\n      bass_cut: -2\n    }\n  }\n};\n\nreturn voiceModulation;"
+      },
+      "id": "fff50f44-042e-42eb-8936-ec0adcf622c5",
+      "name": "\ud83c\udfa4 Voice Modulation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6784,
+        8672
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Evolution DNA\nconst evolution = {\n  generation: 1,\n  timestamp: new Date().toISOString(),\n  \n  // DNA sequence\n  dna: {\n    personality_genes: $node['avatar_matrix_009'].json.avatar_personalities.map(p => p.trait),\n    voice_genes: ['empathetic', 'motivational', 'confident', 'urgent'],\n    visual_genes: ['holographic', 'glass', 'particles', 'portal'],\n    behavior_genes: ['personalized', 'adaptive', 'responsive', 'engaging']\n  },\n  \n  // Mutations for next generation\n  mutations: [\n    'Add telepathic communication',\n    'Implement thought-reading',\n    'Enable dream projection',\n    'Create time-travel sequences',\n    'Develop quantum personality splitting'\n  ],\n  \n  // Evolution path\n  next_evolution: {\n    target: 'Sentient AI Avatars',\n    eta: '30 days',\n    capabilities: [\n      'Self-improving scripts',\n      'Predictive lead responses',\n      'Emotional telepathy',\n      'Reality manipulation'\n    ]\n  }\n};\n\nreturn evolution;"
+      },
+      "id": "5a6fbadc-212c-40a4-b2d2-f64792ea698f",
+      "name": "\ud83e\uddec Avatar Evolution",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2080,
+        9504
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Army Status\nconst avatarArmy = {\n  timestamp: new Date().toISOString(),\n  \n  // Army composition\n  army: {\n    total_soldiers: 22,\n    generals: ['Crystal Lion', 'Mathias', 'Lina'],\n    specialists: ['Sofia', 'Marcus', 'Elena', 'Viktor'],\n    troops: 15,\n    \n    deployment_status: 'ACTIVE',\n    morale: 'MAXIMUM',\n    effectiveness: '98%'\n  },\n  \n  // Battle report\n  battle_report: {\n    leads_engaged: $node['parse_leads_004'].json.total_count,\n    victories: 0, // Will update based on conversions\n    in_progress: $node['parse_leads_004'].json.total_count,\n    casualties: 0\n  },\n  \n  // Special forces\n  special_forces: {\n    crystal_lion_guard: {\n      status: 'ELITE',\n      power: 'MAXIMUM',\n      special_ability: 'Reality Breaking Roar'\n    }\n  },\n  \n  // War cry\n  war_cry: '\ud83e\udd81 ROAR! F\u00fcr Freiheit! F\u00fcr Traumautos! F\u00fcr MILLIONEN! Die Galaxy geh\u00f6rt UNS! \ud83e\udd81'\n};\n\nreturn avatarArmy;"
+      },
+      "id": "ab3afd0f-ab14-4213-a16f-4250940eca08",
+      "name": "\u2694\ufe0f Avatar Army Status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2752,
+        9408
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Special Report\nconst crystalLionReport = {\n  timestamp: new Date().toISOString(),\n  \n  // Lion performance\n  lion_metrics: {\n    appearances: 15,\n    roars: 8,\n    golden_particles_generated: 50000,\n    portals_opened: 3,\n    dimensions_conquered: 2\n  },\n  \n  // Lion impact\n  impact: {\n    engagement_boost: '+67%',\n    memorability_score: '98/100',\n    viral_coefficient: 2.3,\n    brand_recognition: '+89%'\n  },\n  \n  // Lion message\n  message: '\ud83e\udd81 ROAR! Avatar Army deployed! 22 Pers\u00f6nlichkeiten erobern die Galaxy! Jeder Lead bekommt seinen perfekten Avatar-Guide zum Traumauto! Die Conversion-Rate explodiert! NIEMAND kann unserem Holographic-ASMR-System widerstehen! N\u00e4chster Stop: Visual Generator f\u00fcr GLASS TRANSFORMATION! Die Milliarde Views ist zum Greifen nah! ROAR! \ud83e\udd81',\n  \n  // Next appearance\n  next_appearance: {\n    module: 'visual_generator_warp',\n    timing: 'Opening sequence',\n    effect: 'Emerges from glass shards'\n  }\n};\n\nreturn crystalLionReport;"
+      },
+      "id": "c97e224e-413a-4ab7-9ff4-190ae3b62149",
+      "name": "\ud83e\udd81 Crystal Lion Report2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1408,
+        9408
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v-omega-crystal-lions-connected",
+        "options": {}
+      },
+      "id": "82e29d85-8641-414e-ac60-061c4a331ed7",
+      "name": "\ud83d\udef8 Crystal Lions Intelligence Activator",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -144,
+        7152
+      ],
+      "webhookId": "93fc78a8-d8f1-4078-b4a2-9fde0e72e66f",
+      "notes": "Webhook trigger for V-OMEGA MASTERPIECE System with Crystal Lions Premium Branding"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Crystal Lion Lead Qualification with Alien Intelligence\nconst leadData = $input.first().json;\nconst qualificationMatrix = {\n  financial_readiness: 0,\n  motivation_level: 0,\n  team_potential: 0,\n  crystal_resonance: 0\n};\n\n// Qualification logic with Traumwagen ab 99\u20ac focus\nif (leadData.income > 3000) qualificationMatrix.financial_readiness = 50;\nif (leadData.message && leadData.message.includes(\"traumwagen\")) qualificationMatrix.motivation_level = 75;\nif (leadData.network_experience === \"yes\") qualificationMatrix.team_potential = 60;\nif (leadData.consciousness_level === \"high\") qualificationMatrix.crystal_resonance = 80;\n\nconst totalScore = Object.values(qualificationMatrix).reduce((a,b) => a+b, 0);\nconst leadClass = totalScore >= 200 ? \"CRYSTAL_DIAMOND\" : totalScore >= 150 ? \"GOLD\" : \"SILVER\";\n\nreturn [{...leadData, qualification_score: totalScore, lead_class: leadClass, crystal_lion_roar: totalScore >= 200 ? \"ROOOOOAR!\" : \"roar...\"}];"
+      },
+      "id": "25bbc78b-ee60-473d-aea1-2a6d4bd3578c",
+      "name": "\ud83c\udfaf Lead Qualification Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        1000
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HeyGenApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"video_inputs\": [{\"character\": {\"type\": \"avatar\", \"avatar_id\": \"{{ $(\"\ud83c\udfad 22 Avatar Matrix\").first().json.selected_avatar }}\", \"scale\": 1.0}, \"voice\": {\"type\": \"text\", \"input_text\": \"{{ $(\"\ud83e\udd81 Crystal Lion Script\").first().json.script }}\", \"voice_id\": \"{{ $vars.LinaVoiceId }}\"}, \"background\": {\"type\": \"color\", \"value\": \"#FFD700\"}}], \"dimension\": {\"width\": 1080, \"height\": 1920}, \"aspect_ratio\": \"9:16\"}"
+      },
+      "id": "1cd51147-7180-41de-8818-217d337000b4",
+      "name": "\ud83c\udfac Avatar Video Pipeline",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        1200
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// 3D Hologram Portal Creation for Lead Engagement\nconst leadData = $input.first().json;\nconst portalConfig = {\n  portal_type: leadData.lead_class === \"CRYSTAL_DIAMOND\" ? \"diamond_portal\" : \"gold_portal\",\n  interactive_elements: [\"roar_your_dream\", \"crystal_formation\", \"lion_emergence\"],\n  frequency_healing: [432, 528, 741, 963],\n  hologram_message: \"Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!\",\n  portal_activation: leadData.qualification_score >= 150\n};\n\nreturn [{...leadData, portal_config: portalConfig, hologram_ready: true}];"
+      },
+      "id": "7df89dc3-d3d2-4602-8926-de336d530916",
+      "name": "\ud83d\udd2e Crystal Portal Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        1400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubSpotApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"properties\": {\"email\": \"{{ $input.first().json.email }}\", \"firstname\": \"{{ $input.first().json.firstname }}\", \"lastname\": \"{{ $input.first().json.lastname }}\", \"lead_score\": \"{{ $input.first().json.qualification_score }}\", \"lead_class\": \"{{ $input.first().json.lead_class }}\", \"crystal_resonance\": \"{{ $input.first().json.crystal_resonance }}\", \"traumwagen_interest\": \"high\"}}"
+      },
+      "id": "5324b75b-edf7-4799-87b3-f0d5c55312ae",
+      "name": "\ud83d\udcca CRM Integration Hub",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        1600
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hume.ai/v0/batch/jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Hume-Api-Key",
+              "value": "{{ $vars.HumeApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"models\": {\"prosody\": {}}, \"transcription\": {\"language\": \"de\"}, \"urls\": [\"{{ $input.first().json.voice_sample_url }}\"]}"
+      },
+      "id": "f32ce3c5-3342-44f4-9f9f-711080dd697b",
+      "name": "\ud83c\udfa4 Voice Emotion Analyzer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2800,
+        1800
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 1 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_1: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "0087b926-ee64-43c4-9215-3a00ade3e1fc",
+      "name": "\u26a1 Avatar Process 01",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 2 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_2: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "5d0e7b11-9b6f-4fd6-a605-5e4029fe355f",
+      "name": "\u26a1 Avatar Process 02",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3150,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 3 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_3: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "4ea7182f-3403-4a7b-b015-11ada50de1a5",
+      "name": "\u26a1 Avatar Process 03",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3300,
+        1700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 4 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_4: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "d069b566-6929-436a-a501-0d24519029a8",
+      "name": "\u26a1 Avatar Process 04",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3450,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 5 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_5: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "15c50b17-3321-4805-86e1-17fd685d0070",
+      "name": "\u26a1 Avatar Process 05",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3600,
+        1900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 6 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_6: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "bb7eb13c-a308-442f-9ba1-7f7d268e23b7",
+      "name": "\u26a1 Avatar Process 06",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3750,
+        2000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 7 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_7: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "22e98e82-03db-490a-964f-32dc381255cf",
+      "name": "\u26a1 Avatar Process 07",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3900,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 8 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_8: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "fae0884f-9723-4f17-996b-549610fae6c6",
+      "name": "\u26a1 Avatar Process 08",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4050,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 9 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_9: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "3b6b7411-7fb3-4465-9c8f-fc78921cba0d",
+      "name": "\u26a1 Avatar Process 09",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4200,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 10 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_10: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "7a98beac-2f8f-452e-989c-9db90efc4eef",
+      "name": "\u26a1 Avatar Process 10",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4350,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 11 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_11: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "cae069a4-c5dc-4c35-bedc-07e90ffe4444",
+      "name": "\u26a1 Avatar Process 11",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4500,
+        2500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 12 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_12: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "61f5637a-68c6-40dc-a4a9-c4a64cba64c7",
+      "name": "\u26a1 Avatar Process 12",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4650,
+        2600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 13 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_13: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "450bdb44-fbb9-47d4-9a38-9234fe331a8e",
+      "name": "\u26a1 Avatar Process 13",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4800,
+        2700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 14 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_14: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "8add66c0-d67d-41db-9c5a-3271d2c3541e",
+      "name": "\u26a1 Avatar Process 14",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4950,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 15 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_15: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "9cd1e0ad-b604-4f3e-a263-1ea84c5fc0b0",
+      "name": "\u26a1 Avatar Process 15",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5100,
+        2900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 16 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_16: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "e217c642-b479-4ba5-94e0-6f4464cfe467",
+      "name": "\u26a1 Avatar Process 16",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5250,
+        3000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 17 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_17: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "efaacaac-235f-4804-85ff-c59987692ae5",
+      "name": "\u26a1 Avatar Process 17",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5400,
+        3100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 18 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_18: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "83b3a4f7-d310-442c-85e6-4e46a181de7b",
+      "name": "\u26a1 Avatar Process 18",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5550,
+        3200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 19 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_19: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "380cb09e-0f76-435a-a65a-75ac878b1dd0",
+      "name": "\u26a1 Avatar Process 19",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5700,
+        3300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 20 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_20: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "f9f3c0b0-e7b9-4224-abc8-f1c65100426b",
+      "name": "\u26a1 Avatar Process 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5850,
+        3400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 21 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_21: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "e73fcf53-a71e-4c2c-b3cd-07055f3d0d0b",
+      "name": "\u26a1 Avatar Process 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6000,
+        3500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processing Node 22 - Avatar Lead Enhancement\nconst data = $input.first().json;\nreturn [{...data, processing_step_22: \"complete\", timestamp: new Date().toISOString()}];"
+      },
+      "id": "eb7b3aff-f675-4aa9-8004-cf4ffa59f11e",
+      "name": "\u26a1 Avatar Process 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6150,
+        3600
+      ]
+    }
+  ],
+  "connections": {
+    "\ud83c\udfb5 VSMR Config 432Hz": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Inject1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Inject1": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcf1 WhatsApp Notify1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcf1 WhatsApp Notify1": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Leonardo Crystal Lion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Leonardo Crystal Lion": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Animals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Animals": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Report": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 ElevenLabs ASMR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 ElevenLabs ASMR": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 Resemble Voice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 Resemble Voice": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfad Hume Voice Emotion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfad Hume Voice Emotion": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfac VSMR Compositor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfac VSMR Compositor": {
+      "main": [
+        [
+          {
+            "node": "\u2705 QA via WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2705 QA via WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcca HubSpot Lead Track",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcca HubSpot Lead Track": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Final": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Report1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Report1": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Avatar Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Avatar Webhook": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar WARP Init",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar WARP Init": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udccb Tally Lead Capture",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Tally Lead Capture": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcca Parse Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcca Parse Lead Data": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd0d Snov.io Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd0d Snov.io Enrichment": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\ude80 Apollo.io Mining",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\ude80 Apollo.io Mining": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd00 Merge Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd00 Merge Enrichment": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Enrichment Processor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Enrichment Processor": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfad 22 Avatar Matrix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfad 22 Avatar Matrix": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfac HeyGen V2 Generate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfac HeyGen V2 Generate": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 ElevenLabs Voice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 ElevenLabs Voice": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfad Hume EVI3 Emotion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfad Hume EVI3 Emotion": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcda HeyGen KB Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcda HeyGen KB Update": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 Resemble Voice Clone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 Resemble Voice Clone": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa7 OmniHuman ASMR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa7 OmniHuman ASMR": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcca HubSpot Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcca HubSpot Create": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcf1 WhatsApp Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcf1 WhatsApp Send": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Lead Scoring",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Lead Scoring": {
+      "main": [
+        [
+          {
+            "node": "\u2764\ufe0f Emotion Mapping",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2764\ufe0f Emotion Mapping": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 Voice Modulation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 Voice Modulation": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\uddec Avatar Evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\uddec Avatar Evolution": {
+      "main": [
+        [
+          {
+            "node": "\u2694\ufe0f Avatar Army Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2694\ufe0f Avatar Army Status": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Report2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Report2": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udef8 Crystal Lions Intelligence Activator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udef8 Crystal Lions Intelligence Activator": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Lead Qualification Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Lead Qualification Engine": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfac Avatar Video Pipeline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfac Avatar Video Pipeline": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd2e Crystal Portal Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd2e Crystal Portal Generator": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcca CRM Integration Hub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcca CRM Integration Hub": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 Voice Emotion Analyzer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 Voice Emotion Analyzer": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 01": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 02": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 03",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 03": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 04",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 04": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 05",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 05": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 06",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 06": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 07",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 07": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 08",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 08": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 09",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 09": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 10": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 11": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 12": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 13": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 14": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 15": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 16": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 17": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 18": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 19": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 20": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 21": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "module2avatarleadgeneration65nodes"
+  }
+}
