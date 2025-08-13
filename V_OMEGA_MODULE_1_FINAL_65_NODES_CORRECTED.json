@@ -407,7 +407,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"model\": \"claude-3-5-opus-20250813\",\n  \"max_tokens\": 4000,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Based on viral patterns: {{ $json.viral_patterns }}, create 10 ULTRA-VIRAL content hooks for network marketing. Focus: Crystal-L\u00f6we ASMR Car Rides, 3D-Hologramm Portal Challenges, Lina & L\u00f6we Talk interactions, Interactive 'Roar Your Dream' challenges, Glass transformation, 99\u20ac Traumauto, VSMR frequencies. Each hook must trigger MAXIMUM engagement and shares. Include emotional triggers, urgency, and L\u00d6WENSTARKES TEAM branding for billion-view potential.\"\n    }\n  ]\n}",
+        "jsonBody": "={\n  \"model\": \"claude-4.1-opus-20250801\",\n  \"max_tokens\": 4000,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Based on viral patterns: {{ $json.viral_patterns }}, create 10 ULTRA-VIRAL content hooks for network marketing. Focus: Crystal-L\u00f6we ASMR Car Rides, 3D-Hologramm Portal Challenges, Lina & L\u00f6we Talk interactions, Interactive 'Roar Your Dream' challenges, Glass transformation, 99\u20ac Traumauto, VSMR frequencies. Each hook must trigger MAXIMUM engagement and shares. Include emotional triggers, urgency, and L\u00d6WENSTARKES TEAM branding for billion-view potential.\"\n    }\n  ]\n}",
         "options": {}
       },
       "id": "claude-viral-013",

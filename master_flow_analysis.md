@@ -50,7 +50,7 @@ const alienConfig = {
 #### Content Generation APIs
 - **fal.ai**: 15+ models (Flux Pro v1.1 Ultra, Kling 2.1, MiniMax Hailuo, etc.)
 - **HeyGen v2**: Avatar video generation with motion types
-- **ElevenLabs**: VSMR audio with eleven_turbo_v2_5
+- **ElevenLabs**: VSMR audio with eleven_turbo_v2_6
 - **Runway Gen-4 Turbo**: Reality distortion video effects
 - **Luma Dream Loop**: Quantum wealth visualization
 - **Leonardo Ultra**: Hyperrealistic crystal lion environments

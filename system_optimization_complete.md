@@ -57,7 +57,7 @@ The system generates ultra-dynamic prompts with patterns like:
 Complete integration of cutting-edge APIs:
 - **fal.ai**: 15+ models (Flux Pro v1.1 Ultra, Kling 2.1, MiniMax Hailuo)
 - **HeyGen v2**: Avatar video generation with motion types
-- **ElevenLabs**: VSMR audio with eleven_turbo_v2_5
+- **ElevenLabs**: VSMR audio with eleven_turbo_v2_6
 - **Claude 3.5 Sonnet**: Alien content strategy
 - **DeepSeek Reasoner**: Viral score calculation
 - **Apollo/Snov**: Lead generation and enrichment
