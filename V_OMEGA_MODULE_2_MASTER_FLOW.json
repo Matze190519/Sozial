@@ -1578,7 +1578,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.9,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Du bist ein Meister-Scripter aus dem Jahr 3025. Erstelle ein HYPERPERSONALISIERTES Avatar-Script für diese Lead-Daten:\\n\\nLead: {{ JSON.stringify($json.personalization_data) }}\\nAvatar: {{ $json.assigned_avatar.name }} ({{ $json.assigned_avatar.specialty }})\\nEmotion: {{ $json.emotion_state }}\\nBackground: {{ $json.background }}\\n\\nDas Script MUSS enthalten:\\n1. Persönliche Ansprache mit Namen\\n2. Bezug auf Interessen/Ziele\\n3. Crystal-Löwe Referenz (witzig)\\n4. Traumauto ab 99€/Monat\\n5. VSMR-Elemente wenn Avatar = Lina\\n6. Call-to-Action\\n7. Max. 60 Sekunden\\n8. Gefühl: 'NICHT VON DIESER WELT'\\n\\nMache es UNVERGESSLICH!\"\n    }\n  ]\n}",
+        "jsonBody": "{\n  \"model\": \"claude-4.1-opus-20250801\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.9,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Du bist ein Meister-Scripter aus dem Jahr 3025. Erstelle ein HYPERPERSONALISIERTES Avatar-Script für diese Lead-Daten:\\n\\nLead: {{ JSON.stringify($json.personalization_data) }}\\nAvatar: {{ $json.assigned_avatar.name }} ({{ $json.assigned_avatar.specialty }})\\nEmotion: {{ $json.emotion_state }}\\nBackground: {{ $json.background }}\\n\\nDas Script MUSS enthalten:\\n1. Persönliche Ansprache mit Namen\\n2. Bezug auf Interessen/Ziele\\n3. Crystal-Löwe Referenz (witzig)\\n4. Traumauto ab 99€/Monat\\n5. VSMR-Elemente wenn Avatar = Lina\\n6. Call-to-Action\\n7. Max. 60 Sekunden\\n8. Gefühl: 'NICHT VON DIESER WELT'\\n\\nMache es UNVERGESSLICH!\"\n    }\n  ]\n}",
         "options": {
           "timeout": 30000
         }
@@ -4356,7 +4356,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.98,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"🚨 VIDEO OPTIMIZATION NEEDED!\\n\\nScore: {{ $node['quality_control_020'].json.viral_score }}\\nTarget: 97.3+\\n\\nOPTIMIZE:\\n1. Add MORE glass transformations\\n2. Increase Crystal-Löwe appearances\\n3. Enhance VSMR to 528Hz\\n4. Add holographic overlays\\n5. Boost quantum loop quality\\n\\nMAKE IT MORE ALIEN!\"\n    }\n  ]\n}",
+        "jsonBody": "{\n  \"model\": \"claude-4.1-opus-20250801\",\n  \"max_tokens\": 4096,\n  \"temperature\": 0.98,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"🚨 VIDEO OPTIMIZATION NEEDED!\\n\\nScore: {{ $node['quality_control_020'].json.viral_score }}\\nTarget: 97.3+\\n\\nOPTIMIZE:\\n1. Add MORE glass transformations\\n2. Increase Crystal-Löwe appearances\\n3. Enhance VSMR to 528Hz\\n4. Add holographic overlays\\n5. Boost quantum loop quality\\n\\nMAKE IT MORE ALIEN!\"\n    }\n  ]\n}",
         "options": {
           "timeout": 30000
         }

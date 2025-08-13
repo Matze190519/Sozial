@@ -33,7 +33,7 @@ def create_proper_module2():
                 if 'jsonBody' in params:
                     json_body = params['jsonBody']
                     if 'claude-3-5-sonnet' in json_body:
-                        params['jsonBody'] = json_body.replace('claude-3-5-sonnet-20241022', 'claude-4-1-opus-20250801')
+                        params['jsonBody'] = json_body.replace('claude-3-5-sonnet-20241022', 'claude-4.1-opus-20250801')
                 
                 if 'model_id' in str(params):
                     params_str = str(params)
