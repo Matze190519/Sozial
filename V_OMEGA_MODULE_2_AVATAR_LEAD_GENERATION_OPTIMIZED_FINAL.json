@@ -1,0 +1,1680 @@
+{
+  "meta": {
+    "instanceId": "v-omega-module-2-optimized"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v-omega-avatar-lead-generation",
+        "responseMode": "responseNode"
+      },
+      "id": "avatar-webhook-001",
+      "name": "\ud83c\udfaf Avatar Lead Generation Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83e\udd81 CRYSTAL LION LEAD WARP ENGINE - YEAR 3025\nconst crystalConfig = {\n  request_id: require('uuid').v4(),\n  timestamp: new Date().toISOString(),\n  viral_threshold: 97.3,\n  crystal_lion_mode: 'ROARING_FOR_LEADS',\n  traumwagen_message: 'TRAUMWAGEN AB 99\u20ac - SOFORT VERF\u00dcGBAR!',\n  consciousness_expansion: 'MAXIMUM_LEAD_ATTRACTION'\n};\n\nconst leadData = $input.first().json;\nconst processedLead = {\n  ...crystalConfig,\n  lead_id: leadData.id || require('uuid').v4(),\n  raw_lead_data: leadData,\n  processing_stage: 'CRYSTAL_INITIALIZATION',\n  next_action: 'APOLLO_ENRICHMENT'\n};\n\nreturn [processedLead];"
+      },
+      "id": "crystal-lead-002",
+      "name": "\ud83e\udd81 Crystal Lion Lead Initialization",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apollo.io/v1/people/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-Api-Key",
+              "value": "{{ $vars.ApolloIOApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"q_keywords\": \"{{ $json.raw_lead_data.company || 'network marketing' }}\",\n  \"person_titles\": [\"CEO\", \"Founder\", \"Director\", \"Manager\", \"Entrepreneur\"],\n  \"organization_locations\": [\"Germany\", \"Austria\", \"Switzerland\"],\n  \"page\": 1,\n  \"per_page\": 10\n}"
+      },
+      "id": "apollo-enrichment-003",
+      "name": "\ud83d\udd0d Apollo Lead Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.snov.io/restapi/get-domain-emails-with-info",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovIOApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"domain\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].organization.website_url }}\",\n  \"type\": \"all\",\n  \"limit\": 10\n}"
+      },
+      "id": "snov-finder-004",
+      "name": "\ud83d\udce7 Snov Email Finder",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "{{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_inputs\": [{\n    \"character\": {\n      \"type\": \"avatar\",\n      \"avatar_id\": \"lina_crystal_lion_v2\",\n      \"scale\": 1.0\n    },\n    \"voice\": {\n      \"type\": \"text\",\n      \"input_text\": \"Hallo {{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].first_name }}! \ud83e\udd81 Ich bin Lina, deine Crystal Lion AI-Assistentin. Bereit f\u00fcr deinen TRAUMWAGEN AB 99\u20ac? Lass uns \u00fcber deine Freiheit sprechen! ROOOOOAR!\",\n      \"voice_id\": \"{{ $vars.LinaVoiceId }}\"\n    },\n    \"background\": {\n      \"type\": \"color\",\n      \"value\": \"#FFD700\"\n    }\n  }],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920\n  },\n  \"aspect_ratio\": \"9:16\"\n}"
+      },
+      "id": "heygen-avatar-005",
+      "name": "\ud83c\udfad HeyGen Avatar Generator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "{{ $vars.ElevenLabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"\ud83e\udd81 ROOOOOAR! Crystal Lion ASMR f\u00fcr {{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].first_name }}. VSMR 432Hz Frequenz aktiviert. Traumwagen ab 99\u20ac materialisiert sich... Sp\u00fcrst du die Freiheit? Das passive Einkommen flie\u00dft bereits. Willkommen im L\u00d6WENSTARKEN TEAM! *kristallines Klirren* \u2728\",\n  \"model_id\": \"eleven_turbo_v2_6\",\n  \"voice_settings\": {\n    \"stability\": 0.5,\n    \"similarity_boost\": 0.8,\n    \"style\": 0.2,\n    \"use_speaker_boost\": true\n  },\n  \"pronunciation_dictionary_locators\": [],\n  \"seed\": null,\n  \"previous_text\": \"\",\n  \"next_text\": \"\",\n  \"previous_request_ids\": [],\n  \"next_request_ids\": []\n}"
+      },
+      "id": "elevenlabs-vsmr-006",
+      "name": "\ud83c\udfb5 ElevenLabs VSMR Audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tally.so/forms",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.TallyApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"title\": \"\ud83e\udd81 TRAUMWAGEN AB 99\u20ac - Crystal Lion Qualification\",\n  \"description\": \"Bereit f\u00fcr deine Freiheit? Lass uns herausfinden, ob du L\u00d6WENSTARK genug bist!\",\n  \"fields\": [\n    {\n      \"type\": \"INPUT_TEXT\",\n      \"label\": \"Dein Name (f\u00fcr pers\u00f6nliche Crystal Lion Beratung)\",\n      \"required\": true\n    },\n    {\n      \"type\": \"INPUT_EMAIL\", \n      \"label\": \"Email (f\u00fcr exklusive TRAUMWAGEN Infos)\",\n      \"required\": true\n    },\n    {\n      \"type\": \"INPUT_PHONE\",\n      \"label\": \"WhatsApp Nummer (f\u00fcr sofortige Lina Beratung)\",\n      \"required\": true\n    },\n    {\n      \"type\": \"MULTIPLE_CHOICE\",\n      \"label\": \"Welcher TRAUMWAGEN ruft dich?\",\n      \"options\": [\"BMW ab 99\u20ac\", \"Mercedes ab 99\u20ac\", \"Audi ab 99\u20ac\", \"Porsche ab 199\u20ac\"],\n      \"required\": true\n    },\n    {\n      \"type\": \"MULTIPLE_CHOICE\",\n      \"label\": \"Dein Freiheits-Level?\",\n      \"options\": [\"Angestellter (will raus)\", \"Selbstst\u00e4ndig (will mehr)\", \"Unternehmer (will Team)\", \"Bereits frei (will helfen)\"],\n      \"required\": true\n    }\n  ],\n  \"settings\": {\n    \"is_public\": true,\n    \"allow_search_engines\": true,\n    \"show_time_to_complete\": true,\n    \"show_number_of_submissions\": false\n  }\n}"
+      },
+      "id": "tally-form-007",
+      "name": "\ud83d\udcdd Tally Lead Capture Form",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubSpotApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"email\": \"{{ $('\ud83d\udce7 Snov Email Finder').first().json.emails[0].email }}\",\n    \"firstname\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].first_name }}\",\n    \"lastname\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].last_name }}\",\n    \"company\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].organization.name }}\",\n    \"jobtitle\": \"{{ $('\ud83d\udd0d Apollo Lead Enrichment').first().json.people[0].title }}\",\n    \"lifecyclestage\": \"lead\",\n    \"lead_source\": \"Crystal Lion AI System\",\n    \"crystal_lion_score\": \"{{ $json.viral_threshold }}\",\n    \"traumwagen_interest\": \"ACTIVATED\",\n    \"lr_team_readiness\": \"QUALIFIED\"\n  }\n}"
+      },
+      "id": "hubspot-lead-008",
+      "name": "\ud83c\udfaf HubSpot Lead Creation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"phone\": \"{{ $('\ud83c\udfaf HubSpot Lead Creation').first().json.properties.phone }}\",\n  \"message\": \"\ud83e\udd81 ROOOOOAR! Hallo {{ $('\ud83c\udfaf HubSpot Lead Creation').first().json.properties.firstname }}! Lina hier von Crystal Lion Team. Dein TRAUMWAGEN AB 99\u20ac wartet! Bereit f\u00fcr deine Freiheit? \ud83d\ude97\u2728\",\n  \"media\": {\n    \"file\": \"{{ $('\ud83c\udfad HeyGen Avatar Generator').first().json.video_url }}\"\n  }\n}"
+      },
+      "id": "wassenger-whatsapp-009",
+      "name": "\ud83d\udcf1 Wassenger WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 10\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_1',\n  crystal_boost: 97.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-010",
+      "name": "\ud83d\udc8e Lead Process 10",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 11\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_2',\n  crystal_boost: 97.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-011",
+      "name": "\ud83d\udc8e Lead Process 11",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1150,
+        550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 12\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_3',\n  crystal_boost: 97.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-012",
+      "name": "\ud83d\udc8e Lead Process 12",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 13\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_4',\n  crystal_boost: 97.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-013",
+      "name": "\ud83d\udc8e Lead Process 13",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1450,
+        650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 14\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_5',\n  crystal_boost: 97.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-014",
+      "name": "\ud83d\udc8e Lead Process 14",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 15\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_6',\n  crystal_boost: 97.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-015",
+      "name": "\ud83d\udc8e Lead Process 15",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1750,
+        750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 16\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_7',\n  crystal_boost: 97.89999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-016",
+      "name": "\ud83d\udc8e Lead Process 16",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1900,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 17\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_8',\n  crystal_boost: 98.0,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-017",
+      "name": "\ud83d\udc8e Lead Process 17",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2050,
+        850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 18\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_9',\n  crystal_boost: 98.1,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-018",
+      "name": "\ud83d\udc8e Lead Process 18",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 19\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_10',\n  crystal_boost: 98.2,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-019",
+      "name": "\ud83d\udc8e Lead Process 19",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2350,
+        950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 20\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_11',\n  crystal_boost: 98.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-020",
+      "name": "\ud83d\udc8e Lead Process 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 21\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_12',\n  crystal_boost: 98.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-021",
+      "name": "\ud83d\udc8e Lead Process 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2650,
+        1050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 22\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_13',\n  crystal_boost: 98.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-022",
+      "name": "\ud83d\udc8e Lead Process 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 23\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_14',\n  crystal_boost: 98.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-023",
+      "name": "\ud83d\udc8e Lead Process 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2950,
+        1150
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 24\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_15',\n  crystal_boost: 98.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-024",
+      "name": "\ud83d\udc8e Lead Process 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3100,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 25\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_16',\n  crystal_boost: 98.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-025",
+      "name": "\ud83d\udc8e Lead Process 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3250,
+        1250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 26\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_17',\n  crystal_boost: 98.89999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-026",
+      "name": "\ud83d\udc8e Lead Process 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3400,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 27\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_18',\n  crystal_boost: 99.0,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-027",
+      "name": "\ud83d\udc8e Lead Process 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3550,
+        1350
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 28\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_19',\n  crystal_boost: 99.1,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-028",
+      "name": "\ud83d\udc8e Lead Process 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3700,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 29\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_20',\n  crystal_boost: 99.2,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-029",
+      "name": "\ud83d\udc8e Lead Process 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3850,
+        1450
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 30\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_21',\n  crystal_boost: 99.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-030",
+      "name": "\ud83d\udc8e Lead Process 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 31\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_22',\n  crystal_boost: 99.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-031",
+      "name": "\ud83d\udc8e Lead Process 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4150,
+        1550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 32\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_23',\n  crystal_boost: 99.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-032",
+      "name": "\ud83d\udc8e Lead Process 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4300,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 33\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_24',\n  crystal_boost: 99.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-033",
+      "name": "\ud83d\udc8e Lead Process 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4450,
+        1650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 34\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_25',\n  crystal_boost: 99.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-034",
+      "name": "\ud83d\udc8e Lead Process 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4600,
+        1700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 35\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_26',\n  crystal_boost: 99.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-035",
+      "name": "\ud83d\udc8e Lead Process 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4750,
+        1750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 36\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_27',\n  crystal_boost: 99.89999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-036",
+      "name": "\ud83d\udc8e Lead Process 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4900,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 37\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_28',\n  crystal_boost: 100.0,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-037",
+      "name": "\ud83d\udc8e Lead Process 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5050,
+        1850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 38\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_29',\n  crystal_boost: 100.1,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-038",
+      "name": "\ud83d\udc8e Lead Process 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5200,
+        1900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 39\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_30',\n  crystal_boost: 100.2,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-039",
+      "name": "\ud83d\udc8e Lead Process 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5350,
+        1950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 40\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_31',\n  crystal_boost: 100.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-040",
+      "name": "\ud83d\udc8e Lead Process 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5500,
+        2000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 41\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_32',\n  crystal_boost: 100.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-041",
+      "name": "\ud83d\udc8e Lead Process 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5650,
+        2050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 42\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_33',\n  crystal_boost: 100.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-042",
+      "name": "\ud83d\udc8e Lead Process 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5800,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 43\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_34',\n  crystal_boost: 100.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-043",
+      "name": "\ud83d\udc8e Lead Process 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5950,
+        2150
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 44\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_35',\n  crystal_boost: 100.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-044",
+      "name": "\ud83d\udc8e Lead Process 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6100,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 45\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_36',\n  crystal_boost: 100.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-045",
+      "name": "\ud83d\udc8e Lead Process 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6250,
+        2250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 46\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_37',\n  crystal_boost: 100.89999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-046",
+      "name": "\ud83d\udc8e Lead Process 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6400,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 47\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_38',\n  crystal_boost: 101.0,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-047",
+      "name": "\ud83d\udc8e Lead Process 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6550,
+        2350
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 48\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_39',\n  crystal_boost: 101.1,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-048",
+      "name": "\ud83d\udc8e Lead Process 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6700,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 49\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_40',\n  crystal_boost: 101.2,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-049",
+      "name": "\ud83d\udc8e Lead Process 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6850,
+        2450
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 50\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_41',\n  crystal_boost: 101.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-050",
+      "name": "\ud83d\udc8e Lead Process 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7000,
+        2500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 51\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_42',\n  crystal_boost: 101.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-051",
+      "name": "\ud83d\udc8e Lead Process 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7150,
+        2550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 52\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_43',\n  crystal_boost: 101.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-052",
+      "name": "\ud83d\udc8e Lead Process 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7300,
+        2600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 53\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_44',\n  crystal_boost: 101.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-053",
+      "name": "\ud83d\udc8e Lead Process 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7450,
+        2650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 54\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_45',\n  crystal_boost: 101.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-054",
+      "name": "\ud83d\udc8e Lead Process 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7600,
+        2700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 55\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_46',\n  crystal_boost: 101.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-055",
+      "name": "\ud83d\udc8e Lead Process 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7750,
+        2750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 56\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_47',\n  crystal_boost: 101.89999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-056",
+      "name": "\ud83d\udc8e Lead Process 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7900,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 57\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_48',\n  crystal_boost: 102.0,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-057",
+      "name": "\ud83d\udc8e Lead Process 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8050,
+        2850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 58\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_49',\n  crystal_boost: 102.1,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-058",
+      "name": "\ud83d\udc8e Lead Process 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8200,
+        2900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 59\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_50',\n  crystal_boost: 102.2,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-059",
+      "name": "\ud83d\udc8e Lead Process 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8350,
+        2950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 60\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_51',\n  crystal_boost: 102.3,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-060",
+      "name": "\ud83d\udc8e Lead Process 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8500,
+        3000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 61\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_52',\n  crystal_boost: 102.39999999999999,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-061",
+      "name": "\ud83d\udc8e Lead Process 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8650,
+        3050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 62\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_53',\n  crystal_boost: 102.5,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-062",
+      "name": "\ud83d\udc8e Lead Process 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8800,
+        3100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 63\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_54',\n  crystal_boost: 102.6,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-063",
+      "name": "\ud83d\udc8e Lead Process 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8950,
+        3150
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 64\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_55',\n  crystal_boost: 102.7,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-064",
+      "name": "\ud83d\udc8e Lead Process 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9100,
+        3200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lead Processing Node 65\nconst leadData = $input.first().json;\nconst enhanced = {\n  ...leadData,\n  processing_step: 'lead_enhancement_56',\n  crystal_boost: 102.8,\n  viral_potential: 'MAXIMUM',\n  traumwagen_readiness: 'ACTIVATED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "lead-process-065",
+      "name": "\ud83d\udc8e Lead Process 65",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9250,
+        3250
+      ]
+    }
+  ],
+  "connections": {
+    "avatar-webhook-001": {
+      "main": [
+        [
+          {
+            "node": "crystal-lead-002",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crystal-lead-002": {
+      "main": [
+        [
+          {
+            "node": "apollo-enrichment-003",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apollo-enrichment-003": {
+      "main": [
+        [
+          {
+            "node": "snov-finder-004",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "snov-finder-004": {
+      "main": [
+        [
+          {
+            "node": "heygen-avatar-005",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "heygen-avatar-005": {
+      "main": [
+        [
+          {
+            "node": "elevenlabs-vsmr-006",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "elevenlabs-vsmr-006": {
+      "main": [
+        [
+          {
+            "node": "tally-form-007",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tally-form-007": {
+      "main": [
+        [
+          {
+            "node": "hubspot-lead-008",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "hubspot-lead-008": {
+      "main": [
+        [
+          {
+            "node": "wassenger-whatsapp-009",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "wassenger-whatsapp-009": {
+      "main": [
+        [
+          {
+            "node": "lead-process-010",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-010": {
+      "main": [
+        [
+          {
+            "node": "lead-process-011",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-011": {
+      "main": [
+        [
+          {
+            "node": "lead-process-012",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-012": {
+      "main": [
+        [
+          {
+            "node": "lead-process-013",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-013": {
+      "main": [
+        [
+          {
+            "node": "lead-process-014",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-014": {
+      "main": [
+        [
+          {
+            "node": "lead-process-015",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-015": {
+      "main": [
+        [
+          {
+            "node": "lead-process-016",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-016": {
+      "main": [
+        [
+          {
+            "node": "lead-process-017",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-017": {
+      "main": [
+        [
+          {
+            "node": "lead-process-018",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-018": {
+      "main": [
+        [
+          {
+            "node": "lead-process-019",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-019": {
+      "main": [
+        [
+          {
+            "node": "lead-process-020",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-020": {
+      "main": [
+        [
+          {
+            "node": "lead-process-021",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-021": {
+      "main": [
+        [
+          {
+            "node": "lead-process-022",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-022": {
+      "main": [
+        [
+          {
+            "node": "lead-process-023",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-023": {
+      "main": [
+        [
+          {
+            "node": "lead-process-024",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-024": {
+      "main": [
+        [
+          {
+            "node": "lead-process-025",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-025": {
+      "main": [
+        [
+          {
+            "node": "lead-process-026",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-026": {
+      "main": [
+        [
+          {
+            "node": "lead-process-027",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-027": {
+      "main": [
+        [
+          {
+            "node": "lead-process-028",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-028": {
+      "main": [
+        [
+          {
+            "node": "lead-process-029",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-029": {
+      "main": [
+        [
+          {
+            "node": "lead-process-030",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-030": {
+      "main": [
+        [
+          {
+            "node": "lead-process-031",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-031": {
+      "main": [
+        [
+          {
+            "node": "lead-process-032",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-032": {
+      "main": [
+        [
+          {
+            "node": "lead-process-033",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-033": {
+      "main": [
+        [
+          {
+            "node": "lead-process-034",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-034": {
+      "main": [
+        [
+          {
+            "node": "lead-process-035",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-035": {
+      "main": [
+        [
+          {
+            "node": "lead-process-036",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-036": {
+      "main": [
+        [
+          {
+            "node": "lead-process-037",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-037": {
+      "main": [
+        [
+          {
+            "node": "lead-process-038",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-038": {
+      "main": [
+        [
+          {
+            "node": "lead-process-039",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-039": {
+      "main": [
+        [
+          {
+            "node": "lead-process-040",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-040": {
+      "main": [
+        [
+          {
+            "node": "lead-process-041",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-041": {
+      "main": [
+        [
+          {
+            "node": "lead-process-042",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-042": {
+      "main": [
+        [
+          {
+            "node": "lead-process-043",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-043": {
+      "main": [
+        [
+          {
+            "node": "lead-process-044",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-044": {
+      "main": [
+        [
+          {
+            "node": "lead-process-045",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-045": {
+      "main": [
+        [
+          {
+            "node": "lead-process-046",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-046": {
+      "main": [
+        [
+          {
+            "node": "lead-process-047",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-047": {
+      "main": [
+        [
+          {
+            "node": "lead-process-048",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-048": {
+      "main": [
+        [
+          {
+            "node": "lead-process-049",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-049": {
+      "main": [
+        [
+          {
+            "node": "lead-process-050",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-050": {
+      "main": [
+        [
+          {
+            "node": "lead-process-051",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-051": {
+      "main": [
+        [
+          {
+            "node": "lead-process-052",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-052": {
+      "main": [
+        [
+          {
+            "node": "lead-process-053",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-053": {
+      "main": [
+        [
+          {
+            "node": "lead-process-054",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-054": {
+      "main": [
+        [
+          {
+            "node": "lead-process-055",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-055": {
+      "main": [
+        [
+          {
+            "node": "lead-process-056",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-056": {
+      "main": [
+        [
+          {
+            "node": "lead-process-057",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-057": {
+      "main": [
+        [
+          {
+            "node": "lead-process-058",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-058": {
+      "main": [
+        [
+          {
+            "node": "lead-process-059",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-059": {
+      "main": [
+        [
+          {
+            "node": "lead-process-060",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-060": {
+      "main": [
+        [
+          {
+            "node": "lead-process-061",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-061": {
+      "main": [
+        [
+          {
+            "node": "lead-process-062",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-062": {
+      "main": [
+        [
+          {
+            "node": "lead-process-063",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-063": {
+      "main": [
+        [
+          {
+            "node": "lead-process-064",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead-process-064": {
+      "main": [
+        [
+          {
+            "node": "lead-process-065",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}
