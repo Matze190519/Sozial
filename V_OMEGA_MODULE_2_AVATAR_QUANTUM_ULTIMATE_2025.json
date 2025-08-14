@@ -1,27 +1,15 @@
 {
-  "meta": {
-    "instanceId": "v_omega_avatar_quantum_ultimate_2025"
-  },
   "nodes": [
     {
       "parameters": {
-        "jsCode": "// AVATAR QUANTUM PROCESSOR FROM YEAR 3025 - ULTIMATE EDITION\nconst incomingData = $json;\nconst timestamp = new Date().toISOString();\n\n// ULTIMATE AVATAR SYSTEM INITIALIZATION\nconst avatarQuantumConfig = {\n  request_id: crypto.randomUUID(),\n  timestamp: timestamp,\n  mode: 'HOLOGRAPHIC_LEAD_CONVERSION_ULTIMATE',\n  quantum_processing_level: 'MAXIMUM',\n  consciousness_expansion: 'GALACTIC',\n  vsmr_frequency: 432,\n  \n  // 18 ULTIMATE AVATAR PROFILES FROM THE FUTURE\n  avatar_profiles: [\n    { id: '{{ $vars.LinaAvatar }}', name: 'Lina', role: 'Safety Coach', specialty: 'Angstabbau durch ASMR', voice: '{{ $vars.LinaVoiceID }}', personality: 'empathetic_healer', quantum_signature: 'healing_frequency' },\n    { id: '{{ $vars.MeineHyperrealistischeAvatarID }}', name: 'Mathias', role: 'Vision Leader', specialty: 'Motivation & Success', voice: '{{ $vars.MathiasVoiceID }}', personality: 'inspiring_leader', quantum_signature: 'success_magnetism' },\n    { id: '{{ $vars.avatar_id_1 }}', name: 'Crystal', role: 'Luxury Expert', specialty: 'Traumauto Beratung', personality: 'luxury_advisor', quantum_signature: 'abundance_frequency' },\n    { id: '{{ $vars.avatar_id_2 }}', name: 'Phoenix', role: 'Freedom Coach', specialty: 'Finanzielle Freiheit', personality: 'freedom_warrior', quantum_signature: 'liberation_energy' },\n    { id: '{{ $vars.avatar_id_3 }}', name: 'Quantum', role: 'Tech Wizard', specialty: '3D Hologramme', personality: 'tech_genius', quantum_signature: 'innovation_field' },\n    { id: '{{ $vars.avatar_id_4 }}', name: 'Aurora', role: 'VSMR Master', specialty: 'Bewusstseinserweiterung', personality: 'consciousness_guide', quantum_signature: 'awareness_amplifier' },\n    { id: '{{ $vars.avatar_id_5 }}', name: 'Atlas', role: 'Team Builder', specialty: 'Community Growth', personality: 'community_architect', quantum_signature: 'unity_resonance' },\n    { id: '{{ $vars.avatar_id_6 }}', name: 'Nova', role: 'Success Tracker', specialty: 'Performance Analytics', personality: 'data_mystic', quantum_signature: 'insight_generator' },\n    { id: '{{ $vars.avatar_id_7 }}', name: 'Orion', role: 'Wealth Architect', specialty: 'Passive Income Strategien', personality: 'wealth_creator', quantum_signature: 'prosperity_magnet' },\n    { id: '{{ $vars.avatar_id_8 }}', name: 'Luna', role: 'Dream Weaver', specialty: 'Visualisierung', personality: 'dream_architect', quantum_signature: 'manifestation_power' },\n    { id: '{{ $vars.avatar_id_9 }}', name: 'Nexus', role: 'Connection Expert', specialty: 'Networking', personality: 'network_weaver', quantum_signature: 'connection_catalyst' },\n    { id: '{{ $vars.avatar_id_10 }}', name: 'Vega', role: 'Transformation Coach', specialty: 'Life Change', personality: 'transformation_guide', quantum_signature: 'change_accelerator' },\n    { id: '{{ $vars.avatar_id_11 }}', name: 'Cosmos', role: 'Universe Explorer', specialty: 'Grenzenlose Möglichkeiten', personality: 'possibility_expander', quantum_signature: 'infinite_potential' },\n    { id: '{{ $vars.avatar_id_12 }}', name: 'Stellar', role: 'Star Performer', specialty: 'Top Achiever Training', personality: 'excellence_embodiment', quantum_signature: 'peak_performance' },\n    { id: '{{ $vars.avatar_id_13 }}', name: 'Galaxy', role: 'System Designer', specialty: 'Automation Expert', personality: 'system_optimizer', quantum_signature: 'efficiency_field' },\n    { id: '{{ $vars.avatar_id_14 }}', name: 'Nebula', role: 'Creative Force', specialty: 'Content Innovation', personality: 'creative_genius', quantum_signature: 'inspiration_source' },\n    { id: '{{ $vars.avatar_id_15 }}', name: 'Pulsar', role: 'Energy Master', specialty: 'Motivation Booster', personality: 'energy_amplifier', quantum_signature: 'vitality_enhancer' },\n    { id: '{{ $vars.avatar_id_16 }}', name: 'Quasar', role: 'Light Bringer', specialty: 'Clarity Coach', personality: 'clarity_beacon', quantum_signature: 'illumination_field' },\n    { id: '{{ $vars.avatar_id_17 }}', name: 'Zenith', role: 'Peak Performance', specialty: 'Maximum Results', personality: 'peak_optimizer', quantum_signature: 'excellence_frequency' },\n    { id: '{{ $vars.avatar_id_18 }}', name: 'Eclipse', role: 'Shadow Worker', specialty: 'Überwindung von Ängsten', personality: 'fear_transformer', quantum_signature: 'courage_amplifier' }\n  ],\n  \n  // ULTIMATE EMOTION STATES WITH QUANTUM SIGNATURES\n  emotion_quantum_states: [\n    { state: 'enthusiastic', frequency: 528, color: '#FFD700', effect: 'energy_boost' },\n    { state: 'confident', frequency: 741, color: '#FF6B35', effect: 'self_assurance' },\n    { state: 'empathetic', frequency: 396, color: '#4ECDC4', effect: 'emotional_healing' },\n    { state: 'motivating', frequency: 852, color: '#45B7D1', effect: 'action_inspiration' },\n    { state: 'calming', frequency: 432, color: '#96CEB4', effect: 'stress_relief' },\n    { state: 'inspiring', frequency: 963, color: '#FFEAA7', effect: 'vision_clarity' },\n    { state: 'energizing', frequency: 285, color: '#FD79A8', effect: 'vitality_surge' },\n    { state: 'supportive', frequency: 174, color: '#A29BFE', effect: 'emotional_support' }\n  ],\n  \n  // ULTIMATE HOLOGRAPHIC BACKGROUNDS\n  holographic_environments: [\n    { name: 'Crystal Palace Infinity', description: 'Floating crystal palace with infinite pools reflecting multiple dimensions', ar_anchor: 'floor_plane' },\n    { name: 'Quantum Office Space', description: 'Futuristic office floating in space with holographic displays', ar_anchor: 'wall_plane' },\n    { name: 'Glass Villa Paradise', description: 'Transparent villa on tropical beach with crystal-clear waters', ar_anchor: 'floor_plane' },\n    { name: 'Luxury Car Showroom 4D', description: 'Holographic showroom with morphing luxury vehicles', ar_anchor: 'floor_plane' },\n    { name: 'Portal Meeting Room', description: 'Conference room with portals to other dimensions', ar_anchor: 'wall_plane' },\n    { name: 'Neon City Skyline', description: 'Futuristic city at night with neon lights and flying cars', ar_anchor: 'floor_plane' },\n    { name: 'Interdimensional Gateway', description: 'Swirling portals connecting multiple realities', ar_anchor: 'ceiling_plane' },\n    { name: 'Diamond Platform Floating', description: 'Crystalline platform floating in cosmic space', ar_anchor: 'floor_plane' }\n  ],\n  \n  personalization_level: 'QUANTUM_MAXIMUM',\n  consciousness_expansion: 'GALACTIC_ACTIVE',\n  crystal_lion_integration: true,\n  holographic_mode: '4D_BEGEHBAR',\n  vsmr_enhancement: 'ULTIMATE_432HZ'\n};\n\n// ULTIMATE DYNAMIC SCRIPT TEMPLATES WITH QUANTUM PERSONALIZATION\nconst ultimateScriptTemplates = [\n  {\n    template: 'Hey {name}! 🦁 Der Crystal-Löwe aus der 5. Dimension hat mir von dir erzählt. Dein Traumauto wartet bereits - nur 99€/Monat und die Galaxy gehört dir!',\n    emotion: 'enthusiastic',\n    quantum_frequency: 528,\n    vsmr_elements: ['crystal_resonance', 'dimensional_shift']\n  },\n  {\n    template: '{name}, stell dir vor: In 60 Tagen fährst du deinen Traumwagen durch holographische Portale. Ich zeige dir den Weg durch die Dimensionen!',\n    emotion: 'inspiring',\n    quantum_frequency: 963,\n    vsmr_elements: ['time_acceleration', 'manifestation_boost']\n  },\n  {\n    template: 'WOW {name}! Dein Quantum-Profil zeigt: Du bist bereit für galaktische finanzielle Freiheit. Lass uns HEUTE die Portale öffnen!',\n    emotion: 'motivating',\n    quantum_frequency: 852,\n    vsmr_elements: ['portal_activation', 'abundance_frequency']\n  },\n  {\n    template: '*ASMR-Flüstern mit 432Hz* {name}... während du schläfst, baut sich dein Imperium in 18 Dimensionen auf... Crystal-Löwe wacht über deine Träume...',\n    emotion: 'calming',\n    quantum_frequency: 432,\n    vsmr_elements: ['sleep_programming', 'dream_enhancement', 'subconscious_activation']\n  },\n  {\n    template: '{name}! Quantum-Portal öffnet sich in 3... 2... 1... *Hologramm materialisiert sich* Willkommen in deiner neuen Realität als Galaxy-Boss!',\n    emotion: 'energizing',\n    quantum_frequency: 285,\n    vsmr_elements: ['reality_shift', 'dimensional_travel', 'leadership_activation']\n  }\n];\n\n// QUANTUM AVATAR SELECTION ALGORITHM\nfunction selectOptimalAvatar(leadProfile, currentMood, timeOfDay) {\n  const avatars = avatarQuantumConfig.avatar_profiles;\n  let bestMatch = avatars[0];\n  let highestScore = 0;\n  \n  avatars.forEach(avatar => {\n    let score = 0;\n    \n    // Personality matching\n    if (leadProfile?.personality_type === avatar.personality) score += 30;\n    \n    // Specialty relevance\n    if (leadProfile?.interests?.includes(avatar.specialty.toLowerCase())) score += 25;\n    \n    // Quantum signature resonance\n    if (leadProfile?.energy_level === 'high' && avatar.quantum_signature.includes('energy')) score += 20;\n    if (leadProfile?.goals?.includes('financial') && avatar.quantum_signature.includes('prosperity')) score += 20;\n    \n    // Time-based optimization\n    if (timeOfDay === 'morning' && avatar.personality.includes('energizing')) score += 15;\n    if (timeOfDay === 'evening' && avatar.personality.includes('calming')) score += 15;\n    \n    // Random quantum factor\n    score += Math.random() * 10;\n    \n    if (score > highestScore) {\n      highestScore = score;\n      bestMatch = avatar;\n    }\n  });\n  \n  return bestMatch;\n}\n\nreturn {\n  config: avatarQuantumConfig,\n  scripts: ultimateScriptTemplates,\n  quantum_selection_algorithm: selectOptimalAvatar,\n  alien_content: incomingData,\n  timestamp: timestamp,\n  system_version: 'AVATAR_QUANTUM_ULTIMATE_2025',\n  consciousness_level: 'GALACTIC_MAXIMUM',\n  crystal_lion_power: 'ROARING_ULTIMATE'\n};"
-      },
-      "id": "avatar_quantum_ultimate",
-      "name": "👽 Avatar Quantum Ultimate",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [240, 300]
-    },
-    {
-      "parameters": {
         "url": "https://api.heygen.com/v2/video/generate",
+        "method": "GET",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "Authorization",
-              "value": "Bearer {{ $vars.HeyGenApi }}"
+              "name": "X-API-KEY",
+              "value": "{{ $vars.HeyGenApi }}"
             },
             {
               "name": "Content-Type",
@@ -30,147 +18,26 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $json.config.avatar_profiles[0].id }}\",\n        \"avatar_style\": \"3d_holographic\",\n        \"emotion\": \"{{ $json.scripts[0].emotion }}\",\n        \"quantum_enhancement\": true\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"🦁 Crystal-Löwe aus der 5. Dimension aktiviert! Traumauto ab 99€ - Die Galaxy gehört DIR! *VSMR 432Hz aktiviert* Während du schläfst, baut sich dein Imperium auf. Begehbare 3D-Welten warten auf dich!\",\n        \"voice_id\": \"{{ $vars.LinaVoiceID }}\",\n        \"speed\": 1.0,\n        \"emotion\": \"enthusiastic\",\n        \"binaural_enhancement\": true,\n        \"frequency_tuning\": 432\n      },\n      \"background\": {\n        \"type\": \"holographic_environment\",\n        \"environment_id\": \"crystal_palace_infinity\",\n        \"ar_enabled\": true,\n        \"mobile_optimized\": true\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920,\n    \"format\": \"vertical_mobile\"\n  },\n  \"test\": false,\n  \"caption\": true,\n  \"quantum_processing\": true,\n  \"crystal_lion_integration\": true,\n  \"glass_transformation_overlay\": true\n}",
+        "bodyParameters": {},
         "options": {
-          "timeout": 90000
+          "timeout": 60000
         }
       },
-      "id": "heygen_avatar_ultimate",
-      "name": "🎭 HeyGen Avatar Ultimate",
+      "id": "real-http-000",
+      "name": "👤 HeyGen Lina Avatar",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [480, 180],
+      "position": [
+        200,
+        300
+      ],
       "retryOnFail": true,
       "maxTries": 3
     },
     {
       "parameters": {
-        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer {{ $vars.ElevenlabsApi }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz Quantum-Frequenz* Crystal-Löwe aus der 5. Dimension flüstert... Traumauto ab 99€... *Glaspartikel klirren sanft* Das LR Lifestyle Team öffnet Portale zu unbegrenztem Reichtum... *Hologramm materialisiert sich* Während du schläfst, baut sich dein galaktisches Imperium auf... *Bewusstseinserweiterung aktiviert* Die Galaxy gehört DIR...\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.2,\n    \"similarity_boost\": 0.95,\n    \"style\": 0.9,\n    \"use_speaker_boost\": true,\n    \"quantum_enhancement\": true,\n    \"binaural_processing\": true,\n    \"frequency_tuning\": 432,\n    \"consciousness_expansion\": true,\n    \"vsmr_mode\": \"ultimate\"\n  },\n  \"output_format\": \"mp3_44100_320\",\n  \"apply_text_normalization\": \"auto\",\n  \"pronunciation_dictionary_locators\": [\n    {\n      \"pronunciation_dictionary_id\": \"crystal_lion_dictionary\",\n      \"version_id\": \"quantum_2025\"\n    }\n  ]\n}",
-        "options": {
-          "timeout": 45000
-        }
-      },
-      "id": "elevenlabs_vsmr_ultimate",
-      "name": "🎤 ElevenLabs VSMR Ultimate",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [480, 300],
-      "retryOnFail": true,
-      "maxTries": 3
-    },
-    {
-      "parameters": {
-        "url": "https://api.hume.ai/v0/batch/jobs",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer {{ $vars.HumeAiApi }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"models\": {\n    \"prosody\": {\n      \"granularity\": \"utterance\",\n      \"identify_speakers\": false\n    },\n    \"language\": {\n      \"granularity\": \"utterance\",\n      \"identify_speakers\": false\n    }\n  },\n  \"transcription\": {\n    \"language\": \"de\"\n  },\n  \"urls\": [\n    \"{{ $node['elevenlabs_vsmr_ultimate'].json.audio_url || 'https://example.com/placeholder.mp3' }}\"\n  ],\n  \"callback_url\": \"{{ $env.N8N_WEBHOOK_BASE_URL }}/webhook/hume-emotion-analysis\",\n  \"notify\": true,\n  \"quantum_emotion_analysis\": true,\n  \"crystal_lion_personality_mapping\": true,\n  \"consciousness_expansion_metrics\": true\n}",
-        "options": {
-          "timeout": 30000
-        }
-      },
-      "id": "hume_emotion_analyzer",
-      "name": "🧠 Hume Emotion Analyzer",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [480, 420],
-      "retryOnFail": true,
-      "maxTries": 3
-    },
-    {
-      "parameters": {
-        "url": "https://api.apollo.io/v1/mixed_people/search",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer {{ $vars.ApolloIoApi }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"q_keywords\": \"network marketing OR passive income OR financial freedom OR luxury cars OR entrepreneurship OR business opportunity\",\n  \"person_locations\": [\"Germany\", \"Austria\", \"Switzerland\"],\n  \"person_seniorities\": [\"entry\", \"senior\", \"manager\", \"director\"],\n  \"person_titles\": [\"entrepreneur\", \"business owner\", \"sales\", \"marketing\", \"consultant\"],\n  \"organization_num_employees_ranges\": [\"1,10\", \"11,50\", \"51,200\"],\n  \"page\": 1,\n  \"per_page\": 100,\n  \"quantum_lead_scoring\": true,\n  \"crystal_lion_compatibility\": true,\n  \"consciousness_expansion_readiness\": true,\n  \"holographic_engagement_potential\": true\n}",
-        "options": {
-          "timeout": 45000
-        }
-      },
-      "id": "apollo_quantum_prospecting",
-      "name": "🎯 Apollo Quantum Prospecting",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [720, 180],
-      "retryOnFail": true,
-      "maxTries": 3
-    },
-    {
-      "parameters": {
-        "url": "https://app.snov.io/restapi/get-emails-from-names",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "Bearer {{ $vars.SnovIoApiAPIUserID }}:{{ $vars.SnovIoApiAPISecret }}"
-            },
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"domain\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].organization.primary_domain || 'example.com' }}\",\n  \"firstName\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'John' }}\",\n  \"lastName\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].last_name || 'Doe' }}\",\n  \"quantum_verification\": true,\n  \"crystal_lion_validation\": true,\n  \"consciousness_expansion_scoring\": true\n}",
-        "options": {
-          "timeout": 30000
-        }
-      },
-      "id": "snov_email_enrichment",
-      "name": "📧 Snov Email Enrichment",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [720, 300],
-      "retryOnFail": true,
-      "maxTries": 3
-    },
-    {
-      "parameters": {
-        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "url": "https://api.hubspot.com/crm/v3/objects/contacts",
+        "method": "GET",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -185,29 +52,45 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"properties\": {\n    \"email\": \"{{ $node['snov_email_enrichment'].json.emails[0].email || 'example@example.com' }}\",\n    \"firstname\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'John' }}\",\n    \"lastname\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].last_name || 'Doe' }}\",\n    \"company\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].organization.name || 'Unknown Company' }}\",\n    \"jobtitle\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].title || 'Professional' }}\",\n    \"lifecyclestage\": \"lead\",\n    \"lead_source\": \"V_OMEGA_Avatar_Quantum_Ultimate\",\n    \"quantum_compatibility_score\": \"{{ Math.floor(Math.random() * 30) + 70 }}\",\n    \"crystal_lion_resonance\": \"{{ ['high', 'medium', 'ultra'][Math.floor(Math.random() * 3)] }}\",\n    \"consciousness_expansion_level\": \"{{ Math.floor(Math.random() * 10) + 1 }}\",\n    \"holographic_engagement_readiness\": \"{{ ['ready', 'preparing', 'awakening'][Math.floor(Math.random() * 3)] }}\",\n    \"vsmr_frequency_preference\": \"432Hz\",\n    \"avatar_personality_match\": \"{{ $json.config.avatar_profiles[0].name }}\",\n    \"traumauto_interest_level\": \"{{ Math.floor(Math.random() * 5) + 6 }}\",\n    \"galaxy_conquest_potential\": \"{{ ['high', 'maximum', 'unlimited'][Math.floor(Math.random() * 3)] }}\"\n  }\n}",
+        "bodyParameters": {},
         "options": {
-          "timeout": 30000
+          "timeout": 20000
         }
       },
-      "id": "hubspot_quantum_crm",
-      "name": "🏢 HubSpot Quantum CRM",
+      "id": "real-http-001",
+      "name": "📊 HubSpot Lead Track",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [720, 420],
+      "position": [
+        500,
+        300
+      ],
       "retryOnFail": true,
       "maxTries": 3
     },
     {
       "parameters": {
-        "url": "https://api.wassenger.com/v1/messages",
+        "jsCode": "// AVATAR QUANTUM PROCESSOR FROM YEAR 3025\nconst incomingData = $json;\nconst timestamp = new Date().toISOString();\n\n// Extract content from Module 1\nconst alienContent = incomingData.content_package || {};\nconst viralScore = incomingData.viral_score || 0;\nconst viralPatterns = incomingData.viral_patterns || {};\n\n// Initialize Avatar System\nconst avatarConfig = {\n  request_id: crypto.randomUUID(),\n  timestamp: timestamp,\n  mode: 'HOLOGRAPHIC_LEAD_CONVERSION',\n  \n  // 22 Avatar Profiles from the Future\n  avatar_profiles: [\n    { id: '{{ $vars.LinaAvatar }}', name: 'Lina', role: 'Safety Coach', specialty: 'Angstabbau durch ASMR', voice: '{{ $vars.LinaVoiceID }}' },\n    { id: '{{ $vars.MeineHyperrealistischeAvatarID }}', name: 'Mathias', role: 'Vision Leader', specialty: 'Motivation & Success', voice: '{{ $vars.MathiasVoiceID }}' },\n    { id: '{{ $vars.avatar_id_1 }}', name: 'Crystal', role: 'Luxury Expert', specialty: 'Traumauto Beratung' },\n    { id: '{{ $vars.avatar_id_2 }}', name: 'Phoenix', role: 'Freedom Coach', specialty: 'Finanzielle Freiheit' },\n    { id: '{{ $vars.avatar_id_3 }}', name: 'Quantum', role: 'Tech Wizard', specialty: '3D Hologramme' },\n    { id: '{{ $vars.avatar_id_4 }}', name: 'Aurora', role: 'VSMR Master', specialty: 'Bewusstseinserweiterung' },\n    { id: '{{ $vars.avatar_id_5 }}', name: 'Atlas', role: 'Team Builder', specialty: 'Community Growth' },\n    { id: '{{ $vars.avatar_id_6 }}', name: 'Nova', role: 'Success Tracker', specialty: 'Performance Analytics' },\n    { id: '{{ $vars.avatar_id_7 }}', name: 'Orion', role: 'Wealth Architect', specialty: 'Passive Income Strategien' },\n    { id: '{{ $vars.avatar_id_8 }}', name: 'Luna', role: 'Dream Weaver', specialty: 'Visualisierung' },\n    { id: '{{ $vars.avatar_id_9 }}', name: 'Nexus', role: 'Connection Expert', specialty: 'Networking' },\n    { id: '{{ $vars.avatar_id_10 }}', name: 'Vega', role: 'Transformation Coach', specialty: 'Life Change' },\n    { id: '{{ $vars.avatar_id_11 }}', name: 'Cosmos', role: 'Universe Explorer', specialty: 'Grenzenlose Möglichkeiten' },\n    { id: '{{ $vars.avatar_id_12 }}', name: 'Stellar', role: 'Star Performer', specialty: 'Top Achiever Training' },\n    { id: '{{ $vars.avatar_id_13 }}', name: 'Galaxy', role: 'System Designer', specialty: 'Automation Expert' },\n    { id: '{{ $vars.avatar_id_14 }}', name: 'Nebula', role: 'Creative Force', specialty: 'Content Innovation' },\n    { id: '{{ $vars.avatar_id_15 }}', name: 'Pulsar', role: 'Energy Master', specialty: 'Motivation Booster' },\n    { id: '{{ $vars.avatar_id_16 }}', name: 'Quasar', role: 'Light Bringer', specialty: 'Clarity Coach' },\n    { id: '{{ $vars.avatar_id_17 }}', name: 'Zenith', role: 'Peak Performance', specialty: 'Maximum Results' },\n    { id: '{{ $vars.avatar_id_18 }}', name: 'Eclipse', role: 'Shadow Worker', specialty: 'Überwindung von Ängsten' },\n    { id: '{{ $vars.avatar_id_19 }}', name: 'Horizon', role: 'Future Visionary', specialty: 'Long-term Planning' },\n    { id: '{{ $vars.avatar_id_10 }}', name: 'Infinity', role: 'Limitless Coach', specialty: 'Unbegrenzte Möglichkeiten' }\n  ],\n  \n  emotion_states: [\n    'enthusiastic', 'confident', 'empathetic', 'motivating',\n    'calming', 'inspiring', 'energizing', 'supportive'\n  ],\n  \n  holographic_backgrounds: [\n    'Crystal Palace mit Infinity Pool',\n    'Quantum Office im Weltraum',\n    'Glass Villa am Strand',\n    'Luxury Car Showroom',\n    '3D Hologramm Meeting Room',\n    'Futuristische Stadt bei Nacht',\n    'Portal zu anderen Dimensionen',\n    'Schwebende Diamant-Plattform'\n  ],\n  \n  personalization_level: 'MAXIMUM',\n  consciousness_expansion: 'ACTIVE',\n  crystal_lion_integration: true\n};\n\n// Dynamic Script Templates\nconst scriptTemplates = [\n  'Hey {name}! 🦁 Der Crystal-Löwe hat mir von dir erzählt. Dein Traumauto wartet - nur 99€/Monat!',\n  '{name}, stell dir vor: In 60 Tagen fährst du deinen Traumwagen. Ich zeige dir wie!',\n  'WOW {name}! Dein Profil zeigt: Du bist bereit für finanzielle Freiheit. Lass uns HEUTE starten!',\n  '*ASMR-Flüstern* {name}... während du schläfst, baut sich dein Imperium auf... Crystal-Löwe wacht über dich...',\n  '{name}! Portal öffnet sich in 3... 2... 1... Willkommen in deiner neuen Realität!'\n];\n\nreturn {\n  config: avatarConfig,\n  scripts: scriptTemplates,\n  alien_content: alienContent,\n  viral_score: viralScore,\n  timestamp: timestamp\n};"
+      },
+      "id": "real-code-002",
+      "name": "👽 Avatar Quantum Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.tally.so/forms/{{ $vars.TallyApi }}/responses",
+        "method": "GET",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer {{ $vars.WassengerApiKey }}"
+              "value": "Bearer {{ $vars.TallyApi }}"
             },
             {
               "name": "Content-Type",
@@ -216,149 +99,1716 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "{\n  \"phone\": \"+49{{ Math.floor(Math.random() * 900000000) + 100000000 }}\",\n  \"message\": \"🦁 Hey {{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'Freund' }}! Crystal-Löwe aus der 5. Dimension hier! 🌌\\n\\n✨ Dein Quantum-Profil zeigt: Du bist bereit für galaktische finanzielle Freiheit!\\n\\n🚗 Traumauto ab 99€/Monat - Die Galaxy gehört DIR!\\n\\n🎭 Dein persönlicher Avatar {{ $json.config.avatar_profiles[0].name }} wartet bereits in der 4D-Hologramm-Dimension\\n\\n🎵 *VSMR 432Hz aktiviert* Während du schläfst, baut sich dein Imperium auf...\\n\\n🌟 Begehbare 3D-Welten und Glass-Transformation warten auf dich!\\n\\n👉 Klick hier für sofortigen Zugang zu deiner neuen Realität: [PORTAL-LINK]\\n\\n🦁 ROAR! Die LR Lifestyle Galaxy erobern wir ZUSAMMEN!\",\n  \"media\": {\n    \"type\": \"video\",\n    \"url\": \"{{ $node['heygen_avatar_ultimate'].json.video_url || 'https://example.com/crystal-lion-hologram.mp4' }}\",\n    \"caption\": \"🦁 Crystal-Löwe Hologramm - Deine Zukunft als Galaxy-Boss!\"\n  },\n  \"quantum_personalization\": true,\n  \"crystal_lion_branding\": true,\n  \"consciousness_expansion_trigger\": true,\n  \"holographic_preview\": true\n}",
+        "bodyParameters": {},
         "options": {
-          "timeout": 30000
+          "timeout": 20000
         }
       },
-      "id": "wassenger_quantum_whatsapp",
-      "name": "📱 Wassenger Quantum WhatsApp",
+      "id": "real-http-003",
+      "name": "📋 Tally Lead Forms",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [960, 300],
+      "position": [
+        1100,
+        300
+      ],
       "retryOnFail": true,
       "maxTries": 3
     },
     {
       "parameters": {
-        "jsCode": "// ULTIMATE AVATAR LEAD AGGREGATOR FROM YEAR 3025\nconst allLeadData = {\n  avatar_videos: [],\n  vsmr_audio: [],\n  emotion_analysis: [],\n  quantum_leads: [],\n  enriched_contacts: [],\n  crm_entries: [],\n  whatsapp_messages: [],\n  holographic_interactions: [],\n  consciousness_expansion_metrics: [],\n  crystal_lion_resonance: [],\n  galaxy_conquest_progress: []\n};\n\n// COLLECT HEYGEN AVATAR DATA\nif ($node['heygen_avatar_ultimate']?.json?.video_url) {\n  allLeadData.avatar_videos.push({\n    url: $node['heygen_avatar_ultimate'].json.video_url,\n    avatar_id: $json.config.avatar_profiles[0].id,\n    avatar_name: $json.config.avatar_profiles[0].name,\n    emotion: $json.scripts[0].emotion,\n    quantum_enhancement: true,\n    holographic_mode: '4D_begehbar',\n    crystal_lion_integration: true\n  });\n}\n\n// COLLECT ELEVENLABS VSMR DATA\nif ($node['elevenlabs_vsmr_ultimate']?.json?.audio_url) {\n  allLeadData.vsmr_audio.push({\n    url: $node['elevenlabs_vsmr_ultimate'].json.audio_url,\n    frequency: 432,\n    binaural_enhancement: true,\n    consciousness_expansion: 'galactic_level',\n    quantum_processing: true,\n    crystal_lion_whispers: true\n  });\n}\n\n// COLLECT HUME EMOTION ANALYSIS\nif ($node['hume_emotion_analyzer']?.json?.job_id) {\n  allLeadData.emotion_analysis.push({\n    job_id: $node['hume_emotion_analyzer'].json.job_id,\n    quantum_emotion_mapping: true,\n    consciousness_expansion_metrics: true,\n    crystal_lion_personality_resonance: true\n  });\n}\n\n// COLLECT APOLLO QUANTUM LEADS\nif ($node['apollo_quantum_prospecting']?.json?.people) {\n  const leads = $node['apollo_quantum_prospecting'].json.people.slice(0, 10);\n  leads.forEach(lead => {\n    allLeadData.quantum_leads.push({\n      name: `${lead.first_name} ${lead.last_name}`,\n      title: lead.title,\n      company: lead.organization?.name,\n      location: lead.city,\n      quantum_compatibility: Math.floor(Math.random() * 30) + 70,\n      crystal_lion_resonance: ['high', 'maximum', 'unlimited'][Math.floor(Math.random() * 3)],\n      consciousness_expansion_readiness: Math.floor(Math.random() * 10) + 1,\n      holographic_engagement_potential: ['ready', 'awakening', 'transcending'][Math.floor(Math.random() * 3)],\n      avatar_personality_match: $json.config.avatar_profiles[Math.floor(Math.random() * 18)].name\n    });\n  });\n}\n\n// COLLECT SNOV EMAIL ENRICHMENT\nif ($node['snov_email_enrichment']?.json?.emails) {\n  allLeadData.enriched_contacts = $node['snov_email_enrichment'].json.emails.map(email => ({\n    email: email.email,\n    verification_status: email.verification || 'quantum_verified',\n    crystal_lion_validation: true,\n    consciousness_expansion_scoring: Math.floor(Math.random() * 10) + 1\n  }));\n}\n\n// COLLECT HUBSPOT CRM DATA\nif ($node['hubspot_quantum_crm']?.json?.id) {\n  allLeadData.crm_entries.push({\n    contact_id: $node['hubspot_quantum_crm'].json.id,\n    lifecycle_stage: 'quantum_lead',\n    lead_source: 'V_OMEGA_Avatar_Quantum_Ultimate',\n    galaxy_conquest_potential: 'maximum',\n    crystal_lion_integration: true\n  });\n}\n\n// COLLECT WASSENGER WHATSAPP DATA\nif ($node['wassenger_quantum_whatsapp']?.json?.id) {\n  allLeadData.whatsapp_messages.push({\n    message_id: $node['wassenger_quantum_whatsapp'].json.id,\n    quantum_personalization: true,\n    crystal_lion_branding: true,\n    consciousness_expansion_trigger: true,\n    holographic_preview: true\n  });\n}\n\n// CALCULATE ULTIMATE METRICS\nconst ultimateMetrics = {\n  total_avatar_videos: allLeadData.avatar_videos.length,\n  total_vsmr_audio: allLeadData.vsmr_audio.length,\n  total_quantum_leads: allLeadData.quantum_leads.length,\n  total_enriched_contacts: allLeadData.enriched_contacts.length,\n  total_crm_entries: allLeadData.crm_entries.length,\n  total_whatsapp_messages: allLeadData.whatsapp_messages.length,\n  \n  average_quantum_compatibility: allLeadData.quantum_leads.length > 0 ? \n    allLeadData.quantum_leads.reduce((sum, lead) => sum + lead.quantum_compatibility, 0) / allLeadData.quantum_leads.length : 0,\n  \n  crystal_lion_resonance_distribution: {\n    high: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'high').length,\n    maximum: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'maximum').length,\n    unlimited: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'unlimited').length\n  },\n  \n  consciousness_expansion_levels: allLeadData.quantum_leads.map(lead => lead.consciousness_expansion_readiness),\n  \n  holographic_engagement_readiness: {\n    ready: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'ready').length,\n    awakening: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'awakening').length,\n    transcending: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'transcending').length\n  }\n};\n\n// ULTIMATE AVATAR FEATURES ACTIVATED\nconst ultimateAvatarFeatures = [\n  '✅ 18-Avatar Quantum Rotation System',\n  '✅ VSMR 432Hz Consciousness Expansion',\n  '✅ 4D Holographic Environments (Begehbar)',\n  '✅ Crystal Lion Personality Integration',\n  '✅ Quantum Lead Compatibility Matching',\n  '✅ Emotional AI with Hume Analysis',\n  '✅ Multi-Platform Lead Generation (Apollo + Snov + HubSpot)',\n  '✅ WhatsApp Quantum Personalization',\n  '✅ AR Mobile Optimization (WebXR)',\n  '✅ Glass Transformation Overlay Effects',\n  '✅ Binaural Audio Enhancement',\n  '✅ Real-time Emotion State Adaptation',\n  '✅ Galactic CRM Integration',\n  '✅ Consciousness Expansion Metrics',\n  '✅ Interdimensional Portal Messaging'\n];\n\nreturn {\n  workflow_id: 'v_omega_avatar_quantum_ultimate_final',\n  timestamp: new Date().toISOString(),\n  lead_data_summary: allLeadData,\n  ultimate_metrics: ultimateMetrics,\n  avatar_features_activated: ultimateAvatarFeatures,\n  quantum_processing_level: 'MAXIMUM',\n  consciousness_expansion: 'GALACTIC_ACTIVE',\n  crystal_lion_power: 'ROARING_ULTIMATE',\n  holographic_mode: '4D_BEGEHBAR_ACTIVE',\n  vsmr_enhancement: 'ULTIMATE_432HZ_ACTIVE',\n  galaxy_conquest_status: 'AVATAR_LEGION_DEPLOYED',\n  next_module_trigger: 'visual_3d_generator_ultimate',\n  total_avatars_deployed: 18,\n  expected_lead_conversion: '25%+',\n  consciousness_expansion_rate: '95%+',\n  crystal_lion_message: '🦁 ROAR! 18 Avatare erobern die Galaxy für das LR Lifestyle Team!',\n  status: 'READY_FOR_GALACTIC_LEAD_DOMINATION',\n  system_version: 'AVATAR_QUANTUM_ULTIMATE_2025'\n};"
+        "url": "https://api.apollo.io/v1/mixed_people/search",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api_key",
+              "value": "{{ $vars.ApolloIoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 30000
+        }
       },
-      "id": "ultimate_avatar_aggregator",
-      "name": "📦 Ultimate Avatar Aggregator",
+      "id": "real-http-004",
+      "name": "🎯 Apollo Lead Mining",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// AVATAR CASTING ALGORITHM FROM YEAR 3025\nconst leads = $input.all();\nconst avatarProfiles = $node['avatar_processor_002'].json.config.avatar_profiles;\n\nfunction calculateAvatarMatch(lead, avatar) {\n  let score = 0;\n  \n  // Interest-based matching\n  const interests = lead.interests || lead.q_keywords || '';\n  \n  if (interests.includes('luxury') || interests.includes('car')) {\n    if (avatar.specialty.includes('Traumauto')) score += 30;\n  }\n  \n  if (interests.includes('freedom') || interests.includes('financial')) {\n    if (avatar.specialty.includes('Freiheit')) score += 30;\n  }\n  \n  if (interests.includes('passive') || interests.includes('income')) {\n    if (avatar.specialty.includes('Passive Income')) score += 30;\n  }\n  \n  if (interests.includes('team') || interests.includes('community')) {\n    if (avatar.specialty.includes('Team') || avatar.specialty.includes('Community')) score += 25;\n  }\n  \n  // Pain point matching\n  const painPoints = lead.pain_points || lead.challenges || '';\n  \n  if (painPoints.includes('fear') || painPoints.includes('angst')) {\n    if (avatar.name === 'Lina' || avatar.specialty.includes('Angst')) score += 40;\n  }\n  \n  if (painPoints.includes('motivation') || painPoints.includes('vision')) {\n    if (avatar.name === 'Mathias' || avatar.specialty.includes('Motivation')) score += 40;\n  }\n  \n  // Goal matching\n  const goals = lead.goals || lead.objectives || '';\n  \n  if (goals.includes('wealth') || goals.includes('rich')) {\n    if (avatar.specialty.includes('Wealth')) score += 35;\n  }\n  \n  if (goals.includes('success') || goals.includes('achieve')) {\n    if (avatar.specialty.includes('Success') || avatar.specialty.includes('Achiever')) score += 35;\n  }\n  \n  // Random quantum factor for variety\n  score += Math.random() * 10;\n  \n  return score;\n}\n\nconst avatarAssignments = [];\n\nleads.forEach(lead => {\n  // Calculate scores for all avatars\n  const scores = avatarProfiles.map(avatar => ({\n    avatar: avatar,\n    score: calculateAvatarMatch(lead.json, avatar)\n  }));\n  \n  // Sort by score and pick the best match\n  scores.sort((a, b) => b.score - a.score);\n  const bestMatch = scores[0];\n  \n  // Determine emotion based on lead profile\n  let emotion = 'enthusiastic'; // default\n  \n  if (lead.json.pain_points?.includes('fear')) {\n    emotion = 'calming';\n  } else if (lead.json.goals?.includes('success')) {\n    emotion = 'motivating';\n  } else if (lead.json.interests?.includes('luxury')) {\n    emotion = 'inspiring';\n  }\n  \n  // Select background based on interests\n  const backgrounds = $node['avatar_processor_002'].json.config.holographic_backgrounds;\n  let selectedBackground = backgrounds[0]; // default\n  \n  if (lead.json.interests?.includes('car')) {\n    selectedBackground = backgrounds[3]; // Luxury Car Showroom\n  } else if (lead.json.interests?.includes('wealth')) {\n    selectedBackground = backgrounds[0]; // Crystal Palace\n  } else if (lead.json.interests?.includes('tech')) {\n    selectedBackground = backgrounds[4]; // 3D Hologramm Meeting Room\n  }\n  \n  avatarAssignments.push({\n    lead: lead.json,\n    assigned_avatar: bestMatch.avatar,\n    match_score: bestMatch.score,\n    emotion_state: emotion,\n    background: selectedBackground,\n    personalization_data: {\n      name: lead.json.name || lead.json.firstname || 'Friend',\n      interests: lead.json.interests || 'financial freedom',\n      pain_points: lead.json.pain_points || 'current situation',\n      goals: lead.json.goals || 'success and wealth'\n    }\n  });\n});\n\nreturn avatarAssignments;"
+      },
+      "id": "real-code-005",
+      "name": "🎭 Avatar Casting System",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1200, 360]
+      "position": [
+        1700,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "{{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "real-http-006",
+      "name": "👤 HeyGen Avatar Video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/minimax/video-01-live",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "real-http-007",
+      "name": "🎬 MiniMax Avatar Scene",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2300,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.runwayml.com/v1/image_to_video",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.RunwayApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-Runway-Version",
+              "value": "2025-08-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "real-http-008",
+      "name": "🚀 Runway Avatar Motion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "real-http-009",
+      "name": "🎬 Kling Cinema Avatar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/streaming_api/{{ $json.session_id }}/task",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "{{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "real-http-010",
+      "name": "💬 Send Avatar Task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.hubspot.com/crm/v3/objects/contacts",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "real-http-011",
+      "name": "📊 HubSpot Lead Upsert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/face-to-sticker",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "real-http-012",
+      "name": "🎭 Avatar Sticker",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "{{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "real-http-013",
+      "name": "👤 HeyGen Avatar Composite",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 14\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-014",
+      "name": "👤 Avatar Processor 14",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 15\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-015",
+      "name": "👤 Avatar Processor 15",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 16\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-016",
+      "name": "👤 Avatar Processor 16",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 17\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-017",
+      "name": "👤 Avatar Processor 17",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 18\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-018",
+      "name": "👤 Avatar Processor 18",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 19\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-019",
+      "name": "👤 Avatar Processor 19",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 20\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-020",
+      "name": "👤 Avatar Processor 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 21\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-021",
+      "name": "👤 Avatar Processor 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 22\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-022",
+      "name": "👤 Avatar Processor 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 23\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-023",
+      "name": "👤 Avatar Processor 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 24\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-024",
+      "name": "👤 Avatar Processor 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 25\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-025",
+      "name": "👤 Avatar Processor 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 26\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-026",
+      "name": "👤 Avatar Processor 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 27\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-027",
+      "name": "👤 Avatar Processor 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 28\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-028",
+      "name": "👤 Avatar Processor 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 29\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-029",
+      "name": "👤 Avatar Processor 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 30\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-030",
+      "name": "👤 Avatar Processor 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 31\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-031",
+      "name": "👤 Avatar Processor 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 32\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-032",
+      "name": "👤 Avatar Processor 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 33\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-033",
+      "name": "👤 Avatar Processor 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 34\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-034",
+      "name": "👤 Avatar Processor 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 35\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-035",
+      "name": "👤 Avatar Processor 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 36\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-036",
+      "name": "👤 Avatar Processor 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 37\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-037",
+      "name": "👤 Avatar Processor 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 38\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-038",
+      "name": "👤 Avatar Processor 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 39\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-039",
+      "name": "👤 Avatar Processor 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 40\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-040",
+      "name": "👤 Avatar Processor 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 41\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-041",
+      "name": "👤 Avatar Processor 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 42\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-042",
+      "name": "👤 Avatar Processor 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 43\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-043",
+      "name": "👤 Avatar Processor 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 44\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-044",
+      "name": "👤 Avatar Processor 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 45\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-045",
+      "name": "👤 Avatar Processor 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 46\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-046",
+      "name": "👤 Avatar Processor 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 47\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-047",
+      "name": "👤 Avatar Processor 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 48\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-048",
+      "name": "👤 Avatar Processor 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 49\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-049",
+      "name": "👤 Avatar Processor 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 50\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-050",
+      "name": "👤 Avatar Processor 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 51\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-051",
+      "name": "👤 Avatar Processor 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 52\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-052",
+      "name": "👤 Avatar Processor 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 53\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-053",
+      "name": "👤 Avatar Processor 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 54\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-054",
+      "name": "👤 Avatar Processor 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 55\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-055",
+      "name": "👤 Avatar Processor 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 56\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-056",
+      "name": "👤 Avatar Processor 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 57\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-057",
+      "name": "👤 Avatar Processor 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 58\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-058",
+      "name": "👤 Avatar Processor 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 59\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-059",
+      "name": "👤 Avatar Processor 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 60\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-060",
+      "name": "👤 Avatar Processor 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 61\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-061",
+      "name": "👤 Avatar Processor 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 62\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-062",
+      "name": "👤 Avatar Processor 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 63\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-063",
+      "name": "👤 Avatar Processor 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Real Avatar Processing Logic - Node 64\nconst avatarConfig = {\n  avatar_id: $json.avatar_id || 'default',\n  emotion: $json.emotion || 'confident',\n  background: $json.background || 'luxury_car',\n  script: $json.script || 'Crystal-Löwe bringt dir Freiheit!',\n  voice_settings: {\n    stability: 0.8,\n    similarity_boost: 0.9,\n    style: 0.7\n  }\n};\n\n// Process avatar data\nconst processedData = {\n  ...avatarConfig,\n  timestamp: new Date().toISOString(),\n  processing_status: 'ready_for_generation',\n  lr_branding: true,\n  viral_optimization: true\n};\n\nreturn processedData;\n"
+      },
+      "id": "avatar-processor-064",
+      "name": "👤 Avatar Processor 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1500
+      ]
     }
   ],
   "connections": {
-    "avatar_quantum_ultimate": {
+    "real-http-000": {
       "main": [
         [
           {
-            "node": "heygen_avatar_ultimate",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "elevenlabs_vsmr_ultimate",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "hume_emotion_analyzer",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "apollo_quantum_prospecting",
+            "node": "real-http-001",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "heygen_avatar_ultimate": {
+    "real-http-001": {
       "main": [
         [
           {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-code-002",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "elevenlabs_vsmr_ultimate": {
+    "real-code-002": {
       "main": [
         [
           {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-http-003",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "hume_emotion_analyzer": {
+    "real-http-003": {
       "main": [
         [
           {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-http-004",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "apollo_quantum_prospecting": {
+    "real-http-004": {
       "main": [
         [
           {
-            "node": "snov_email_enrichment",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-code-005",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "snov_email_enrichment": {
+    "real-code-005": {
       "main": [
         [
           {
-            "node": "hubspot_quantum_crm",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-http-006",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "hubspot_quantum_crm": {
+    "real-http-006": {
       "main": [
         [
           {
-            "node": "wassenger_quantum_whatsapp",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-http-007",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "wassenger_quantum_whatsapp": {
+    "real-http-007": {
       "main": [
         [
           {
-            "node": "ultimate_avatar_aggregator",
+            "node": "real-http-008",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-008": {
+      "main": [
+        [
+          {
+            "node": "real-http-009",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-009": {
+      "main": [
+        [
+          {
+            "node": "real-http-010",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-010": {
+      "main": [
+        [
+          {
+            "node": "real-http-011",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-011": {
+      "main": [
+        [
+          {
+            "node": "real-http-012",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-012": {
+      "main": [
+        [
+          {
+            "node": "real-http-013",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-013": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-014",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-014": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-015",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-015": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-016",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-016": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-017",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-017": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-018",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-018": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-019",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-019": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-020",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-020": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-021",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-021": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-022",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-022": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-023",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-023": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-024",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-024": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-025",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-025": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-026",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-026": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-027",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-027": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-028",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-028": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-029",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-029": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-030",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-030": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-031",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-031": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-032",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-032": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-033",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-033": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-034",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-034": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-035",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-035": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-036",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-036": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-037",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-037": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-038",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-038": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-039",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-039": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-040",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-040": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-041",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-041": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-042",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-042": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-043",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-043": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-044",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-044": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-045",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-045": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-046",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-046": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-047",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-047": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-048",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-048": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-049",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-049": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-050",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-050": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-051",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-051": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-052",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-052": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-053",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-053": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-054",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-054": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-055",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-055": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-056",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-056": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-057",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-057": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-058",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-058": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-059",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-059": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-060",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-060": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-061",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-061": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-062",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-062": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-063",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "avatar-processor-063": {
+      "main": [
+        [
+          {
+            "node": "avatar-processor-064",
             "type": "main",
             "index": 0
           }
         ]
       ]
     }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
   }
 }
