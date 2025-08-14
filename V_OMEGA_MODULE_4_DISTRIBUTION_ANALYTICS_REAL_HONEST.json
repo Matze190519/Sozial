@@ -756,567 +756,1087 @@
         1400,
         1400
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.zylalabs.com/api/2859/social+media+scraper+api/3168/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ZylaLabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-0fc434b2",
+      "name": "\ud83d\ude80 ZylaLabs WARP Trends",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://phantombuster.com/api/v2/agents/launch",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.PhantomBusterApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-237db798",
+      "name": "\ud83d\udc7b Phantom WARP Scraper",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.scrapecreators.com/v1/social/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ScrapeCreatorsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-d2713fc3",
+      "name": "\ud83d\udd77\ufe0f ScrapeCreators WARP",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        600
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.AnthropicApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-d10d52b4",
+      "name": "\ud83e\udd16 Claude Viral Content Generator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        700
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.OpenAIApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-2eb815ab",
+      "name": "\ud83d\ude80 OpenAI Quantum Strategist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        800
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.DeepSeekApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-abd202f0",
+      "name": "\ud83e\udde0 DeepSeek Psychology Master",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        900
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://fal.run/fal-ai/kling-video/v2/master",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.FalAIApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-ac390999",
+      "name": "\ud83c\udfa8 Fal.AI Kling 2.1 Master",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        1000
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-7cb6cb2a",
+      "name": "\ud83c\udfad HeyGen June 2025 3D Avatar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        1100
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ElevenLabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-2b75c9f7",
+      "name": "\ud83d\udd0a ElevenLabs Turbo v2.6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        1200
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apollo.io/v1/mixed_people/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApolloApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-ea8ea963",
+      "name": "\ud83d\udcc8 Apollo Lead Generation 2025",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2800,
+        1300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.snov.io/v1/get-emails-from-names",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-40ae1da3",
+      "name": "\ud83d\udce7 Snov Lead Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3000,
+        1400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubSpotApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-26f1db3a",
+      "name": "\ud83d\udcbc HubSpot CRM Integration",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        1500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token {{ $vars.WassengerApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"viral_campaign\": \"Crystal-L\u00f6we\", \"target\": \"5_BILLION_VIEWS\"}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "api-9395a50f",
+      "name": "\ud83d\udcf1 Wassenger WhatsApp 2025",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3400,
+        1600
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
     }
   ],
   "connections": {
-    "webhook-93f1cdcb": {
+    "\u26a1 V-OMEGA DISTRIBUTION_ANALYTICS Init": {
       "main": [
         [
           {
-            "node": "processor-eba4527f",
+            "node": "\ud83e\udd81 \ud83d\udc7d DISTRIBUTION_ANALYTICS Alien Processor (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "processor-eba4527f": {
+    "\ud83e\udd81 \ud83d\udc7d DISTRIBUTION_ANALYTICS Alien Processor (Viral)": {
       "main": [
         [
           {
-            "node": "wassenger-b9b05317",
+            "node": "\ud83d\udcf1 Wassenger WhatsApp",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\ude80 ZylaLabs WARP Trends",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udc7b Phantom WARP Scraper",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udd77\ufe0f ScrapeCreators WARP",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83e\udd16 Claude Viral Content Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\ude80 OpenAI Quantum Strategist",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83e\udde0 DeepSeek Psychology Master",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83c\udfa8 Fal.AI Kling 2.1 Master",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83c\udfad HeyGen June 2025 3D Avatar",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udd0a ElevenLabs Turbo v2.6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udcc8 Apollo Lead Generation 2025",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udce7 Snov Lead Enrichment",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udcbc HubSpot CRM Integration",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "\ud83d\udcf1 Wassenger WhatsApp 2025",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "wassenger-b9b05317": {
+    "\ud83d\udcf1 Wassenger WhatsApp": {
       "main": [
         [
           {
-            "node": "hubspot-89102194",
+            "node": "\ud83d\udcca HubSpot Lead Track",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "zylacomments-94ef0cbf",
+            "node": "\ud83d\udcac ZylaLabs Comment Gen",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "hubspot-89102194": {
+    "\ud83d\udcca HubSpot Lead Track": {
       "main": [
         [
           {
-            "node": "metricool-628fcf3d",
+            "node": "\ud83d\udcc8 Metricool Analytics",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "metricool-628fcf3d": {
+    "\ud83d\udcc8 Metricool Analytics": {
       "main": [
         [
           {
-            "node": "zylacomments-94ef0cbf",
+            "node": "\ud83d\udcac ZylaLabs Comment Gen",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "zylacomments-94ef0cbf": {
+    "\ud83d\udcac ZylaLabs Comment Gen": {
       "main": [
         [
           {
-            "node": "process-d36886ae",
+            "node": "\u26a1 Viral Pattern Analyzer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-d36886ae": {
+    "\u26a1 Viral Pattern Analyzer": {
       "main": [
         [
           {
-            "node": "process-9a4289fa",
+            "node": "\u26a1 Crystal Lion Frequency Calculator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-9a4289fa": {
+    "\u26a1 Crystal Lion Frequency Calculator": {
       "main": [
         [
           {
-            "node": "process-e081339c",
+            "node": "\u26a1 Glass Transformation Engine",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "process-34721b7a",
+            "node": "\u26a1 Alien Intelligence Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-e081339c": {
+    "\u26a1 Glass Transformation Engine": {
       "main": [
         [
           {
-            "node": "process-47097836",
+            "node": "\u26a1 VSMR Consciousness Expander",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-47097836": {
+    "\u26a1 VSMR Consciousness Expander": {
       "main": [
         [
           {
-            "node": "process-3000aaa3",
+            "node": "\u26a1 Holographic 3D World Builder",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-3000aaa3": {
+    "\u26a1 Holographic 3D World Builder": {
       "main": [
         [
           {
-            "node": "process-48e408b1",
+            "node": "\u26a1 Quantum Trend Predictor",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-48e408b1": {
+    "\u26a1 Quantum Trend Predictor": {
       "main": [
         [
           {
-            "node": "process-34721b7a",
+            "node": "\u26a1 Alien Intelligence Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-34721b7a": {
+    "\u26a1 Alien Intelligence Amplifier": {
       "main": [
         [
           {
-            "node": "process-f8d97890",
+            "node": "\ud83e\udd81 \u26a1 Traumauto Message Generator (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-f8d97890": {
+    "\ud83e\udd81 \u26a1 Traumauto Message Generator (Viral)": {
       "main": [
         [
           {
-            "node": "process-16181378",
+            "node": "\u26a1 Passive Income Calculator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-16181378": {
+    "\u26a1 Passive Income Calculator": {
       "main": [
         [
           {
-            "node": "process-d9379cdd",
+            "node": "\u26a1 Team Building Optimizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-d9379cdd": {
+    "\u26a1 Team Building Optimizer": {
       "main": [
         [
           {
-            "node": "process-407a74c6",
+            "node": "\u26a1 Freedom Pathway Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-407a74c6": {
+    "\u26a1 Freedom Pathway Creator": {
       "main": [
         [
           {
-            "node": "process-7ba1df2b",
+            "node": "\u26a1 Success Story Compiler",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-7ba1df2b": {
+    "\u26a1 Success Story Compiler": {
       "main": [
         [
           {
-            "node": "process-630465b6",
+            "node": "\u26a1 Engagement Rate Booster",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-630465b6": {
+    "\u26a1 Engagement Rate Booster": {
       "main": [
         [
           {
-            "node": "process-49cf3bc0",
+            "node": "\u26a1 Content Virality Scorer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-49cf3bc0": {
+    "\u26a1 Content Virality Scorer": {
       "main": [
         [
           {
-            "node": "process-3e0e914f",
+            "node": "\u26a1 Audience Emotion Detector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-3e0e914f": {
+    "\u26a1 Audience Emotion Detector": {
       "main": [
         [
           {
-            "node": "process-c6bfb9eb",
+            "node": "\u26a1 Crystal Metaphor Injector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-c6bfb9eb": {
+    "\u26a1 Crystal Metaphor Injector": {
       "main": [
         [
           {
-            "node": "process-cd881aa0",
+            "node": "\ud83e\udd81 \u26a1 Lion Roar Sound Generator (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-cd881aa0": {
+    "\ud83e\udd81 \u26a1 Lion Roar Sound Generator (Viral)": {
       "main": [
         [
           {
-            "node": "process-d2754f54",
+            "node": "\ud83e\udd81 \u26a1 Glass Effect Processor (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-d2754f54": {
+    "\ud83e\udd81 \u26a1 Glass Effect Processor (Viral)": {
       "main": [
         [
           {
-            "node": "process-d910dd0b",
+            "node": "\u26a1 3D Portal Constructor",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-d910dd0b": {
+    "\u26a1 3D Portal Constructor": {
       "main": [
         [
           {
-            "node": "process-a5344f6a",
+            "node": "\u26a1 Begehbare World Designer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-a5344f6a": {
+    "\u26a1 Begehbare World Designer": {
       "main": [
         [
           {
-            "node": "process-2114e45a",
+            "node": "\u26a1 ASMR Frequency Tuner",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-2114e45a": {
+    "\u26a1 ASMR Frequency Tuner": {
       "main": [
         [
           {
-            "node": "process-42773a2f",
+            "node": "\u26a1 Luxury Car Visualizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-42773a2f": {
+    "\u26a1 Luxury Car Visualizer": {
       "main": [
         [
           {
-            "node": "process-fec28396",
+            "node": "\u26a1 99\u20ac Offer Optimizer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-fec28396": {
+    "\u26a1 99\u20ac Offer Optimizer": {
       "main": [
         [
           {
-            "node": "process-43abfbc1",
+            "node": "\u26a1 Financial Freedom Planner",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-43abfbc1": {
+    "\u26a1 Financial Freedom Planner": {
       "main": [
         [
           {
-            "node": "process-1be03483",
+            "node": "\u26a1 Network Growth Tracker",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-1be03483": {
+    "\u26a1 Network Growth Tracker": {
       "main": [
         [
           {
-            "node": "process-c34d2a18",
+            "node": "\u26a1 Viral Loop Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-c34d2a18": {
+    "\u26a1 Viral Loop Creator": {
       "main": [
         [
           {
-            "node": "process-31b690d2",
+            "node": "\ud83e\udd81 \u26a1 Challenge Generator (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-31b690d2": {
+    "\ud83e\udd81 \u26a1 Challenge Generator (Viral)": {
       "main": [
         [
           {
-            "node": "process-b5e94349",
+            "node": "\u26a1 Success Testimonial Builder",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-b5e94349": {
+    "\u26a1 Success Testimonial Builder": {
       "main": [
         [
           {
-            "node": "process-4527faa5",
+            "node": "\u26a1 Motivation Amplifier",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-4527faa5": {
+    "\u26a1 Motivation Amplifier": {
       "main": [
         [
           {
-            "node": "process-dd638415",
+            "node": "\u26a1 Fear Reducer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-dd638415": {
+    "\u26a1 Fear Reducer": {
       "main": [
         [
           {
-            "node": "process-07e1bba9",
+            "node": "\u26a1 Confidence Booster",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-07e1bba9": {
+    "\u26a1 Confidence Booster": {
       "main": [
         [
           {
-            "node": "process-ca7b5ebb",
+            "node": "\u26a1 Dream Materializer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-ca7b5ebb": {
+    "\u26a1 Dream Materializer": {
       "main": [
         [
           {
-            "node": "process-edb47e9d",
+            "node": "\u26a1 Reality Transformer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-edb47e9d": {
+    "\u26a1 Reality Transformer": {
       "main": [
         [
           {
-            "node": "process-7acb1606",
+            "node": "\u26a1 Quantum Physics Simulator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-7acb1606": {
+    "\u26a1 Quantum Physics Simulator": {
       "main": [
         [
           {
-            "node": "process-b8a35b20",
+            "node": "\u26a1 Consciousness Level Meter",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-b8a35b20": {
+    "\u26a1 Consciousness Level Meter": {
       "main": [
         [
           {
-            "node": "process-3c56d2fe",
+            "node": "\u26a1 Galaxy Domination Planner",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-3c56d2fe": {
+    "\u26a1 Galaxy Domination Planner": {
       "main": [
         [
           {
-            "node": "process-c4e5823d",
+            "node": "\u26a1 Alien Technology Integrator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-c4e5823d": {
+    "\u26a1 Alien Technology Integrator": {
       "main": [
         [
           {
-            "node": "process-a10edea3",
+            "node": "\u26a1 Future Vision Creator",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-a10edea3": {
+    "\u26a1 Future Vision Creator": {
       "main": [
         [
           {
-            "node": "process-fd91803e",
+            "node": "\ud83e\udd81 \u26a1 Time Warp Generator (Viral)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-fd91803e": {
+    "\ud83e\udd81 \u26a1 Time Warp Generator (Viral)": {
       "main": [
         [
           {
-            "node": "process-b2591c8d",
+            "node": "\u26a1 Dimensional Portal Opener",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-b2591c8d": {
+    "\u26a1 Dimensional Portal Opener": {
       "main": [
         [
           {
-            "node": "process-f0a8cbd9",
+            "node": "\u26a1 Crystal Energy Channeler",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-f0a8cbd9": {
+    "\u26a1 Crystal Energy Channeler": {
       "main": [
         [
           {
-            "node": "process-716267a6",
+            "node": "\u26a1 Lion Spirit Summoner",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-716267a6": {
+    "\u26a1 Lion Spirit Summoner": {
       "main": [
         [
           {
-            "node": "process-2786190f",
+            "node": "\u26a1 Glass DNA Sequencer",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-2786190f": {
+    "\u26a1 Glass DNA Sequencer": {
       "main": [
         [
           {
-            "node": "process-34d91796",
+            "node": "\u26a1 Hologram Projector",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "process-34d91796": {
+    "\u26a1 Hologram Projector": {
       "main": [
         [
           {
-            "node": "process-c4456462",
+            "node": "\ud83e\udd81 \u26a1 VSMR Wave Generator (Viral)",
             "type": "main",
             "index": 0
           }
