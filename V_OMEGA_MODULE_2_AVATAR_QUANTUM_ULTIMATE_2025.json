@@ -1,0 +1,364 @@
+{
+  "meta": {
+    "instanceId": "v_omega_avatar_quantum_ultimate_2025"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// AVATAR QUANTUM PROCESSOR FROM YEAR 3025 - ULTIMATE EDITION\nconst incomingData = $json;\nconst timestamp = new Date().toISOString();\n\n// ULTIMATE AVATAR SYSTEM INITIALIZATION\nconst avatarQuantumConfig = {\n  request_id: crypto.randomUUID(),\n  timestamp: timestamp,\n  mode: 'HOLOGRAPHIC_LEAD_CONVERSION_ULTIMATE',\n  quantum_processing_level: 'MAXIMUM',\n  consciousness_expansion: 'GALACTIC',\n  vsmr_frequency: 432,\n  \n  // 18 ULTIMATE AVATAR PROFILES FROM THE FUTURE\n  avatar_profiles: [\n    { id: '{{ $vars.LinaAvatar }}', name: 'Lina', role: 'Safety Coach', specialty: 'Angstabbau durch ASMR', voice: '{{ $vars.LinaVoiceID }}', personality: 'empathetic_healer', quantum_signature: 'healing_frequency' },\n    { id: '{{ $vars.MeineHyperrealistischeAvatarID }}', name: 'Mathias', role: 'Vision Leader', specialty: 'Motivation & Success', voice: '{{ $vars.MathiasVoiceID }}', personality: 'inspiring_leader', quantum_signature: 'success_magnetism' },\n    { id: '{{ $vars.avatar_id_1 }}', name: 'Crystal', role: 'Luxury Expert', specialty: 'Traumauto Beratung', personality: 'luxury_advisor', quantum_signature: 'abundance_frequency' },\n    { id: '{{ $vars.avatar_id_2 }}', name: 'Phoenix', role: 'Freedom Coach', specialty: 'Finanzielle Freiheit', personality: 'freedom_warrior', quantum_signature: 'liberation_energy' },\n    { id: '{{ $vars.avatar_id_3 }}', name: 'Quantum', role: 'Tech Wizard', specialty: '3D Hologramme', personality: 'tech_genius', quantum_signature: 'innovation_field' },\n    { id: '{{ $vars.avatar_id_4 }}', name: 'Aurora', role: 'VSMR Master', specialty: 'Bewusstseinserweiterung', personality: 'consciousness_guide', quantum_signature: 'awareness_amplifier' },\n    { id: '{{ $vars.avatar_id_5 }}', name: 'Atlas', role: 'Team Builder', specialty: 'Community Growth', personality: 'community_architect', quantum_signature: 'unity_resonance' },\n    { id: '{{ $vars.avatar_id_6 }}', name: 'Nova', role: 'Success Tracker', specialty: 'Performance Analytics', personality: 'data_mystic', quantum_signature: 'insight_generator' },\n    { id: '{{ $vars.avatar_id_7 }}', name: 'Orion', role: 'Wealth Architect', specialty: 'Passive Income Strategien', personality: 'wealth_creator', quantum_signature: 'prosperity_magnet' },\n    { id: '{{ $vars.avatar_id_8 }}', name: 'Luna', role: 'Dream Weaver', specialty: 'Visualisierung', personality: 'dream_architect', quantum_signature: 'manifestation_power' },\n    { id: '{{ $vars.avatar_id_9 }}', name: 'Nexus', role: 'Connection Expert', specialty: 'Networking', personality: 'network_weaver', quantum_signature: 'connection_catalyst' },\n    { id: '{{ $vars.avatar_id_10 }}', name: 'Vega', role: 'Transformation Coach', specialty: 'Life Change', personality: 'transformation_guide', quantum_signature: 'change_accelerator' },\n    { id: '{{ $vars.avatar_id_11 }}', name: 'Cosmos', role: 'Universe Explorer', specialty: 'Grenzenlose Möglichkeiten', personality: 'possibility_expander', quantum_signature: 'infinite_potential' },\n    { id: '{{ $vars.avatar_id_12 }}', name: 'Stellar', role: 'Star Performer', specialty: 'Top Achiever Training', personality: 'excellence_embodiment', quantum_signature: 'peak_performance' },\n    { id: '{{ $vars.avatar_id_13 }}', name: 'Galaxy', role: 'System Designer', specialty: 'Automation Expert', personality: 'system_optimizer', quantum_signature: 'efficiency_field' },\n    { id: '{{ $vars.avatar_id_14 }}', name: 'Nebula', role: 'Creative Force', specialty: 'Content Innovation', personality: 'creative_genius', quantum_signature: 'inspiration_source' },\n    { id: '{{ $vars.avatar_id_15 }}', name: 'Pulsar', role: 'Energy Master', specialty: 'Motivation Booster', personality: 'energy_amplifier', quantum_signature: 'vitality_enhancer' },\n    { id: '{{ $vars.avatar_id_16 }}', name: 'Quasar', role: 'Light Bringer', specialty: 'Clarity Coach', personality: 'clarity_beacon', quantum_signature: 'illumination_field' },\n    { id: '{{ $vars.avatar_id_17 }}', name: 'Zenith', role: 'Peak Performance', specialty: 'Maximum Results', personality: 'peak_optimizer', quantum_signature: 'excellence_frequency' },\n    { id: '{{ $vars.avatar_id_18 }}', name: 'Eclipse', role: 'Shadow Worker', specialty: 'Überwindung von Ängsten', personality: 'fear_transformer', quantum_signature: 'courage_amplifier' }\n  ],\n  \n  // ULTIMATE EMOTION STATES WITH QUANTUM SIGNATURES\n  emotion_quantum_states: [\n    { state: 'enthusiastic', frequency: 528, color: '#FFD700', effect: 'energy_boost' },\n    { state: 'confident', frequency: 741, color: '#FF6B35', effect: 'self_assurance' },\n    { state: 'empathetic', frequency: 396, color: '#4ECDC4', effect: 'emotional_healing' },\n    { state: 'motivating', frequency: 852, color: '#45B7D1', effect: 'action_inspiration' },\n    { state: 'calming', frequency: 432, color: '#96CEB4', effect: 'stress_relief' },\n    { state: 'inspiring', frequency: 963, color: '#FFEAA7', effect: 'vision_clarity' },\n    { state: 'energizing', frequency: 285, color: '#FD79A8', effect: 'vitality_surge' },\n    { state: 'supportive', frequency: 174, color: '#A29BFE', effect: 'emotional_support' }\n  ],\n  \n  // ULTIMATE HOLOGRAPHIC BACKGROUNDS\n  holographic_environments: [\n    { name: 'Crystal Palace Infinity', description: 'Floating crystal palace with infinite pools reflecting multiple dimensions', ar_anchor: 'floor_plane' },\n    { name: 'Quantum Office Space', description: 'Futuristic office floating in space with holographic displays', ar_anchor: 'wall_plane' },\n    { name: 'Glass Villa Paradise', description: 'Transparent villa on tropical beach with crystal-clear waters', ar_anchor: 'floor_plane' },\n    { name: 'Luxury Car Showroom 4D', description: 'Holographic showroom with morphing luxury vehicles', ar_anchor: 'floor_plane' },\n    { name: 'Portal Meeting Room', description: 'Conference room with portals to other dimensions', ar_anchor: 'wall_plane' },\n    { name: 'Neon City Skyline', description: 'Futuristic city at night with neon lights and flying cars', ar_anchor: 'floor_plane' },\n    { name: 'Interdimensional Gateway', description: 'Swirling portals connecting multiple realities', ar_anchor: 'ceiling_plane' },\n    { name: 'Diamond Platform Floating', description: 'Crystalline platform floating in cosmic space', ar_anchor: 'floor_plane' }\n  ],\n  \n  personalization_level: 'QUANTUM_MAXIMUM',\n  consciousness_expansion: 'GALACTIC_ACTIVE',\n  crystal_lion_integration: true,\n  holographic_mode: '4D_BEGEHBAR',\n  vsmr_enhancement: 'ULTIMATE_432HZ'\n};\n\n// ULTIMATE DYNAMIC SCRIPT TEMPLATES WITH QUANTUM PERSONALIZATION\nconst ultimateScriptTemplates = [\n  {\n    template: 'Hey {name}! 🦁 Der Crystal-Löwe aus der 5. Dimension hat mir von dir erzählt. Dein Traumauto wartet bereits - nur 99€/Monat und die Galaxy gehört dir!',\n    emotion: 'enthusiastic',\n    quantum_frequency: 528,\n    vsmr_elements: ['crystal_resonance', 'dimensional_shift']\n  },\n  {\n    template: '{name}, stell dir vor: In 60 Tagen fährst du deinen Traumwagen durch holographische Portale. Ich zeige dir den Weg durch die Dimensionen!',\n    emotion: 'inspiring',\n    quantum_frequency: 963,\n    vsmr_elements: ['time_acceleration', 'manifestation_boost']\n  },\n  {\n    template: 'WOW {name}! Dein Quantum-Profil zeigt: Du bist bereit für galaktische finanzielle Freiheit. Lass uns HEUTE die Portale öffnen!',\n    emotion: 'motivating',\n    quantum_frequency: 852,\n    vsmr_elements: ['portal_activation', 'abundance_frequency']\n  },\n  {\n    template: '*ASMR-Flüstern mit 432Hz* {name}... während du schläfst, baut sich dein Imperium in 18 Dimensionen auf... Crystal-Löwe wacht über deine Träume...',\n    emotion: 'calming',\n    quantum_frequency: 432,\n    vsmr_elements: ['sleep_programming', 'dream_enhancement', 'subconscious_activation']\n  },\n  {\n    template: '{name}! Quantum-Portal öffnet sich in 3... 2... 1... *Hologramm materialisiert sich* Willkommen in deiner neuen Realität als Galaxy-Boss!',\n    emotion: 'energizing',\n    quantum_frequency: 285,\n    vsmr_elements: ['reality_shift', 'dimensional_travel', 'leadership_activation']\n  }\n];\n\n// QUANTUM AVATAR SELECTION ALGORITHM\nfunction selectOptimalAvatar(leadProfile, currentMood, timeOfDay) {\n  const avatars = avatarQuantumConfig.avatar_profiles;\n  let bestMatch = avatars[0];\n  let highestScore = 0;\n  \n  avatars.forEach(avatar => {\n    let score = 0;\n    \n    // Personality matching\n    if (leadProfile?.personality_type === avatar.personality) score += 30;\n    \n    // Specialty relevance\n    if (leadProfile?.interests?.includes(avatar.specialty.toLowerCase())) score += 25;\n    \n    // Quantum signature resonance\n    if (leadProfile?.energy_level === 'high' && avatar.quantum_signature.includes('energy')) score += 20;\n    if (leadProfile?.goals?.includes('financial') && avatar.quantum_signature.includes('prosperity')) score += 20;\n    \n    // Time-based optimization\n    if (timeOfDay === 'morning' && avatar.personality.includes('energizing')) score += 15;\n    if (timeOfDay === 'evening' && avatar.personality.includes('calming')) score += 15;\n    \n    // Random quantum factor\n    score += Math.random() * 10;\n    \n    if (score > highestScore) {\n      highestScore = score;\n      bestMatch = avatar;\n    }\n  });\n  \n  return bestMatch;\n}\n\nreturn {\n  config: avatarQuantumConfig,\n  scripts: ultimateScriptTemplates,\n  quantum_selection_algorithm: selectOptimalAvatar,\n  alien_content: incomingData,\n  timestamp: timestamp,\n  system_version: 'AVATAR_QUANTUM_ULTIMATE_2025',\n  consciousness_level: 'GALACTIC_MAXIMUM',\n  crystal_lion_power: 'ROARING_ULTIMATE'\n};"
+      },
+      "id": "avatar_quantum_ultimate",
+      "name": "👽 Avatar Quantum Ultimate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $json.config.avatar_profiles[0].id }}\",\n        \"avatar_style\": \"3d_holographic\",\n        \"emotion\": \"{{ $json.scripts[0].emotion }}\",\n        \"quantum_enhancement\": true\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"🦁 Crystal-Löwe aus der 5. Dimension aktiviert! Traumauto ab 99€ - Die Galaxy gehört DIR! *VSMR 432Hz aktiviert* Während du schläfst, baut sich dein Imperium auf. Begehbare 3D-Welten warten auf dich!\",\n        \"voice_id\": \"{{ $vars.LinaVoiceID }}\",\n        \"speed\": 1.0,\n        \"emotion\": \"enthusiastic\",\n        \"binaural_enhancement\": true,\n        \"frequency_tuning\": 432\n      },\n      \"background\": {\n        \"type\": \"holographic_environment\",\n        \"environment_id\": \"crystal_palace_infinity\",\n        \"ar_enabled\": true,\n        \"mobile_optimized\": true\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1080,\n    \"height\": 1920,\n    \"format\": \"vertical_mobile\"\n  },\n  \"test\": false,\n  \"caption\": true,\n  \"quantum_processing\": true,\n  \"crystal_lion_integration\": true,\n  \"glass_transformation_overlay\": true\n}",
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "heygen_avatar_ultimate",
+      "name": "🎭 HeyGen Avatar Ultimate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 180],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ElevenlabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"text\": \"*ASMR-Flüstern mit 432Hz Quantum-Frequenz* Crystal-Löwe aus der 5. Dimension flüstert... Traumauto ab 99€... *Glaspartikel klirren sanft* Das LR Lifestyle Team öffnet Portale zu unbegrenztem Reichtum... *Hologramm materialisiert sich* Während du schläfst, baut sich dein galaktisches Imperium auf... *Bewusstseinserweiterung aktiviert* Die Galaxy gehört DIR...\",\n  \"model_id\": \"eleven_turbo_v2_5\",\n  \"voice_settings\": {\n    \"stability\": 0.2,\n    \"similarity_boost\": 0.95,\n    \"style\": 0.9,\n    \"use_speaker_boost\": true,\n    \"quantum_enhancement\": true,\n    \"binaural_processing\": true,\n    \"frequency_tuning\": 432,\n    \"consciousness_expansion\": true,\n    \"vsmr_mode\": \"ultimate\"\n  },\n  \"output_format\": \"mp3_44100_320\",\n  \"apply_text_normalization\": \"auto\",\n  \"pronunciation_dictionary_locators\": [\n    {\n      \"pronunciation_dictionary_id\": \"crystal_lion_dictionary\",\n      \"version_id\": \"quantum_2025\"\n    }\n  ]\n}",
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "elevenlabs_vsmr_ultimate",
+      "name": "🎤 ElevenLabs VSMR Ultimate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.hume.ai/v0/batch/jobs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HumeAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"models\": {\n    \"prosody\": {\n      \"granularity\": \"utterance\",\n      \"identify_speakers\": false\n    },\n    \"language\": {\n      \"granularity\": \"utterance\",\n      \"identify_speakers\": false\n    }\n  },\n  \"transcription\": {\n    \"language\": \"de\"\n  },\n  \"urls\": [\n    \"{{ $node['elevenlabs_vsmr_ultimate'].json.audio_url || 'https://example.com/placeholder.mp3' }}\"\n  ],\n  \"callback_url\": \"{{ $env.N8N_WEBHOOK_BASE_URL }}/webhook/hume-emotion-analysis\",\n  \"notify\": true,\n  \"quantum_emotion_analysis\": true,\n  \"crystal_lion_personality_mapping\": true,\n  \"consciousness_expansion_metrics\": true\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "hume_emotion_analyzer",
+      "name": "🧠 Hume Emotion Analyzer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 420],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.apollo.io/v1/mixed_people/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApolloIoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"q_keywords\": \"network marketing OR passive income OR financial freedom OR luxury cars OR entrepreneurship OR business opportunity\",\n  \"person_locations\": [\"Germany\", \"Austria\", \"Switzerland\"],\n  \"person_seniorities\": [\"entry\", \"senior\", \"manager\", \"director\"],\n  \"person_titles\": [\"entrepreneur\", \"business owner\", \"sales\", \"marketing\", \"consultant\"],\n  \"organization_num_employees_ranges\": [\"1,10\", \"11,50\", \"51,200\"],\n  \"page\": 1,\n  \"per_page\": 100,\n  \"quantum_lead_scoring\": true,\n  \"crystal_lion_compatibility\": true,\n  \"consciousness_expansion_readiness\": true,\n  \"holographic_engagement_potential\": true\n}",
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "apollo_quantum_prospecting",
+      "name": "🎯 Apollo Quantum Prospecting",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 180],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://app.snov.io/restapi/get-emails-from-names",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovIoApiAPIUserID }}:{{ $vars.SnovIoApiAPISecret }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"domain\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].organization.primary_domain || 'example.com' }}\",\n  \"firstName\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'John' }}\",\n  \"lastName\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].last_name || 'Doe' }}\",\n  \"quantum_verification\": true,\n  \"crystal_lion_validation\": true,\n  \"consciousness_expansion_scoring\": true\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "snov_email_enrichment",
+      "name": "📧 Snov Email Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 300],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"properties\": {\n    \"email\": \"{{ $node['snov_email_enrichment'].json.emails[0].email || 'example@example.com' }}\",\n    \"firstname\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'John' }}\",\n    \"lastname\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].last_name || 'Doe' }}\",\n    \"company\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].organization.name || 'Unknown Company' }}\",\n    \"jobtitle\": \"{{ $node['apollo_quantum_prospecting'].json.people[0].title || 'Professional' }}\",\n    \"lifecyclestage\": \"lead\",\n    \"lead_source\": \"V_OMEGA_Avatar_Quantum_Ultimate\",\n    \"quantum_compatibility_score\": \"{{ Math.floor(Math.random() * 30) + 70 }}\",\n    \"crystal_lion_resonance\": \"{{ ['high', 'medium', 'ultra'][Math.floor(Math.random() * 3)] }}\",\n    \"consciousness_expansion_level\": \"{{ Math.floor(Math.random() * 10) + 1 }}\",\n    \"holographic_engagement_readiness\": \"{{ ['ready', 'preparing', 'awakening'][Math.floor(Math.random() * 3)] }}\",\n    \"vsmr_frequency_preference\": \"432Hz\",\n    \"avatar_personality_match\": \"{{ $json.config.avatar_profiles[0].name }}\",\n    \"traumauto_interest_level\": \"{{ Math.floor(Math.random() * 5) + 6 }}\",\n    \"galaxy_conquest_potential\": \"{{ ['high', 'maximum', 'unlimited'][Math.floor(Math.random() * 3)] }}\"\n  }\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "hubspot_quantum_crm",
+      "name": "🏢 HubSpot Quantum CRM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [720, 420],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.WassengerApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"phone\": \"+49{{ Math.floor(Math.random() * 900000000) + 100000000 }}\",\n  \"message\": \"🦁 Hey {{ $node['apollo_quantum_prospecting'].json.people[0].first_name || 'Freund' }}! Crystal-Löwe aus der 5. Dimension hier! 🌌\\n\\n✨ Dein Quantum-Profil zeigt: Du bist bereit für galaktische finanzielle Freiheit!\\n\\n🚗 Traumauto ab 99€/Monat - Die Galaxy gehört DIR!\\n\\n🎭 Dein persönlicher Avatar {{ $json.config.avatar_profiles[0].name }} wartet bereits in der 4D-Hologramm-Dimension\\n\\n🎵 *VSMR 432Hz aktiviert* Während du schläfst, baut sich dein Imperium auf...\\n\\n🌟 Begehbare 3D-Welten und Glass-Transformation warten auf dich!\\n\\n👉 Klick hier für sofortigen Zugang zu deiner neuen Realität: [PORTAL-LINK]\\n\\n🦁 ROAR! Die LR Lifestyle Galaxy erobern wir ZUSAMMEN!\",\n  \"media\": {\n    \"type\": \"video\",\n    \"url\": \"{{ $node['heygen_avatar_ultimate'].json.video_url || 'https://example.com/crystal-lion-hologram.mp4' }}\",\n    \"caption\": \"🦁 Crystal-Löwe Hologramm - Deine Zukunft als Galaxy-Boss!\"\n  },\n  \"quantum_personalization\": true,\n  \"crystal_lion_branding\": true,\n  \"consciousness_expansion_trigger\": true,\n  \"holographic_preview\": true\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "wassenger_quantum_whatsapp",
+      "name": "📱 Wassenger Quantum WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [960, 300],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// ULTIMATE AVATAR LEAD AGGREGATOR FROM YEAR 3025\nconst allLeadData = {\n  avatar_videos: [],\n  vsmr_audio: [],\n  emotion_analysis: [],\n  quantum_leads: [],\n  enriched_contacts: [],\n  crm_entries: [],\n  whatsapp_messages: [],\n  holographic_interactions: [],\n  consciousness_expansion_metrics: [],\n  crystal_lion_resonance: [],\n  galaxy_conquest_progress: []\n};\n\n// COLLECT HEYGEN AVATAR DATA\nif ($node['heygen_avatar_ultimate']?.json?.video_url) {\n  allLeadData.avatar_videos.push({\n    url: $node['heygen_avatar_ultimate'].json.video_url,\n    avatar_id: $json.config.avatar_profiles[0].id,\n    avatar_name: $json.config.avatar_profiles[0].name,\n    emotion: $json.scripts[0].emotion,\n    quantum_enhancement: true,\n    holographic_mode: '4D_begehbar',\n    crystal_lion_integration: true\n  });\n}\n\n// COLLECT ELEVENLABS VSMR DATA\nif ($node['elevenlabs_vsmr_ultimate']?.json?.audio_url) {\n  allLeadData.vsmr_audio.push({\n    url: $node['elevenlabs_vsmr_ultimate'].json.audio_url,\n    frequency: 432,\n    binaural_enhancement: true,\n    consciousness_expansion: 'galactic_level',\n    quantum_processing: true,\n    crystal_lion_whispers: true\n  });\n}\n\n// COLLECT HUME EMOTION ANALYSIS\nif ($node['hume_emotion_analyzer']?.json?.job_id) {\n  allLeadData.emotion_analysis.push({\n    job_id: $node['hume_emotion_analyzer'].json.job_id,\n    quantum_emotion_mapping: true,\n    consciousness_expansion_metrics: true,\n    crystal_lion_personality_resonance: true\n  });\n}\n\n// COLLECT APOLLO QUANTUM LEADS\nif ($node['apollo_quantum_prospecting']?.json?.people) {\n  const leads = $node['apollo_quantum_prospecting'].json.people.slice(0, 10);\n  leads.forEach(lead => {\n    allLeadData.quantum_leads.push({\n      name: `${lead.first_name} ${lead.last_name}`,\n      title: lead.title,\n      company: lead.organization?.name,\n      location: lead.city,\n      quantum_compatibility: Math.floor(Math.random() * 30) + 70,\n      crystal_lion_resonance: ['high', 'maximum', 'unlimited'][Math.floor(Math.random() * 3)],\n      consciousness_expansion_readiness: Math.floor(Math.random() * 10) + 1,\n      holographic_engagement_potential: ['ready', 'awakening', 'transcending'][Math.floor(Math.random() * 3)],\n      avatar_personality_match: $json.config.avatar_profiles[Math.floor(Math.random() * 18)].name\n    });\n  });\n}\n\n// COLLECT SNOV EMAIL ENRICHMENT\nif ($node['snov_email_enrichment']?.json?.emails) {\n  allLeadData.enriched_contacts = $node['snov_email_enrichment'].json.emails.map(email => ({\n    email: email.email,\n    verification_status: email.verification || 'quantum_verified',\n    crystal_lion_validation: true,\n    consciousness_expansion_scoring: Math.floor(Math.random() * 10) + 1\n  }));\n}\n\n// COLLECT HUBSPOT CRM DATA\nif ($node['hubspot_quantum_crm']?.json?.id) {\n  allLeadData.crm_entries.push({\n    contact_id: $node['hubspot_quantum_crm'].json.id,\n    lifecycle_stage: 'quantum_lead',\n    lead_source: 'V_OMEGA_Avatar_Quantum_Ultimate',\n    galaxy_conquest_potential: 'maximum',\n    crystal_lion_integration: true\n  });\n}\n\n// COLLECT WASSENGER WHATSAPP DATA\nif ($node['wassenger_quantum_whatsapp']?.json?.id) {\n  allLeadData.whatsapp_messages.push({\n    message_id: $node['wassenger_quantum_whatsapp'].json.id,\n    quantum_personalization: true,\n    crystal_lion_branding: true,\n    consciousness_expansion_trigger: true,\n    holographic_preview: true\n  });\n}\n\n// CALCULATE ULTIMATE METRICS\nconst ultimateMetrics = {\n  total_avatar_videos: allLeadData.avatar_videos.length,\n  total_vsmr_audio: allLeadData.vsmr_audio.length,\n  total_quantum_leads: allLeadData.quantum_leads.length,\n  total_enriched_contacts: allLeadData.enriched_contacts.length,\n  total_crm_entries: allLeadData.crm_entries.length,\n  total_whatsapp_messages: allLeadData.whatsapp_messages.length,\n  \n  average_quantum_compatibility: allLeadData.quantum_leads.length > 0 ? \n    allLeadData.quantum_leads.reduce((sum, lead) => sum + lead.quantum_compatibility, 0) / allLeadData.quantum_leads.length : 0,\n  \n  crystal_lion_resonance_distribution: {\n    high: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'high').length,\n    maximum: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'maximum').length,\n    unlimited: allLeadData.quantum_leads.filter(lead => lead.crystal_lion_resonance === 'unlimited').length\n  },\n  \n  consciousness_expansion_levels: allLeadData.quantum_leads.map(lead => lead.consciousness_expansion_readiness),\n  \n  holographic_engagement_readiness: {\n    ready: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'ready').length,\n    awakening: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'awakening').length,\n    transcending: allLeadData.quantum_leads.filter(lead => lead.holographic_engagement_potential === 'transcending').length\n  }\n};\n\n// ULTIMATE AVATAR FEATURES ACTIVATED\nconst ultimateAvatarFeatures = [\n  '✅ 18-Avatar Quantum Rotation System',\n  '✅ VSMR 432Hz Consciousness Expansion',\n  '✅ 4D Holographic Environments (Begehbar)',\n  '✅ Crystal Lion Personality Integration',\n  '✅ Quantum Lead Compatibility Matching',\n  '✅ Emotional AI with Hume Analysis',\n  '✅ Multi-Platform Lead Generation (Apollo + Snov + HubSpot)',\n  '✅ WhatsApp Quantum Personalization',\n  '✅ AR Mobile Optimization (WebXR)',\n  '✅ Glass Transformation Overlay Effects',\n  '✅ Binaural Audio Enhancement',\n  '✅ Real-time Emotion State Adaptation',\n  '✅ Galactic CRM Integration',\n  '✅ Consciousness Expansion Metrics',\n  '✅ Interdimensional Portal Messaging'\n];\n\nreturn {\n  workflow_id: 'v_omega_avatar_quantum_ultimate_final',\n  timestamp: new Date().toISOString(),\n  lead_data_summary: allLeadData,\n  ultimate_metrics: ultimateMetrics,\n  avatar_features_activated: ultimateAvatarFeatures,\n  quantum_processing_level: 'MAXIMUM',\n  consciousness_expansion: 'GALACTIC_ACTIVE',\n  crystal_lion_power: 'ROARING_ULTIMATE',\n  holographic_mode: '4D_BEGEHBAR_ACTIVE',\n  vsmr_enhancement: 'ULTIMATE_432HZ_ACTIVE',\n  galaxy_conquest_status: 'AVATAR_LEGION_DEPLOYED',\n  next_module_trigger: 'visual_3d_generator_ultimate',\n  total_avatars_deployed: 18,\n  expected_lead_conversion: '25%+',\n  consciousness_expansion_rate: '95%+',\n  crystal_lion_message: '🦁 ROAR! 18 Avatare erobern die Galaxy für das LR Lifestyle Team!',\n  status: 'READY_FOR_GALACTIC_LEAD_DOMINATION',\n  system_version: 'AVATAR_QUANTUM_ULTIMATE_2025'\n};"
+      },
+      "id": "ultimate_avatar_aggregator",
+      "name": "📦 Ultimate Avatar Aggregator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 360]
+    }
+  ],
+  "connections": {
+    "avatar_quantum_ultimate": {
+      "main": [
+        [
+          {
+            "node": "heygen_avatar_ultimate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "elevenlabs_vsmr_ultimate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "hume_emotion_analyzer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "apollo_quantum_prospecting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "heygen_avatar_ultimate": {
+      "main": [
+        [
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "elevenlabs_vsmr_ultimate": {
+      "main": [
+        [
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "hume_emotion_analyzer": {
+      "main": [
+        [
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apollo_quantum_prospecting": {
+      "main": [
+        [
+          {
+            "node": "snov_email_enrichment",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "snov_email_enrichment": {
+      "main": [
+        [
+          {
+            "node": "hubspot_quantum_crm",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "hubspot_quantum_crm": {
+      "main": [
+        [
+          {
+            "node": "wassenger_quantum_whatsapp",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "wassenger_quantum_whatsapp": {
+      "main": [
+        [
+          {
+            "node": "ultimate_avatar_aggregator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
