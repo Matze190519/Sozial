@@ -2,6 +2,9 @@
 
 This repository contains JSON exports of n8n workflows used for LR Health & Beauty social media automation. Each file can be imported into n8n to replicate the automation pipelines.
 
+## Repository Access Verification
+✅ Repository access verified by Devin AI on August 14, 2025
+
 ## JSON files
 - `LAMBORGHINI_v6_ULTIMATE_PERFECT.json`
 - `LR_LAMBO_BLUEPRINT_WORKING.json`
