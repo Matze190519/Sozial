@@ -3,7 +3,7 @@
     {
       "parameters": {
         "url": "https://api.heygen.com/v2/video/generate",
-        "method": "GET",
+        "method": "POST",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -18,13 +18,44 @@
           ]
         },
         "sendBody": true,
-        "bodyParameters": {},
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "3d_avatar_mode",
+              "value": "true"
+            },
+            {
+              "name": "activity_idle_timeout",
+              "value": "120s"
+            },
+            {
+              "name": "motion_studio",
+              "value": "enabled"
+            },
+            {
+              "name": "voice_recommendations",
+              "value": "true"
+            },
+            {
+              "name": "quick_commands",
+              "value": "enabled"
+            },
+            {
+              "name": "avatar_id",
+              "value": "{{ $vars.LinaAvatar }}"
+            },
+            {
+              "name": "voice_id",
+              "value": "{{ $vars.LinaVoiceID }}"
+            }
+          ]
+        },
         "options": {
           "timeout": 60000
         }
       },
       "id": "real-http-000",
-      "name": "👤 HeyGen Lina Avatar",
+      "name": "👤 HeyGen Lina Avatar (June 2025)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -165,7 +196,7 @@
     {
       "parameters": {
         "url": "https://api.heygen.com/v2/video/generate",
-        "method": "GET",
+        "method": "POST",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -180,13 +211,48 @@
           ]
         },
         "sendBody": true,
-        "bodyParameters": {},
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "3d_avatar_mode",
+              "value": "true"
+            },
+            {
+              "name": "activity_idle_timeout",
+              "value": "120s"
+            },
+            {
+              "name": "motion_studio",
+              "value": "enabled"
+            },
+            {
+              "name": "voice_recommendations",
+              "value": "true"
+            },
+            {
+              "name": "quick_commands",
+              "value": "enabled"
+            },
+            {
+              "name": "avatar_id",
+              "value": "{{ $json.assigned_avatar.id }}"
+            },
+            {
+              "name": "background",
+              "value": "{{ $json.background }}"
+            },
+            {
+              "name": "emotion",
+              "value": "{{ $json.emotion_state }}"
+            }
+          ]
+        },
         "options": {
           "timeout": 60000
         }
       },
       "id": "real-http-006",
-      "name": "👤 HeyGen Avatar Video",
+      "name": "👤 HeyGen Avatar Video (June 2025)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -270,7 +336,7 @@
     },
     {
       "parameters": {
-        "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+        "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
         "method": "GET",
         "sendHeaders": true,
         "headerParameters": {

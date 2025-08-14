@@ -570,7 +570,7 @@
     },
     {
       "parameters": {
-        "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+        "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1986,7 +1986,7 @@
     },
     {
       "parameters": {
-        "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+        "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [

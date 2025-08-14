@@ -58,7 +58,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $json.avatar.heygen_id }}\",\n        \"avatar_style\": \"normal\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{ $json.script }}\",\n        \"voice_id\": \"{{ $json.avatar.voice_id }}\"\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#000000\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1920,\n    \"height\": 1080\n  },\n  \"aspect_ratio\": \"16:9\"\n}",
+        "jsonBody": "{\n  \"video_inputs\": [\n    {\n      \"character\": {\n        \"type\": \"avatar\",\n        \"avatar_id\": \"{{ $json.avatar.heygen_id }}\",\n        \"avatar_style\": \"normal\",\n        \"3d_avatar_mode\": true,\n        \"motion_studio\": \"enabled\",\n        \"activity_idle_timeout\": \"120s\"\n      },\n      \"voice\": {\n        \"type\": \"text\",\n        \"input_text\": \"{{ $json.script }}\",\n        \"voice_id\": \"{{ $json.avatar.voice_id }}\",\n        \"voice_recommendations\": true\n      },\n      \"background\": {\n        \"type\": \"color\",\n        \"value\": \"#000000\"\n      }\n    }\n  ],\n  \"dimension\": {\n    \"width\": 1920,\n    \"height\": 1080\n  },\n  \"aspect_ratio\": \"16:9\",\n  \"quick_commands\": \"enabled\"\n}",
         "options": {
           "timeout": 120000
         }
