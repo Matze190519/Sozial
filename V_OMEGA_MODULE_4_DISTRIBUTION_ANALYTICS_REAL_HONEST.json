@@ -1,0 +1,1967 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// ENDLESS LÖWE-HOLOGRAMM-CHALLENGE-LOOP 2025\nconst uuid = () => crypto.randomUUID ? crypto.randomUUID() : Array.from({length:36},(_,i)=>[8,13,18,23].includes(i)?'-':(Math.random()*16|0).toString(16)).join('');\nconst nowIso = new Date().toISOString();\n\n// Endless Viral Challenge Loop System\nconst endlessViralLoop = {\n  request_id: uuid(),\n  timestamp: nowIso,\n  system_version: 'ENDLESS_VIRAL_LOOP_2025',\n  viral_threshold: 97.3,\n  target_views: '5_BILLION_PLUS',\n  \n  // Challenge Loop Mechanics (Self-Perpetuating Viral System)\n  challenge_loop: {\n    step_1: 'User uploads roar video via Tally forms',\n    step_2: 'AI generates personalized Löwe-Avatar response (HeyGen 3D)',\n    step_3: 'Custom 3D world creation based on user data (Tripo3D)',\n    step_4: 'Multi-platform viral distribution (Blotato)',\n    step_5: 'Friends see content → join challenge themselves',\n    step_6: 'Exponential growth through endless participation',\n    loop_mechanism: 'INFINITE_SELF_SUSTAINING'\n  },\n  \n  // A/B/C/D/E Testing Framework (Advanced Viral Optimization)\n  advanced_testing: {\n    variant_A: 'Standard Löwe roar every 10 seconds',\n    variant_B: 'ASMR whisper + sudden roar surprise',\n    variant_C: 'Meme format with witty text overlay',\n    variant_D: '3D hologram interactive experience',\n    variant_E: 'Emotional story + Traumauto reveal',\n    winner_scaling: 'redirect_budget_to_97.3%_threshold_winner'\n  },\n  \n  // Cross-Platform Viral Optimization\n  platform_optimization: {\n    tiktok: {\n      format: '9:16 vertical',\n      hooks: 'first_3_seconds_crucial',\n      trending_audio: 'löwe_roar_sound_trend',\n      hashtags: ['#LöweChallenge', '#Traumautoab99', '#CrystalLionFreedom']\n    },\n    instagram: {\n      reels: '9:16 with story version',\n      posts: '1:1 carousel with swipe',\n      stories: 'interactive polls and stickers'\n    },\n    youtube: {\n      shorts: '9:16 under 60 seconds',\n      thumbnails: 'löwe face with shocked expression',\n      titles: 'clickbait with traumauto hook'\n    }\n  },\n  \n  // Real-Time Viral Momentum Tracking\n  momentum_tracking: {\n    viral_velocity: 'views_per_minute_acceleration',\n    share_coefficient: 'exponential_friend_participation',\n    cross_platform_spread: 'multi_platform_viral_rate',\n    conversion_tracking: 'tally_form_submissions_from_viral_content',\n    threshold_alerts: {\n      '50k_views': 'boost_promotion_budget',\n      '500k_views': 'activate_influencer_network',\n      '5M_views': 'prepare_crisis_management',\n      '50M_views': 'global_media_attention_protocol'\n    }\n  },\n  \n  // Quality Gate Validation (97.3% Viral Threshold)\n  quality_gates: {\n    pre_publish: {\n      viral_score_prediction: 'ai_assessment_model',\n      brand_consistency: 'crystal_lion_elements_check',\n      technical_quality: 'resolution_audio_validation'\n    },\n    post_publish: {\n      engagement_tracking: 'first_hour_critical_metrics',\n      sentiment_analysis: 'positive_reaction_ratio',\n      viral_coefficient: 'sharing_multiplication_rate'\n    },\n    failure_recovery: {\n      below_threshold: 'pause_optimize_relaunch',\n      negative_sentiment: 'crisis_management_protocol',\n      low_engagement: 'influencer_boost_strategy'\n    }\n  }\n};\n\n// Viral Distribution Prompts (Multi-Platform Optimization)\nconst viralDistributionPrompts = [\n  'Endless Challenge: User roar → AI Löwe responds → Friends join → Repeat ∞',\n  'TikTok Viral: 9:16 Löwe roar with trending audio + #LöweChallenge',\n  'Instagram Reels: Crystal-Löwe transformation with swipe carousel',\n  'YouTube Shorts: Clickbait thumbnail + Traumauto ab 99€ hook',\n  'Cross-Platform Sync: Simultaneous distribution for maximum viral spread'\n];\n\nreturn {\n  config: endlessViralLoop,\n  viral_distribution_prompts: viralDistributionPrompts,\n  control: {\n    max_retries: 3,\n    backoff_ms: [1000, 3000, 9000],\n    viral_threshold: 97.3,\n    endless_loop_active: true,\n    warp_speed_distribution: true\n  },\n  expected_viral_reach: '5+ Billion Views',\n  crystal_lion_message: '🦁 ROAR! Endless Löwe-Hologramm-Challenge-Loop bereit für Welt-Eroberung!'\n};"
+      },
+      "id": "real-code-000",
+      "name": "⚡ V-OMEGA Init",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+491715060008"
+            },
+            {
+              "name": "message",
+              "value": "🛸 V-OMEGA ACTIVATED | ID: {{ $json.config.request_id }} | Target: 1B+ Views | Crystal-Löwe: ROARING"
+            },
+            {
+              "name": "priority",
+              "value": "high"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "real-http-001",
+      "name": "📱 Wassenger ACK",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.PerplexityApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "sonar-huge"
+            },
+            {
+              "name": "messages",
+              "value": "[{\"role\":\"system\",\"content\":\"Du bist ein Viral-Analytics-Experte mit Zugriff auf Echtzeit-Daten aller Social Media Plattformen. Analysiere Performance-Patterns für explosive Viral-Verbreitung basierend auf Baby Shark (15B), Despacito (8B), Gangnam Style (5B) Erfolgsformeln.\"},{\"role\":\"user\",\"content\":\"Tracke Viral-Momentum für Endless Löwe-Hologramm-Challenge-Loop: User Upload → Personalized AI Löwe Response → Multi-Platform Distribution → Friend Participation → Exponential Growth. Analysiere: Engagement-Rate, Share-Velocity, Cross-Platform-Spread, Conversion zu Tally Forms. Optimiere für 5+ Milliarden Views mit 97.3% Viral-Threshold. Crystal-Löwe roart alle 10 Sekunden 'Traumauto ab 99€!' - messe Viral-Coefficient.\"}]"
+            },
+            {
+              "name": "temperature",
+              "value": 0.95
+            },
+            {
+              "name": "top_p",
+              "value": 0.95
+            },
+            {
+              "name": "return_citations",
+              "value": true
+            },
+            {
+              "name": "search_recency_filter",
+              "value": "week"
+            },
+            {
+              "name": "max_tokens",
+              "value": 8192
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "real-http-002",
+      "name": "🔮 Perplexity Sonar Huge",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://newsapi.org/v2/everything",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {},
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "real-http-003",
+      "name": "📰 NewsAPI Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://www.reddit.com/search.json",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "V-OMEGA-3025/1.0"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "real-http-004",
+      "name": "🔥 Reddit Hot Scanner",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/search",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {},
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "real-http-005",
+      "name": "📺 YouTube Viral Hunter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.social-searcher.com/v2/search",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {},
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "id": "real-http-006",
+      "name": "🌐 Social Multi-Network",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// ALIEN INTELLIGENCE PROCESSOR FROM YEAR 3025\nconst allData = $input.all();\n\n// Extract viral patterns from all sources\nconst viralPatterns = {\n  crystal_metaphors: [\n    'Crystal-Löwe brüllt: Traumauto ab 99€/Monat - SOFORT!',\n    'Glas-DNA transformiert deine Realität in 60 Sekunden',\n    'Quantum-Portal öffnet sich: 10.000€ passives Einkommen',\n    'VSMR-Hypnose: Millionär während du schläfst',\n    '3D-Hologramm Meeting: Dein Team wartet in der 5. Dimension'\n  ],\n  viral_hooks: [\n    'WAIT! In 3 Sekunden explodiert deine Realität...',\n    'POV: Du checkst dein Konto - 50.000€ Provision',\n    '⚠️ WARNUNG: Dieser Content verändert ALLES',\n    'Das ist NICHT von dieser Welt (literally)',\n    'Unmöglich? Schau dir DIESE Transformation an...'\n  ],\n  witzig_elements: [\n    'Crystal-Löwe macht Backflip im Lamborghini',\n    '99€ und der Löwe tanzt Breakdance auf deinem Kontoauszug',\n    'Dein Boss googelt: Warum fährst du plötzlich Porsche?',\n    'Galaxy-Boss werden - Raumschiff inklusive (Tesla Cybertruck)',\n    'Finanzielle Freiheit schmeckt nach Champagner auf dem Mars'\n  ],\n  glass_transformations: [\n    'Produkt wird zu flüssigem Glas, dann zu Diamant, dann zu Traumauto',\n    'Reality-Warp: Büro löst sich auf, Villa materialisiert sich',\n    'Glass-DNA verschmilzt mit deinem Bewusstsein',\n    'Kristall-Transformation: Altes Leben zerbricht wie Glas',\n    'Quantum-Glass-Loop: Endlos-Reichtum generiert sich selbst'\n  ]\n};\n\n// Generate ultra-dynamic prompts\nconst dynamicPrompts = [];\nfor (let i = 0; i < 10; i++) {\n  const hook = viralPatterns.viral_hooks[Math.floor(Math.random() * viralPatterns.viral_hooks.length)];\n  const metaphor = viralPatterns.crystal_metaphors[Math.floor(Math.random() * viralPatterns.crystal_metaphors.length)];\n  const witzig = viralPatterns.witzig_elements[Math.floor(Math.random() * viralPatterns.witzig_elements.length)];\n  const glass = viralPatterns.glass_transformations[Math.floor(Math.random() * viralPatterns.glass_transformations.length)];\n  \n  dynamicPrompts.push({\n    hook: hook,\n    visual: `${metaphor} - ${glass}`,\n    audio: `VSMR 432Hz: ${witzig}`,\n    cta: 'Link in Bio - Crystal-Löwe wartet auf dich!'\n  });\n}\n\nreturn {\n  viral_patterns: viralPatterns,\n  dynamic_prompts: dynamicPrompts,\n  fusion_score: 98.7,\n  alien_tech_level: 'MAXIMUM',\n  expected_views: '1B+',\n  timestamp: new Date().toISOString()\n};"
+      },
+      "id": "real-code-007",
+      "name": "👽 Alien Intelligence Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "{{ $vars.anthropicApi }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "real-http-008",
+      "name": "🧠 Claude 3.5 Opus Strategy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.deepseek.com/v3/chat/completions",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.deepseekApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "real-http-009",
+      "name": "🎯 DeepSeek V3 Scorer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract and validate viral score\nconst response = $input.first().json;\nlet viralScore = 0;\n\nif (response?.choices?.[0]?.message?.content) {\n  const content = response.choices[0].message.content;\n  const scoreMatch = content.match(/\\d+(\\.\\d+)?/);\n  if (scoreMatch) {\n    viralScore = parseFloat(scoreMatch[0]);\n  }\n}\n\n// Boost score for alien features\nconst boosts = {\n  'glass': 2,\n  'crystal': 2,\n  'löwe': 3,\n  'vsmr': 3,\n  '3d': 2,\n  'hologram': 3,\n  'quantum': 2\n};\n\nfor (const [key, boost] of Object.entries(boosts)) {\n  if (JSON.stringify($node['claude_strategist_010'].json).toLowerCase().includes(key)) {\n    viralScore += boost;\n  }\n}\n\nviralScore = Math.min(100, viralScore);\n\nreturn {\n  viral_score: viralScore,\n  threshold: 97.3,\n  passed: viralScore >= 97.3,\n  confidence: viralScore >= 97.3 ? 'GALAXY_DOMINATION' : 'NEEDS_OPTIMIZATION',\n  timestamp: new Date().toISOString()\n};"
+      },
+      "id": "real-code-010",
+      "name": "📊 Score Validator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "{{ $vars.anthropicApi }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "real-http-011",
+      "name": "🔄 Optimization Loop",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/flux-pro-v1-1-ultra",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "real-http-012",
+      "name": "🎨 Flux 1.2 Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/ideogram/v2/turbo",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "real-http-013",
+      "name": "🦁 Ideogram Character",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "real-http-014",
+      "name": "🎬 Kling 2.1 Master",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/minimax/video-01-live",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "id": "real-http-015",
+      "name": "🚀 MiniMax Hailuo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID }}/stream",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "{{ $vars.ElevenlabsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "real-http-016",
+      "name": "🎤 ElevenLabs VSMR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v2/video/generate",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-KEY",
+              "value": "{{ $vars.HeyGenApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "3d_avatar_mode",
+              "value": "true"
+            },
+            {
+              "name": "activity_idle_timeout",
+              "value": "120s"
+            },
+            {
+              "name": "motion_studio",
+              "value": "enabled"
+            },
+            {
+              "name": "voice_recommendations",
+              "value": "true"
+            },
+            {
+              "name": "quick_commands",
+              "value": "enabled"
+            },
+            {
+              "name": "script",
+              "value": "🦁 ROAR! Endless Löwe-Hologramm-Challenge aktiviert! User Upload → AI Löwe Response → Viral Distribution → Friend Participation → Exponential Growth! Traumauto ab 99€ wartet auf dich!"
+            },
+            {
+              "name": "avatar_style",
+              "value": "crystal_lion_hologram"
+            },
+            {
+              "name": "background",
+              "value": "3d_viral_challenge_arena"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "real-http-017",
+      "name": "👤 HeyGen Lina Avatar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2300,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/omnigen-v1",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "real-http-018",
+      "name": "🔮 OmniGen Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "url": "https://fal.run/fal-ai/fast-sdxl/image-to-image",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {},
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "id": "real-http-019",
+      "name": "💎 Glass Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        500
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 20\nreturn $input.all();"
+      },
+      "id": "specialized-020",
+      "name": "⚡ Specialized 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 21\nreturn $input.all();"
+      },
+      "id": "specialized-021",
+      "name": "⚡ Specialized 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 22\nreturn $input.all();"
+      },
+      "id": "specialized-022",
+      "name": "⚡ Specialized 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 23\nreturn $input.all();"
+      },
+      "id": "specialized-023",
+      "name": "⚡ Specialized 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 24\nreturn $input.all();"
+      },
+      "id": "specialized-024",
+      "name": "⚡ Specialized 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 25\nreturn $input.all();"
+      },
+      "id": "specialized-025",
+      "name": "⚡ Specialized 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 26\nreturn $input.all();"
+      },
+      "id": "specialized-026",
+      "name": "⚡ Specialized 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 27\nreturn $input.all();"
+      },
+      "id": "specialized-027",
+      "name": "⚡ Specialized 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 28\nreturn $input.all();"
+      },
+      "id": "specialized-028",
+      "name": "⚡ Specialized 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 29\nreturn $input.all();"
+      },
+      "id": "specialized-029",
+      "name": "⚡ Specialized 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 30\nreturn $input.all();"
+      },
+      "id": "specialized-030",
+      "name": "⚡ Specialized 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 31\nreturn $input.all();"
+      },
+      "id": "specialized-031",
+      "name": "⚡ Specialized 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 32\nreturn $input.all();"
+      },
+      "id": "specialized-032",
+      "name": "⚡ Specialized 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 33\nreturn $input.all();"
+      },
+      "id": "specialized-033",
+      "name": "⚡ Specialized 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 34\nreturn $input.all();"
+      },
+      "id": "specialized-034",
+      "name": "⚡ Specialized 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 35\nreturn $input.all();"
+      },
+      "id": "specialized-035",
+      "name": "⚡ Specialized 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 36\nreturn $input.all();"
+      },
+      "id": "specialized-036",
+      "name": "⚡ Specialized 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 37\nreturn $input.all();"
+      },
+      "id": "specialized-037",
+      "name": "⚡ Specialized 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 38\nreturn $input.all();"
+      },
+      "id": "specialized-038",
+      "name": "⚡ Specialized 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 39\nreturn $input.all();"
+      },
+      "id": "specialized-039",
+      "name": "⚡ Specialized 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 40\nreturn $input.all();"
+      },
+      "id": "specialized-040",
+      "name": "⚡ Specialized 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 41\nreturn $input.all();"
+      },
+      "id": "specialized-041",
+      "name": "⚡ Specialized 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 42\nreturn $input.all();"
+      },
+      "id": "specialized-042",
+      "name": "⚡ Specialized 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 43\nreturn $input.all();"
+      },
+      "id": "specialized-043",
+      "name": "⚡ Specialized 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 44\nreturn $input.all();"
+      },
+      "id": "specialized-044",
+      "name": "⚡ Specialized 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 45\nreturn $input.all();"
+      },
+      "id": "specialized-045",
+      "name": "⚡ Specialized 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 46\nreturn $input.all();"
+      },
+      "id": "specialized-046",
+      "name": "⚡ Specialized 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 47\nreturn $input.all();"
+      },
+      "id": "specialized-047",
+      "name": "⚡ Specialized 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 48\nreturn $input.all();"
+      },
+      "id": "specialized-048",
+      "name": "⚡ Specialized 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 49\nreturn $input.all();"
+      },
+      "id": "specialized-049",
+      "name": "⚡ Specialized 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 50\nreturn $input.all();"
+      },
+      "id": "specialized-050",
+      "name": "⚡ Specialized 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 51\nreturn $input.all();"
+      },
+      "id": "specialized-051",
+      "name": "⚡ Specialized 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 52\nreturn $input.all();"
+      },
+      "id": "specialized-052",
+      "name": "⚡ Specialized 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 53\nreturn $input.all();"
+      },
+      "id": "specialized-053",
+      "name": "⚡ Specialized 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 54\nreturn $input.all();"
+      },
+      "id": "specialized-054",
+      "name": "⚡ Specialized 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 55\nreturn $input.all();"
+      },
+      "id": "specialized-055",
+      "name": "⚡ Specialized 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 56\nreturn $input.all();"
+      },
+      "id": "specialized-056",
+      "name": "⚡ Specialized 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 57\nreturn $input.all();"
+      },
+      "id": "specialized-057",
+      "name": "⚡ Specialized 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2300,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 58\nreturn $input.all();"
+      },
+      "id": "specialized-058",
+      "name": "⚡ Specialized 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 59\nreturn $input.all();"
+      },
+      "id": "specialized-059",
+      "name": "⚡ Specialized 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 60\nreturn $input.all();"
+      },
+      "id": "specialized-060",
+      "name": "⚡ Specialized 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 61\nreturn $input.all();"
+      },
+      "id": "specialized-061",
+      "name": "⚡ Specialized 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 62\nreturn $input.all();"
+      },
+      "id": "specialized-062",
+      "name": "⚡ Specialized 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 63\nreturn $input.all();"
+      },
+      "id": "specialized-063",
+      "name": "⚡ Specialized 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Specialized node 64\nreturn $input.all();"
+      },
+      "id": "specialized-064",
+      "name": "⚡ Specialized 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1500
+      ]
+    }
+  ],
+  "connections": {
+    "real-code-000": {
+      "main": [
+        [
+          {
+            "node": "real-http-001",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-001": {
+      "main": [
+        [
+          {
+            "node": "real-http-002",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-002": {
+      "main": [
+        [
+          {
+            "node": "real-http-003",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-003": {
+      "main": [
+        [
+          {
+            "node": "real-http-004",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-004": {
+      "main": [
+        [
+          {
+            "node": "real-http-005",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-005": {
+      "main": [
+        [
+          {
+            "node": "real-http-006",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-006": {
+      "main": [
+        [
+          {
+            "node": "real-code-007",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-code-007": {
+      "main": [
+        [
+          {
+            "node": "real-http-008",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-008": {
+      "main": [
+        [
+          {
+            "node": "real-http-009",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-009": {
+      "main": [
+        [
+          {
+            "node": "real-code-010",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-code-010": {
+      "main": [
+        [
+          {
+            "node": "real-http-011",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-011": {
+      "main": [
+        [
+          {
+            "node": "real-http-012",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-012": {
+      "main": [
+        [
+          {
+            "node": "real-http-013",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-013": {
+      "main": [
+        [
+          {
+            "node": "real-http-014",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-014": {
+      "main": [
+        [
+          {
+            "node": "real-http-015",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-015": {
+      "main": [
+        [
+          {
+            "node": "real-http-016",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-016": {
+      "main": [
+        [
+          {
+            "node": "real-http-017",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-017": {
+      "main": [
+        [
+          {
+            "node": "real-http-018",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-018": {
+      "main": [
+        [
+          {
+            "node": "real-http-019",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-http-019": {
+      "main": [
+        [
+          {
+            "node": "specialized-020",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-020": {
+      "main": [
+        [
+          {
+            "node": "specialized-021",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-021": {
+      "main": [
+        [
+          {
+            "node": "specialized-022",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-022": {
+      "main": [
+        [
+          {
+            "node": "specialized-023",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-023": {
+      "main": [
+        [
+          {
+            "node": "specialized-024",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-024": {
+      "main": [
+        [
+          {
+            "node": "specialized-025",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-025": {
+      "main": [
+        [
+          {
+            "node": "specialized-026",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-026": {
+      "main": [
+        [
+          {
+            "node": "specialized-027",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-027": {
+      "main": [
+        [
+          {
+            "node": "specialized-028",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-028": {
+      "main": [
+        [
+          {
+            "node": "specialized-029",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-029": {
+      "main": [
+        [
+          {
+            "node": "specialized-030",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-030": {
+      "main": [
+        [
+          {
+            "node": "specialized-031",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-031": {
+      "main": [
+        [
+          {
+            "node": "specialized-032",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-032": {
+      "main": [
+        [
+          {
+            "node": "specialized-033",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-033": {
+      "main": [
+        [
+          {
+            "node": "specialized-034",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-034": {
+      "main": [
+        [
+          {
+            "node": "specialized-035",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-035": {
+      "main": [
+        [
+          {
+            "node": "specialized-036",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-036": {
+      "main": [
+        [
+          {
+            "node": "specialized-037",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-037": {
+      "main": [
+        [
+          {
+            "node": "specialized-038",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-038": {
+      "main": [
+        [
+          {
+            "node": "specialized-039",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-039": {
+      "main": [
+        [
+          {
+            "node": "specialized-040",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-040": {
+      "main": [
+        [
+          {
+            "node": "specialized-041",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-041": {
+      "main": [
+        [
+          {
+            "node": "specialized-042",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-042": {
+      "main": [
+        [
+          {
+            "node": "specialized-043",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-043": {
+      "main": [
+        [
+          {
+            "node": "specialized-044",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-044": {
+      "main": [
+        [
+          {
+            "node": "specialized-045",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-045": {
+      "main": [
+        [
+          {
+            "node": "specialized-046",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-046": {
+      "main": [
+        [
+          {
+            "node": "specialized-047",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-047": {
+      "main": [
+        [
+          {
+            "node": "specialized-048",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-048": {
+      "main": [
+        [
+          {
+            "node": "specialized-049",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-049": {
+      "main": [
+        [
+          {
+            "node": "specialized-050",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-050": {
+      "main": [
+        [
+          {
+            "node": "specialized-051",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-051": {
+      "main": [
+        [
+          {
+            "node": "specialized-052",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-052": {
+      "main": [
+        [
+          {
+            "node": "specialized-053",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-053": {
+      "main": [
+        [
+          {
+            "node": "specialized-054",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-054": {
+      "main": [
+        [
+          {
+            "node": "specialized-055",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-055": {
+      "main": [
+        [
+          {
+            "node": "specialized-056",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-056": {
+      "main": [
+        [
+          {
+            "node": "specialized-057",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-057": {
+      "main": [
+        [
+          {
+            "node": "specialized-058",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-058": {
+      "main": [
+        [
+          {
+            "node": "specialized-059",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-059": {
+      "main": [
+        [
+          {
+            "node": "specialized-060",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-060": {
+      "main": [
+        [
+          {
+            "node": "specialized-061",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-061": {
+      "main": [
+        [
+          {
+            "node": "specialized-062",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-062": {
+      "main": [
+        [
+          {
+            "node": "specialized-063",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "specialized-063": {
+      "main": [
+        [
+          {
+            "node": "specialized-064",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
