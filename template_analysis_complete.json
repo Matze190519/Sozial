@@ -560,7 +560,7 @@
       "body": "{\n  \"prompt\": \"Crystal Lion mascot, consistent character design, glass transformation, LR Lifestyle Team branding, luxury aesthetic, holographic effects\",\n  \"aspect_ratio\": \"16:9\",\n  \"style_type\": \"GENERAL\",\n  \"magic_prompt_option\": \"AUTO\"\n}"
     },
     "🎬 Kling 2.1 Master": {
-      "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+      "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
       "headers": [
         {
           "name": "Authorization",
@@ -1058,7 +1058,7 @@
       "body": "{\n  \"prompt\": \"Professional avatar slowly transforms into hologram, then back to human, Crystal Lion appears as glass particles, seamless loop\",\n  \"aspect_ratio\": \"16:9\",\n  \"loop\": true,\n  \"extend_from_image\": \"{{ $node['upscaler_enhance_018'].json.image.url }}\",\n  \"keyframes\": [\n    {\"frame\": 0, \"prompt\": \"Human avatar speaking professionally\"},\n    {\"frame\": 60, \"prompt\": \"Avatar becomes translucent hologram\"},\n    {\"frame\": 120, \"prompt\": \"Hologram with glass particles forming Crystal Lion\"},\n    {\"frame\": 180, \"prompt\": \"Back to human form, loop ready\"}\n  ]\n}"
     },
     "🎬 Kling Cinema Avatar": {
-      "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+      "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
       "headers": [
         {
           "name": "Authorization",
@@ -1586,7 +1586,7 @@
       "body": "{\n  \"phone\": \"+491715060008\",\n  \"message\": \"🎬 VIDEO PRODUCTION ACTIVATED\\n\\n🎯 Mode: VSMR Cinema-Grade\\n🦁 Crystal-Löwe: READY\\n💎 Glass Effects: QUANTUM\\n🌌 Target: 1B+ Views\\n\\nProducing {{ $json.video_queue.length }} viral videos...\",\n  \"priority\": \"high\"\n}"
     },
     "🎬 Kling 2.1 Cinema Master": {
-      "url": "https://fal.run/fal-ai/kling/v1.5/pro/image-to-video",
+      "url": "https://fal.run/fal-ai/kling-video/v2/master/image-to-video",
       "headers": [
         {
           "name": "Authorization",
