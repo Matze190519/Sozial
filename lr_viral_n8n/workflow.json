@@ -1037,6 +1037,303 @@
       "typeVersion": 2,
       "position": [ 1850, 600 ]
     }
+,
+    {
+      "parameters": {
+        "url": "https://api.scrapecreators.com/v1/search",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.ScrapeCreatorsApi || $env.ScrapeCreatorsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "query", "value": "={{ 'viral hooks germany short form' }}" },
+            { "name": "hours", "value": 72 }
+          ]
+        }
+      },
+      "id": "n1_scrapecreators",
+      "name": "m1_scrapecreators_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 350, -250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.zylalabs.com/v1/trends",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.ZylaLabsApi || $env.ZylaLabsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "country", "value": "DE" },
+            { "name": "category", "value": "social" }
+          ]
+        }
+      },
+      "id": "n1_zylalabs",
+      "name": "m1_zylalabs_trends_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 600, -250 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const pools = [$items('m1_scrapecreators_01').map(x=>x.json), $items('m1_zylalabs_trends_01').map(x=>x.json)];\nconst merged = [].concat(...pools);\nreturn merged.map(j=>({json:j}));"
+      },
+      "id": "n1_scrape_merge",
+      "name": "m1_scrape_merge_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 850, -250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "{{ $vars.anthropicApi || $env.anthropicApi }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-4.1-opus" },
+            { "name": "max_tokens", "value": 2048 },
+            { "name": "messages", "value": "={{ [{role:'user', content:`Creative R&D: From current trends, propose 5+ WOW ideas (e.g., Meme-Mascot patterns, Synästhesie Emotion→Farbe, Voice-Morph mid-sentence, Micro-Expressions Timing, Water-Up physics-break, Depth-Layers). Return JSON: ideas[title, desc, prompt_modifiers].`}] }}" }
+          ]
+        }
+      },
+      "id": "n1_creative_rd",
+      "name": "m1_creative_rd_ideas_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1100, -250 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const ideas = ($json.ideas || $json.data?.ideas || []).slice(0,5);\nconst selected = ideas.slice(0,3);\nreturn [{ wow_ideas: selected }];"
+      },
+      "id": "n1_select_wow",
+      "name": "m1_select_wow_ideas_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1350, -250 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const rp = $json.runway_prompt || '';\nconst mods = ($json.wow_ideas||[]).map(i=>i.prompt_modifiers).filter(Boolean).join(', ');\nreturn [{ runway_prompt: (rp + (mods? (', ' + mods): '')) }];"
+      },
+      "id": "n1_apply_wow",
+      "name": "m1_apply_wow_mods_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1600, -250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID || $env.LinaVoiceID }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "xi-api-key", "value": "{{ $vars.ElevenlabsApi || $env.ElevenlabsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "text", "value": "={{ $json.caption || 'Hi, ich bin Lina – Tap für Details.' }}" },
+            { "name": "voice_settings", "value": "={{ { stability: 0.4, similarity_boost: 0.6 } }}" },
+            { "name": "audio_preset", "value": "binaural" }
+          ]
+        }
+      },
+      "id": "n2_elevenlabs_asmr",
+      "name": "m2_elevenlabs_asmr_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2000, 220 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.heygen.com/v1/video/async",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Api-Key", "value": "{{ $vars.HeyGenApi || $env.HeyGenApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "avatar_id", "value": "={{ $vars.LinaAvatar || $env.LinaAvatar }}" },
+            { "name": "script", "value": "={{ $json.caption || 'Kurz, knackig, CTA: Tap!' }}" },
+            { "name": "background", "value": "={{ 'swap:' + ($json.flux_image_url || '') }}" }
+          ]
+        }
+      },
+      "id": "n2_heygen_avatar",
+      "name": "m2_heygen_avatar_lina_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2000, 320 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.CompositorApiUrl || 'https://api.bannerbear.com/v2/videos' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.CompositorApiKey || $vars.BannerbearApi || $env.BannerbearApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
+            { "name": "audio_url", "value": "={{ $json.audio_url || $items('m2_elevenlabs_asmr_01')[0]?.json?.audio_url || '' }}" },
+            { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+          ]
+        }
+      },
+      "id": "n2_mux_audio",
+      "name": "m2_compositor_mux_audio_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2250, 300 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.runwayml.com/v1/gen4/text-to-video",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.RunwayApi || $env.RunwayApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "prompt", "value": "={{ $json.portal_prompt }}" },
+            { "name": "aspect_ratio", "value": "9:16" },
+            { "name": "resolution", "value": "1080p" },
+            { "name": "duration", "value": 10 }
+          ]
+        }
+      },
+      "id": "n2_runway_portal",
+      "name": "m2_runway_portal_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 550, 520 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.lumalabs.ai/dream-machine/v1/generations",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.LumaLabsApi || $env.LumaLabsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "prompt", "value": "={{ $json.portal_prompt }}" },
+            { "name": "aspect_ratio", "value": "9:16" },
+            { "name": "duration", "value": 10 }
+          ]
+        }
+      },
+      "id": "n2_luma_portal",
+      "name": "m2_luma_portal_fallback_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 550, 680 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const r = $items('m2_runway_portal_01')[0]?.json||{};const l=$items('m2_luma_portal_fallback_01')[0]?.json||{};const vid=r.video_url||r.output?.url||l.video_url||l.output?.url||'';return [{ source_video_url: vid }];"
+      },
+      "id": "n2_pick_portal_video",
+      "name": "m2_pick_portal_video_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 800, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.CompositorApiUrl || 'https://api.bannerbear.com/v2/videos' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.CompositorApiKey || $vars.BannerbearApi || $env.BannerbearApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
+            { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+          ]
+        }
+      },
+      "id": "n2_watermark_portal",
+      "name": "m2_bannerbear_watermark_portal_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1050, 600 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const out = $json.final_video_url || $json.url || $json.output?.url || '';return [{ final_portal_url: out, hosting_provider: ($vars.CompositorApiUrl?'Compositor':'Bannerbear') }];"
+      },
+      "id": "n2_set_portal_url",
+      "name": "m2_set_portal_url_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1300, 600 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const weights = { engagement: Number($vars.ENGAGEMENT_W||0.45), recency: Number($vars.RECENCY_W||0.35), novelty: Number($vars.NOVELTY_W||0.2) };\nreturn [{ dna_feedback: { suggestion: 'Increase camera push-in when lion eye visible', weights } }];"
+      },
+      "id": "n4_dna_feedback",
+      "name": "m4_dna_feedback_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1850, 700 ]
+    }
+
 
     }
   ],
@@ -1704,6 +2001,167 @@
         ]
       ]
     }
+,
+    "m1_socialsearcher_01": {
+      "main": [
+        [
+          {
+            "node": "m1_scrapecreators_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_scrapecreators_01": {
+      "main": [
+        [
+          {
+            "node": "m1_zylalabs_trends_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_zylalabs_trends_01": {
+      "main": [
+        [
+          {
+            "node": "m1_scrape_merge_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_scrape_merge_01": {
+      "main": [
+        [
+          {
+            "node": "m1_creative_rd_ideas_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_creative_rd_ideas_01": {
+      "main": [
+        [
+          {
+            "node": "m1_select_wow_ideas_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_select_wow_ideas_01": {
+      "main": [
+        [
+          {
+            "node": "m1_apply_wow_mods_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_apply_wow_mods_01": {
+      "main": [
+        [
+          {
+            "node": "m2_runway_animal_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m2_runway_portal_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m2_elevenlabs_asmr_01": {
+      "main": [
+        [
+          {
+            "node": "m2_compositor_mux_audio_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_bannerbear_watermark_01": {
+      "main": [
+        [
+          {
+            "node": "m2_compositor_mux_audio_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_runway_portal_01": {
+      "main": [
+        [
+          {
+            "node": "m2_pick_portal_video_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_luma_portal_fallback_01": {
+      "main": [
+        [
+          {
+            "node": "m2_pick_portal_video_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_pick_portal_video_01": {
+      "main": [
+        [
+          {
+            "node": "m2_bannerbear_watermark_portal_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_bannerbear_watermark_portal_01": {
+      "main": [
+        [
+          {
+            "node": "m2_set_portal_url_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_telegram_report_01": {
+      "main": [
+        [
+          {
+            "node": "m4_dna_feedback_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+
 
 
     }
