@@ -241,6 +241,503 @@
       "typeVersion": 2,
       "position": [ 2600, -520 ]
     }
+,
+    {
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.PerplexityApi || $env.PerplexityApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "sonar-pro" },
+            { "name": "messages", "value": "={{ [{ role: 'system', content: 'Scan 72h DE trends (Lifestyle/Freiheit/Online-Business). Return JSON with topics, examples, citations.' }, { role: 'user', content: 'Return citations true, DE focus, short-form relevance.' }] }}" },
+            { "name": "return_citations", "value": true }
+          ]
+        }
+      },
+      "id": "n1_perplexity_trends",
+      "name": "m1_perplexity_trends_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -900, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://newsapi.org/v2/top-headlines",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.newsApi || $env.newsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "country", "value": "de" },
+            { "name": "category", "value": "technology" }
+          ]
+        }
+      },
+      "id": "n1_newsapi",
+      "name": "m1_newsapi_de_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -650, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/search",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.YouTubeApi || $env.YouTubeApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "part", "value": "snippet" },
+            { "name": "type", "value": "video" },
+            { "name": "regionCode", "value": "DE" },
+            { "name": "q", "value": "Shorts viral trend" },
+            { "name": "maxResults", "value": 10 }
+          ]
+        }
+      },
+      "id": "n1_youtube_shorts",
+      "name": "m1_youtube_shorts_scan_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -400, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/customsearch/v1",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.GoogleCustomSearchApi || $env.GoogleCustomSearchApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "cx", "value": "={{ $vars.GoogleCSEngine || $env.GoogleCSEngine }}" },
+            { "name": "q", "value": "Germany short form viral hooks hashtags" },
+            { "name": "num", "value": 10 }
+          ]
+        }
+      },
+      "id": "n1_google_cse",
+      "name": "m1_google_cse_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -150, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.social-searcher.com/v2/search",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.socialsearcherApi || $env.socialsearcherApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "q", "value": "LR viral trend Germany" },
+            { "name": "lang", "value": "de" }
+          ]
+        }
+      },
+      "id": "n1_socialsearcher",
+      "name": "m1_socialsearcher_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 100, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.phantombuster.com/api/v2/phantoms/launch",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.PhantombusterApiKey || $env.PhantombusterApiKey }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "phantomId", "value": "={{ $vars.PHANTOM_HASHTAGS_ID || 'hashtags_scanner' }}" },
+            { "name": "argument", "value": "={{ { country: 'DE', recentHours: 72 } }}" }
+          ]
+        }
+      },
+      "id": "n1_phantombuster",
+      "name": "m1_phantombuster_hashtags_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 350, -100 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "function scoreItem(i){const e=i.engagement||0,r=i.recency||0,n=i.novelty||0;const ew=Number($vars.ENGAGEMENT_W||0.45), rw=Number($vars.RECENCY_W||0.35), nw=Number($vars.NOVELTY_W||0.2);return e*ew+r*rw+n*nw}\nconst pools = [$items(\"m1_perplexity_trends_01\").map(i=>i.json), $items(\"m1_newsapi_de_01\").map(i=>i.json), $items(\"m1_youtube_shorts_scan_01\").map(i=>i.json), $items(\"m1_google_cse_01\").map(i=>i.json), $items(\"m1_socialsearcher_01\").map(i=>i.json), $items(\"m1_phantombuster_hashtags_01\").map(i=>i.json)];\nconst merged = [].concat(...pools).filter(Boolean).map((x,idx)=>({ ...x, ViralScore: scoreItem(x), _idx: idx }));\nmerged.sort((a,b)=>b.ViralScore - a.ViralScore);\nreturn merged.slice(0,50).map(x=>({ json: x }));"
+      },
+      "id": "n1_fusion_scoring",
+      "name": "m1_fusion_scoring_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 600, -100 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const seen={};const out=[];for (const item of $items()){const key=(item.json.title||item.json.id||JSON.stringify(item.json)).slice(0,128);if(seen[key]) continue;seen[key]=1;out.push(item);}return out;"
+      },
+      "id": "n1_dedup_24h",
+      "name": "m1_dedup_24h_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 850, -100 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const thr = Number($vars.VIRAL_SCORE_THRESHOLD || $env.VIRAL_SCORE_THRESHOLD || 0.7);\nreturn $items().filter(i=>Number(i.json.ViralScore||0) >= thr);"
+      },
+      "id": "n1_viral_gate",
+      "name": "m1_gate_viral_score",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1100, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "{{ $vars.anthropicApi || $env.anthropicApi }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-4.1-opus" },
+            { "name": "max_tokens", "value": 2048 },
+            { "name": "messages", "value": "={{ [{role:'user', content:`Create 10–20 3-beat story arcs and 3 hooks per arc (POV/Impossible/Humor/FOMO/Social Proof). Generate dynamic prompts for image/video/avatar/audio using prompts.yaml constraints. Camera preset: ${$json.camera_preset||'orbit_dolly_in_45deg_5s'}. Return JSON structured fields: arcs, hooks, runway_prompt, flux_image_prompt, portal_prompt.`}] }}" }
+          ]
+        }
+      },
+      "id": "n1_claude_ideation",
+      "name": "m1_claude_ideation_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1350, -100 ]
+    },
+    {
+      "parameters": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/{{ $vars.SHEET_INFOS_ID || $env.SHEET_INFOS_ID }}/values/Content_Log!A1:append?valueInputOption=RAW",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.GoogleSheetsAPI || $env.GoogleSheetsAPI }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "values", "value": "={{ [[ $json.runId || $flow.get('runId') || $now.toISO(), $json.ViralScore || '', $json.runway_prompt || '', $json.flux_image_prompt || '', $json.portal_prompt || '' ]] }}" }
+          ]
+        }
+      },
+      "id": "n1_log_sheet",
+      "name": "m1_log_to_sheet_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1600, -100 ]
+,
+    {
+      "parameters": {
+        "url": "https://sheets.googleapis.com/v4/spreadsheets/{{ $vars.SHEET_IMAGES_ID || $env.SHEET_IMAGES_ID }}/values/Products!A2:D200?valueRenderOption=UNFORMATTED_VALUE",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.GoogleSheetsAPI || $env.GoogleSheetsAPI }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n2_products_sheet",
+      "name": "m2_products_sheet_load",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -1200, 250 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const rows = ($json.values||[]).map(r=>({id:r[0], title:r[1], image_url:r[2], tags:r[3]})).filter(x=>x.id);\nconst pick = $json.product_override || rows[Math.floor(Math.random()*rows.length)] || {};\nreturn [{ product: pick }];"
+      },
+      "id": "n2_product_pick",
+      "name": "m2_product_selector_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -950, 250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.remove.bg/v1.0/removebg",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Api-Key", "value": "{{ $vars.removebgApi || $env.removebgApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.product.image_url }}" },
+            { "name": "size", "value": "auto" },
+            { "name": "format", "value": "png" }
+          ]
+        }
+      },
+      "id": "n2_bg_remove_primary",
+      "name": "m2_bg_remove_removebg_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -700, 250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.fal.ai/v1/play/fal-ai/birefnet",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.product.image_url }}" },
+            { "name": "output_format", "value": "png" }
+          ]
+        }
+      },
+      "id": "n2_bg_remove_fallback",
+      "name": "m2_bg_remove_fal_birefnet_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -450, 150 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const primary = $items('m2_bg_remove_removebg_01')[0]?.json || {};\nconst fallback = $items('m2_bg_remove_fal_birefnet_01')[0]?.json || {};\nconst png_url = primary.data?.result_b64 || primary.data?.url || primary.url || fallback.data?.url || fallback.url || '';\nreturn [{ product_rgba_url: png_url || $json.product.image_url }];"
+      },
+      "id": "n2_bg_remove_pick",
+      "name": "m2_bg_remove_pick_best",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -200, 250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.fal.ai/v1/play/fal-ai/flux/dev",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "prompt", "value": "={{ $json.flux_image_prompt || 'Ultra-realistic crystal/glass, black/gold, volumetric lighting, caustics, studio; LR logo reflection subtle; 4K master' }}" },
+            { "name": "image_reference_url", "value": "={{ $json.product_rgba_url }}" },
+            { "name": "num_images", "value": 3 }
+          ]
+        }
+      },
+      "id": "n2_flux_images",
+      "name": "m2_flux_glass_variations_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 50, 250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.fal.ai/v1/play/fal-ai/tripo3d",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.product_rgba_url }}" }
+          ]
+        }
+      },
+      "id": "n2_tripo3d",
+      "name": "m2_tripo3d_from_image_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 300, 250 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.runwayml.com/v1/gen4/text-to-video",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.RunwayApi || $env.RunwayApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "prompt", "value": "={{ $json.runway_prompt }}" },
+            { "name": "aspect_ratio", "value": "9:16" },
+            { "name": "resolution", "value": "1080p" },
+            { "name": "duration", "value": 10 }
+          ]
+        }
+      },
+      "id": "n2_runway_animal",
+      "name": "m2_runway_animal_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 550, 200 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.lumalabs.ai/dream-machine/v1/generations",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.LumaLabsApi || $env.LumaLabsApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "prompt", "value": "={{ $json.runway_prompt }}" },
+            { "name": "aspect_ratio", "value": "9:16" },
+            { "name": "duration", "value": 10 }
+          ]
+        }
+      },
+      "id": "n2_luma_fallback",
+      "name": "m2_luma_dm15_fallback_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 550, 400 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const r = $items('m2_runway_animal_01')[0]?.json || {};\nconst l = $items('m2_luma_dm15_fallback_01')[0]?.json || {};\nconst vid = r.video_url || r.data?.video_url || r.output?.url || l.video_url || l.data?.video_url || l.output?.url || '';\nreturn [{ source_video_url: vid }];"
+      },
+      "id": "n2_pick_best_video",
+      "name": "m2_pick_best_video_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 800, 300 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.CompositorApiUrl || 'https://api.bannerbear.com/v2/videos' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.CompositorApiKey || $vars.BannerbearApi || $env.BannerbearApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
+            { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+          ]
+        }
+      },
+      "id": "n2_watermark_video",
+      "name": "m2_bannerbear_watermark_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1050, 300 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const out = $json.final_video_url || $json.data?.video_url || $json.url || $json.output?.url || '';\nif(!out) throw new Error('Watermark output missing final_video_url');\nreturn [{ final_video_url: out, hosting_provider: ($vars.CompositorApiUrl?'Compositor':'Bannerbear') }];"
+      },
+      "id": "n2_set_final_video_url",
+      "name": "m2_set_final_video_url_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1300, 300 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const baseCaption = $json.caption || 'Luxus, Klarheit und Power. Tap für Details.';\nconst disclaimers = ['Ergebnisse variieren. Keine Einkommensgarantie.','Keine Heilversprechen. Entertainment/Info-Zwecke.'];\nconst withDisclaimer = baseCaption + '\\n\\n' + disclaimers.join(' ');\nconst hashtags = $json.hashtags || ['#luxury','#glass','#lion','#viral','#shorts'];\nreturn [{ caption: withDisclaimer, hashtags }];"
+      },
+      "id": "n2_caption_disclaimer",
+      "name": "m2_caption_append_disclaimers_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1550, 300 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const v = $json.final_video_url || '';\nconst arOk = true;\nif (!v) throw new Error('QC: final_video_url missing');\nreturn [{ qc_video_ready: true }];"
+      },
+      "id": "n2_qc_gate",
+      "name": "m2_qc_video_gate_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1800, 300 ]
+    }
+
+    }
   ],
   "connections": {
     "m0_webhook_lr_run": {
@@ -429,6 +926,304 @@
           }
         ]
       ]
+    }
+,
+    "m0_logo_set_ready": {
+      "main": [
+        [
+          {
+            "node": "m1_perplexity_trends_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_perplexity_trends_01": {
+      "main": [
+        [
+          {
+            "node": "m1_newsapi_de_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_newsapi_de_01": {
+      "main": [
+        [
+          {
+            "node": "m1_youtube_shorts_scan_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_youtube_shorts_scan_01": {
+      "main": [
+        [
+          {
+            "node": "m1_google_cse_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_google_cse_01": {
+      "main": [
+        [
+          {
+            "node": "m1_socialsearcher_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_socialsearcher_01": {
+      "main": [
+        [
+          {
+            "node": "m1_phantombuster_hashtags_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_phantombuster_hashtags_01": {
+      "main": [
+        [
+          {
+            "node": "m1_fusion_scoring_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_fusion_scoring_01": {
+      "main": [
+        [
+          {
+            "node": "m1_dedup_24h_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_dedup_24h_01": {
+      "main": [
+        [
+          {
+            "node": "m1_gate_viral_score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_gate_viral_score": {
+      "main": [
+        [
+          {
+            "node": "m1_claude_ideation_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_claude_ideation_01": {
+      "main": [
+        [
+          {
+            "node": "m1_log_to_sheet_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m0_linter_header_policy",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+,
+    "m1_log_to_sheet_01": {
+      "main": [
+        [
+          {
+            "node": "m2_products_sheet_load",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_products_sheet_load": {
+      "main": [
+        [
+          {
+            "node": "m2_product_selector_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_product_selector_01": {
+      "main": [
+        [
+          {
+            "node": "m2_bg_remove_removebg_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m2_bg_remove_fal_birefnet_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m2_bg_remove_removebg_01": {
+      "main": [
+        [
+          {
+            "node": "m2_bg_remove_pick_best",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_bg_remove_fal_birefnet_01": {
+      "main": [
+        [
+          {
+            "node": "m2_bg_remove_pick_best",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_bg_remove_pick_best": {
+      "main": [
+        [
+          {
+            "node": "m2_flux_glass_variations_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m2_tripo3d_from_image_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m2_flux_glass_variations_01": {
+      "main": [
+        [
+          {
+            "node": "m2_runway_animal_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_tripo3d_from_image_01": {
+      "main": [
+        [
+          {
+            "node": "m2_runway_animal_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_runway_animal_01": {
+      "main": [
+        [
+          {
+            "node": "m2_pick_best_video_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_luma_dm15_fallback_01": {
+      "main": [
+        [
+          {
+            "node": "m2_pick_best_video_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_pick_best_video_01": {
+      "main": [
+        [
+          {
+            "node": "m2_bannerbear_watermark_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_bannerbear_watermark_01": {
+      "main": [
+        [
+          {
+            "node": "m2_set_final_video_url_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_set_final_video_url_01": {
+      "main": [
+        [
+          {
+            "node": "m2_caption_append_disclaimers_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_caption_append_disclaimers_01": {
+      "main": [
+        [
+          {
+            "node": "m2_qc_video_gate_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m5_url_head_prep",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+
     }
   },
   "active": false,
