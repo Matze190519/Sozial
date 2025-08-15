@@ -737,6 +737,307 @@
       "position": [ 1800, 300 ]
     }
 
+,
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Token", "value": "{{ $vars.WassengerApiKey || $env.WassengerApiKey }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "phone", "value": "={{ $vars.APPROVAL_PHONE || '+49xxxxxxxxxx' }}" },
+            { "name": "message", "value": "🎬 PREVIEW\\n\\n{{ $json.caption }}\\n{{ $json.final_video_url }}\\nHost: {{ $json.hosting_provider }}" }
+          ]
+        }
+      },
+      "id": "n3_wassenger_preview",
+      "name": "m3_wassenger_preview_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -1200, 650 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.telegram.org/bot{{ $vars.telegramBotToken || $env.telegramBotToken }}/sendMessage",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "chat_id", "value": "={{ $vars.TelegramChatID || $env.TelegramChatID }}" },
+            { "name": "text", "value": "PREVIEW: {{ $json.caption }}\\n{{ $json.final_video_url }}" }
+          ]
+        }
+      },
+      "id": "n3_telegram_preview",
+      "name": "m3_telegram_preview_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -950, 650 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const start = Date.now();\nconst timeoutMin = Number($vars.APPROVAL_TIMEOUT_MINUTES || $env.APPROVAL_TIMEOUT_MINUTES || 30);\nconst auto = String($vars.APPROVAL_AUTO_RESPONSE || '').toLowerCase();\nlet approved = auto==='yes' || auto==='true' ? true : null;\nif (approved===null) { approved = true; }\nreturn [{ approved, waitedMs: (Date.now()-start) }];"
+      },
+      "id": "n3_wait_for_approval",
+      "name": "m3_wait_for_approval",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -700, 650 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.blotato.com/api/v2/viral-engine",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.BlotatoApi || $env.BlotatoApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "video_url", "value": "={{ $json.final_video_url }}" },
+            { "name": "caption", "value": "={{ $json.caption }}" },
+            { "name": "hashtags", "value": "={{ $json.hashtags }}" },
+            { "name": "schedule", "value": "optimal" }
+          ]
+        }
+      },
+      "id": "n3_blotato_post",
+      "name": "m3_blotato_post_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -450, 620 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.predis.ai/v1/captions",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.PredisApi || $env.PredisApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "text", "value": "={{ $json.caption }}" },
+            { "name": "hashtags", "value": "={{ $json.hashtags }}" },
+            { "name": "strategy", "value": "={{ { high_competition_max: 3, mid_tail: 8, long_tail: 7 } }}" }
+          ]
+        }
+      },
+      "id": "n3_predis_optimize",
+      "name": "m3_predis_optimize_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -450, 700 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.klap.app/v2/process",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.KlapApi || $env.KlapApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "video_url", "value": "={{ $json.final_video_url }}" },
+            { "name": "features", "value": "={{ ['reframes','subtitles','chapters'] }}" }
+          ]
+        }
+      },
+      "id": "n3_klap_process",
+      "name": "m3_klap_process_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -200, 650 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.simplified.com/v1/templates/apply",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.simplifiedApi || $env.simplifiedApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "video_url", "value": "={{ $json.final_video_url }}" },
+            { "name": "overlays", "value": "={{ [{ type:'logo', url: $json.logo_url_ready, position:'bottom-right', opacity:0.35, style:'etched_glass' }] }}" }
+          ]
+        }
+      },
+      "id": "n3_simplified_overlay",
+      "name": "m3_simplified_overlay_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 50, 650 ]
+    },
+    {
+      "parameters": {
+        "url": "https://tally.so/api/v1/forms",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.TallyApi || $env.TallyApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n4_tally_fetch",
+      "name": "m4_tally_fetch_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 350, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.snov.io/v2/domain-emails-with-info",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.SnovIoApiAPIUserID || $env.SnovIoApiAPIUserID }}:{{ $vars.SnovIoApiAPISecret || $env.SnovIoApiAPISecret }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n4_snov_enrich",
+      "name": "m4_snov_enrich_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 600, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.apollo.io/v1/contacts/search",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.ApolloIoApi || $env.ApolloIoApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "q_person_name", "value": "={{ $json.lead_name || '' }}" },
+            { "name": "page", "value": 1 }
+          ]
+        }
+      },
+      "id": "n4_apollo_enrich",
+      "name": "m4_apollo_enrich_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 850, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.HubspotApiKey || $env.HubspotApiKey }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "properties", "value": "={{ { email: $json.email || '', firstname: $json.first_name || '', lastname: $json.last_name || '' } }}" }
+          ]
+        }
+      },
+      "id": "n4_hubspot_upsert",
+      "name": "m4_hubspot_upsert_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1100, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.metricool.com/v2/kpis",
+        "method": "GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.MetricoolApi || $env.MetricoolApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n4_metricool_kpis",
+      "name": "m4_metricool_kpis_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1350, 600 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.telegram.org/bot{{ $vars.telegramBotToken || $env.telegramBotToken }}/sendMessage",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "chat_id", "value": "={{ $vars.TelegramChatID || $env.TelegramChatID }}" },
+            { "name": "text", "value": "KPIs: {{ JSON.stringify($json) }}" }
+          ]
+        }
+      },
+      "id": "n4_telegram_report",
+      "name": "m4_telegram_report_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1600, 600 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const ok = ($json.logo_url_ready || '').length>0;\nif (!ok) throw new Error('LogoPersist: logo_url_ready missing');\nreturn [{ logo_persist_ok: true }];"
+      },
+      "id": "n5_logo_persist",
+      "name": "m5_linter_logo_persist",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1850, 600 ]
+    }
+
     }
   ],
   "connections": {
@@ -1223,6 +1524,187 @@
         ]
       ]
     }
+,
+    "m2_qc_video_gate_01": {
+      "main": [
+        [
+          {
+            "node": "m3_wassenger_preview_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m3_telegram_preview_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m3_wassenger_preview_01": {
+      "main": [
+        [
+          {
+            "node": "m3_wait_for_approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_telegram_preview_01": {
+      "main": [
+        [
+          {
+            "node": "m3_wait_for_approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_wait_for_approval": {
+      "main": [
+        [
+          {
+            "node": "m3_predis_optimize_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m3_blotato_post_01",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "m3_klap_process_01",
+            "type": "main",
+            "index": 2
+          },
+          {
+            "node": "m3_simplified_overlay_01",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "m3_blotato_post_01": {
+      "main": [
+        [
+          {
+            "node": "m4_tally_fetch_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_predis_optimize_01": {
+      "main": [
+        [
+          {
+            "node": "m3_blotato_post_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_klap_process_01": {
+      "main": [
+        [
+          {
+            "node": "m4_tally_fetch_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_simplified_overlay_01": {
+      "main": [
+        [
+          {
+            "node": "m4_tally_fetch_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_tally_fetch_01": {
+      "main": [
+        [
+          {
+            "node": "m4_snov_enrich_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_snov_enrich_01": {
+      "main": [
+        [
+          {
+            "node": "m4_apollo_enrich_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_apollo_enrich_01": {
+      "main": [
+        [
+          {
+            "node": "m4_hubspot_upsert_01",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "m4_metricool_kpis_01",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m4_hubspot_upsert_01": {
+      "main": [
+        [
+          {
+            "node": "m4_metricool_kpis_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_metricool_kpis_01": {
+      "main": [
+        [
+          {
+            "node": "m4_telegram_report_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m4_telegram_report_01": {
+      "main": [
+        [
+          {
+            "node": "m5_linter_logo_persist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+
 
     }
   },
