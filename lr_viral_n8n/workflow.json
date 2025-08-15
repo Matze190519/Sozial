@@ -1,0 +1,441 @@
+{
+  "name": "LR Viral n8n Cloud System",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "lr-run",
+        "responseMode": "lastNode",
+        "options": {
+          "responseData": "auto",
+          "responseCode": 200
+        }
+      },
+      "id": "n0_webhook_lr_run",
+      "name": "m0_webhook_lr_run",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [ -1200, -600 ]
+    },
+    {
+      "parameters": {
+        "rule": "custom",
+        "cronExpressions": [
+          {
+            "hour": "*/3",
+            "minute": "0"
+          }
+        ]
+      },
+      "id": "n0_cron_3h",
+      "name": "m0_schedule_cron_3h",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 2,
+      "position": [ -1200, -300 ]
+    },
+    {
+      "parameters": {
+        "mode": "wait"
+      },
+      "id": "n0_merge_entry",
+      "name": "m0_merge_webhook_and_cron",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [ -900, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const runId = $now.toISO();\nconst seed = Math.floor(Math.random()*1e9);\nreturn [{ runId, seed }];"
+      },
+      "id": "n0_runid_seed",
+      "name": "m0_runid_seed_generator",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -700, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const required = [\n  'anthropicApi','PerplexityApi','FalAiApi','RunwayApi','LumaLabsApi',\n  'HeyGenApi','ElevenlabsApi','BannerbearApi','CompositorApiKey',\n  'BlotatoApi','PredisApi','KlapApi','simplifiedApi','MetricoolApi',\n  'TallyApi','SnovIoApiAPIUserID','SnovIoApiAPISecret','ApolloIoApi','HubspotApiKey',\n  'WassengerApiKey','telegramBotToken','TelegramChatID','GoogleSheetsAPI',\n  'SHEET_IMAGES_ID','SHEET_INFOS_ID','VIRAL_SCORE_THRESHOLD','APPROVAL_TIMEOUT_MINUTES',\n  'COST_LIMIT_USD_PER_DAY','RETRY_ATTEMPTS','MAX_IMAGES_PER_RUN','MAX_VIDEOS_PER_RUN',\n  'ENABLE_ANIMAL_LANE','ENABLE_PORTAL_LANE'\n];\nconst missing = [];\nfor (const k of required) {\n  const v = $vars[k] ?? $env[k];\n  if (v === undefined || v === null || v === '') missing.push(k);\n}\nlet camera_preset = $json.camera_preset || 'orbit_dolly_in_45deg_5s';\nlet logo_url_source = $json.logo_url_source || $vars.LR_LOGO_URL || $env.LR_LOGO_URL;\nif (logo_url_source && /cdn\\.example\\.com/.test(logo_url_source)) logo_url_source = '';\nif (missing.length > 0) {\n  throw new Error('Missing required vars: ' + missing.join(', '));\n}\nreturn [{ camera_preset, logo_url_source }];"
+      },
+      "id": "n0_vars_defaults",
+      "name": "m0_vars_defaults_00",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -500, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{ totalCostUSD: 0, costBudgetUSD: Number($vars.COST_LIMIT_USD_PER_DAY || $env.COST_LIMIT_USD_PER_DAY || 50), runBudgetUSD: Number($vars.COST_LIMIT_USD_PER_RUN || 20) }];"
+      },
+      "id": "n0_cost_init",
+      "name": "m0_cost_meter_init",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ -300, -450 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.logo_url_source }}",
+        "allowUnauthorizedCerts": false,
+        "responseFormat": "file",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n0_logo_fetch",
+      "name": "m0_logo_fetch_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -120, -520 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.remove.bg/v1.0/removebg",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Api-Key", "value": "{{ $vars.removebgApi || $env.removebgApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.logo_url_source }}" },
+            { "name": "size", "value": "auto" },
+            { "name": "format", "value": "png" }
+          ]
+        }
+      },
+      "id": "n0_logo_removebg",
+      "name": "m0_logo_removebg_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 120, -520 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $vars.CompositorApiUrl || 'https://api.bannerbear.com/v2/images' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.CompositorApiKey || $vars.BannerbearApi || $env.BannerbearApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.logo_url_source }}" },
+            { "name": "format", "value": "png" },
+            { "name": "public", "value": true }
+          ]
+        }
+      },
+      "id": "n0_logo_host",
+      "name": "m0_logo_host_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 360, -520 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const url = $json.data && ($json.data.url || $json.data.image_url || $json.image_url) || $json.url || $json.logo_url_source;\nreturn [{ logo_url_ready: url }];"
+      },
+      "id": "n0_logo_set",
+      "name": "m0_logo_set_ready",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 600, -520 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const { items } = $workflow;\nfunction walk(node, acc=[]) {\n  if (!node || typeof node !== 'object') return acc;\n  for (const k of Object.keys(node)) {\n    const v = node[k];\n    if (k === 'headerParametersUi') acc.push(true);\n    if (v && typeof v === 'object') walk(v, acc);\n  }\n  return acc;\n}\nconst hasLegacy = walk(items).length > 0;\nif (hasLegacy) throw new Error('HeaderPolicy Linter: headerParametersUi found.');\nreturn items;"
+      },
+      "id": "n0_lint_header_policy",
+      "name": "m0_linter_header_policy",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 850, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const minNodes = 150;\nconst total = $workflow.items ? $workflow.items.length : 0;\nif (total < minNodes) throw new Error('NodeCount Linter: nodes='+total+' < '+minNodes);\nreturn [{ nodeCount: total }];"
+      },
+      "id": "n5_nodecount_linter",
+      "name": "m5_linter_node_count",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1100, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const forbidden = [\n  'garantiert reich','100% sicher','garantiertes einkommen','von 0 auf 5000€ in 30 tagen','risikofrei garantiert'\n];\nconst txt = JSON.stringify($json) + ' ' + JSON.stringify($items());\nfor (const f of forbidden) {\n  const re = new RegExp(f, 'i');\n  if (re.test(txt)) throw new Error('ForbiddenClaims: Violation: '+f);\n}\nreturn items;"
+      },
+      "id": "n5_forbidden_claims",
+      "name": "m5_linter_forbidden_claims",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1350, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const total = Number($json.totalCostUSD || 0);\nconst dayBudget = Number($vars.COST_LIMIT_USD_PER_DAY || $env.COST_LIMIT_USD_PER_DAY || 50);\nconst runBudget = Number($json.runBudgetUSD || 20);\nif (total > dayBudget || total > runBudget) throw new Error('CostGuard: Budget exceeded: '+total);\nreturn items;"
+      },
+      "id": "n5_cost_guard",
+      "name": "m5_guard_cost",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1600, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const failures = Number($flow.get('error_count') || 0) + 0;\nconst max = Number($vars.RETRY_ATTEMPTS || $env.RETRY_ATTEMPTS || 3);\nif (failures >= max) throw new Error('CircuitBreaker: Too many errors');\nreturn [{ failures, max }];"
+      },
+      "id": "n5_circuit_breaker",
+      "name": "m5_guard_circuit_breaker",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 1850, -450 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const url = $json.final_video_url || '';\nif (!url) throw new Error('URLHeadCheck: final_video_url missing');\nreturn [{ url }];"
+      },
+      "id": "n5_url_prep",
+      "name": "m5_url_head_prep",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 2100, -520 ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {},
+        "allowUnauthorizedCerts": false,
+        "responseFormat": "string",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "id": "n5_url_head",
+      "name": "m5_url_head_check",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2350, -520 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const status = $json.statusCode || 200;\nif (status >= 400) throw new Error('URLHeadCheck: not reachable status='+status);\nreturn items;"
+      },
+      "id": "n5_url_head_assert",
+      "name": "m5_url_head_assert",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 2600, -520 ]
+    }
+  ],
+  "connections": {
+    "m0_webhook_lr_run": {
+      "main": [
+        [
+          {
+            "node": "m0_merge_webhook_and_cron",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_schedule_cron_3h": {
+      "main": [
+        [
+          {
+            "node": "m0_merge_webhook_and_cron",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "m0_merge_webhook_and_cron": {
+      "main": [
+        [
+          {
+            "node": "m0_runid_seed_generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_runid_seed_generator": {
+      "main": [
+        [
+          {
+            "node": "m0_vars_defaults_00",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_vars_defaults_00": {
+      "main": [
+        [
+          {
+            "node": "m0_cost_meter_init",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_cost_meter_init": {
+      "main": [
+        [
+          {
+            "node": "m0_logo_fetch_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_logo_fetch_01": {
+      "main": [
+        [
+          {
+            "node": "m0_logo_removebg_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_logo_removebg_01": {
+      "main": [
+        [
+          {
+            "node": "m0_logo_host_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_logo_host_01": {
+      "main": [
+        [
+          {
+            "node": "m0_logo_set_ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_logo_set_ready": {
+      "main": [
+        [
+          {
+            "node": "m0_linter_header_policy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m0_linter_header_policy": {
+      "main": [
+        [
+          {
+            "node": "m5_linter_node_count",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_linter_node_count": {
+      "main": [
+        [
+          {
+            "node": "m5_linter_forbidden_claims",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_linter_forbidden_claims": {
+      "main": [
+        [
+          {
+            "node": "m5_guard_cost",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_guard_cost": {
+      "main": [
+        [
+          {
+            "node": "m5_guard_circuit_breaker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_guard_circuit_breaker": {
+      "main": [
+        [
+          {
+            "node": "m5_url_head_prep",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_url_head_prep": {
+      "main": [
+        [
+          {
+            "node": "m5_url_head_check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m5_url_head_check": {
+      "main": [
+        [
+          {
+            "node": "m5_url_head_assert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  },
+  "pinData": {},
+  "staticData": {}
+}

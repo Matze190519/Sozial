@@ -1,0 +1,133 @@
+image:
+  glass_transform:
+    base: |
+      Ultra-realistic crystal/glass, black/gold palette, volumetric lighting, caustics, studio environment,
+      subtle LR logo reflection without warping any text, 4K master, sRGB, clean highlights.
+    scenes:
+      - luxury_black_gold_composition
+      - crystal_caustics_showcase
+      - premium_packaging_glass_table
+      - macro_logo_reflection_on_glass
+    modifiers:
+      - volumetric_beams_soft
+      - etched_glass_overlay
+      - subtle_particles
+      - high_contrast_edges
+      - cinematic_color_grade
+
+video:
+  lanes:
+    animal:
+      prompts:
+        template: |
+          hyperreal luxury black/gold glass; lion cameo as reflection/shadow/eye highlight; micro-impossible moment in first 2s;
+          camera={{camera_preset}}; temporal_consistency=true; object_persistence=true; particles subtle; watermark persistent;
+          9:16 1080p; 8–12s
+      camera_moves:
+        - orbit_dolly_in_45deg_5s
+        - push_in_eye_focus
+        - pull_back_reveal
+      qc:
+        beats: [impossible_moment, lion_cameo, cta_reveal]
+        constraints:
+          fps: [24, 30]
+          duration_s: [8, 12]
+          resolution: "1080x1920"
+          logo_visible_pct_min: 95
+          eye_sharp: true
+    hologram_portal:
+      keyframes:
+        - crack
+        - light_leak
+        - crystal_ring
+        - silhouette_shadow_only
+        - logo_etch
+      camera:
+        - slow_dolly_in
+        - arc_left_30deg
+        - top_down_descend
+      webxr_hints:
+        - include_qr_hint
+        - maintain_depth_layers
+      prompts:
+        template: |
+          open crystal portal; volumetric beams; glass caustics; black/gold luxury; parallax; {camera_move};
+          watermark persistent; 9:16 1080p; 8–12s
+
+avatar:
+  scripts:
+    Lina: |
+      Hi, ich bin Lina. In 60 Sekunden zeige ich dir das LR System:
+      kurz, witzig, klar – am Ende ein CTA mit QR/WhatsApp.
+    Matze: |
+      Kurzer Dialog mit dem Löwen – Humor + klarer Nutzen, dann CTA.
+    Ich: |
+      Locker, motivierend, ohne übertriebene Versprechen. CTA sauber positioniert.
+  tonalitaeten:
+    - humor
+    - pov
+    - fomo
+    - social_proof
+    - helpful
+
+hooks:
+  viral_patterns:
+    pov: ["POV: Löwe übernimmt deinen Post → {result}"]
+    impossible: ["Ich: 'Nicht drücken!' – Löwe: drückt → viral"]
+    humor: ["Baby-Humor, Water-Up Illusion, Meme-Mascot Lion"]
+    fomo: ["Nur heute", "Letzte Chance", "Limitierte Spots"]
+    social_proof: ["Schon 10k+ verwenden das Muster"]
+  score_modifier:
+    engagement_weight: 0.45
+    recency_weight: 0.35
+    novelty_weight: 0.20
+
+hashtags:
+  auto_generation:
+    languages: [DE, EN]
+    max_count: 18
+    strategy:
+      high_competition_max: 3
+      mid_tail: 8
+      long_tail: 7
+
+audio:
+  binaural:
+    base_freq_hz: 432
+    target_lufs: -20
+    spatial: binaural
+    textures: ["glass_whisper", "soft_wind", "light_caustics"]
+
+watermark:
+  style: etched_glass
+  opacity: 0.35
+  position: bottom-right
+  persistence_target_pct: 95
+
+cta:
+  variants:
+    default: ["Tap für Details", "Scan den QR", "Schreib mir ‘INFO’"]
+    webar_hint: ["Öffne das Portal via QR"]
+    lead: ["Formular ausfüllen – 30 Sek."]
+
+quality_checks:
+  global:
+    image_min_width: 1080
+    colorspace: sRGB
+  video:
+    aspect: "9:16"
+    resolution: "1080p"
+    fps_range: [24, 30]
+    duration_range_s: [8, 12]
+    audio_sync_ms_max: 80
+
+safety:
+  forbidden_claims:
+    - garantiert reich
+    - 100% sicher
+    - garantiertes einkommen
+    - von 0 auf 5000€ in 30 tagen
+    - risikofrei garantiert
+  required_disclaimers:
+    - Ergebnisse variieren. Keine Einkommensgarantie.
+    - Keine Heilversprechen. Entertainment/Info-Zwecke.
