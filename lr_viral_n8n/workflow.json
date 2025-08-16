@@ -1338,8 +1338,8 @@
     }
 
 
-    ,
-    ,
+    
+    
     {
       "parameters": {
         "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
@@ -1499,7 +1499,7 @@
       "typeVersion": 2,
       "position": [ 250, 700 ]
     },
-    ,
+    
     {
       "parameters": {
         "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
@@ -1584,59 +1584,6 @@
       "typeVersion": 4,
       "position": [ -50, 120 ]
     },
-    {
-      "parameters": {
-        "url": "https://api.perplexity.ai/chat/completions",
-        "method": "POST",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            { "name": "Authorization", "value": "Bearer {{ $vars.PerplexityApi || $env.PerplexityApi }}" },
-            { "name": "Content-Type", "value": "application/json" }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "model", "value": "sonar-reasoning-pro" },
-            { "name": "return_citations", "value": true },
-            { "name": "messages", "value": "={{ [{role:'user', content:`Scan last 72h DE viral trends for short-form (Lifestyle/Freiheit/Online-Business). Extract 10 hooks and 10 hashtag patterns brand-safe. Return JSON: {hooks:[], hashtags:[], trend_notes:[]}.`}] }}" }
-          ]
-        }
-      },
-      "id": "n1_trend_perplexity_inject",
-      "name": "m1_trend_perplexity_inject_02",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [ 1225, -60 ]
-    },
-    {
-      "parameters": {
-        "url": "https://api.anthropic.com/v1/messages",
-        "method": "POST",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            { "name": "x-api-key", "value": "{{ $vars.anthropicApi || $env.anthropicApi }}" },
-            { "name": "anthropic-version", "value": "2023-06-01" },
-            { "name": "Content-Type", "value": "application/json" }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "model", "value": "claude-4.1-opus" },
-            { "name": "max_tokens", "value": 1024 },
-            { "name": "messages", "value": "={{ [{role:'user', content:`Given trends (hooks, hashtags, notes), refine prompts for runway_prompt, flux_image_prompt, portal_prompt, and generate captions/ctas. Respect prompts.yaml constraints. Return JSON fields to merge.`}] }}" }
-          ]
-        }
-      },
-      "id": "n1_claude_hook_inject",
-      "name": "m1_claude_hook_inject_02",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [ 1290, -30 ]
-    }
 
     },
     {
