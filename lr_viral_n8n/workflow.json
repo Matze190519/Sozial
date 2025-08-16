@@ -618,7 +618,6 @@
       "position": [ 300, 250 ]
     },
     {
-    {
       "parameters": {
         "functionCode": "function pickUrl(arr){if(!arr)return'';for(const it of arr){const j=it?.json||{};if(j.url)return j.url;if(j.image_url)return j.image_url;if(j.result_url)return j.result_url;}return '';}const leo=$items('m2_leonardo_glass_variations_01');const flux=$items('m2_flux_glass_variations_01');const biref=$items('m2_bg_remove_fal_birefnet_01');const leoUrl=pickUrl(leo);const fluxUrl=pickUrl(flux);const biUrl=pickUrl(biref);const best=leoUrl||fluxUrl||biUrl||$json.product_rgba_url||'';return [{ best_image_url: best }];"
       },
@@ -2333,17 +2332,6 @@
       ]
     },
     "m2_audio_qc_gate_01": {
-      "main": [
-        [
-          {
-            "node": "m2_compositor_mux_audio_01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "m2_bannerbear_watermark_01": {
       "main": [
         [
           {
