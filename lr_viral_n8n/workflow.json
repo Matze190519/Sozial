@@ -164,7 +164,7 @@
     },
     {
       "parameters": {
-        "functionCode": "const minNodes = 150;\nconst total = $workflow.items ? $workflow.items.length : 0;\nif (total < minNodes) throw new Error('NodeCount Linter: nodes='+total+' < '+minNodes);\nreturn [{ nodeCount: total }];"
+        "functionCode": "const minNodes = 150; const maxNodes = 190;\nconst total = $workflow.items ? $workflow.items.length : 0;\nif (total < minNodes) throw new Error('NodeCount Linter: nodes='+total+' < '+minNodes);\nif (total > maxNodes) throw new Error('NodeCount Linter: nodes='+total+' > '+maxNodes);\nreturn [{ nodeCount: total }];"
       },
       "id": "n5_nodecount_linter",
       "name": "m5_linter_node_count",
@@ -634,7 +634,8 @@
             { "name": "prompt", "value": "={{ $json.runway_prompt }}" },
             { "name": "aspect_ratio", "value": "9:16" },
             { "name": "resolution", "value": "1080p" },
-            { "name": "duration", "value": 10 }
+            { "name": "duration", "value": 10 },
+            { "name": "version", "value": "gen-4.2" }
           ]
         }
       },
@@ -660,7 +661,8 @@
           "parameters": [
             { "name": "prompt", "value": "={{ $json.runway_prompt }}" },
             { "name": "aspect_ratio", "value": "9:16" },
-            { "name": "duration", "value": 10 }
+            { "name": "duration", "value": 10 },
+            { "name": "version", "value": "gen-4.2" }
           ]
         }
       },
@@ -696,7 +698,7 @@
           "parameters": [
             { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
             { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
-            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass', qr: (($vars.QR_IMAGE_URL || $json.qr_image_url) ? { url: ($vars.QR_IMAGE_URL || $json.qr_image_url), position: ($vars.QR_POSITION || 'top-right'), size: ($vars.QR_SIZE || '300x300') } : undefined) } }}" }
           ]
         }
       },
@@ -1214,7 +1216,7 @@
             { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
             { "name": "audio_url", "value": "={{ $json.audio_url || $items('m2_elevenlabs_asmr_01')[0]?.json?.audio_url || '' }}" },
             { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
-            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass', qr: (($vars.QR_IMAGE_URL || $json.qr_image_url) ? { url: ($vars.QR_IMAGE_URL || $json.qr_image_url), position: ($vars.QR_POSITION || 'top-right'), size: ($vars.QR_SIZE || '300x300') } : undefined) } }}" }
           ]
         }
       },
@@ -1241,7 +1243,8 @@
             { "name": "prompt", "value": "={{ $json.portal_prompt }}" },
             { "name": "aspect_ratio", "value": "9:16" },
             { "name": "resolution", "value": "1080p" },
-            { "name": "duration", "value": 10 }
+            { "name": "duration", "value": 10 },
+            { "name": "version", "value": "gen-4.2" }
           ]
         }
       },
@@ -1303,7 +1306,7 @@
           "parameters": [
             { "name": "input_video_url", "value": "={{ $json.source_video_url }}" },
             { "name": "template", "value": "={{ $vars.BANNERBEAR_WATERMARK_TEMPLATE_ID }}" },
-            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass' } }}" }
+            { "name": "modifications", "value": "={{ { logo_url: $json.logo_url_ready || $vars.LR_LOGO_URL, opacity: 0.35, position: 'bottom-right', mode: 'etched_glass', qr: (($vars.QR_IMAGE_URL || $json.qr_image_url) ? { url: ($vars.QR_IMAGE_URL || $json.qr_image_url), position: ($vars.QR_POSITION || 'top-right'), size: ($vars.QR_SIZE || '300x300') } : undefined) } }}" }
           ]
         }
       },
@@ -1335,6 +1338,316 @@
     }
 
 
+    ,
+    ,
+    {
+      "parameters": {
+        "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "audio_url", "value": "={{ $json.audio_url }}" },
+          { "name": "target_lufs", "value": "={{ $vars.AUDIO_TARGET_LUFS || -20 }}" }
+        ]}
+      },
+      "id": "n2_audio_qc_check",
+      "name": "m2_audio_qc_check_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2100, 240 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const t = Number($vars.AUDIO_TARGET_LUFS||-20);const a=$json||{};const lufs=Number(a.lufs||-20);const phase_ok=!!a.phase_ok;const binaural_ok=!!a.binaural_ok;const within=Math.abs(lufs - t) <= 2;const test=String($vars.TEST_MODE||$env.TEST_MODE||'').toLowerCase()==='true';if(!(within&&phase_ok&&binaural_ok)&&!test){throw new Error('Audio-QC failed');}return [{ qc:{ lufs, phase_ok, binaural_ok, within }}];"
+      },
+      "id": "n2_audio_qc_gate",
+      "name": "m2_audio_qc_gate_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 2175, 270 ]
+    }
+
+
+    {
+      "parameters": {
+        "url": "={{ $vars.QR_API_URL || 'https://api.qrserver.com/v1/create-qr-code' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "data", "value": "={{ $vars.QR_TARGET_URL || '' }}" },
+          { "name": "size", "value": "={{ $vars.QR_SIZE || '300x300' }}" }
+        ]}
+      },
+      "id": "n2_qr_generate",
+      "name": "m2_qr_generate_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 910, 300 ]
+    }
+
+    {
+      "parameters": {
+        "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "audio_url", "value": "={{ $json.audio_url }}" },
+          { "name": "target_lufs", "value": "={{ $vars.AUDIO_TARGET_LUFS || -20 }}" }
+        ]}
+      },
+      "id": "n2_audio_qc_check",
+      "name": "m2_audio_qc_check_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2100, 240 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const t = Number($vars.AUDIO_TARGET_LUFS||-20);const a=$json||{};const lufs=Number(a.lufs||-20);const phase_ok=!!a.phase_ok;const binaural_ok=!!a.binaural_ok;const within=Math.abs(lufs - t) <= 2;const test=String($vars.TEST_MODE||$env.TEST_MODE||'').toLowerCase()==='true';if(!(within&&phase_ok&&binaural_ok)&&!test){throw new Error('Audio-QC failed');}return [{ qc:{ lufs, phase_ok, binaural_ok, within }}];"
+      },
+      "id": "n2_audio_qc_gate",
+      "name": "m2_audio_qc_gate_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 2175, 270 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.fal.ai/v1/play/fal-ai/depth-anything",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "image_url", "value": "={{ $json.product_rgba_url || $json.thumbnail_url || '' }}" }
+        ]}
+      },
+      "id": "n2_depth_map",
+      "name": "m2_depth_map_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1020, 240 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "Authorization", "value": "Bearer {{ $vars.PerplexityApi || $env.PerplexityApi }}" },
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "model", "value": "sonar-reasoning-pro" },
+          { "name": "return_citations", "value": true },
+          { "name": "messages", "value": "={{ [{role:'user', content:`Scan last 72h DE viral trends for short-form (Lifestyle/Freiheit/Online-Business). Extract 10 hooks and 10 hashtag patterns brand-safe. Return JSON: {hooks:[], hashtags:[], trend_notes:[]}.`}] }}" }
+        ]}
+      },
+      "id": "n1_trend_perplexity_inject",
+      "name": "m1_trend_perplexity_inject_02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1225, -60 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "x-api-key", "value": "{{ $vars.anthropicApi || $env.anthropicApi }}" },
+          { "name": "anthropic-version", "value": "2023-06-01" },
+          { "name": "Content-Type", "value": "application/json" }
+        ]},
+        "sendBody": true,
+        "bodyParameters": { "parameters": [
+          { "name": "model", "value": "claude-4.1-opus" },
+          { "name": "max_tokens", "value": 1024 },
+          { "name": "messages", "value": "={{ [{role:'user', content:`Given trends (hooks, hashtags, notes), refine prompts for runway_prompt, flux_image_prompt, portal_prompt, and generate captions/ctas. Respect prompts.yaml constraints. Return JSON fields to merge.`}] }}" }
+        ]}
+      },
+      "id": "n1_claude_hook_inject",
+      "name": "m1_claude_hook_inject_02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1290, -30 ]
+    }
+
+    {
+      "parameters": {
+        "functionCode": "return items;"
+      },
+      "id": "n3_distribution_merge",
+      "name": "m3_distribution_merge_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 250, 700 ]
+    },
+    ,
+    {
+      "parameters": {
+        "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "audio_url", "value": "={{ $json.audio_url }}" },
+            { "name": "target_lufs", "value": "={{ $vars.AUDIO_TARGET_LUFS || -20 }}" }
+          ]
+        }
+      },
+      "id": "n2_audio_qc_check",
+      "name": "m2_audio_qc_check_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 2100, 240 ]
+    },
+    {
+      "parameters": {
+        "functionCode": "const t = Number($vars.AUDIO_TARGET_LUFS||-20);const a=$json||{};const lufs=Number(a.lufs||-20);const phase_ok=!!a.phase_ok;const binaural_ok=!!a.binaural_ok;const within=Math.abs(lufs - t) <= 2;const test=String($vars.TEST_MODE||$env.TEST_MODE||'').toLowerCase()==='true';if(!(within&&phase_ok&&binaural_ok)&&!test){throw new Error('Audio-QC failed');}return [{ qc:{ lufs, phase_ok, binaural_ok, within }}];"
+      },
+      "id": "n2_audio_qc_gate",
+      "name": "m2_audio_qc_gate_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 2175, 270 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.fal.ai/v1/play/fal-ai/depth-anything",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "image_url", "value": "={{ $json.product_rgba_url || $json.thumbnail_url || '' }}" }
+          ]
+        }
+      },
+      "id": "n2_depth_map",
+      "name": "m2_depth_map_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1020, 240 ]
+    },
+    {
+      "parameters": {
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.LeonardoAiApi || $env.LeonardoAiApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "modelId", "value": "={{ $vars.LEONARDO_MODEL_ID || 'phoenix-v3' }}" },
+            { "name": "prompt", "value": "={{ $json.flux_image_prompt }}" },
+            { "name": "num_images", "value": 3 }
+          ]
+        }
+      },
+      "id": "n2_leonardo_glass",
+      "name": "m2_leonardo_glass_variations_01",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ -50, 120 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer {{ $vars.PerplexityApi || $env.PerplexityApi }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "sonar-reasoning-pro" },
+            { "name": "return_citations", "value": true },
+            { "name": "messages", "value": "={{ [{role:'user', content:`Scan last 72h DE viral trends for short-form (Lifestyle/Freiheit/Online-Business). Extract 10 hooks and 10 hashtag patterns brand-safe. Return JSON: {hooks:[], hashtags:[], trend_notes:[]}.`}] }}" }
+          ]
+        }
+      },
+      "id": "n1_trend_perplexity_inject",
+      "name": "m1_trend_perplexity_inject_02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1225, -60 ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "method": "POST",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "{{ $vars.anthropicApi || $env.anthropicApi }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-4.1-opus" },
+            { "name": "max_tokens", "value": 1024 },
+            { "name": "messages", "value": "={{ [{role:'user', content:`Given trends (hooks, hashtags, notes), refine prompts for runway_prompt, flux_image_prompt, portal_prompt, and generate captions/ctas. Respect prompts.yaml constraints. Return JSON fields to merge.`}] }}" }
+          ]
+        }
+      },
+      "id": "n1_claude_hook_inject",
+      "name": "m1_claude_hook_inject_02",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1290, -30 ]
+    }
+
+    },
+    {
+      "parameters": {
+        "functionCode": "return items;"
+      },
+      "id": "n3_distribution_merge",
+      "name": "m3_distribution_merge_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 250, 700 ]
     }
   ],
   "connections": {
@@ -1614,11 +1927,33 @@
         ]
       ]
     },
-    "m1_dedup_24h_01": {
+    "m1_trend_perplexity_inject_02": {
+      "main": [
+        [
+          {
+            "node": "m1_claude_hook_inject_02",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_claude_hook_inject_02": {
       "main": [
         [
           {
             "node": "m1_gate_viral_score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m1_dedup_24h_01": {
+      "main": [
+        [
+          {
+            "node": "m1_trend_perplexity_inject_02",
             "type": "main",
             "index": 0
           }
@@ -1721,9 +2056,19 @@
             "index": 0
           },
           {
-            "node": "m2_tripo3d_from_image_01",
+            "node": "m2_leonardo_glass_variations_01",
             "type": "main",
             "index": 1
+          },
+          {
+            "node": "m2_depth_map_01",
+            "type": "main",
+            "index": 2
+          },
+          {
+            "node": "m2_tripo3d_from_image_01",
+            "type": "main",
+            "index": 3
           }
         ]
       ]
@@ -1732,7 +2077,7 @@
       "main": [
         [
           {
-            "node": "m2_runway_animal_01",
+            "node": "m2_pick_best_images_01",
             "type": "main",
             "index": 0
           }
@@ -1773,6 +2118,17 @@
       ]
     },
     "m2_pick_best_video_01": {
+      "main": [
+        [
+          {
+            "node": "m2_qr_generate_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_qr_generate_01": {
       "main": [
         [
           {
@@ -1890,7 +2246,7 @@
       "main": [
         [
           {
-            "node": "m4_tally_fetch_01",
+            "node": "m3_distribution_merge_01",
             "type": "main",
             "index": 0
           }
@@ -1912,7 +2268,7 @@
       "main": [
         [
           {
-            "node": "m4_tally_fetch_01",
+            "node": "m3_distribution_merge_01",
             "type": "main",
             "index": 0
           }
@@ -1920,6 +2276,17 @@
       ]
     },
     "m3_simplified_overlay_01": {
+      "main": [
+        [
+          {
+            "node": "m3_distribution_merge_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m3_distribution_merge_01": {
       "main": [
         [
           {
@@ -2085,6 +2452,28 @@
       ]
     },
     "m2_elevenlabs_asmr_01": {
+      "main": [
+        [
+          {
+            "node": "m2_audio_qc_check_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_audio_qc_check_01": {
+      "main": [
+        [
+          {
+            "node": "m2_audio_qc_gate_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "m2_audio_qc_gate_01": {
       "main": [
         [
           {

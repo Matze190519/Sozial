@@ -23,6 +23,9 @@ video:
           hyperreal luxury black/gold glass; lion cameo as reflection/shadow/eye highlight; micro-impossible moment in first 2s;
           camera={{camera_preset}}; temporal_consistency=true; object_persistence=true; particles subtle; watermark persistent;
           9:16 1080p; 8–12s
+      depth_hints:
+        - preserve lion eye highlight depth layer
+        - subtle parallax using depth_map if available
       camera_moves:
         - orbit_dolly_in_45deg_5s
         - push_in_eye_focus
@@ -59,6 +62,8 @@ avatar:
     Lina: |
       Hi, ich bin Lina. In 60 Sekunden zeige ich dir das LR System:
       kurz, witzig, klar – am Ende ein CTA mit QR/WhatsApp.
+      Keine Angst vor Technik – ich helfe dir 24/7: Beiträge, Bilder, Videos, Coaching-Calls,
+      Terminvereinbarung und Einwandbehandlung. Frag mich jederzeit, ich begleite dich.
     Matze: |
       Kurzer Dialog mit dem Löwen – Humor + klarer Nutzen, dann CTA.
     Ich: |
@@ -103,6 +108,11 @@ watermark:
   opacity: 0.35
   position: bottom-right
   persistence_target_pct: 95
+
+distribution:
+  quartet:
+    synchronize: true
+    providers: [blotato, predis, klap, simplified]
 
 cta:
   variants:

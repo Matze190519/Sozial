@@ -43,12 +43,23 @@ Setup:
 3) Import workflow.json into n8n Cloud (v1.60+).
 4) Update prompts.yaml path in the workflow’s loader node if you host it externally.
 
+Upgrades:
+- Real-Time Trend Injection (Perplexity sonar-pro with return_citations + Claude 4.1 Opus hook-injection).
+- Parallelized Distribution with synchronization merge before Leads/Analytics.
+
 Costs:
-- Runway Gen-4, Luma DM 1.5, fal.ai (FLUX/Tripo3D), HeyGen, ElevenLabs, Blotato, Predis, Klap, Simplified, Metricool, Tally, Snov, Apollo, HubSpot APIs incur usage costs.
+- Runway Gen-4.2, Luma DM 1.5, fal.ai (FLUX/Tripo3D/BiRefNet/Depth), HeyGen, ElevenLabs, Blotato, Predis, Klap, Simplified, Metricool, Tally, Snov, Apollo, HubSpot APIs incur usage costs.
 - CostGuard accumulates an estimated total and halts at COST_LIMIT_USD_PER_DAY.
+
+Upgrades included:
+- Runway Gen‑4.2 with failover to Luma DM 1.5.
+- Optional Depth Map generation via fal.ai for depth-aware compositing.
+- QR-signature option in watermark compositor (etched-glass logo remains mandatory).
+- Optional Audio‑QC for LUFS/phase/binaural checks pre-mux.
 
 Troubleshooting:
 - Linter HeaderPolicy fails → some node still uses headerParametersUi or misses Content-Type.
 - LogoPersist fails → watermark compositor missing or logo_url_ready not set.
 - NodeCount fails → ensure all modules enabled or feature flags adjusted.
 - URL Head Check fails → hosting provider didn’t return a reachable URL; fallback path will trigger or halt.
+- QR not visible → ensure QR_IMAGE_URL or QR_TARGET_URL configured; otherwise watermark proceeds without QR.
