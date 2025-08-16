@@ -1482,30 +1482,6 @@
     
     {
       "parameters": {
-        "url": "https://api.fal.ai/v1/play/fal-ai/depth-anything",
-        "method": "POST",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            { "name": "Authorization", "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}" },
-            { "name": "Content-Type", "value": "application/json" }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "image_url", "value": "={{ $json.product_rgba_url || $json.thumbnail_url || '' }}" }
-          ]
-        }
-      },
-      "id": "n2_depth_map",
-      "name": "m2_depth_map_01",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [ 1020, 240 ]
-    },
-    {
-      "parameters": {
         "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
         "method": "POST",
         "sendHeaders": true,
