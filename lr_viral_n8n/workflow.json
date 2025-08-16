@@ -1482,40 +1482,6 @@
     
     {
       "parameters": {
-        "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
-        "method": "POST",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            { "name": "Content-Type", "value": "application/json" }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "audio_url", "value": "={{ $json.audio_url }}" },
-            { "name": "target_lufs", "value": "={{ $vars.AUDIO_TARGET_LUFS || -20 }}" }
-          ]
-        }
-      },
-      "id": "n2_audio_qc_check",
-      "name": "m2_audio_qc_check_01",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [ 2100, 240 ]
-    },
-    {
-      "parameters": {
-        "functionCode": "const t = Number($vars.AUDIO_TARGET_LUFS||-20);const a=$json||{};const lufs=Number(a.lufs||-20);const phase_ok=!!a.phase_ok;const binaural_ok=!!a.binaural_ok;const within=Math.abs(lufs - t) <= 2;const test=String($vars.TEST_MODE||$env.TEST_MODE||'').toLowerCase()==='true';if(!(within&&phase_ok&&binaural_ok)&&!test){throw new Error('Audio-QC failed');}return [{ qc:{ lufs, phase_ok, binaural_ok, within }}];"
-      },
-      "id": "n2_audio_qc_gate",
-      "name": "m2_audio_qc_gate_01",
-      "type": "n8n-nodes-base.function",
-      "typeVersion": 2,
-      "position": [ 2175, 270 ]
-    },
-    {
-      "parameters": {
         "url": "https://api.fal.ai/v1/play/fal-ai/depth-anything",
         "method": "POST",
         "sendHeaders": true,
@@ -1565,16 +1531,6 @@
       "position": [ -50, 120 ]
     },
 
-    },
-    {
-      "parameters": {
-        "functionCode": "return items;"
-      },
-      "id": "n3_distribution_merge",
-      "name": "m3_distribution_merge_01",
-      "type": "n8n-nodes-base.function",
-      "typeVersion": 2,
-      "position": [ 250, 700 ]
     }
   ],
   "connections": {
