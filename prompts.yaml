@@ -1,0 +1,338 @@
+
+image:
+  glass_transform:
+    base: "Ultra-realistic crystal/glass luxury scene, black and gold color scheme, volumetric lighting, caustics, studio lighting, LR logo reflection subtle, avoid warped text, 4K master quality, cinematic composition"
+    scenes:
+      - "Luxury black glass surface with golden volumetric beams, crystal caustics, premium studio lighting"
+      - "Crystal portal opening with volumetric light beams, black and gold luxury aesthetic"
+      - "Etched glass with LR branding, sophisticated lighting, premium commercial photography"
+    modifiers:
+      - "hyperreal quality"
+      - "cinematic depth of field"
+      - "professional color grading"
+      - "no people visible"
+      - "brand suitable"
+
+video:
+  lanes:
+    animal:
+      prompts:
+        - "hyperreal luxury black/gold glass; lion cameo as reflection/shadow/eye highlight; micro-impossible moment in first 2s; camera={{camera_preset}}; temporal_consistency=true; object_persistence=true; particles subtle; watermark persistent; 9:16 1080p; 8-12s"
+        - "majestic lion eye reflection in crystal glass; impossible physics moment; luxury black gold aesthetic; cinematic camera movement; viral hook first 3 seconds"
+        - "lion silhouette emerging from glass portal; volumetric lighting; premium luxury feel; brand safe; no direct animal appearance"
+      camera_moves:
+        - "orbit_dolly_in_45deg_5s"
+        - "push_in_eye_pull_back_reveal"
+        - "arc_left_30deg_slow_dolly"
+        - "top_down_descend_spiral"
+      qc_requirements:
+        - "lion_eye_sharp: true"
+        - "logo_reflex_clear: true"
+        - "impossible_moment_first_2s: true"
+        - "temporal_consistency: true"
+    
+    hologram_portal:
+      keyframes:
+        - "crack in black glass surface"
+        - "golden light leak through crack"
+        - "crystal ring formation"
+        - "silhouette shadow only"
+        - "LR logo etching reveal"
+      camera:
+        - "slow_dolly_in"
+        - "arc_left_30deg"
+        - "top_down_descend"
+      prompts:
+        - "open crystal portal; volumetric beams; glass caustics; black/gold luxury; parallax; {{camera_move}}; watermark persistent; 9:16 1080p; 8-12s"
+        - "impossible portal opening; crystal glass aesthetic; luxury lighting; cinematic movement; brand integration"
+      webxr_hints:
+        - "QR code integration for WebAR experience"
+        - "3D model hosting for interactive viewing"
+        - "Mobile-first AR compatibility"
+
+avatar:
+  scripts:
+    lina:
+      introduction: "Hi! Ich bin Lina, deine 24/7 AI-Assistentin. Keine Angst - ich helfe dir bei allem: Social Media, Bilder, Videos. Du kannst mich anrufen, dich coachen lassen, Termine vereinbaren. Sogar Geschäftsvorstellungen können wir üben!"
+      lr_explanation: "LR Health & Beauty bietet dir finanzielle Freiheit durch das einzigartige Autokonzept - Neuwagen bis 80% günstiger, ohne Anzahlung! Made in Germany Qualität trifft auf moderne KI-Unterstützung."
+      coaching_offer: "Ich coache dich 24/7 bei allen Fragen: Social Media Strategien, Einwandbehandlung, Geschäftspräsentationen. Gemeinsam erreichen wir deine Ziele!"
+      tonalities:
+        - "freundlich und einladend"
+        - "kompetent aber nicht überheblich"
+        - "motivierend und unterstützend"
+        - "authentisch deutsch"
+    
+    mathias:
+      introduction: "Hey Leute! Hier ist Mathias. LR hat mein Leben komplett verändert - finanziell und persönlich. Das Autokonzept ist genial: Neuwagen bis 80% günstiger, ohne Anzahlung!"
+      success_story: "Mit LR und Lina als AI-Coach läuft alles automatisch. Homeoffice, eigener Online-Shop, vererbbares Einkommen - das ist echte finanzielle Freiheit!"
+      call_to_action: "Wer ist bereit für seine Transformation? Sprich mit Lina - sie erklärt dir alles Schritt für Schritt!"
+      tonalities:
+        - "authentisch und bodenständig"
+        - "erfolgreich aber nahbar"
+        - "motivierend ohne Druck"
+        - "ehrlich und transparent"
+    
+    dialogues:
+      lina_mathias_60s: |
+        Lina: "Hi Mathias! Erzähl unseren Zuschauern von deiner LR-Reise."
+        Mathias: "Gerne Lina! Vor einem Jahr war ich noch im Hamsterrad gefangen. Heute? Finanziell frei dank LR!"
+        Lina: "Das Autokonzept ist wirklich revolutionär - bis 80% günstiger, ohne Anzahlung!"
+        Mathias: "Genau! Und mit dir als AI-Coach läuft alles automatisch. 24/7 Support, Social Media, alles!"
+        Lina: "Wer möchte auch seine Träume verwirklichen? Ich helfe euch dabei - kostenlos und unverbindlich!"
+      
+      lina_lion_challenge: |
+        Lina: "Löwe, bist du bereit für die ultimative Challenge?"
+        [Löwen-Brüllen im Hintergrund]
+        Lina: "Genau diese Power brauchen wir für LR! Mut, Stärke, Entschlossenheit!"
+        [Löwe nickt majestätisch]
+        Lina: "Wer hat den Mut eines Löwen? Sprich mit mir - ich zeige dir den Weg zur Freiheit!"
+
+hooks:
+  viral_patterns:
+    pov:
+      - "POV: Du drückst den verbotenen Knopf"
+      - "POV: Löwe übernimmt deinen Social Media Account"
+      - "POV: Du entdeckst das LR Geheimnis"
+      - "POV: Lina erklärt dir in 60 Sekunden alles"
+      score_modifier: 1.25
+    
+    impossible:
+      - "Wasser fließt nach oben - aber warum?"
+      - "Glas zerbricht rückwärts in Zeitlupe"
+      - "Löwe springt aus dem Bildschirm"
+      - "Portal öffnet sich in deinem Wohnzimmer"
+      score_modifier: 1.30
+    
+    humor:
+      - "Ich: 'Nicht drücken!' - Löwe: *drückt sofort*"
+      - "Wenn Lina deine Probleme in 3 Sekunden löst"
+      - "Löwe vs. Hamsterrad - wer gewinnt?"
+      - "Made in Germany trifft auf AI - das Ergebnis ist..."
+      score_modifier: 1.20
+    
+    fomo:
+      - "Nur noch 24h verfügbar!"
+      - "Die letzten 10 Plätze!"
+      - "Bevor es alle wissen..."
+      - "Geheimtipp wird morgen öffentlich!"
+      score_modifier: 1.15
+    
+    social_proof:
+      - "10.000+ nutzen bereits..."
+      - "Was 95% nicht wissen:"
+      - "Insider verraten endlich:"
+      - "Experten sind schockiert:"
+      score_modifier: 1.18
+
+hashtags:
+  auto_generation:
+    strategy: "3_high_competition_max_plus_mid_long_tail"
+    high_competition_max: 3
+    mid_tier_count: 8
+    long_tail_count: 15
+    
+    categories:
+      luxury_lifestyle:
+        high: ["#luxury", "#lifestyle", "#success"]
+        mid: ["#luxurylife", "#financialfreedom", "#entrepreneur", "#homeoffice", "#onlinebusiness", "#networkmarketing", "#madeinGermany", "#qualität"]
+        long_tail: ["#lrhealthbeauty", "#autokonzept", "#ohneanzahlung", "#vererbbareseinkommen", "#linaaichat", "#24_7support", "#socialmediaautomation", "#kristallglas", "#löwenstärke", "#deutschequalität", "#premiumlifestyle", "#erfolgsstory", "#traumverwirklichen", "#finanziellefreiheit", "#zukunftgestalten"]
+      
+      viral_content:
+        high: ["#viral", "#trending", "#wow"]
+        mid: ["#asmr", "#3d", "#hologram", "#ai", "#automation", "#crystal", "#portal", "#impossible"]
+        long_tail: ["#viralcontent", "#socialmediastrategy", "#contentcreator", "#digitalmarketing", "#brandbuilding", "#engagement", "#reichweite", "#algorithmus", "#trending2025", "#viralmarketing", "#socialselling", "#influencer", "#contentmarketing", "#digitalstrategy", "#onlinemarketing"]
+    
+    language_mix:
+      german_percentage: 70
+      english_percentage: 25
+      mixed_percentage: 5
+
+audio:
+  binaural:
+    base_frequency: 432
+    lufs_target: -20
+    spatial_processing: true
+    
+    asmr_concepts:
+      - type: "glass_whisper"
+        description: "Sanftes Glasklirren mit 432Hz Grundton"
+        duration: "60-120s"
+        binaural_effect: "entspannend, fokussierend"
+      
+      - type: "lion_motivation"
+        description: "Löwen-inspirierte Motivationsklänge"
+        duration: "30-90s"
+        binaural_effect: "kraftvoll, selbstbewusst"
+      
+      - type: "crystal_portal"
+        description: "Kristalline Portalklänge mit Raumtiefe"
+        duration: "45-75s"
+        binaural_effect: "mystisch, einladend"
+    
+    technical_specs:
+      sample_rate: 44100
+      bit_depth: 24
+      channels: 2
+      format: "mp3_44100_128"
+      processing: "binaural_beats"
+
+watermark:
+  style: "etched_glass"
+  opacity: 0.35
+  position: "bottom_right"
+  persistence_requirement: 95  # percentage of frames
+  
+  specifications:
+    logo_source: "{{$json.logo_url_ready}}"
+    fallback_source: "{{$binary.logo_rgba.data.toString('base64')}}"
+    blend_mode: "overlay"
+    edge_softness: 2
+    glass_effect: true
+    
+  qr_integration:
+    enabled: true
+    position: "bottom_left"
+    opacity: 0.25
+    content: "https://lr-portal.app/{{runId}}"
+
+cta:
+  variants:
+    primary:
+      - "Bereit für deine Transformation? 🦁"
+      - "Sprich jetzt mit Lina - kostenlos! 💬"
+      - "Dein Weg zur Freiheit startet hier! ✨"
+      - "Entdecke das LR Geheimnis! 🔮"
+    
+    secondary:
+      - "Mehr erfahren in Bio 👆"
+      - "Link in Story 📱"
+      - "Kommentiere 'INFO' für Details 💌"
+      - "DM für persönliche Beratung 📩"
+    
+    webxr_hints:
+      - "Scanne QR für 3D Erlebnis! 📱"
+      - "Portal in AR öffnen 🌀"
+      - "Interaktive 3D Ansicht verfügbar 🎲"
+    
+    urgency:
+      - "Nur noch heute verfügbar! ⏰"
+      - "Limitierte Plätze! 🎯"
+      - "Jetzt oder nie! 🚀"
+
+quality_checks:
+  global:
+    image:
+      min_resolution: 1080
+      color_space: "sRGB"
+      logo_visible: true
+      aspect_ratio_tolerance: 0.05
+      file_size_max_mb: 10
+    
+    video:
+      aspect_ratio: "9:16"
+      resolution: "1080p"
+      frame_rate_range: [24, 30]
+      duration_range: [8, 12]
+      logo_frame_percentage: 95
+      audio_sync_max_ms: 80
+    
+    audio:
+      lufs_target: -20
+      lufs_tolerance: 2
+      phase_alignment: true
+      binaural_check: true
+      frequency_base: 432
+      no_clipping: true
+  
+  lane_specific:
+    animal:
+      lion_eye_sharpness: true
+      logo_reflex_clarity: true
+      impossible_moment_timing: 2  # seconds
+      temporal_consistency: true
+    
+    portal:
+      portal_edge_stability: true
+      volumetrics_consistency: true
+      qr_scannable: true  # optional
+      crystal_clarity: true
+
+safety:
+  forbidden_claims:
+    income_guarantees:
+      - "garantiert reich"
+      - "100% sicher"
+      - "ohne risiko"
+      - "schnell reich werden"
+      - "geld ohne arbeit"
+      - "sofort millionär"
+      - "risikofreie investition"
+      - "garantierter erfolg"
+    
+    health_claims:
+      - "heilt alle krankheiten"
+      - "medizinisches wunder"
+      - "ärzte hassen diesen trick"
+      - "sofortige heilung"
+    
+    legal_issues:
+      - "steuerfrei"
+      - "legal loophole"
+      - "behörden können nichts machen"
+      - "100% legal garantiert"
+  
+  required_disclaimers:
+    general:
+      - "Erfolg ist nicht garantiert und hängt von individuellen Faktoren ab."
+      - "Vergangene Ergebnisse sind keine Garantie für zukünftige Erfolge."
+      - "LR Health & Beauty - Made in Germany."
+    
+    financial:
+      - "Finanzielle Ergebnisse können variieren."
+      - "Eigenverantwortung bei Geschäftsentscheidungen."
+    
+    health:
+      - "Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene Ernährung."
+      - "Bei gesundheitlichen Fragen konsultieren Sie Ihren Arzt."
+
+creative_extensions:
+  immersive_story_rooms:
+    concept: "Videos die aus dem Handy-Bildschirm herausfließen"
+    apis_required: ["fal.ai", "tripo3d", "depth_map_gen"]
+    implementation:
+      - "Marey i2v/t2v für Bewegung"
+      - "3D-Depth für Tiefenwirkung"
+      - "WebAR-QR für Interaktion"
+    
+  multi_api_fusion:
+    concept: "Löwe spricht/flüstert via Stable Avatar + EchoMimic"
+    apis_required: ["runway", "stable_avatar", "echomimic", "bytedance"]
+    implementation:
+      - "Runway Gen-4 für Basis-Video"
+      - "Stable Avatar für Lip-Sync"
+      - "EchoMimic V3 für Audio-Sync"
+      - "Bytedance für Style-Transfer"
+  
+  impossible_physics:
+    concept: "Realistische aber unmögliche Bewegungen"
+    apis_required: ["marey", "pose_transfer", "elevenlabs"]
+    implementation:
+      - "Marey Pose Transfer für Bewegung"
+      - "Wasser fließt nach oben"
+      - "Glas splittet rückwärts"
+      - "ASMR Sound-Design"
+
+viral_multipliers:
+  baby_shark_pattern:
+    repetition: "Wiederholende Elemente alle 3-5 Sekunden"
+    humor: "Unerwartete Wendungen"
+    emotion: "Positive Überraschung"
+    novelty: "Neue Perspektive auf Bekanntes"
+    global_appeal: "Universal verständliche Symbole"
+  
+  engagement_triggers:
+    curiosity_gap: "Was passiert als nächstes?"
+    pattern_interrupt: "Unerwartete Wendung"
+    social_validation: "Andere machen es auch"
+    scarcity: "Limitierte Verfügbarkeit"
+    authority: "Experten empfehlen"
