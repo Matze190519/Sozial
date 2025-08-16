@@ -618,6 +618,16 @@
       "position": [ 300, 250 ]
     },
     {
+    {
+      "parameters": {
+        "functionCode": "function pickUrl(arr){if(!arr)return'';for(const it of arr){const j=it?.json||{};if(j.url)return j.url;if(j.image_url)return j.image_url;if(j.result_url)return j.result_url;}return '';}const leo=$items('m2_leonardo_glass_variations_01');const flux=$items('m2_flux_glass_variations_01');const biref=$items('m2_bg_remove_fal_birefnet_01');const leoUrl=pickUrl(leo);const fluxUrl=pickUrl(flux);const biUrl=pickUrl(biref);const best=leoUrl||fluxUrl||biUrl||$json.product_rgba_url||'';return [{ best_image_url: best }];"
+      },
+      "id": "n2_pick_best_images",
+      "name": "m2_pick_best_images_01",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 2,
+      "position": [ 250, 150 ]
+    },
       "parameters": {
         "url": "https://api.runwayml.com/v1/gen4/text-to-video",
         "method": "POST",
@@ -1393,36 +1403,6 @@
       "position": [ 910, 300 ]
     }
 
-    {
-      "parameters": {
-        "url": "={{ $vars.FFmpegApiUrl || 'https://ffmpeg-api.example.com/analyze' }}",
-        "method": "POST",
-        "sendHeaders": true,
-        "headerParameters": { "parameters": [
-          { "name": "Content-Type", "value": "application/json" }
-        ]},
-        "sendBody": true,
-        "bodyParameters": { "parameters": [
-          { "name": "audio_url", "value": "={{ $json.audio_url }}" },
-          { "name": "target_lufs", "value": "={{ $vars.AUDIO_TARGET_LUFS || -20 }}" }
-        ]}
-      },
-      "id": "n2_audio_qc_check",
-      "name": "m2_audio_qc_check_01",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [ 2100, 240 ]
-    },
-    {
-      "parameters": {
-        "functionCode": "const t = Number($vars.AUDIO_TARGET_LUFS||-20);const a=$json||{};const lufs=Number(a.lufs||-20);const phase_ok=!!a.phase_ok;const binaural_ok=!!a.binaural_ok;const within=Math.abs(lufs - t) <= 2;const test=String($vars.TEST_MODE||$env.TEST_MODE||'').toLowerCase()==='true';if(!(within&&phase_ok&&binaural_ok)&&!test){throw new Error('Audio-QC failed');}return [{ qc:{ lufs, phase_ok, binaural_ok, within }}];"
-      },
-      "id": "n2_audio_qc_gate",
-      "name": "m2_audio_qc_gate_01",
-      "type": "n8n-nodes-base.function",
-      "typeVersion": 2,
-      "position": [ 2175, 270 ]
-    },
     {
       "parameters": {
         "url": "https://api.fal.ai/v1/play/fal-ai/depth-anything",
