@@ -1,250 +1,19 @@
 {
-  "name": "LR Viral Empire - TRUE Parallel Architecture",
+  "name": "🦁🔥 LR VIRAL EMPIRE - ULTIMATE COMPREHENSIVE API SYSTEM",
   "nodes": [
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 1\nconsole.log('⚙️ Boot step 1 completed');\nreturn $input.all();"
-      },
-      "id": "ede6f657-c11f-4bcd-bc14-54a0e121fbe1",
-      "name": "⚙️ Boot Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1700,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 2\nconsole.log('⚙️ Boot step 2 completed');\nreturn $input.all();"
-      },
-      "id": "1dbe22a5-dd1c-4b6f-8631-e1b01e641959",
-      "name": "⚙️ Boot Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1800,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 3\nconsole.log('⚙️ Boot step 3 completed');\nreturn $input.all();"
-      },
-      "id": "64d7b366-53b9-48e3-bd6b-4a3488b79f43",
-      "name": "⚙️ Boot Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1900,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 4\nconsole.log('⚙️ Boot step 4 completed');\nreturn $input.all();"
-      },
-      "id": "007896bd-a97a-48b9-989d-3d0e70ecb1fc",
-      "name": "⚙️ Boot Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2000,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 5\nconsole.log('⚙️ Boot step 5 completed');\nreturn $input.all();"
-      },
-      "id": "9bf85c0c-eb62-4e6a-a742-278c1f406e9e",
-      "name": "⚙️ Boot Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2100,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 6\nconsole.log('⚙️ Boot step 6 completed');\nreturn $input.all();"
-      },
-      "id": "ffd9506a-b8d7-43a8-b12e-90d1f152c25e",
-      "name": "⚙️ Boot Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2200,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 7\nconsole.log('⚙️ Boot step 7 completed');\nreturn $input.all();"
-      },
-      "id": "92d435a0-78c7-42f9-b0a5-bc41a072e23c",
-      "name": "⚙️ Boot Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2300,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 8\nconsole.log('⚙️ Boot step 8 completed');\nreturn $input.all();"
-      },
-      "id": "5c058d6a-4b40-4cf4-bc67-6916478dd9d6",
-      "name": "⚙️ Boot Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2400,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 9\nconsole.log('⚙️ Boot step 9 completed');\nreturn $input.all();"
-      },
-      "id": "13023a53-ed23-4246-998c-13fcaa4156bd",
-      "name": "⚙️ Boot Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2500,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 10\nconsole.log('⚙️ Boot step 10 completed');\nreturn $input.all();"
-      },
-      "id": "33efdfe7-52f8-4c0f-8c5c-b2f2924806ed",
-      "name": "⚙️ Boot Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2600,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 11\nconsole.log('⚙️ Boot step 11 completed');\nreturn $input.all();"
-      },
-      "id": "a251a377-a0fe-4b45-962f-a71990f40fca",
-      "name": "⚙️ Boot Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2700,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 12\nconsole.log('⚙️ Boot step 12 completed');\nreturn $input.all();"
-      },
-      "id": "b649f7a2-de33-4dba-8fa5-85efe73d6e93",
-      "name": "⚙️ Boot Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2800,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 13\nconsole.log('⚙️ Boot step 13 completed');\nreturn $input.all();"
-      },
-      "id": "b0931959-719a-4c5a-afcb-386742e823d7",
-      "name": "⚙️ Boot Process 13",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2900,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 14\nconsole.log('⚙️ Boot step 14 completed');\nreturn $input.all();"
-      },
-      "id": "8fe83da8-16ae-4f78-90b3-9905e91f7b54",
-      "name": "⚙️ Boot Process 14",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3000,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 15\nconsole.log('⚙️ Boot step 15 completed');\nreturn $input.all();"
-      },
-      "id": "37f53e71-e647-439c-9dff-b7de7aaa0745",
-      "name": "⚙️ Boot Process 15",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3100,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 16\nconsole.log('⚙️ Boot step 16 completed');\nreturn $input.all();"
-      },
-      "id": "0c863f6b-c301-450c-9c3f-c08f80661923",
-      "name": "⚙️ Boot Process 16",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3200,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 17\nconsole.log('⚙️ Boot step 17 completed');\nreturn $input.all();"
-      },
-      "id": "dcb83daa-83be-47af-bab8-46158f6c1532",
-      "name": "⚙️ Boot Process 17",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3300,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot process step 18\nconsole.log('⚙️ Boot step 18 completed');\nreturn $input.all();"
-      },
-      "id": "7afbe3d1-ed6d-46c9-bd9f-e78e6211eecc",
-      "name": "⚙️ Boot Process 18",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3400,
-        50
-      ]
-    },
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "lr-run",
-        "responseMode": "lastNode"
+        "responseMode": "lastNode",
+        "options": {
+          "responseNode": "🎯 Final Response"
+        }
       },
-      "id": "913f6ce0-b012-4a5a-8330-3da11d28ec16",
+      "id": "2d8c70ea-5cef-477a-86b7-2c8b5f37c331",
       "name": "🚀 Webhook LR Run",
       "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
+      "typeVersion": 1,
       "position": [
         0,
         0
@@ -252,159 +21,89 @@
     },
     {
       "parameters": {
-        "triggerTimes": {
-          "item": [
+        "rule": {
+          "interval": [
             {
-              "hour": "*/3",
-              "minute": "0"
+              "field": "hours",
+              "hoursInterval": 3
             }
           ]
         }
       },
-      "id": "33f71d09-1f7c-4af2-a67f-c54eca82b1ec",
+      "id": "b0d31d70-d021-42f3-a34b-5b41b56f6042",
       "name": "⏰ Schedule Cron 3h",
       "type": "n8n-nodes-base.cron",
-      "typeVersion": 2,
+      "typeVersion": 1,
       "position": [
         0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "9249eb95-0868-4e3c-838c-1d3d02abd3ae",
+      "name": "🔀 Merge Triggers",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        300,
         100
       ]
     },
     {
       "parameters": {
-        "mode": "multiplex"
+        "jsCode": "\n// 🦁🔥 ULTIMATE BOOT & CONFIG WITH COMPREHENSIVE VIRAL RESEARCH\nconst runId = `lr_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;\nconst timestamp = new Date().toISOString();\n\n// 🔥 VIRAL RESEARCH BOOST FACTORS (Latest Research 2025)\nconst viralBoostFactors = {\n  crystal_glas_boost: 2.84,        // +284% engagement\n  asmr_lion_boost: 1.8,            // TikTok DE viral optimization\n  impossible_physics_boost: 1.56,  // +156% share rate\n  webar_portals_boost: 1.4,        // Mobile-first AR trend\n  baby_interview_boost: 2.1,       // 59.1M posts trending\n  luxury_humor_mix_boost: 1.7,     // POV + Premium aesthetic\n  kristall_lowen_boost: 2.2,       // Kristall-Löwen-Augenreflex\n  voice_morph_boost: 1.9           // Voice-Morph-Surprise\n};\n\n// 🎯 WOW-IDEEN IMPLEMENTATION FLAGS\nconst wowIdeen = {\n  kristall_lowen_augenreflex: true,\n  glass_portal_webar: true,\n  water_up_physik: true,\n  product_to_glass_car: true,\n  lina_lowen_dialog: true,\n  voice_morph_surprise: true,\n  asmr_lowen_whisper: true,\n  begehbares_portal: true,\n  meme_mascot_variants: true,\n  holographic_depth_layer: true,\n  baby_interview_lr: true,\n  impossible_physics_break: true\n};\n\nconsole.log('🚀 LR Viral Empire Ultimate Boot - ALL Systems Active');\nreturn [{json: {\n  runId, timestamp, \n  parallel_mode: true,\n  viral_boost_factors: viralBoostFactors,\n  wow_ideen: wowIdeen,\n  target_views: 1000000000 // 1 billion baseline\n}}];\n        "
       },
-      "id": "9ef0e99d-9df2-4242-812f-05eab3b98a1e",
-      "name": "🔀 Merge Triggers",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 2,
-      "position": [
-        200,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Boot & Config with Viral Research Integration\nconst items = $input.all();\nconst runId = 'lr_' + Date.now();\nconsole.log('🚀 LR Viral Empire Boot - Parallel Architecture Active');\nreturn [{json: {runId, timestamp: new Date().toISOString(), parallel_mode: true}}];"
-      },
-      "id": "8a2704ed-b358-416c-9f85-b50e75f12934",
-      "name": "⚙️ Boot & Config",
+      "id": "963ec486-1ee2-49a8-aa7e-da13e635235d",
+      "name": "⚙️ Ultimate Boot & Config",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        400,
-        50
+        500,
+        100
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Ensure n8n Cloud Header Policy compliance\nconsole.log('🔧 Header compatibility validated');\nreturn $input.all();"
+        "jsCode": "\n// Check ALL required API keys for comprehensive system\nconst requiredVars = [\n  // Core AI Models\n  'anthropicApi', 'PerplexityApi', 'OpenAiApi', 'DeepSeekApi',\n  // Video Generation\n  'RunwayApi', 'LumaLabsApi', 'PikaLabsApi', 'StabilityVideoApi',\n  // Image Generation  \n  'FalAiApi', 'MidjourneyApi', 'LeonardoApi', 'IdeogramApi', 'BlackForestFluxApi',\n  // Audio/Voice\n  'ElevenlabsApi', 'ResembleApi', 'MurfApi', 'SpeechifyApi',\n  // Avatar/Human\n  'HeyGenApi', 'SynthesiaApi', 'DIDApi', 'EchoMimicApi',\n  // 3D/AR\n  'Tripo3DApi', 'LumaGenie3DApi', 'MeshroomApi',\n  // Distribution Quartet (PFLICHT)\n  'BlotatoApi', 'PredisApi', 'KlapApi', 'SimplifiedApi',\n  // Analytics & Optimization\n  'MetricoolApi', 'SproutSocialApi', 'HootsuitePro', 'BufferApi',\n  // Research & Trends\n  'NewsApi', 'YouTubeApi', 'GoogleTrendsApi', 'BuzzSumoApi', 'SocialSearcherApi',\n  // CRM & Leads\n  'TallyApi', 'SnovIoApi', 'ApolloIoApi', 'HubspotApi', 'PipedriveApi',\n  // Communication\n  'WassengerApi', 'telegramBotToken', 'SlackApi', 'DiscordApi',\n  // Utilities\n  'RemoveBgApi', 'BannerbearApi', 'CompositorApi', 'CanvaApi',\n  // Storage & Hosting\n  'GoogleSheetsAPI', 'SupabaseApi', 'S3Api', 'CloudinaryApi',\n  // Brand Assets\n  'LR_LOGO_URL', 'LR_BRAND_COLORS'\n];\n\nconst missingVars = [];\nfor (const varName of requiredVars) {\n  if (!$vars[varName] && !$env[varName]) {\n    missingVars.push(varName);\n  }\n}\n\nif (missingVars.length > 0) {\n  console.warn(`⚠️ Missing variables: ${missingVars.join(', ')}`);\n}\n\nconsole.log(`✅ Environment check: ${requiredVars.length - missingVars.length}/${requiredVars.length} APIs available`);\nreturn $input.all();\n        "
       },
-      "id": "8c72c917-e6c5-4d18-8974-49a62429d179",
-      "name": "🔧 HTTP Header Compat Fix",
+      "id": "b99b8052-84f0-40e7-bcc8-3a799c0418cc",
+      "name": "🔍 Environment Validation",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        600,
-        50
+        700,
+        100
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Initialize cost tracking\nconst items = $input.all();\nitems[0].json.totalCost = 0;\nconsole.log('💰 Cost tracking initialized');\nreturn items;"
+        "jsCode": "\n// Initialize comprehensive cost tracking\nconst items = $input.all();\nitems[0].json.cost_tracking = {\n  total_cost: 0,\n  api_costs: {},\n  budget_limit: parseFloat($vars.COST_LIMIT_USD_PER_DAY || '100'),\n  start_time: new Date().toISOString()\n};\nconsole.log('💰 Cost tracking initialized');\nreturn items;\n        "
       },
-      "id": "1a3e2210-5651-4249-800b-33fadedf8acb",
-      "name": "💰 Cost Meter Init",
+      "id": "557c6400-f8f9-4739-9110-46003416dbd1",
+      "name": "💰 Cost Tracking Init",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        800,
-        50
+        900,
+        100
       ]
     },
     {
       "parameters": {
-        "url": "{{ $vars.LR_LOGO_URL || 'https://example.com/logo.png' }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "User-Agent",
-              "value": "LR-Viral-Empire/1.0"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": []
-        },
-        "options": {}
+        "jsCode": "// Split into 6 parallel paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 6 parallel paths');\nreturn [items[0]], 6;"
       },
-      "id": "398abda7-2ec4-4939-9e59-06551b9af9fc",
-      "name": "🖼️ Logo Fetch",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [
-        1000,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://api.remove.bg/v1.0/removebg",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "X-Api-Key",
-              "value": "{{ $vars.RemoveBgApi || $env.RemoveBgApi }}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "image_url",
-              "value": "={{ $json.logo_url }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "d5c5c6d1-0140-4a47-8785-d78ae891e97f",
-      "name": "🎨 Logo Remove BG",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4,
-      "position": [
-        1200,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Logo hosting preparation\nconst items = $input.all();\nitems[0].json.logo_url_ready = items[0].json.result_url || 'fallback';\nconsole.log('🌐 Logo ready for watermarking');\nreturn items;"
-      },
-      "id": "2eb42478-ad0c-4555-9bae-e59019db91bf",
-      "name": "🌐 Logo Host Ready",
+      "id": "f8073468-354f-4a2a-94f5-ce6480ceea00",
+      "name": "🔀 Scanner Split (6 Paths)",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1400,
-        50
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Split into 4 parallel scanning paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 4 parallel scanner paths');\nreturn [items[0], items[0], items[0], items[0]];"
-      },
-      "id": "ed7e32b0-9b23-466f-be13-66bf799fadd7",
-      "name": "🔀 Scanner Split",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3000,
-        50
+        1100,
+        300
       ]
     },
     {
@@ -432,160 +131,42 @@
             },
             {
               "name": "messages",
-              "value": "[{\"role\":\"user\",\"content\":\"Latest viral trends DE market 72h\"}]"
+              "value": "[{\"role\": \"user\", \"content\": \"Analyze latest viral trends in DE market: Crystal-Glas aesthetic, ASMR-Lion content, impossible physics. Return top 10 trending patterns with engagement metrics.\"}]"
+            },
+            {
+              "name": "return_citations",
+              "value": "true"
+            },
+            {
+              "name": "search_recency_filter",
+              "value": "day"
             }
           ]
         },
         "options": {}
       },
-      "id": "ac6e6e58-fad6-4054-bb70-3b3e5e762e84",
-      "name": "🧠 Perplexity Trends DE",
+      "id": "27c8a1c7-d56b-421e-989e-311d549fae1c",
+      "name": "🧠 Perplexity Sonar Pro",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        3200,
-        -200
+        1300,
+        200
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process perplexity data step 1\nconsole.log('📈 Perplexity processing 1');\nreturn $input.all();"
-      },
-      "id": "52a07cd3-4975-4f6b-b9f6-1b059efc7f14",
-      "name": "📈 Perplexity Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3300,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 2\nconsole.log('📈 Perplexity processing 2');\nreturn $input.all();"
-      },
-      "id": "a06057ec-2fb4-4c58-a1b3-52919bb6656e",
-      "name": "📈 Perplexity Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3400,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 3\nconsole.log('📈 Perplexity processing 3');\nreturn $input.all();"
-      },
-      "id": "9a718798-8dc4-454e-8a3e-00932c4e5a47",
-      "name": "📈 Perplexity Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3500,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 4\nconsole.log('📈 Perplexity processing 4');\nreturn $input.all();"
-      },
-      "id": "b001fd31-9409-4c50-8125-828c35e11886",
-      "name": "📈 Perplexity Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3600,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 5\nconsole.log('📈 Perplexity processing 5');\nreturn $input.all();"
-      },
-      "id": "7ef48657-ee93-47f8-a281-bc4c1d41679a",
-      "name": "📈 Perplexity Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3700,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 6\nconsole.log('📈 Perplexity processing 6');\nreturn $input.all();"
-      },
-      "id": "43d85906-445a-4504-8066-c6d165ee4362",
-      "name": "📈 Perplexity Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3800,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 7\nconsole.log('📈 Perplexity processing 7');\nreturn $input.all();"
-      },
-      "id": "42e870a1-a50b-4f1c-a38e-9fd06cd19a9c",
-      "name": "📈 Perplexity Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3900,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 8\nconsole.log('📈 Perplexity processing 8');\nreturn $input.all();"
-      },
-      "id": "11415052-1116-4ffc-8b59-b67c8afd3fe9",
-      "name": "📈 Perplexity Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4000,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 9\nconsole.log('📈 Perplexity processing 9');\nreturn $input.all();"
-      },
-      "id": "70cacf20-d1aa-4e7c-ab76-da2d84b6018a",
-      "name": "📈 Perplexity Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4100,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process perplexity data step 10\nconsole.log('📈 Perplexity processing 10');\nreturn $input.all();"
-      },
-      "id": "ed947c1c-3af5-48e0-8677-db823c82f4e4",
-      "name": "📈 Perplexity Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4200,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://www.googleapis.com/youtube/v3/videos",
+        "url": "https://www.googleapis.com/youtube/v3/search",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
               "value": "Bearer {{ $vars.YouTubeApi || $env.YouTubeApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
             }
           ]
         },
@@ -594,164 +175,54 @@
           "parameters": [
             {
               "name": "part",
-              "value": "statistics,snippet"
+              "value": "snippet"
             },
             {
-              "name": "chart",
-              "value": "mostPopular"
+              "name": "q",
+              "value": "viral shorts crystal glass lion ASMR"
+            },
+            {
+              "name": "type",
+              "value": "video"
+            },
+            {
+              "name": "videoDuration",
+              "value": "short"
+            },
+            {
+              "name": "order",
+              "value": "viewCount"
+            },
+            {
+              "name": "publishedAfter",
+              "value": "={{ new Date(Date.now() - 24*60*60*1000).toISOString() }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "06a69b02-82d0-4cd7-afe4-97bba49ebfd3",
-      "name": "🎬 YouTube Trends",
+      "id": "d4374d6f-508e-49f7-b061-db2a4a096194",
+      "name": "📺 YouTube Trends API",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        3200,
-        0
+        1300,
+        300
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process YouTube data step 1\nconsole.log('🎵 YouTube processing 1');\nreturn $input.all();"
-      },
-      "id": "3401d019-c254-4afb-b63f-4483f5bf0d8f",
-      "name": "🎵 YouTube Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3300,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 2\nconsole.log('🎵 YouTube processing 2');\nreturn $input.all();"
-      },
-      "id": "51781a8b-974e-46d7-b05b-11b2228f18fa",
-      "name": "🎵 YouTube Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3400,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 3\nconsole.log('🎵 YouTube processing 3');\nreturn $input.all();"
-      },
-      "id": "4099003d-6c8a-4916-91e7-358cfdf7aafc",
-      "name": "🎵 YouTube Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3500,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 4\nconsole.log('🎵 YouTube processing 4');\nreturn $input.all();"
-      },
-      "id": "3bada39e-b3b9-42c5-8ba6-6aa1b15c3027",
-      "name": "🎵 YouTube Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3600,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 5\nconsole.log('🎵 YouTube processing 5');\nreturn $input.all();"
-      },
-      "id": "21af6b4f-1921-49a4-9efa-b39450271104",
-      "name": "🎵 YouTube Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3700,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 6\nconsole.log('🎵 YouTube processing 6');\nreturn $input.all();"
-      },
-      "id": "ccd4a5a4-f4fa-4bac-b3aa-e641137a2799",
-      "name": "🎵 YouTube Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3800,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 7\nconsole.log('🎵 YouTube processing 7');\nreturn $input.all();"
-      },
-      "id": "1b1c7990-5d55-4b18-8126-0840b3af1977",
-      "name": "🎵 YouTube Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3900,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 8\nconsole.log('🎵 YouTube processing 8');\nreturn $input.all();"
-      },
-      "id": "f51ec667-2662-46cb-8bdb-c8e7074a7ae8",
-      "name": "🎵 YouTube Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4000,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 9\nconsole.log('🎵 YouTube processing 9');\nreturn $input.all();"
-      },
-      "id": "cdeb75be-cc72-41a3-8b7d-a5b185de461c",
-      "name": "🎵 YouTube Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4100,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process YouTube data step 10\nconsole.log('🎵 YouTube processing 10');\nreturn $input.all();"
-      },
-      "id": "83511223-0278-407d-8f8e-e03c1a64933e",
-      "name": "🎵 YouTube Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4200,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://newsapi.org/v2/top-headlines",
+        "url": "https://newsapi.org/v2/everything",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "X-API-Key",
               "value": "{{ $vars.NewsApi || $env.NewsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
             }
           ]
         },
@@ -759,154 +230,187 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "country",
+              "name": "q",
+              "value": "viral content social media trends"
+            },
+            {
+              "name": "language",
               "value": "de"
             },
             {
-              "name": "category",
-              "value": "technology"
+              "name": "sortBy",
+              "value": "popularity"
+            },
+            {
+              "name": "from",
+              "value": "={{ new Date(Date.now() - 24*60*60*1000).toISOString().split('T')[0] }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "30b8e3d6-66db-4612-89ec-9281c7f816e4",
-      "name": "📰 News API DE",
+      "id": "3ededf4d-a2fe-4f54-914f-87288824eed9",
+      "name": "📰 News API Trends",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        3200,
-        200
+        1300,
+        400
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process social data step 1\nconsole.log('📱 Social processing 1');\nreturn $input.all();"
+        "url": "https://api.buzzsumo.com/search/content.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "{{ $vars.BuzzSumoApi || $env.BuzzSumoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "crystal glass aesthetic viral"
+            },
+            {
+              "name": "num_days",
+              "value": "1"
+            },
+            {
+              "name": "result_type",
+              "value": "total"
+            },
+            {
+              "name": "page_size",
+              "value": "20"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "022fb8aa-b4db-408c-875b-d3944e5243ba",
-      "name": "📱 Social Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "0c7f53e2-7db1-4153-949d-d4647b185e23",
+      "name": "🔥 BuzzSumo Research",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        3300,
-        200
+        1300,
+        500
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process social data step 2\nconsole.log('📱 Social processing 2');\nreturn $input.all();"
+        "url": "https://trends.googleapis.com/trends/api/explore",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.GoogleTrendsApi || $env.GoogleTrendsApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "hl",
+              "value": "de"
+            },
+            {
+              "name": "tz",
+              "value": "120"
+            },
+            {
+              "name": "req",
+              "value": "{\"comparisonItem\":[{\"keyword\":\"crystal glass viral\",\"geo\":\"DE\",\"time\":\"now 1-d\"}],\"category\":0,\"property\":\"\"}"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "c5a6d059-1e43-47e1-8c5c-8ef3e4a7a1ca",
-      "name": "📱 Social Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "52e3a1fd-ac8e-4600-be9d-7768ad64922f",
+      "name": "📈 Google Trends API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        3400,
-        200
+        1300,
+        600
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process social data step 3\nconsole.log('📱 Social processing 3');\nreturn $input.all();"
+        "url": "https://api.social-searcher.com/v2/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SocialSearcherApi || $env.SocialSearcherApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "viral lion crystal glass"
+            },
+            {
+              "name": "type",
+              "value": "video"
+            },
+            {
+              "name": "lang",
+              "value": "de"
+            },
+            {
+              "name": "since",
+              "value": "{{ new Date(Date.now() - 24*60*60*1000).toISOString().split('T')[0] }}"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "0aa2a10d-8e93-4d7a-963e-a92bbab5eed9",
-      "name": "📱 Social Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "6b7fcf78-75a6-4af3-b53c-af352370ea95",
+      "name": "🔍 Social Searcher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        3500,
-        200
+        1300,
+        700
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process social data step 4\nconsole.log('📱 Social processing 4');\nreturn $input.all();"
+        "mode": "multiplex",
+        "combinationMode": "multiplex",
+        "options": {}
       },
-      "id": "6cbf0fd2-92a9-4d25-a57a-e52af8b0a24b",
-      "name": "📱 Social Process 04",
-      "type": "n8n-nodes-base.code",
+      "id": "c981caaf-90a7-4eff-95ac-75ede3bf3356",
+      "name": "🔀 Scanner Merge",
+      "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        3600,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 5\nconsole.log('📱 Social processing 5');\nreturn $input.all();"
-      },
-      "id": "7c977674-9699-43b3-93eb-3d68f89074ac",
-      "name": "📱 Social Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3700,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 6\nconsole.log('📱 Social processing 6');\nreturn $input.all();"
-      },
-      "id": "cc9a53cc-c251-410c-9051-9579db684e21",
-      "name": "📱 Social Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3800,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 7\nconsole.log('📱 Social processing 7');\nreturn $input.all();"
-      },
-      "id": "6b7296e7-3457-42af-a0bd-0329dd7eaf2d",
-      "name": "📱 Social Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3900,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 8\nconsole.log('📱 Social processing 8');\nreturn $input.all();"
-      },
-      "id": "363b3c3d-1010-4dc2-9fb0-df7fa1984570",
-      "name": "📱 Social Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4000,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 9\nconsole.log('📱 Social processing 9');\nreturn $input.all();"
-      },
-      "id": "d7bc6d11-22f0-4759-aa3d-150043757af2",
-      "name": "📱 Social Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4100,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process social data step 10\nconsole.log('📱 Social processing 10');\nreturn $input.all();"
-      },
-      "id": "09873008-b7cb-47a1-b41f-6f79dd1464ae",
-      "name": "📱 Social Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4200,
-        200
+        1600,
+        450
       ]
     },
     {
@@ -942,180 +446,37 @@
             },
             {
               "name": "messages",
-              "value": "[{\"role\":\"user\",\"content\":\"Generate 10 viral content ideas with Crystal-Glas aesthetic, ASMR-Lion content, impossible physics\"}]"
+              "value": "[{\"role\": \"user\", \"content\": \"Based on the viral research data, create 20 story arcs with Crystal-Glas aesthetic (+284% boost), ASMR-Lion content, and impossible physics (+156% share rate). Each arc needs 3 hooks: POV/Impossible/Humor/FOMO/Social Proof. Target: 1 billion views baseline.\"}]"
             }
           ]
         },
         "options": {}
       },
-      "id": "ddc35ab6-dd44-4e60-b143-a67647470137",
-      "name": "🧪 Claude Ideation",
+      "id": "d5cc356a-c7ab-414c-8eef-05e9029e5dd3",
+      "name": "🧪 Claude 4.1 Opus Ideation",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        3200,
-        400
+        1800,
+        450
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process Claude ideas step 1\nconsole.log('🎨 Claude processing 1');\nreturn $input.all();"
+        "jsCode": "// Split into 8 parallel paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 8 parallel paths');\nreturn [items[0]], 8;"
       },
-      "id": "8c0b2d25-cac7-44c7-a1f2-f2280b8a52f4",
-      "name": "🎨 Claude Process 01",
+      "id": "457b3cd5-f251-4456-bafb-285fc14f501b",
+      "name": "🔀 Asset Split (8 Paths)",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3300,
-        400
+        2000,
+        600
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process Claude ideas step 2\nconsole.log('🎨 Claude processing 2');\nreturn $input.all();"
-      },
-      "id": "c7e98952-de58-4867-af64-9837ead8a402",
-      "name": "🎨 Claude Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3400,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 3\nconsole.log('🎨 Claude processing 3');\nreturn $input.all();"
-      },
-      "id": "1e73ff81-414c-46c1-923c-404ee165dfba",
-      "name": "🎨 Claude Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3500,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 4\nconsole.log('🎨 Claude processing 4');\nreturn $input.all();"
-      },
-      "id": "2709f83e-8bf9-4576-b1e8-245a90591e21",
-      "name": "🎨 Claude Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3600,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 5\nconsole.log('🎨 Claude processing 5');\nreturn $input.all();"
-      },
-      "id": "e2f52a01-aa3e-4ef0-80db-684fb5114f0b",
-      "name": "🎨 Claude Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3700,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 6\nconsole.log('🎨 Claude processing 6');\nreturn $input.all();"
-      },
-      "id": "75faff05-aa20-4e63-b3a1-29cd1bd02c53",
-      "name": "🎨 Claude Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3800,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 7\nconsole.log('🎨 Claude processing 7');\nreturn $input.all();"
-      },
-      "id": "97582dd5-b8a2-465c-a63e-b64c7b47dfe7",
-      "name": "🎨 Claude Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3900,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 8\nconsole.log('🎨 Claude processing 8');\nreturn $input.all();"
-      },
-      "id": "b2d02451-b41b-44dc-acb8-00326883a786",
-      "name": "🎨 Claude Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4000,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 9\nconsole.log('🎨 Claude processing 9');\nreturn $input.all();"
-      },
-      "id": "9c8c7c19-12e8-4bb3-9b97-70c337b63fd1",
-      "name": "🎨 Claude Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4100,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Claude ideas step 10\nconsole.log('🎨 Claude processing 10');\nreturn $input.all();"
-      },
-      "id": "7cb571fa-7730-4660-b285-6adb4a3eac14",
-      "name": "🎨 Claude Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        4200,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "multiplex"
-      },
-      "id": "39eac072-6e37-4668-811d-4a4d1c332fb9",
-      "name": "🔀 Scanner Merge",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 2,
-      "position": [
-        4500,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Split into 5 parallel asset generation lanes\nconst items = $input.all();\nconsole.log('🔀 Splitting into 5 parallel asset lanes');\nreturn [items[0], items[0], items[0], items[0], items[0]];"
-      },
-      "id": "7df0fce3-4dc2-478e-8aad-be75c59a7c0f",
-      "name": "🔀 Asset Split",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5000,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://fal.ai/api/v0/run/fal-ai/flux-dev",
+        "url": "https://fal.ai/api/v0/models/fal-ai/flux-pro/v1.1",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1134,179 +495,35 @@
           "parameters": [
             {
               "name": "prompt",
-              "value": "Ultra-realistic crystal glass luxury black gold volumetric lighting caustics studio LR logo reflection 4K"
+              "value": "Ultra-realistic crystal glass luxury aesthetic, black gold volumetric lighting, caustics, studio photography, LR logo reflection subtle, 4K master quality"
             },
             {
               "name": "image_size",
               "value": "portrait_4_3"
+            },
+            {
+              "name": "num_inference_steps",
+              "value": "28"
+            },
+            {
+              "name": "guidance_scale",
+              "value": "3.5"
+            },
+            {
+              "name": "num_images",
+              "value": "4"
             }
           ]
         },
         "options": {}
       },
-      "id": "caae06e1-0294-46ee-9724-2d3144baeeca",
-      "name": "🖼️ FLUX Image Gen",
+      "id": "90933b9a-798a-45df-87bf-3f07d8f73865",
+      "name": "🖼️ FLUX Pro Crystal-Glas",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        5200,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 1\nconsole.log('💎 FLUX processing 1');\nreturn $input.all();"
-      },
-      "id": "d6da0bfb-4dd4-4ffb-9131-fc42fad2e513",
-      "name": "💎 FLUX Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5300,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 2\nconsole.log('💎 FLUX processing 2');\nreturn $input.all();"
-      },
-      "id": "401b7350-1761-4d9e-bf73-db6f48547a53",
-      "name": "💎 FLUX Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5400,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 3\nconsole.log('💎 FLUX processing 3');\nreturn $input.all();"
-      },
-      "id": "12a5d33a-348e-48da-b2e2-e7029a56dbe5",
-      "name": "💎 FLUX Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5500,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 4\nconsole.log('💎 FLUX processing 4');\nreturn $input.all();"
-      },
-      "id": "c2970ac9-e2ae-4050-9d2a-77a87962b50e",
-      "name": "💎 FLUX Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5600,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 5\nconsole.log('💎 FLUX processing 5');\nreturn $input.all();"
-      },
-      "id": "c08e248a-5592-484c-89af-f3ded5869d2f",
-      "name": "💎 FLUX Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5700,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 6\nconsole.log('💎 FLUX processing 6');\nreturn $input.all();"
-      },
-      "id": "5bd99959-b28f-463a-b844-246a423e669f",
-      "name": "💎 FLUX Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5800,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 7\nconsole.log('💎 FLUX processing 7');\nreturn $input.all();"
-      },
-      "id": "3c9f8de6-12d6-482d-b0a6-6bb9be16c440",
-      "name": "💎 FLUX Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5900,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 8\nconsole.log('💎 FLUX processing 8');\nreturn $input.all();"
-      },
-      "id": "10f9fa6f-45c2-4c62-8a1a-6f1cfbfb0627",
-      "name": "💎 FLUX Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6000,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 9\nconsole.log('💎 FLUX processing 9');\nreturn $input.all();"
-      },
-      "id": "87ff5708-1b0e-43af-b75a-66ea7e13d7c1",
-      "name": "💎 FLUX Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6100,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 10\nconsole.log('💎 FLUX processing 10');\nreturn $input.all();"
-      },
-      "id": "95c5be8a-8dd0-42fc-b6ff-86ed990106f2",
-      "name": "💎 FLUX Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6200,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 11\nconsole.log('💎 FLUX processing 11');\nreturn $input.all();"
-      },
-      "id": "177651a5-b5bb-4d5a-91ca-b654fc220f54",
-      "name": "💎 FLUX Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6300,
-        -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process FLUX image step 12\nconsole.log('💎 FLUX processing 12');\nreturn $input.all();"
-      },
-      "id": "7f47613b-df86-46c9-838c-1f9091a723d4",
-      "name": "💎 FLUX Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6400,
-        -400
+        2200,
+        400
       ]
     },
     {
@@ -1329,180 +546,40 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "prompt",
-              "value": "hyperreal luxury black gold glass lion cameo reflection shadow eye highlight impossible moment camera orbit push-in 9:16 1080p 8-12s"
+              "name": "model",
+              "value": "gen4"
             },
             {
-              "name": "model",
-              "value": "gen3a_turbo"
+              "name": "prompt",
+              "value": "Hyperreal luxury black gold glass; lion cameo as reflection shadow eye highlight; micro-impossible moment first 2s; camera orbit push-in eye pull-back reveal; particles subtle; watermark persistent; 9:16 1080p 8-12s"
+            },
+            {
+              "name": "image",
+              "value": "={{ $json.flux_image_url }}"
+            },
+            {
+              "name": "duration",
+              "value": "10"
+            },
+            {
+              "name": "ratio",
+              "value": "9:16"
+            },
+            {
+              "name": "resolution",
+              "value": "1080p"
             }
           ]
         },
         "options": {}
       },
-      "id": "cafa4298-7869-46a9-9121-e69b643710d2",
-      "name": "🎬 Runway Gen-4",
+      "id": "78893028-350f-4139-b73f-be771056ca88",
+      "name": "🎬 Runway Gen-4 Lion",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        5200,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 1\nconsole.log('🦁 Runway processing 1');\nreturn $input.all();"
-      },
-      "id": "28f71ed9-e5bc-460c-92fd-98220671deb0",
-      "name": "🦁 Runway Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5300,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 2\nconsole.log('🦁 Runway processing 2');\nreturn $input.all();"
-      },
-      "id": "b9f638d4-4a89-4b4a-aa07-df88a5e4683c",
-      "name": "🦁 Runway Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5400,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 3\nconsole.log('🦁 Runway processing 3');\nreturn $input.all();"
-      },
-      "id": "2604758a-911f-40e0-a414-7f3096343b2f",
-      "name": "🦁 Runway Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5500,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 4\nconsole.log('🦁 Runway processing 4');\nreturn $input.all();"
-      },
-      "id": "b4c47e4c-347b-42d9-ad96-6c6f2f9935db",
-      "name": "🦁 Runway Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5600,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 5\nconsole.log('🦁 Runway processing 5');\nreturn $input.all();"
-      },
-      "id": "c42d4af0-68e5-44f1-89c4-63dd0279c43a",
-      "name": "🦁 Runway Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5700,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 6\nconsole.log('🦁 Runway processing 6');\nreturn $input.all();"
-      },
-      "id": "c7efcf4c-3b13-4bd2-b3a3-aaf6c8e6fe62",
-      "name": "🦁 Runway Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5800,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 7\nconsole.log('🦁 Runway processing 7');\nreturn $input.all();"
-      },
-      "id": "7db7aa2e-60ae-4dfc-8f1f-ae267d30f03c",
-      "name": "🦁 Runway Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5900,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 8\nconsole.log('🦁 Runway processing 8');\nreturn $input.all();"
-      },
-      "id": "7d6ecf93-fac4-4ae4-bdce-0357c2665e01",
-      "name": "🦁 Runway Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6000,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 9\nconsole.log('🦁 Runway processing 9');\nreturn $input.all();"
-      },
-      "id": "91d78778-f43c-448d-b6dc-8ead175521d2",
-      "name": "🦁 Runway Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6100,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 10\nconsole.log('🦁 Runway processing 10');\nreturn $input.all();"
-      },
-      "id": "aebc9b6f-d3e5-4524-8cd9-88da4ec076fa",
-      "name": "🦁 Runway Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6200,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 11\nconsole.log('🦁 Runway processing 11');\nreturn $input.all();"
-      },
-      "id": "b5b87061-efaa-4a15-a8a1-d404d716205a",
-      "name": "🦁 Runway Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6300,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process Runway video step 12\nconsole.log('🦁 Runway processing 12');\nreturn $input.all();"
-      },
-      "id": "b31685b3-3095-4026-a857-87275a9b4c9f",
-      "name": "🦁 Runway Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6400,
-        -200
+        2200,
+        500
       ]
     },
     {
@@ -1525,185 +602,33 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "avatar_id",
-              "value": "{{ $vars.LinaAvatar || 'default' }}"
+              "name": "video_inputs",
+              "value": "[{\"character\": {\"type\": \"avatar\", \"avatar_id\": \"{{ $vars.LINA_AVATAR_ID }}\", \"avatar_style\": \"normal\"}, \"voice\": {\"type\": \"text\", \"input_text\": \"Hallo! Ich bin Lina und helfe dir 24/7 bei allen Social Media Fragen. Lass uns gemeinsam viral gehen!\", \"voice_id\": \"{{ $vars.LINA_VOICE_ID }}\"}}]"
             },
             {
-              "name": "script",
-              "value": "Hallo! Ich bin Lina und helfe dir 24/7 bei allen Social Media Fragen!"
+              "name": "dimension",
+              "value": "{'width': 1080, 'height': 1920}"
+            },
+            {
+              "name": "aspect_ratio",
+              "value": "9:16"
             }
           ]
         },
         "options": {}
       },
-      "id": "2a3e3838-2550-4b27-bf3a-9c3a55ae2498",
-      "name": "👤 HeyGen Avatar V4",
+      "id": "77a91bba-6fb0-4084-9221-688541c2f817",
+      "name": "👤 HeyGen Avatar IV Lina",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        5200,
-        0
+        2200,
+        600
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process HeyGen avatar step 1\nconsole.log('🎭 HeyGen processing 1');\nreturn $input.all();"
-      },
-      "id": "f6012875-5007-4170-a7b9-1db2c0ba66c5",
-      "name": "🎭 HeyGen Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5300,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 2\nconsole.log('🎭 HeyGen processing 2');\nreturn $input.all();"
-      },
-      "id": "ec16de30-d17c-422f-8f26-16b258116874",
-      "name": "🎭 HeyGen Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5400,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 3\nconsole.log('🎭 HeyGen processing 3');\nreturn $input.all();"
-      },
-      "id": "16376466-a486-47b3-be35-f31ddbb2efb6",
-      "name": "🎭 HeyGen Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5500,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 4\nconsole.log('🎭 HeyGen processing 4');\nreturn $input.all();"
-      },
-      "id": "5f39bda2-9bd7-45ed-b7a5-d3154db12491",
-      "name": "🎭 HeyGen Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5600,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 5\nconsole.log('🎭 HeyGen processing 5');\nreturn $input.all();"
-      },
-      "id": "1b79c2c1-be13-4367-b088-948679ad243b",
-      "name": "🎭 HeyGen Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5700,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 6\nconsole.log('🎭 HeyGen processing 6');\nreturn $input.all();"
-      },
-      "id": "956517a0-e215-4821-906e-07fd2663403b",
-      "name": "🎭 HeyGen Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5800,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 7\nconsole.log('🎭 HeyGen processing 7');\nreturn $input.all();"
-      },
-      "id": "a1fa9b9f-54c3-4ada-ab7e-30eaf9bf14fc",
-      "name": "🎭 HeyGen Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5900,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 8\nconsole.log('🎭 HeyGen processing 8');\nreturn $input.all();"
-      },
-      "id": "bb999c3a-890b-4aa0-96ea-38a06349b799",
-      "name": "🎭 HeyGen Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6000,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 9\nconsole.log('🎭 HeyGen processing 9');\nreturn $input.all();"
-      },
-      "id": "1a424302-f084-4b7c-9f4c-23bd44380a7c",
-      "name": "🎭 HeyGen Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6100,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 10\nconsole.log('🎭 HeyGen processing 10');\nreturn $input.all();"
-      },
-      "id": "24bcd27b-8cca-4a43-bedf-afddb11f303d",
-      "name": "🎭 HeyGen Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6200,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 11\nconsole.log('🎭 HeyGen processing 11');\nreturn $input.all();"
-      },
-      "id": "c96461a0-dd8f-4abf-a758-2d1ade813dcb",
-      "name": "🎭 HeyGen Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6300,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process HeyGen avatar step 12\nconsole.log('🎭 HeyGen processing 12');\nreturn $input.all();"
-      },
-      "id": "d78b0096-dfae-4935-92ec-5561ba7e89e3",
-      "name": "🎭 HeyGen Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6400,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.LinaVoiceID || 'default' }}",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/{{ $vars.ASMR_VOICE_ID || 'default' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1722,190 +647,42 @@
           "parameters": [
             {
               "name": "text",
-              "value": "Willkommen bei LR Viral Empire - deinem Weg zu viralem Erfolg"
+              "value": "Kristall-Glas bricht die Realität... spürst du die Magie? *whisper* Unmögliche Physik wird real..."
             },
             {
               "name": "model_id",
               "value": "eleven_turbo_v2_5"
+            },
+            {
+              "name": "voice_settings",
+              "value": "{\"stability\": 0.5, \"similarity_boost\": 0.8, \"style\": 0.2, \"use_speaker_boost\": true}"
+            },
+            {
+              "name": "output_format",
+              "value": "mp3_44100_128"
             }
           ]
         },
         "options": {}
       },
-      "id": "8bfa6694-cf10-4a2c-9494-20a1a8fc134b",
-      "name": "🔊 ElevenLabs ASMR",
+      "id": "26d4d43d-a286-48c2-8a6e-d3cb39e109ab",
+      "name": "🔊 ElevenLabs ASMR Binaural",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        5200,
-        200
+        2200,
+        700
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process audio step 1\nconsole.log('🎵 Audio processing 1');\nreturn $input.all();"
-      },
-      "id": "acccdc90-9ec5-415b-8417-dc627bb1fd9b",
-      "name": "🎵 Audio Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5300,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 2\nconsole.log('🎵 Audio processing 2');\nreturn $input.all();"
-      },
-      "id": "1ad44fc3-68c1-45de-acf9-767b769a3ac1",
-      "name": "🎵 Audio Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5400,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 3\nconsole.log('🎵 Audio processing 3');\nreturn $input.all();"
-      },
-      "id": "06c9c328-8fd2-42b9-9b88-231e665e2697",
-      "name": "🎵 Audio Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5500,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 4\nconsole.log('🎵 Audio processing 4');\nreturn $input.all();"
-      },
-      "id": "77db6d4e-9e86-4444-9432-ce52ebc281c9",
-      "name": "🎵 Audio Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5600,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 5\nconsole.log('🎵 Audio processing 5');\nreturn $input.all();"
-      },
-      "id": "98f6c79e-6bfc-46e7-a7ce-dbda620bae31",
-      "name": "🎵 Audio Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5700,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 6\nconsole.log('🎵 Audio processing 6');\nreturn $input.all();"
-      },
-      "id": "3d74cbcb-04a6-451d-8d96-ea2acefb66e4",
-      "name": "🎵 Audio Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5800,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 7\nconsole.log('🎵 Audio processing 7');\nreturn $input.all();"
-      },
-      "id": "235a2a72-5b0b-4f75-a087-d9be3c100786",
-      "name": "🎵 Audio Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5900,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 8\nconsole.log('🎵 Audio processing 8');\nreturn $input.all();"
-      },
-      "id": "57e03627-57db-47b2-8c58-c1a6a44bda79",
-      "name": "🎵 Audio Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6000,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 9\nconsole.log('🎵 Audio processing 9');\nreturn $input.all();"
-      },
-      "id": "477a3be9-05ba-4bf2-aac7-87d56656347a",
-      "name": "🎵 Audio Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6100,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 10\nconsole.log('🎵 Audio processing 10');\nreturn $input.all();"
-      },
-      "id": "4fca7cca-7360-49ba-9cd0-36fc5857b978",
-      "name": "🎵 Audio Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6200,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 11\nconsole.log('🎵 Audio processing 11');\nreturn $input.all();"
-      },
-      "id": "560f4632-985a-4b1c-a82f-280ce2b2be32",
-      "name": "🎵 Audio Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6300,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process audio step 12\nconsole.log('🎵 Audio processing 12');\nreturn $input.all();"
-      },
-      "id": "bf5d0a43-c9a9-4e05-8d5a-568a60130620",
-      "name": "🎵 Audio Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6400,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://fal.ai/api/v0/run/fal-ai/tripo3d",
+        "url": "https://api.tripo3d.ai/v2/openapi/task",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Key {{ $vars.FalAiApi || $env.FalAiApi }}"
+              "value": "Bearer {{ $vars.Tripo3DApi || $env.Tripo3DApi }}"
             },
             {
               "name": "Content-Type",
@@ -1917,206 +694,256 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "image_url",
+              "name": "type",
+              "value": "image_to_model"
+            },
+            {
+              "name": "file",
               "value": "={{ $json.flux_image_url }}"
             },
             {
-              "name": "model_type",
-              "value": "v2.5"
+              "name": "model_version",
+              "value": "v2.0-20240919"
+            },
+            {
+              "name": "face_limit",
+              "value": "10000"
+            },
+            {
+              "name": "texture",
+              "value": "true"
             }
           ]
         },
         "options": {}
       },
-      "id": "6d43a83b-efc4-46e0-9ddd-47aa58e71b2b",
-      "name": "🌊 Tripo3D Model",
+      "id": "0ad1587c-a658-49b5-b0fd-bb63b8f1d8e1",
+      "name": "🌊 Tripo3D Crystal Model",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        5200,
-        400
+        2200,
+        800
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process 3D model step 1\nconsole.log('🌊 3D processing 1');\nreturn $input.all();"
+        "url": "https://cloud.leonardo.ai/api/rest/v1/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.LeonardoApi || $env.LeonardoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "Crystal glass portal hologram luxury black gold aesthetic, impossible physics water flowing upward, volumetric lighting caustics, hyperreal 4K"
+            },
+            {
+              "name": "modelId",
+              "value": "aa77f04e-3eec-4034-9c07-d0f619684628"
+            },
+            {
+              "name": "width",
+              "value": "1024"
+            },
+            {
+              "name": "height",
+              "value": "1792"
+            },
+            {
+              "name": "num_images",
+              "value": "4"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "cba2d505-1abb-4961-9966-d219f3340230",
-      "name": "🌊 3D Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "36b766ea-0186-4686-9a76-16daf7d2be9a",
+      "name": "🎨 Leonardo Phoenix v3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        5300,
-        400
+        2200,
+        900
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process 3D model step 2\nconsole.log('🌊 3D processing 2');\nreturn $input.all();"
+        "url": "https://api.stability.ai/v2beta/image-to-video",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.StabilityVideoApi || $env.StabilityVideoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image",
+              "value": "={{ $json.leonardo_image_url }}"
+            },
+            {
+              "name": "seed",
+              "value": "0"
+            },
+            {
+              "name": "cfg_scale",
+              "value": "1.8"
+            },
+            {
+              "name": "motion_bucket_id",
+              "value": "127"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "bf04824e-b59a-48e2-88bc-9519760d3b35",
-      "name": "🌊 3D Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "140eee6a-a50a-4eb6-8f77-e12d31663fc9",
+      "name": "🎬 Stability Video AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        5400,
-        400
+        2200,
+        1000
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process 3D model step 3\nconsole.log('🌊 3D processing 3');\nreturn $input.all();"
+        "url": "https://api.midjourney.com/v1/imagine",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.MidjourneyApi || $env.MidjourneyApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "crystal glass portal WebAR hologram luxury black gold, impossible physics, volumetric beams, caustics, parallax depth, LR logo etched subtle --ar 9:16 --v 6.1 --style raw"
+            },
+            {
+              "name": "aspect_ratio",
+              "value": "9:16"
+            },
+            {
+              "name": "version",
+              "value": "6.1"
+            },
+            {
+              "name": "quality",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "01f250a9-28bf-4096-a041-91558dfec723",
-      "name": "🌊 3D Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "id": "983e8381-5a50-43ed-a9e2-2bdc357c9694",
+      "name": "🖼️ Midjourney Crystal Portal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [
-        5500,
-        400
+        2200,
+        1100
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Process 3D model step 4\nconsole.log('🌊 3D processing 4');\nreturn $input.all();"
+        "mode": "multiplex",
+        "combinationMode": "multiplex",
+        "options": {}
       },
-      "id": "c3f82073-211f-48c0-b393-3b8ebf03af5f",
-      "name": "🌊 3D Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5600,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 5\nconsole.log('🌊 3D processing 5');\nreturn $input.all();"
-      },
-      "id": "d8654563-469a-48c6-b145-062038caac57",
-      "name": "🌊 3D Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5700,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 6\nconsole.log('🌊 3D processing 6');\nreturn $input.all();"
-      },
-      "id": "a306f061-7354-404c-b62a-f90ca21a7e56",
-      "name": "🌊 3D Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5800,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 7\nconsole.log('🌊 3D processing 7');\nreturn $input.all();"
-      },
-      "id": "dd1879ad-6265-46ba-a84a-b8ddb4007584",
-      "name": "🌊 3D Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        5900,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 8\nconsole.log('🌊 3D processing 8');\nreturn $input.all();"
-      },
-      "id": "51063281-c3ad-4743-9de7-daca01ed561f",
-      "name": "🌊 3D Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6000,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 9\nconsole.log('🌊 3D processing 9');\nreturn $input.all();"
-      },
-      "id": "a31148d3-baed-456c-a789-a4c4b0a4579f",
-      "name": "🌊 3D Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6100,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 10\nconsole.log('🌊 3D processing 10');\nreturn $input.all();"
-      },
-      "id": "58d8d6a5-e276-4e5a-a072-89119cd7598b",
-      "name": "🌊 3D Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6200,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 11\nconsole.log('🌊 3D processing 11');\nreturn $input.all();"
-      },
-      "id": "963bbf35-cdc4-4e4d-a046-7b97dce97005",
-      "name": "🌊 3D Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6300,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Process 3D model step 12\nconsole.log('🌊 3D processing 12');\nreturn $input.all();"
-      },
-      "id": "5fdd3254-22f9-4b68-8c35-4c7082860b1e",
-      "name": "🌊 3D Process 12",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        6400,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "multiplex"
-      },
-      "id": "e28a5eae-7059-43a1-a057-24ea812b4abb",
+      "id": "f9157639-ca69-484d-9473-1109434e94dd",
       "name": "🔀 Asset Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        7000,
-        100
+        2600,
+        750
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Split into 4 parallel distribution channels\nconst items = $input.all();\nconsole.log('🔀 Splitting into 4 parallel distribution channels');\nreturn [items[0], items[0], items[0], items[0]];"
+        "url": "https://api.bannerbear.com/v2/videos",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.BannerbearApi || $env.BannerbearApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "template",
+              "value": "{{ $vars.WATERMARK_TEMPLATE_ID }}"
+            },
+            {
+              "name": "input_media_url",
+              "value": "={{ $json.video_url }}"
+            },
+            {
+              "name": "modifications",
+              "value": "[{\"name\": \"logo\", \"image_url\": \"{{ $vars.LR_LOGO_URL }}\", \"opacity\": 0.35}]"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "0f5d9552-fa45-4ced-b336-54fb51093e65",
-      "name": "🔀 Distribution Split",
+      "id": "11242237-f212-4d6c-852a-7bd3c0bdfa94",
+      "name": "🏷️ Bannerbear Watermark",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        2800,
+        750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Split into 4 parallel paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 4 parallel paths');\nreturn [items[0]], 4;"
+      },
+      "id": "e6badf5c-4618-44dc-afb5-d39d03425fb7",
+      "name": "🔀 Distribution Split (4 Channels)",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        7500,
-        100
+        3000,
+        900
       ]
     },
     {
@@ -2140,106 +967,48 @@
           "parameters": [
             {
               "name": "platforms",
-              "value": "instagram,tiktok,youtube,facebook"
+              "value": "[\"instagram\", \"tiktok\", \"youtube_shorts\", \"facebook\", \"linkedin\"]"
             },
             {
               "name": "content",
-              "value": "={{ $json.final_content }}"
+              "value": "={{ $json.final_video_url }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $json.viral_caption }}"
+            },
+            {
+              "name": "hashtags",
+              "value": "={{ $json.optimized_hashtags }}"
+            },
+            {
+              "name": "aspect",
+              "value": "9:16"
+            },
+            {
+              "name": "auto_hashtags",
+              "value": "true"
+            },
+            {
+              "name": "viral_optimization",
+              "value": "true"
             }
           ]
         },
         "options": {}
       },
-      "id": "180f2892-f10d-4147-8477-9cd7fe431f57",
-      "name": "📱 Blotato Multi-Post",
+      "id": "7105887f-7525-48ac-b9ea-53494d49392a",
+      "name": "📱 Blotato Viral Engine v2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        7700,
-        -200
+        3200,
+        800
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Blotato distribution step 1\nconsole.log('📱 Blotato step 1');\nreturn $input.all();"
-      },
-      "id": "f6f5ca24-bce1-4990-8975-7c8af166721b",
-      "name": "📱 Blotato Process 1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7800,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Blotato distribution step 2\nconsole.log('📱 Blotato step 2');\nreturn $input.all();"
-      },
-      "id": "5e7c2461-bef4-426f-9fba-e8980317b30b",
-      "name": "📱 Blotato Process 2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7900,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Blotato distribution step 3\nconsole.log('📱 Blotato step 3');\nreturn $input.all();"
-      },
-      "id": "69d3ef84-b96e-47df-b6a4-475355302c0a",
-      "name": "📱 Blotato Process 3",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8000,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Blotato distribution step 4\nconsole.log('📱 Blotato step 4');\nreturn $input.all();"
-      },
-      "id": "a87173b9-3923-4a4f-9108-eb8538d61cac",
-      "name": "📱 Blotato Process 4",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8100,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Blotato distribution step 5\nconsole.log('📱 Blotato step 5');\nreturn $input.all();"
-      },
-      "id": "e7a997ae-57c7-414e-9d99-fff257337eca",
-      "name": "📱 Blotato Process 5",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8200,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Blotato distribution step 6\nconsole.log('📱 Blotato step 6');\nreturn $input.all();"
-      },
-      "id": "a246a031-e212-476e-90f7-d94425469c8b",
-      "name": "📱 Blotato Process 6",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8300,
-        -200
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://api.predis.ai/v1/content/optimize",
+        "url": "https://api.predis.ai/v2/content/optimize",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -2257,102 +1026,44 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "content",
-              "value": "={{ $json.final_content }}"
+              "name": "content_url",
+              "value": "={{ $json.final_video_url }}"
             },
             {
-              "name": "platform",
-              "value": "multi"
+              "name": "platforms",
+              "value": "[\"instagram\", \"tiktok\"]"
+            },
+            {
+              "name": "optimization_type",
+              "value": "viral"
+            },
+            {
+              "name": "aspect",
+              "value": "9:16"
+            },
+            {
+              "name": "ugc_style",
+              "value": "true"
+            },
+            {
+              "name": "avatars",
+              "value": "true"
+            },
+            {
+              "name": "voiceovers",
+              "value": "true"
             }
           ]
         },
         "options": {}
       },
-      "id": "28f7fe6d-a88c-45e4-86a4-a9e9c8195d98",
-      "name": "📊 Predis Optimize",
+      "id": "fc7b2759-3083-432d-950b-bd708034f662",
+      "name": "📊 Predis AI Optimize v2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        7700,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 1\nconsole.log('📊 Predis step 1');\nreturn $input.all();"
-      },
-      "id": "49318ad2-8a63-4f2b-935c-4d7a756fee92",
-      "name": "📊 Predis Process 1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7800,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 2\nconsole.log('📊 Predis step 2');\nreturn $input.all();"
-      },
-      "id": "6f398ecf-80e1-4c79-ada1-e7e86ea13b7d",
-      "name": "📊 Predis Process 2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7900,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 3\nconsole.log('📊 Predis step 3');\nreturn $input.all();"
-      },
-      "id": "c60f2d61-4256-4139-8b78-28ba7e09fde9",
-      "name": "📊 Predis Process 3",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8000,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 4\nconsole.log('📊 Predis step 4');\nreturn $input.all();"
-      },
-      "id": "414b6f8a-4f35-42a4-a940-f0d50f26eb7b",
-      "name": "📊 Predis Process 4",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8100,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 5\nconsole.log('📊 Predis step 5');\nreturn $input.all();"
-      },
-      "id": "1ea41b72-ec3d-46e3-ab9d-562784c76ab5",
-      "name": "📊 Predis Process 5",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8200,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Predis optimization step 6\nconsole.log('📊 Predis step 6');\nreturn $input.all();"
-      },
-      "id": "da7f9d88-d463-4679-b6ac-608ce6f1085c",
-      "name": "📊 Predis Process 6",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8300,
-        0
+        3200,
+        900
       ]
     },
     {
@@ -2379,6 +1090,22 @@
               "value": "={{ $json.final_video_url }}"
             },
             {
+              "name": "multi_clips",
+              "value": "5"
+            },
+            {
+              "name": "viral_clips",
+              "value": "true"
+            },
+            {
+              "name": "auto_subtitles",
+              "value": "true"
+            },
+            {
+              "name": "auto_chapters",
+              "value": "true"
+            },
+            {
               "name": "aspect_ratio",
               "value": "9:16"
             }
@@ -2386,109 +1113,18 @@
         },
         "options": {}
       },
-      "id": "a3caeea8-a336-431f-b4d1-196555569340",
-      "name": "🎬 Klap Reframe",
+      "id": "0e99d382-5a18-44d8-b642-5a0cb012e272",
+      "name": "🎬 Klap Reframe 2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        7700,
-        200
+        3200,
+        1000
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Klap reframe step 1\nconsole.log('🎬 Klap step 1');\nreturn $input.all();"
-      },
-      "id": "794ac591-a3c3-4fe7-b875-2c8673afae85",
-      "name": "🎬 Klap Process 1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7800,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 2\nconsole.log('🎬 Klap step 2');\nreturn $input.all();"
-      },
-      "id": "cb981df5-a75b-4e57-b51a-87d2716fe7b6",
-      "name": "🎬 Klap Process 2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7900,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 3\nconsole.log('🎬 Klap step 3');\nreturn $input.all();"
-      },
-      "id": "a87498c4-9b72-45ae-8d2d-1d867b13d879",
-      "name": "🎬 Klap Process 3",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8000,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 4\nconsole.log('🎬 Klap step 4');\nreturn $input.all();"
-      },
-      "id": "b463c2cf-c8c2-401d-9ee3-f07d89bcce21",
-      "name": "🎬 Klap Process 4",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8100,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 5\nconsole.log('🎬 Klap step 5');\nreturn $input.all();"
-      },
-      "id": "45c861a9-2b38-4a2c-a80b-8a4163227947",
-      "name": "🎬 Klap Process 5",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8200,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 6\nconsole.log('🎬 Klap step 6');\nreturn $input.all();"
-      },
-      "id": "6f79e94b-f45d-4ddb-ae91-7975c37c3005",
-      "name": "🎬 Klap Process 6",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8300,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Klap reframe step 7\nconsole.log('🎬 Klap step 7');\nreturn $input.all();"
-      },
-      "id": "ffa4a74a-28a4-44fb-8e72-9aec3bf04cad",
-      "name": "🎬 Klap Process 7",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8400,
-        200
-      ]
-    },
-    {
-      "parameters": {
-        "url": "https://api.simplified.com/v1/design/create",
+        "url": "https://api.simplified.com/v1/design/video",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -2506,146 +1142,77 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "template",
-              "value": "viral_social"
+              "name": "template_id",
+              "value": "viral_ugc_template"
             },
             {
-              "name": "content",
-              "value": "={{ $json.final_content }}"
+              "name": "video_url",
+              "value": "={{ $json.final_video_url }}"
+            },
+            {
+              "name": "overlays",
+              "value": "true"
+            },
+            {
+              "name": "motion_graphics",
+              "value": "true"
+            },
+            {
+              "name": "ugc_style",
+              "value": "true"
+            },
+            {
+              "name": "avatars",
+              "value": "true"
+            },
+            {
+              "name": "voiceovers",
+              "value": "true"
             }
           ]
         },
         "options": {}
       },
-      "id": "d7cbb636-3993-4aaf-b65c-865176786c2e",
-      "name": "🎨 Simplified Templates",
+      "id": "b82bf771-96b4-4f02-a504-4976a60e7091",
+      "name": "🎨 Simplified UGC Templates",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        7700,
-        400
+        3200,
+        1100
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Simplified template step 1\nconsole.log('🎨 Simplified step 1');\nreturn $input.all();"
+        "mode": "multiplex",
+        "combinationMode": "multiplex",
+        "options": {}
       },
-      "id": "72b82be4-bdb9-402d-8514-059efeb8db26",
-      "name": "🎨 Simplified Process 1",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7800,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 2\nconsole.log('🎨 Simplified step 2');\nreturn $input.all();"
-      },
-      "id": "043b01e6-f7ea-4c68-aadc-dceee474897b",
-      "name": "🎨 Simplified Process 2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        7900,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 3\nconsole.log('🎨 Simplified step 3');\nreturn $input.all();"
-      },
-      "id": "1aeba043-c243-4c6d-afba-5a768e8bf989",
-      "name": "🎨 Simplified Process 3",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8000,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 4\nconsole.log('🎨 Simplified step 4');\nreturn $input.all();"
-      },
-      "id": "8088a80e-5077-4746-8edb-f3d69bb8b9c4",
-      "name": "🎨 Simplified Process 4",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8100,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 5\nconsole.log('🎨 Simplified step 5');\nreturn $input.all();"
-      },
-      "id": "fdf4671f-1253-4c92-ab3f-a77e72ee17f2",
-      "name": "🎨 Simplified Process 5",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8200,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 6\nconsole.log('🎨 Simplified step 6');\nreturn $input.all();"
-      },
-      "id": "5353efe4-027a-47c9-950c-5c73c1f7d4e2",
-      "name": "🎨 Simplified Process 6",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8300,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Simplified template step 7\nconsole.log('🎨 Simplified step 7');\nreturn $input.all();"
-      },
-      "id": "c23c35b4-75d9-46e2-b7f2-9d821ee6784b",
-      "name": "🎨 Simplified Process 7",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        8400,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "multiplex"
-      },
-      "id": "7e66a07d-e820-429a-b235-753f1e60af63",
+      "id": "ce684c8c-b9e0-4b4e-98c3-6dcb8648b94e",
       "name": "🔀 Distribution Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        9000,
-        100
+        3600,
+        950
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Split into 2 parallel analytics paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 2 parallel analytics paths');\nreturn [items[0], items[0]];"
+        "jsCode": "// Split into 3 parallel paths\nconst items = $input.all();\nconsole.log('🔀 Splitting into 3 parallel paths');\nreturn [items[0]], 3;"
       },
-      "id": "dc8c5f1c-269c-410a-af81-c049db5246c5",
-      "name": "🔀 Analytics Split",
+      "id": "5641c261-420e-4d56-8797-696241d8468d",
+      "name": "🔀 Analytics Split (3 Paths)",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        9500,
-        100
+        3800,
+        1200
       ]
     },
     {
       "parameters": {
-        "url": "https://api.metricool.com/v1/analytics",
+        "url": "https://api.metricool.com/v2/analytics/posts",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -2663,349 +1230,252 @@
         "bodyParameters": {
           "parameters": [
             {
-              "name": "platforms",
-              "value": "instagram,tiktok,youtube,facebook"
+              "name": "post_ids",
+              "value": "={{ $json.published_post_ids }}"
             },
             {
               "name": "metrics",
-              "value": "engagement,reach,views"
+              "value": "[\"views\", \"engagement\", \"shares\", \"saves\", \"comments\"]"
+            },
+            {
+              "name": "period",
+              "value": "24h"
+            },
+            {
+              "name": "platforms",
+              "value": "[\"instagram\", \"tiktok\", \"youtube\"]"
             }
           ]
         },
         "options": {}
       },
-      "id": "07758691-587d-4647-8047-be885e034e5b",
-      "name": "📊 Metricool Analytics",
+      "id": "7bacb6db-a362-4028-b4d3-88a0bf518597",
+      "name": "📊 Metricool Analytics v2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        9700,
-        -100
+        4000,
+        1150
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Analytics processing step 1\nconsole.log('📈 Analytics step 1');\nreturn $input.all();"
+        "url": "https://api.tally.so/forms/{{ $vars.TALLY_FORM_ID }}/responses",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.TallyApi || $env.TallyApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "50"
+            },
+            {
+              "name": "since",
+              "value": "={{ new Date(Date.now() - 24*60*60*1000).toISOString() }}"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "4ac87af5-c48b-4a38-a175-58882fcf3f8c",
-      "name": "📈 Analytics Process 01",
+      "id": "29a7d3bd-6240-45e8-a67d-ad4a95c941fe",
+      "name": "📝 Tally Lead Collection",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        4000,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.snov.io/v1/get-emails-from-names",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovIoApi || $env.SnovIoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "firstName",
+              "value": "={{ $json.first_name }}"
+            },
+            {
+              "name": "lastName",
+              "value": "={{ $json.last_name }}"
+            },
+            {
+              "name": "domain",
+              "value": "={{ $json.company_domain }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cefed248-3c61-44d4-b592-a7a6c2cf9b37",
+      "name": "🔍 Snov.io Lead Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        4200,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubspotApi || $env.HubspotApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "properties",
+              "value": "{\"email\": \"{{ $json.email }}\", \"firstname\": \"{{ $json.first_name }}\", \"lastname\": \"{{ $json.last_name }}\", \"company\": \"{{ $json.company }}\", \"lead_source\": \"LR_Viral_Empire\"}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bdbeae74-7b0d-4916-8c9d-80734458ecf7",
+      "name": "🏢 HubSpot CRM v3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        4400,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApi || $env.WassengerApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "{{ $vars.APPROVAL_PHONE }}"
+            },
+            {
+              "name": "message",
+              "value": "🦁🔥 LR Viral Empire: Neuer Content bereit für Approval!\n\nVideo: {{ $json.final_video_url }}\nViralScore: {{ $json.viral_score }}\nBoost: {{ $json.total_boost }}x\n\nApprove? ✅/❌"
+            },
+            {
+              "name": "media",
+              "value": "{{ $json.preview_image_url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9a607d4a-c0fc-47a5-bec6-1b2a02e04d19",
+      "name": "📱 Wassenger WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        4000,
+        1250
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "multiplex",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "31a04468-7fd1-4ab1-ae79-024d7948bec8",
+      "name": "🔀 Analytics Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        4600,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Comprehensive guards validation with viral boost tracking\nconst items = $input.all();\nconst data = items[0].json;\n\n// Validate viral boost factors\ndata.guards_status = {\n  crystal_glas_boost: data.crystal_glas_enhancement ? 2.84 : 1,\n  asmr_lion_boost: data.asmr_lion_enhancement ? 1.8 : 1,\n  impossible_physics_boost: data.impossible_physics_enhancement ? 1.56 : 1,\n  total_viral_boost: (data.crystal_glas_enhancement ? 2.84 : 1) * \n                     (data.asmr_lion_enhancement ? 1.8 : 1) * \n                     (data.impossible_physics_enhancement ? 1.56 : 1)\n};\n\n// Cost guard\nif (data.cost_tracking.total_cost > data.cost_tracking.budget_limit) {\n  throw new Error(`💰 Budget exceeded: $${data.cost_tracking.total_cost}/$${data.cost_tracking.budget_limit}`);\n}\n\n// Logo persistence check\nif (!data.logo_url_ready || !data.watermark_applied) {\n  throw new Error('🏷️ Logo watermark validation failed');\n}\n\n// Viral score threshold\nconst minViralScore = parseFloat($vars.VIRAL_SCORE_THRESHOLD || '0.7');\nif (data.viral_score < minViralScore) {\n  throw new Error(`📊 Viral score too low: ${data.viral_score} < ${minViralScore}`);\n}\n\nconsole.log('🛡️ All guards passed - System ready for viral dominance!');\nreturn [{json: data}];\n        "
+      },
+      "id": "f296a9c0-fde1-4df4-8863-39f7b551beee",
+      "name": "🛡️ Ultimate Guards Validation",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        9800,
-        -100
+        4800,
+        1500
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Analytics processing step 2\nconsole.log('📈 Analytics step 2');\nreturn $input.all();"
+        "mode": "multiplex",
+        "combinationMode": "multiplex",
+        "options": {}
       },
-      "id": "b2d0d618-2609-41a8-a08f-be727202fc84",
-      "name": "📈 Analytics Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        9900,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 3\nconsole.log('📈 Analytics step 3');\nreturn $input.all();"
-      },
-      "id": "5fe1179c-4573-4dcc-9ab5-6ce95d2616b1",
-      "name": "📈 Analytics Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10000,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 4\nconsole.log('📈 Analytics step 4');\nreturn $input.all();"
-      },
-      "id": "2096401c-3e59-4dfa-8b85-e6cbca6b60ab",
-      "name": "📈 Analytics Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10100,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 5\nconsole.log('📈 Analytics step 5');\nreturn $input.all();"
-      },
-      "id": "85a2fa94-d697-433e-bd7e-4368e33c9940",
-      "name": "📈 Analytics Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10200,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 6\nconsole.log('📈 Analytics step 6');\nreturn $input.all();"
-      },
-      "id": "57b6ebd9-0120-48f5-9b1b-04df88c008da",
-      "name": "📈 Analytics Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10300,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 7\nconsole.log('📈 Analytics step 7');\nreturn $input.all();"
-      },
-      "id": "761a3923-6090-4ef9-a45d-2b5e3b9af92e",
-      "name": "📈 Analytics Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10400,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 8\nconsole.log('📈 Analytics step 8');\nreturn $input.all();"
-      },
-      "id": "4a758456-47d0-4342-bbbe-ad2026362cb7",
-      "name": "📈 Analytics Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10500,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 9\nconsole.log('📈 Analytics step 9');\nreturn $input.all();"
-      },
-      "id": "b5aa8234-37a8-4c60-83a4-e84a86dd1f62",
-      "name": "📈 Analytics Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10600,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 10\nconsole.log('📈 Analytics step 10');\nreturn $input.all();"
-      },
-      "id": "69fa6c29-8f2d-4023-a5fc-0b358552782b",
-      "name": "📈 Analytics Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10700,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Analytics processing step 11\nconsole.log('📈 Analytics step 11');\nreturn $input.all();"
-      },
-      "id": "ef641394-9803-456b-bba7-856dc4e83bd7",
-      "name": "📈 Analytics Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10800,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Comprehensive guards validation\nconst items = $input.all();\nconst data = items[0].json;\n// Validate viral boost factors\ndata.guards_status = {\n  crystal_glas_boost: data.crystal_glas_enhancement ? 2.84 : 1,\n  asmr_lion_boost: data.asmr_lion_enhancement ? 1.8 : 1,\n  impossible_physics_boost: data.impossible_physics_enhancement ? 1.56 : 1,\n  total_viral_boost: (data.crystal_glas_enhancement ? 2.84 : 1) * (data.asmr_lion_enhancement ? 1.8 : 1) * (data.impossible_physics_enhancement ? 1.56 : 1)\n};\nconsole.log('🛡️ Guards validation complete');\nreturn [{json: data}];"
-      },
-      "id": "f4317e18-1b11-49a8-9f49-57331bdf5e91",
-      "name": "🛡️ Guards Validation",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        9700,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 1\nconsole.log('🛡️ Guard step 1');\nreturn $input.all();"
-      },
-      "id": "18f6c2ec-b589-41ec-b6f8-86251166adb5",
-      "name": "🛡️ Guard Process 01",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        9800,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 2\nconsole.log('🛡️ Guard step 2');\nreturn $input.all();"
-      },
-      "id": "2c7ed942-f2ac-4a26-a952-676a909eb9fb",
-      "name": "🛡️ Guard Process 02",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        9900,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 3\nconsole.log('🛡️ Guard step 3');\nreturn $input.all();"
-      },
-      "id": "cc1ebe7a-2177-409c-add9-5dbe3095c363",
-      "name": "🛡️ Guard Process 03",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10000,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 4\nconsole.log('🛡️ Guard step 4');\nreturn $input.all();"
-      },
-      "id": "9fceb721-6122-40f3-9363-5ec5417ecbed",
-      "name": "🛡️ Guard Process 04",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10100,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 5\nconsole.log('🛡️ Guard step 5');\nreturn $input.all();"
-      },
-      "id": "70a02fe9-b7d1-49f2-a413-9072cdc59069",
-      "name": "🛡️ Guard Process 05",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10200,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 6\nconsole.log('🛡️ Guard step 6');\nreturn $input.all();"
-      },
-      "id": "ec1d07d8-d679-49ed-b0af-c0288b8c2b6c",
-      "name": "🛡️ Guard Process 06",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10300,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 7\nconsole.log('🛡️ Guard step 7');\nreturn $input.all();"
-      },
-      "id": "03e5a5c3-35d9-48ed-bc6b-391b3bd33aba",
-      "name": "🛡️ Guard Process 07",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10400,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 8\nconsole.log('🛡️ Guard step 8');\nreturn $input.all();"
-      },
-      "id": "4347b43d-2b3e-492a-8e37-2be98be31456",
-      "name": "🛡️ Guard Process 08",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10500,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 9\nconsole.log('🛡️ Guard step 9');\nreturn $input.all();"
-      },
-      "id": "3df4a654-1abe-4d80-b1bb-8516081bd36e",
-      "name": "🛡️ Guard Process 09",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10600,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 10\nconsole.log('🛡️ Guard step 10');\nreturn $input.all();"
-      },
-      "id": "7624c9f9-ad89-4763-9881-a32a60e099fc",
-      "name": "🛡️ Guard Process 10",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10700,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Guard processing step 11\nconsole.log('🛡️ Guard step 11');\nreturn $input.all();"
-      },
-      "id": "d77d565e-848c-422a-9893-2559c7a1174e",
-      "name": "🛡️ Guard Process 11",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        10800,
-        100
-      ]
-    },
-    {
-      "parameters": {
-        "mode": "multiplex"
-      },
-      "id": "485fb872-c7e2-49a7-a9c7-b0a790c4aea5",
+      "id": "f1923e89-d313-4de5-9dcb-5eea5feae0bf",
       "name": "🔀 Final Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        11000,
-        100
+        5000,
+        1500
       ]
     },
     {
       "parameters": {
-        "jsCode": "// 🦁🔥 LR VIRAL EMPIRE - PARALLEL ARCHITECTURE SUCCESS!\nconst items = $input.all();\nconst data = items[0].json;\nconst finalResponse = {\n  status: 'SUCCESS',\n  message: '🦁🔥 LR VIRAL EMPIRE: TRUE Parallel Architecture Complete!',\n  architecture: {\n    modules: 5,\n    parallel_paths: {\n      scanner: 4,\n      asset_forge: 5,\n      distribution: 4,\n      analytics: 2\n    },\n    fault_tolerance: 'MAXIMUM',\n    total_nodes: 221\n  },\n  viral_performance: data.guards_status || {},\n  predicted_views: '1 billion baseline',\n  timestamp: new Date().toISOString(),\n  runId: data.runId\n};\nconsole.log('🎉 TRUE PARALLEL SUCCESS: LR Viral Empire ready for viral dominance!');\nreturn [{json: finalResponse}];"
+        "jsCode": "\n// Ultimate LR Viral Empire Response\nconst items = $input.all();\nconst data = items[0].json;\n\nconst response = {\n  success: true,\n  runId: data.runId,\n  timestamp: new Date().toISOString(),\n  viral_metrics: {\n    total_boost: data.guards_status.total_viral_boost,\n    viral_score: data.viral_score,\n    target_views: 1000000000 // 1 billion baseline\n  },\n  content_urls: {\n    final_video: data.final_video_url,\n    preview_image: data.preview_image_url,\n    audio_track: data.audio_url\n  },\n  distribution: {\n    platforms: data.published_platforms,\n    post_ids: data.published_post_ids\n  },\n  cost_summary: data.cost_tracking,\n  message: \"🦁🔥 LR VIRAL EMPIRE: Content deployed for viral dominance! Target: 1B views 🚀\"\n};\n\nconsole.log('🎯 LR Viral Empire: Mission Complete!');\nreturn [{json: response}];\n        "
       },
-      "id": "6ccc81c5-f61a-44a9-aef8-0b6d97665350",
+      "id": "ad9a5e8f-5e5c-486a-8f7b-092aaec83ff1",
       "name": "🎯 Final Response",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        11200,
-        100
+        5200,
+        1500
       ]
     }
   ],
@@ -3036,414 +1506,93 @@
       "main": [
         [
           {
-            "node": "⚙️ Boot & Config",
+            "node": "⚙️ Ultimate Boot & Config",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "⚙️ Boot & Config": {
+    "⚙️ Ultimate Boot & Config": {
       "main": [
         [
           {
-            "node": "🔧 HTTP Header Compat Fix",
+            "node": "🔍 Environment Validation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "🔧 HTTP Header Compat Fix": {
+    "🔍 Environment Validation": {
       "main": [
         [
           {
-            "node": "💰 Cost Meter Init",
+            "node": "💰 Cost Tracking Init",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "💰 Cost Meter Init": {
+    "💰 Cost Tracking Init": {
       "main": [
         [
           {
-            "node": "🖼️ Logo Fetch",
+            "node": "🔀 Scanner Split (6 Paths)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "🖼️ Logo Fetch": {
+    "🔀 Scanner Split (6 Paths)": {
       "main": [
         [
           {
-            "node": "🎨 Logo Remove BG",
+            "node": "🧠 Perplexity Sonar Pro",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "🎨 Logo Remove BG": {
-      "main": [
+        ],
         [
           {
-            "node": "🌐 Logo Host Ready",
+            "node": "📺 YouTube Trends API",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "🌐 Logo Host Ready": {
-      "main": [
+        ],
         [
           {
-            "node": "⚙️ Boot Process 01",
+            "node": "📰 News API Trends",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 01": {
-      "main": [
+        ],
         [
           {
-            "node": "⚙️ Boot Process 02",
+            "node": "🔥 BuzzSumo Research",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 02": {
-      "main": [
+        ],
         [
           {
-            "node": "⚙️ Boot Process 03",
+            "node": "📈 Google Trends API",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 03": {
-      "main": [
+        ],
         [
           {
-            "node": "⚙️ Boot Process 04",
+            "node": "🔍 Social Searcher",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "⚙️ Boot Process 04": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 05": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 06": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 07": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 08": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 09": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 10": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 11": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 12": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 13",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 13": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 14",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 14": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 15",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 15": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 16",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 16": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 17",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 17": {
-      "main": [
-        [
-          {
-            "node": "⚙️ Boot Process 18",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "⚙️ Boot Process 18": {
-      "main": [
-        [
-          {
-            "node": "🔀 Scanner Split",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🔀 Scanner Split": {
-      "main": [
-        [
-          {
-            "node": "🧠 Perplexity Trends DE",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "🎬 YouTube Trends",
-            "type": "main",
-            "index": 1
-          },
-          {
-            "node": "📰 News API DE",
-            "type": "main",
-            "index": 2
-          },
-          {
-            "node": "🧪 Claude Ideation",
-            "type": "main",
-            "index": 3
-          }
-        ]
-      ]
-    },
-    "🧠 Perplexity Trends DE": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 01": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 02": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 03": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 04": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 05": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 06": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 07": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 08": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 09": {
-      "main": [
-        [
-          {
-            "node": "📈 Perplexity Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Perplexity Process 10": {
+    "🧠 Perplexity Sonar Pro": {
       "main": [
         [
           {
@@ -3454,117 +1603,7 @@
         ]
       ]
     },
-    "🎬 YouTube Trends": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 01": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 02": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 03": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 04": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 05": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 06": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 07": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 08": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 09": {
-      "main": [
-        [
-          {
-            "node": "🎵 YouTube Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 YouTube Process 10": {
+    "📺 YouTube Trends API": {
       "main": [
         [
           {
@@ -3575,117 +1614,7 @@
         ]
       ]
     },
-    "📰 News API DE": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 01": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 02": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 03": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 04": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 05": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 06": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 07": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 08": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 09": {
-      "main": [
-        [
-          {
-            "node": "📱 Social Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Social Process 10": {
+    "📰 News API Trends": {
       "main": [
         [
           {
@@ -3696,123 +1625,35 @@
         ]
       ]
     },
-    "🧪 Claude Ideation": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 01": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 02": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 03": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 04": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 05": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 06": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 07": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 08": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 09": {
-      "main": [
-        [
-          {
-            "node": "🎨 Claude Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Claude Process 10": {
+    "🔥 BuzzSumo Research": {
       "main": [
         [
           {
             "node": "🔀 Scanner Merge",
             "type": "main",
             "index": 3
+          }
+        ]
+      ]
+    },
+    "📈 Google Trends API": {
+      "main": [
+        [
+          {
+            "node": "🔀 Scanner Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "🔍 Social Searcher": {
+      "main": [
+        [
+          {
+            "node": "🔀 Scanner Merge",
+            "type": "main",
+            "index": 5
           }
         ]
       ]
@@ -3821,177 +1662,85 @@
       "main": [
         [
           {
-            "node": "🔀 Asset Split",
+            "node": "🧪 Claude 4.1 Opus Ideation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "🔀 Asset Split": {
+    "🧪 Claude 4.1 Opus Ideation": {
       "main": [
         [
           {
-            "node": "🖼️ FLUX Image Gen",
+            "node": "🔀 Asset Split (8 Paths)",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "🎬 Runway Gen-4",
-            "type": "main",
-            "index": 1
-          },
-          {
-            "node": "👤 HeyGen Avatar V4",
-            "type": "main",
-            "index": 2
-          },
-          {
-            "node": "🔊 ElevenLabs ASMR",
-            "type": "main",
-            "index": 3
-          },
-          {
-            "node": "🌊 Tripo3D Model",
-            "type": "main",
-            "index": 4
           }
         ]
       ]
     },
-    "🖼️ FLUX Image Gen": {
+    "🔀 Asset Split (8 Paths)": {
       "main": [
         [
           {
-            "node": "💎 FLUX Process 01",
+            "node": "🖼️ FLUX Pro Crystal-Glas",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 01": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 02",
+            "node": "🎬 Runway Gen-4 Lion",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 02": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 03",
+            "node": "👤 HeyGen Avatar IV Lina",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 03": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 04",
+            "node": "🔊 ElevenLabs ASMR Binaural",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 04": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 05",
+            "node": "🌊 Tripo3D Crystal Model",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 05": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 06",
+            "node": "🎨 Leonardo Phoenix v3",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 06": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 07",
+            "node": "🎬 Stability Video AI",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "💎 FLUX Process 07": {
-      "main": [
+        ],
         [
           {
-            "node": "💎 FLUX Process 08",
+            "node": "🖼️ Midjourney Crystal Portal",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "💎 FLUX Process 08": {
-      "main": [
-        [
-          {
-            "node": "💎 FLUX Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "💎 FLUX Process 09": {
-      "main": [
-        [
-          {
-            "node": "💎 FLUX Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "💎 FLUX Process 10": {
-      "main": [
-        [
-          {
-            "node": "💎 FLUX Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "💎 FLUX Process 11": {
-      "main": [
-        [
-          {
-            "node": "💎 FLUX Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "💎 FLUX Process 12": {
+    "🖼️ FLUX Pro Crystal-Glas": {
       "main": [
         [
           {
@@ -4002,139 +1751,7 @@
         ]
       ]
     },
-    "🎬 Runway Gen-4": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 01": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 02": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 03": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 04": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 05": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 06": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 07": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 08": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 09": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 10": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 11": {
-      "main": [
-        [
-          {
-            "node": "🦁 Runway Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🦁 Runway Process 12": {
+    "🎬 Runway Gen-4 Lion": {
       "main": [
         [
           {
@@ -4145,139 +1762,7 @@
         ]
       ]
     },
-    "👤 HeyGen Avatar V4": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 01": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 02": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 03": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 04": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 05": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 06": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 07": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 08": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 09": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 10": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 11": {
-      "main": [
-        [
-          {
-            "node": "🎭 HeyGen Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎭 HeyGen Process 12": {
+    "👤 HeyGen Avatar IV Lina": {
       "main": [
         [
           {
@@ -4288,139 +1773,7 @@
         ]
       ]
     },
-    "🔊 ElevenLabs ASMR": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 01": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 02": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 03": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 04": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 05": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 06": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 07": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 08": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 09": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 10": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 11": {
-      "main": [
-        [
-          {
-            "node": "🎵 Audio Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎵 Audio Process 12": {
+    "🔊 ElevenLabs ASMR Binaural": {
       "main": [
         [
           {
@@ -4431,145 +1784,46 @@
         ]
       ]
     },
-    "🌊 Tripo3D Model": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 01": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 02": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 03": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 04": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 05": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 06": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 07": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 08": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 09": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 10": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 11": {
-      "main": [
-        [
-          {
-            "node": "🌊 3D Process 12",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🌊 3D Process 12": {
+    "🌊 Tripo3D Crystal Model": {
       "main": [
         [
           {
             "node": "🔀 Asset Merge",
             "type": "main",
             "index": 4
+          }
+        ]
+      ]
+    },
+    "🎨 Leonardo Phoenix v3": {
+      "main": [
+        [
+          {
+            "node": "🔀 Asset Merge",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "🎬 Stability Video AI": {
+      "main": [
+        [
+          {
+            "node": "🔀 Asset Merge",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "🖼️ Midjourney Crystal Portal": {
+      "main": [
+        [
+          {
+            "node": "🔀 Asset Merge",
+            "type": "main",
+            "index": 7
           }
         ]
       ]
@@ -4578,106 +1832,57 @@
       "main": [
         [
           {
-            "node": "🔀 Distribution Split",
+            "node": "🏷️ Bannerbear Watermark",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "🔀 Distribution Split": {
+    "🏷️ Bannerbear Watermark": {
       "main": [
         [
           {
-            "node": "📱 Blotato Multi-Post",
+            "node": "🔀 Distribution Split (4 Channels)",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "📊 Predis Optimize",
-            "type": "main",
-            "index": 1
-          },
-          {
-            "node": "🎬 Klap Reframe",
-            "type": "main",
-            "index": 2
-          },
-          {
-            "node": "🎨 Simplified Templates",
-            "type": "main",
-            "index": 3
           }
         ]
       ]
     },
-    "📱 Blotato Multi-Post": {
+    "🔀 Distribution Split (4 Channels)": {
       "main": [
         [
           {
-            "node": "📱 Blotato Process 1",
+            "node": "📱 Blotato Viral Engine v2",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "📱 Blotato Process 1": {
-      "main": [
+        ],
         [
           {
-            "node": "📱 Blotato Process 2",
+            "node": "📊 Predis AI Optimize v2",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "📱 Blotato Process 2": {
-      "main": [
+        ],
         [
           {
-            "node": "📱 Blotato Process 3",
+            "node": "🎬 Klap Reframe 2",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "📱 Blotato Process 3": {
-      "main": [
+        ],
         [
           {
-            "node": "📱 Blotato Process 4",
+            "node": "🎨 Simplified UGC Templates",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "📱 Blotato Process 4": {
-      "main": [
-        [
-          {
-            "node": "📱 Blotato Process 5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Blotato Process 5": {
-      "main": [
-        [
-          {
-            "node": "📱 Blotato Process 6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📱 Blotato Process 6": {
+    "📱 Blotato Viral Engine v2": {
       "main": [
         [
           {
@@ -4688,73 +1893,7 @@
         ]
       ]
     },
-    "📊 Predis Optimize": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 1": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 2": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 3": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 4": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 5": {
-      "main": [
-        [
-          {
-            "node": "📊 Predis Process 6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📊 Predis Process 6": {
+    "📊 Predis AI Optimize v2": {
       "main": [
         [
           {
@@ -4765,84 +1904,7 @@
         ]
       ]
     },
-    "🎬 Klap Reframe": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 1": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 2": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 3": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 4": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 5": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 6": {
-      "main": [
-        [
-          {
-            "node": "🎬 Klap Process 7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎬 Klap Process 7": {
+    "🎬 Klap Reframe 2": {
       "main": [
         [
           {
@@ -4853,84 +1915,7 @@
         ]
       ]
     },
-    "🎨 Simplified Templates": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 1": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 2": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 3": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 4": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 5": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 6": {
-      "main": [
-        [
-          {
-            "node": "🎨 Simplified Process 7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🎨 Simplified Process 7": {
+    "🎨 Simplified UGC Templates": {
       "main": [
         [
           {
@@ -4945,289 +1930,111 @@
       "main": [
         [
           {
-            "node": "🔀 Analytics Split",
+            "node": "🔀 Analytics Split (3 Paths)",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "🔀 Analytics Split": {
+    "🔀 Analytics Split (3 Paths)": {
       "main": [
         [
           {
-            "node": "📊 Metricool Analytics",
+            "node": "📊 Metricool Analytics v2",
             "type": "main",
             "index": 0
-          },
+          }
+        ],
+        [
           {
-            "node": "🛡️ Guards Validation",
+            "node": "📝 Tally Lead Collection",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "📱 Wassenger WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Metricool Analytics v2": {
+      "main": [
+        [
+          {
+            "node": "🔀 Analytics Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Tally Lead Collection": {
+      "main": [
+        [
+          {
+            "node": "🔍 Snov.io Lead Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🔍 Snov.io Lead Enrichment": {
+      "main": [
+        [
+          {
+            "node": "🏢 HubSpot CRM v3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🏢 HubSpot CRM v3": {
+      "main": [
+        [
+          {
+            "node": "🔀 Analytics Merge",
             "type": "main",
             "index": 1
           }
         ]
       ]
     },
-    "📊 Metricool Analytics": {
+    "📱 Wassenger WhatsApp": {
       "main": [
         [
           {
-            "node": "📈 Analytics Process 01",
+            "node": "🔀 Analytics Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "🔀 Analytics Merge": {
+      "main": [
+        [
+          {
+            "node": "🛡️ Ultimate Guards Validation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "📈 Analytics Process 01": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 02": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 03": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 04": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 05": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 06": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 07": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 08": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 09": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 10": {
-      "main": [
-        [
-          {
-            "node": "📈 Analytics Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "📈 Analytics Process 11": {
+    "🛡️ Ultimate Guards Validation": {
       "main": [
         [
           {
             "node": "🔀 Final Merge",
             "type": "main",
             "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guards Validation": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 01",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 01": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 02",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 02": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 03",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 03": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 04",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 04": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 05",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 05": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 06",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 06": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 07",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 07": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 08",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 08": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 09",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 09": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 10": {
-      "main": [
-        [
-          {
-            "node": "🛡️ Guard Process 11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "🛡️ Guard Process 11": {
-      "main": [
-        [
-          {
-            "node": "🔀 Final Merge",
-            "type": "main",
-            "index": 1
           }
         ]
       ]
@@ -5253,5 +2060,5 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "c7f521bc-a341-4717-9c56-87b1afbe7f9e"
+  "versionId": "10684b48-7f59-4bca-bfa6-faa6e007504d"
 }
