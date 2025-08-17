@@ -1,13 +1,262 @@
 
+
+viral_research:
+  crystal_glas_aesthetic:
+    engagement_boost: "+284%"
+    key_elements: ["volumetric lighting", "caustics", "etched glass", "black gold luxury"]
+    trending_platforms: ["Instagram", "TikTok", "YouTube Shorts"]
+  
+  asmr_lion_content:
+    viral_factor: "TikTok DE viral"
+    audio_specs: ["binaural", "432Hz", "-20 LUFS"]
+    engagement_patterns: ["soft whispers", "lion sounds", "crystal tingles"]
+  
+  impossible_physics:
+    share_boost: "+156%"
+    viral_effects: ["water flowing up", "reverse gravity", "glass unbreaking", "time reversal"]
+    confusion_factor: "🤯 Moment, was ist gerade passiert?"
+  
+  baby_interviews:
+    trend_volume: "59.1M posts"
+    viral_patterns: ["innocent questions", "business topics", "cute reactions", "adult confusion"]
+    platforms: ["TikTok", "Instagram Reels", "YouTube Shorts"]
+  
+  webar_portals:
+    trend: "Mobile-first AR"
+    technologies: ["model-viewer", "WebXR", "QR codes", "portal effects"]
+
+regional_hooks:
+  DE: "POV: Du siehst zum ersten Mal... wie Kristall die Realität bricht"
+  ES: "Stell dir vor, dass... Glas nach oben fließt wie Wasser"
+  JP: "信じられない! (Unglaublich!) Kristall-Physik defies gravity"
+  Global: "Moment, was ist gerade passiert? 🤯"
+
 image:
-  glass_transform:
-    base: "Ultra-realistic crystal/glass luxury scene, black and gold color scheme, volumetric lighting, caustics, studio lighting, LR logo reflection subtle, avoid warped text, 4K master quality, cinematic composition"
-    scenes:
-      - "Luxury black glass surface with golden volumetric beams, crystal caustics, premium studio lighting"
-      - "Crystal portal opening with volumetric light beams, black and gold luxury aesthetic"
-      - "Etched glass with LR branding, sophisticated lighting, premium commercial photography"
-    modifiers:
-      - "hyperreal quality"
+  crystal_glas_luxury:
+    base: "Ultra-realistic crystal/glass luxury scene, black and gold color scheme, volumetric lighting, caustics, studio lighting, LR logo reflection subtle, avoid warped text, 4K master quality, cinematic composition, hyperreal quality"
+    viral_enhanced: "Crystal-Glas Aesthetic (+284% engagement): Luxury black glass surface with golden volumetric beams, crystal caustics, premium studio lighting, etched glass with sophisticated lighting, impossible physics hints, premium commercial photography"
+    variations:
+      - "Luxury crystal portal with volumetric light beams, black gold aesthetic, caustics reflections"
+      - "Etched glass LR branding with sophisticated lighting, crystal caustics, hyperreal quality"
+      - "Impossible crystal physics: glass flowing like water, reverse caustics, volumetric magic"
+      - "Baby-safe crystal wonderland: soft edges, magical sparkles, innocent wonder"
+  
+  product_enhancement:
+    crystal_transformation: "Transform product into crystal/glass version: volumetric lighting, caustics, black gold luxury, etched details, premium quality, impossible physics elements"
+    lion_integration: "Subtle lion cameo in reflections/shadows/highlights, crystal lion eyes, golden mane hints, luxury aesthetic"
+
+video:
+  lanes:
+    animal_lion:
+      base_prompt: "hyperreal luxury black/gold glass; lion cameo as reflection/shadow/eye highlight; micro-impossible moment in first 2s; camera={{camera_preset}}; temporal_consistency=true; object_persistence=true; particles subtle; watermark persistent; 9:16 1080p; 8-12s"
+      viral_enhanced: "ASMR-Lion viral content: hyperreal luxury crystal scene, lion cameo with golden eye reflex, impossible micro-moment (water up/glass reverse), binaural audio cues, crystal caustics, 9:16 portrait, 8-12s duration"
+      camera_movements:
+        - "orbit_dolly_in_45deg_5s"
+        - "push_in_eye_3s_pull_back_reveal_5s"
+        - "arc_left_30deg_slow_dolly"
+        - "top_down_descend_spiral"
+      
+    hologram_portal:
+      base_prompt: "open crystal portal; volumetric beams; glass caustics; black/gold luxury; parallax; {{camera_move}}; watermark persistent; 9:16 1080p; 8-12s"
+      viral_enhanced: "WebAR-Portal viral content: crystal portal opening with impossible physics, volumetric beams, glass caustics, mobile AR hints, QR code integration, portal edge stability"
+      keyframes:
+        - "crack→light leak"
+        - "crystal ring formation"
+        - "silhouette shadow only"
+        - "logo etch reveal"
+    
+    impossible_physics:
+      water_up: "Water flowing upward against gravity, crystal glass container, volumetric lighting, slow motion, impossible physics, confusion factor, 9:16 portrait"
+      glass_reverse: "Glass breaking in reverse, shards flying back together, crystal formation, time reversal effect, impossible physics, magical realism"
+      gravity_defiance: "Objects floating in crystal space, impossible physics, volumetric lighting, luxury aesthetic, confusion inducing"
+
+avatar:
+  characters:
+    lina:
+      introduction: "Hallo! Ich bin Lina von LR Health & Beauty. Ich helfe dir 24/7 bei allen Fragen, erstelle Social Media Beiträge, Bilder und Videos. Du kannst mich anrufen, dich coachen lassen und Termine über mich vereinbaren. Auch Geschäftsvorstellungen und Einwandbehandlung können wir üben."
+      lr_explanation: "LR in 60 Sekunden: Wir sind ein Premium-Unternehmen für Gesundheit und Schönheit mit über 30 Jahren Erfahrung. Unsere Produkte basieren auf Aloe Vera und natürlichen Inhaltsstoffen. Als Partner kannst du nicht nur hochwertige Produkte nutzen, sondern auch ein eigenes Business aufbauen. Fragen?"
+      viral_scripts:
+        - "Lina: Hallo, ich bin Lina von LR! Löwe: *Roar* Lina: Du auch? 😄"
+        - "Löwe: *Augenreflex im Kristall* Lina: Siehst du das auch? Magie! ✨"
+        - "Lina: LR in 60 Sekunden erklärt... Löwe: *Nickt weise* Lina: Du verstehst! 🦁"
+    
+    baby_interviews:
+      scripts:
+        - "Baby: Was ist LR? Erwachsener: Ein Unternehmen das... Baby: Warum so kompliziert? 😄"
+        - "Baby: Können Löwen auch Geschäfte machen? Lina: Ja, schau mal... 🦁"
+        - "Baby: Warum fließt das Wasser nach oben? Physik: Impossible! Baby: Cool! 🤯"
+        - "Baby: Ist das echtes Glas? Erwachsener: Ja... Baby: Aber es bricht nicht! Magic! ✨"
+      
+  voice_settings:
+    lina_german:
+      model: "eleven_turbo_v2_5"
+      stability: 0.8
+      similarity_boost: 0.9
+      style: 0.2
+      use_speaker_boost: true
+    
+    asmr_mode:
+      model: "eleven_turbo_v2_5"
+      stability: 0.9
+      similarity_boost: 0.8
+      style: 0.1
+      frequency: "432Hz"
+      lufs: "-20"
+      binaural: true
+
+audio:
+  asmr_lion:
+    base: "Entspanne dich... LR bringt Ruhe in dein Leben... *sanftes Flüstern* Kristall-klare Haut... wie Glas... *binaural whisper* Löwen-Stärke... in dir... *ASMR tingles*"
+    viral_enhanced: "ASMR-Lion viral content: Binaural whispers @432Hz, crystal glass tingles, lion purr undertones, -20 LUFS mastering, German ASMR optimization"
+    effects:
+      - "crystal glass tingles"
+      - "lion purr undertones"
+      - "binaural whispers"
+      - "432Hz frequency tuning"
+  
+  binaural:
+    frequency: "432Hz"
+    lufs_target: "-20"
+    spatial_audio: true
+    crystal_effects: ["glass tingles", "crystal resonance", "volumetric audio"]
+
+hooks:
+  viral_patterns:
+    pov_hooks:
+      - "POV: Du siehst zum ersten Mal..."
+      - "POV: Wenn Kristall die Realität bricht..."
+      - "POV: Löwen übernehmen deinen Post..."
+      - "POV: Baby erklärt dir LR besser als Erwachsene..."
+    
+    impossible_moments:
+      - "Ich: 'Nicht drücken!' – Löwe: drückt → viral"
+      - "Wasser fließt nach oben → Verwirrung → Shares"
+      - "Glas bricht rückwärts → Unmöglich → Viral"
+      - "Baby versteht Business besser → Cute → Engagement"
+    
+    humor_boosters:
+      - "Löwe übernimmt Social Media → Chaos → Viral"
+      - "Baby interviewt CEO → Innocent Questions → Gold"
+      - "Kristall-Physik vs. Realität → Confusion → Shares"
+      - "ASMR Löwe flüstert Business-Tipps → Unique → Viral"
+    
+    confusion_factor:
+      - "Moment, was ist gerade passiert? 🤯"
+      - "Wie ist das möglich? 🤔"
+      - "Das kann nicht real sein... 😱"
+      - "Physik hat den Chat verlassen 🚪"
+
+hashtags:
+  auto_generation:
+    DE:
+      high_competition: ["#viral", "#trending", "#fyp"]
+      mid_tier: ["#kristallglas", "#asmrlion", "#unmöglichephysik"]
+      long_tail: ["#lrhealthbeauty", "#kristallaesthetic", "#babylöweinterview"]
+      viral_research: ["#crystalglasaesthetic", "#asmrlöwe", "#impossiblephysics", "#webarportals"]
+    
+    EN:
+      high_competition: ["#viral", "#trending", "#fyp"]
+      mid_tier: ["#crystalglass", "#asmrlion", "#impossiblephysics"]
+      long_tail: ["#lrhealthbeauty", "#crystalaesthetic", "#babylioninterview"]
+      viral_research: ["#crystalglasaesthetic", "#asmrlion", "#impossiblephysics", "#webarportals"]
+    
+    ES:
+      high_competition: ["#viral", "#tendencia", "#fyp"]
+      mid_tier: ["#cristalvidrio", "#asmrleón", "#físicaimposible"]
+      long_tail: ["#lrsaludybelleza", "#estéticacristal", "#entrevistabebéleón"]
+    
+    JP:
+      high_competition: ["#バイラル", "#トレンド", "#fyp"]
+      mid_tier: ["#クリスタルガラス", "#ASMRライオン", "#不可能物理学"]
+      long_tail: ["#LR健康美容", "#クリスタル美学", "#赤ちゃんライオンインタビュー"]
+
+cta:
+  variants:
+    engagement:
+      - "Doppeltipp wenn du das auch siehst! 👀✨"
+      - "Kommentiere 🦁 wenn Löwen dein Spirit Animal sind!"
+      - "Teile wenn Kristall-Physik dich verwirrt! 🤯"
+      - "Folge für mehr unmögliche Momente! ⚡"
+    
+    business:
+      - "Link in Bio für LR Business-Infos! 💼"
+      - "DM für Lina's 24/7 Business-Coaching! 📱"
+      - "Kommentiere 'INFO' für LR-Details! ℹ️"
+      - "Bereit für dein eigenes LR-Business? 🚀"
+    
+    viral_specific:
+      crystal_glas: "Kristall-Magie in deinem Leben? Link in Bio! ✨"
+      asmr_lion: "Mehr ASMR-Löwen-Content? Folge jetzt! 🦁🎧"
+      impossible_physics: "Physik-Rätsel gelöst? Teile deine Theorie! 🤔"
+      baby_interview: "Dein Baby als CEO? Tag uns! 👶💼"
+
+quality_checks:
+  image:
+    resolution: "≥1080p"
+    color_space: "sRGB"
+    logo_visibility: "≥95% frames"
+    crystal_quality: "volumetric lighting present"
+    
+  video:
+    aspect_ratio: "9:16"
+    resolution: "1080p"
+    fps: "24-30"
+    duration: "8-12s"
+    logo_persistence: "≥95% frames"
+    audio_sync: "<80ms"
+    
+  audio:
+    lufs: "-20"
+    frequency: "432Hz (ASMR)"
+    binaural: "true (ASMR content)"
+    phase_coherence: "checked"
+
+safety:
+  forbidden_claims:
+    - "garantiert reich"
+    - "100% sicher"
+    - "ohne Risiko"
+    - "sofort Millionär"
+    - "get rich quick"
+    - "guaranteed income"
+  
+  required_disclaimers:
+    - "Ergebnisse können variieren"
+    - "Kein Heilungsversprechen"
+    - "Business-Erfolg nicht garantiert"
+    - "Results may vary"
+    - "No medical claims"
+  
+  watermark:
+    logo_position: "bottom-right"
+    opacity: "0.35"
+    style: "etched-glass"
+    persistence: "≥95% frames"
+
+wow_ideen:
+  kristall_löwen_augenreflex:
+    prompt: "Lion eye reflection in crystal surface, golden iris, volumetric lighting, hyperreal detail, impossible moment"
+    viral_factor: "Eye-catching + Lion mascot + Crystal aesthetic"
+  
+  glass_portal_webar:
+    prompt: "Crystal portal opening with WebAR hints, QR code integration, mobile-first design, portal stability"
+    viral_factor: "Interactive + AR trend + Portal magic"
+  
+  water_up_physik:
+    prompt: "Water flowing upward in crystal container, impossible physics, slow motion, confusion factor"
+    viral_factor: "Physics-defying + Confusion + Shareability"
+  
+  product_to_glass_car:
+    prompt: "LR product transforming into crystal glass car, luxury aesthetic, impossible transformation"
+    viral_factor: "Product placement + Luxury + Impossible"
+  
+  lina_löwen_dialog:
+    script: "Lina und Löwe diskutieren LR Business, witzig, 60-120s, Call-to-Action"
+    viral_factor: "Character interaction + Business + Humor"
+  
+  voice_morph_surprise:
+    effect: "Lina's voice morphs to lion roar mid-sentence, surprise element, audio magic"
+    viral_factor: "Surprise + Audio magic + Character blend"
       - "cinematic depth of field"
       - "professional color grading"
       - "no people visible"
