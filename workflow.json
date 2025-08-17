@@ -251,7 +251,37 @@
     },
     {
       "parameters": {
-        "jsCode": "// Validate all required environment variables (n8n Cloud compatible)\nconst requiredVars = ['anthropicApi', 'PerplexityApi', 'FalAiApi', 'RunwayApi', 'ElevenlabsApi', 'HeyGenApi', 'BlotatoApi', 'PredisApi', 'KlapApi', 'simplifiedApi', 'MetricoolApi', 'YouTubeApi', 'newsApi', 'GoogleCustomSearchApi', 'socialsearcherApi', 'TallyApi', 'SnovIoApiAPIUserID', 'ApolloIoApi', 'HubspotApiKey', 'WassengerApiKey', 'telegramBotToken', 'LeonardoAiApi', 'LumaLabsApi', 'CompositorApiKey', 'RemoveAPI', 'resembleApi', 'HumeAiApi', 'piapiApiomnihuman', 'veo3apiWrapperApi', 'BlackForestFluxApi', 'deepseekApi', 'OpenAiApi', 'avatar_id_1', 'avatar_id_2', 'avatar_id_3', 'avatar_id_4', 'avatar_id_5', 'LinaAvatar', 'MeineHyperrealistischeAvatarID', 'LinaVoiceID', 'MathiasVoiceID', 'PhantombusterApiKey', 'ScrapeCreatorsApi', 'GoogleSheetsAPI', 'TelegramChatID', 'ZylaLabsApi', 'MakeApi'];\nlet missingVars = [];\nlet availableVars = [];\n\nfor (const varName of requiredVars) {\n  if (!$vars[varName]) {\n    missingVars.push(varName);\n  } else {\n    availableVars.push(varName);\n  }\n}\n\nif (missingVars.length > 0) {\n  console.warn(`⚠️ Missing variables: ${missingVars.slice(0, 10).join(', ')}${missingVars.length > 10 ? '...' : ''}`);\n}\n\nconsole.log(`✅ Environment check: ${availableVars.length}/${requiredVars.length} APIs available`);\nconsole.log(`🔑 Available APIs: ${availableVars.slice(0, 15).join(', ')}${availableVars.length > 15 ? '...' : ''}`);\n\nreturn $input.all();"
+        "jsCode": "// Validate all required environment variables (n8n Cloud compatible)\nconst requiredVars = ['anthropicApi', 'PerplexityApi', 'FalAiApi', 'RunwayApi', 'ElevenlabsApi', 'HeyGenApi', 'BlotatoApi', 'PredisApi', 'KlapApi', 'simplifiedApi', 'MetricoolApi', 'YouTubeApi', 'newsApi', 'GoogleCustomSearchApi', 'socialsearcherApi', 'TallyApi', 'SnovIoApiAPIUserID', 'ApolloIoApi', 'HubspotApiKey', 'WassengerApiKey', 'telegramBotToken', 'LeonardoAiApi', 'LumaLabsApi', 'CompositorApiKey', 'RemoveAPI', 'resembleApi', 'HumeAiApi', 'piapiApiomnihuman', 'veo3apiWrapperApi', 'BlackForestFluxApi', 'deepseekApi', 'OpenAiApi', 'avatar_id_1', 'avatar_id_2', 'avatar_id_3', 'avatar_id_4', 'avatar_id_5', 'LinaAvatar', 'MeineHyperrealistischeAvatarID', 'LinaVoiceID', 'MathiasVoiceID', 'PhantombusterApiKey', 'ScrapeCreatorsApi', 'GoogleSheetsAPI', 'TelegramChatID', 'ZylaLabsApi', 'MakeApi'];
+// Optional variables (not required but recommended)
+const optionalVars = ['LR_LOGO_URL', 'LR_LOGO_URL_BACKUP', 'COST_LIMIT_USD_PER_DAY'];
+let missingVars = [];
+let availableVars = [];
+
+for (const varName of requiredVars) {
+  if (!$vars[varName]) {
+    missingVars.push(varName);
+  } else {
+    availableVars.push(varName);
+  }
+}
+
+if (missingVars.length > 0) {
+  console.warn(`⚠️ Missing variables: ${missingVars.slice(0, 10).join(', ')}${missingVars.length > 10 ? '...' : ''}`);
+}
+
+console.log(`✅ Environment check: ${availableVars.length}/${requiredVars.length} APIs available`);
+console.log(`🔑 Available APIs: ${availableVars.slice(0, 15).join(', ')}${availableVars.length > 15 ? '...' : ''}`);
+
+// Check optional variables
+let optionalAvailable = [];
+for (const varName of optionalVars) {
+  if ($vars[varName]) {
+    optionalAvailable.push(varName);
+  }
+}
+console.log(`📋 Optional variables: ${optionalAvailable.length}/${optionalVars.length} available`);
+
+return $input.all();"
       },
       "id": "654c063d-d0fd-4871-bf91-a6f01fc2c314",
       "name": "🔍 Environment Validation",
@@ -316,7 +346,7 @@
     },
     {
       "parameters": {
-        "url": "{{ $vars.LR_LOGO_URL || 'https://example.com/logo.png' }}",
+        "url": "{{ $vars.LR_LOGO_URL || 'https://via.placeholder.com/512x512/000000/FFD700?text=LR' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -343,7 +373,7 @@
     },
     {
       "parameters": {
-        "url": "{{ $vars.LR_LOGO_URL_BACKUP || 'https://backup.example.com/logo.png' }}",
+        "url": "{{ $vars.LR_LOGO_URL_BACKUP || 'https://via.placeholder.com/512x512/FFD700/000000?text=LR+BACKUP' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
