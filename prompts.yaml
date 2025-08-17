@@ -322,6 +322,269 @@ creative_extensions:
       - "Glas splittet rückwärts"
       - "ASMR Sound-Design"
 
+runway_prompts:
+  animal_lane:
+    serious_hyperreal:
+      prompt: "hyperreal luxury black/gold glass; lion cameo as eye reflection then shadow on crystal wall; impossible micro-moment in first 2s; camera=orbit_dolly_in_45deg_5s → push_in_eye → pull_back_reveal; volumetric beams, subtle particles, caustics; object_persistence=true; temporal_consistency=true; 9:16 1080p; 8–12s; persistent LR watermark bottom-right (opacity 0.35, etched-glass)"
+      camera_movement: "orbit_dolly_in_45deg_5s"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+    
+    humor_playful:
+      prompt: "POV: 'Nicht drücken!' — lion paw presses holographic glass button; playful micro-shatter then self-heal; camera=arc_left_30deg; black/gold crystal lab; particles subtle; 9:16 1080p 8–12s; persistent LR watermark bottom-right (0.35)"
+      camera_movement: "arc_left_30deg"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+    
+    social_proof_pov:
+      prompt: "POV: your post gets taken over by a crystal lion; reflection passes across camera lens; parallax glass layers; camera=top_down_descend then orbit; luxury black/gold; 9:16 1080p 8–12s; etched-glass LR logo bottom-right"
+      camera_movement: "top_down_descend"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+
+  portal_hologram:
+    crystal_portal_opening:
+      prompt: "open crystal portal; crack → light leak → crystal ring → silhouette (shadow only) → logo etch; parallax layers; volumetric beams; luxury black/gold glass lab; camera=slow dolly-in then arc-left 30°; QR hint at end frame; 9:16 1080p; 8–12s; persistent LR etched-glass watermark bottom-right (0.35)"
+      camera_movement: "slow_dolly_in_arc_left"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+    
+    dimensional_breach:
+      prompt: "dimensional portal breach; reality crack spreads across screen; crystal fragments float; lion silhouette emerges from void; volumetric god rays; camera=push_in_eye_pull_back_reveal; hyperreal black gold; 9:16 1080p 8-12s"
+      camera_movement: "push_in_eye_pull_back_reveal"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+
+  impossible_physics:
+    water_upward_flow:
+      prompt: "Water-up reveal: thin glass water film flows upward for 2s, then forms a lion eye highlight; comedic 'wait, what?' subtitle; cut to CTA; camera=static_then_zoom; 9:16 1080p 8-12s"
+      camera_movement: "static_then_zoom"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+    
+    reverse_glass_break:
+      prompt: "Glass shards fly together in reverse, forming perfect crystal lion sculpture; time reversal effect; impossible physics demonstration; camera=circular_orbit; luxury black gold studio; 9:16 1080p 8-12s"
+      camera_movement: "circular_orbit"
+      duration: "8-12s"
+      aspect_ratio: "9:16"
+      quality: "1080p"
+
+flux_prompts:
+  glass_crystal:
+    luxury_portrait:
+      prompt: "Ultra-realistic crystal/glass portrait, black/gold luxury palette, volumetric lighting, sharp caustics, studio grade, LR logo reflection subtle on lower-right pane, no warped text, 4K master"
+      size: "portrait_4_3"
+      steps: 28
+      guidance: 3.5
+      style: "hyperreal_luxury"
+    
+    lion_crystal_silhouette:
+      prompt: "Crystal lion silhouette behind frosted glass, refractive highlights, bokeh particles, cinematic rim-light, black/gold, macro detail, 4K"
+      size: "square_hd"
+      steps: 28
+      guidance: 3.5
+      style: "cinematic_glass"
+    
+    product_to_glass:
+      prompt: "Product-to-glass: glossy glass car body with lion reflection on door, studio sweep, clean background, volumetric shafts, 4K"
+      size: "landscape_4_3"
+      steps: 28
+      guidance: 3.5
+      style: "automotive_glass"
+
+  portal_effects:
+    dimensional_gateway:
+      prompt: "Open crystal portal; crack → light leak → crystal ring → silhouette (shadow only) → logo etch; parallax layers; volumetric beams; luxury black/gold glass lab; hyperreal 4K; caustics lighting; depth of field"
+      size: "portrait_4_3"
+      steps: 28
+      guidance: 3.5
+      style: "mystical_portal"
+    
+    hologram_projection:
+      prompt: "Holographic projection emerging from crystal surface; translucent lion figure; particle systems; volumetric fog; sci-fi luxury aesthetic; 4K hyperreal"
+      size: "square_hd"
+      steps: 28
+      guidance: 3.5
+      style: "holographic_tech"
+
+  meme_mascot:
+    recurring_character:
+      prompt: "Recurring crystal lion mascot character, consistent design, luxury black gold glass aesthetic, friendly but powerful expression, meme-worthy pose, social media mascot style, hyperreal 4K"
+      size: "square_hd"
+      steps: 28
+      guidance: 3.5
+      style: "mascot_character"
+
+heygen_scripts:
+  lina_introduction:
+    script: "Hi! Ich bin Lina, deine 24/7 AI-Assistentin. Keine Angst - ich helfe dir bei allem: Social Media, Bilder, Videos. Du kannst mich anrufen, dich coachen lassen, Termine vereinbaren. Sogar Geschäftsvorstellungen können wir üben!"
+    duration: 30
+    voice_settings:
+      voice_id: "{{ $vars.LinaVoiceID }}"
+      speed: 1.0
+      pitch: 0
+      emotion: "friendly"
+      locale: "de-DE"
+    
+  lina_lion_dialog:
+    script: "[Lina]: 'Ich bin Lina, 24/7 für dich da. Kein Druck, nur Klarheit.' [Lion cameo stumm, als Reflex/Auge] [Lina]: 'Scan den QR fürs Portal – da öffnet sich deine Mini-AR-Welt.' CTA: 'Testclip speichern & teilen – du triffst morgen dein Zukunfts-Ich.'"
+    duration: 60
+    voice_settings:
+      voice_id: "{{ $vars.LinaVoiceID }}"
+      speed: 0.9
+      pitch: 0
+      emotion: "encouraging"
+      locale: "de-DE"
+  
+  mathias_introduction:
+    script: "Hey, ich bin Mathias! Kurz & knackig: So startest du mit LR durch. Crystal-Löwe zeigt dir den Weg. Bereit für deine Transformation?"
+    duration: 20
+    voice_settings:
+      voice_id: "{{ $vars.MathiasVoiceID }}"
+      speed: 1.1
+      pitch: 0
+      emotion: "confident"
+      locale: "de-DE"
+  
+  three_way_dialog:
+    script: "[Lina]: 'Ich bin Lina, 24/7 für dich da. Kein Druck, nur Klarheit.' [Lion cameo] (stumm, als Reflex/Auge) [Matze]: 'Kurz & knackig: So startest du.' [Lina]: 'Scan den QR fürs Portal – da öffnet sich deine Mini-AR-Welt.' CTA: 'Testclip speichern & teilen – du triffst morgen dein Zukunfts-Ich.'"
+    duration: 90
+    characters: ["Lina", "Lion", "Mathias"]
+    voice_settings:
+      lina_voice: "{{ $vars.LinaVoiceID }}"
+      mathias_voice: "{{ $vars.MathiasVoiceID }}"
+
+elevenlabs_asmr:
+  binaural_motivation:
+    text: "Leichtes Flüstern, Glas-Ambience. 'Hey, ich bin Lina. Keine Panik – ich helfe dir Schritt für Schritt. Hör mal…' (sanfte Pausen). Crystal-Löwe flüstert: 'Du schaffst das. Entspann dich.' CTA am Ende."
+    voice_settings:
+      voice_id: "{{ $vars.LinaVoiceID }}"
+      stability: 0.5
+      similarity_boost: 0.7
+      style: 0.3
+      use_speaker_boost: true
+    mastering:
+      target_lufs: -20
+      stereo_binaural: true
+      frequency_base: 432
+      effects: ["subtle_wind", "glass_textures"]
+  
+  lion_whisper:
+    text: "Crystal-Löwe flüstert Motivation: 'Du bist stärker als du denkst. Jeder Schritt bringt dich näher. Vertraue dem Prozess.' (binaural Pausen) 'Deine Zeit ist jetzt.'"
+    voice_settings:
+      voice_id: "{{ $vars.LionVoiceID }}"
+      stability: 0.6
+      similarity_boost: 0.8
+      style: 0.2
+      use_speaker_boost: true
+    mastering:
+      target_lufs: -20
+      stereo_binaural: true
+      frequency_base: 432
+      effects: ["deep_resonance", "crystal_chimes"]
+
+viral_hook_patterns:
+  pov_scenarios:
+    - "POV: Du drückst den verbotenen Knopf"
+    - "POV: Löwe übernimmt deinen Post"
+    - "POV: Du findest das Geheimnis heraus"
+    - "POV: Crystal-Portal öffnet sich für dich"
+    - "POV: Lina erklärt dir alles in 60 Sekunden"
+    - "POV: Du entdeckst die versteckte Funktion"
+    - "POV: Löwe reagiert auf deine Entscheidung"
+    - "POV: Portal zeigt deine Zukunft"
+  
+  impossible_physics:
+    - "Wasser fließt nach oben - aber warum?"
+    - "Glas zerbricht rückwärts"
+    - "Löwe läuft durch Wände"
+    - "Zeit läuft rückwärts im Crystal"
+    - "Schwerkraft funktioniert nicht"
+    - "Licht biegt sich um Ecken"
+    - "Schatten bewegen sich allein"
+    - "Spiegelbild lebt eigenständig"
+  
+  humor_baby_shark:
+    - "Ich: 'Nicht drücken!' - Löwe: drückt"
+    - "Baby Löwe lernt Portal öffnen"
+    - "Mama Löwe, Papa Löwe, Crystal Löwe"
+    - "Löwe macht doo-doo-doo mit Glas"
+    - "Kleine Löwen, große Träume"
+    - "Crystal-Löwe, doo-doo-doo"
+    - "Portal öffnen, doo-doo-doo"
+    - "Lina hilft dir, doo-doo-doo"
+  
+  fomo_urgency:
+    - "Nur noch 24h verfügbar!"
+    - "Letzte Chance für Crystal-Portal!"
+    - "Löwe wartet nicht länger!"
+    - "Portal schließt sich morgen!"
+    - "Lina ist nur heute kostenlos!"
+    - "Angebot endet in 3 Stunden!"
+    - "Nur noch 7 Plätze frei!"
+    - "Morgen ist es zu spät!"
+  
+  social_proof:
+    - "10.000+ nutzen bereits Crystal-Löwe"
+    - "Millionen lieben diesen Trick"
+    - "Experten empfehlen diese Methode"
+    - "Viral auf allen Plattformen"
+    - "Celebrities nutzen LR System"
+    - "95% Kundenzufriedenheit"
+    - "Über 1 Million Views erreicht"
+    - "Top Influencer vertrauen uns"
+
+webar_companion:
+  html_template: |
+    <!doctype html>
+    <html lang="de">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>LR WebAR – Crystal Lion</title>
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <style>
+        html,body{margin:0;background:#000;color:#fff;font-family:system-ui}
+        .wrap{display:grid;place-items:center;min-height:100vh}
+        .hint{opacity:.8;margin-top:12px;text-align:center}
+        model-viewer{width:100vw;height:80vh;background:radial-gradient(#111,#000)}
+      </style>
+    </head>
+    <body>
+      <div class="wrap">
+        <model-viewer 
+          src="{{ glb_url }}" 
+          ios-src="{{ usdz_url }}" 
+          ar 
+          ar-modes="scene-viewer quick-look webxr" 
+          camera-controls 
+          autoplay 
+          exposure="1.0" 
+          shadow-intensity="1">
+        </model-viewer>
+        <div class="hint">Tippe auf „In AR ansehen". QR wurde in deinem Post verlinkt.</div>
+      </div>
+    </body>
+    </html>
+  
+  qr_generation:
+    service: "qr-server.com"
+    size: "300x300"
+    format: "png"
+    error_correction: "M"
+    margin: 4
+  
+  hosting_options:
+    primary: "bannerbear"
+    fallback: "supabase"
+    cdn: "cloudflare"
+
 viral_multipliers:
   baby_shark_pattern:
     repetition: "Wiederholende Elemente alle 3-5 Sekunden"
