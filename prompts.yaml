@@ -30,6 +30,8 @@ regional_hooks:
   ES: "Stell dir vor, dass... Glas nach oben fließt wie Wasser"
   JP: "信じられない! (Unglaublich!) Kristall-Physik defies gravity"
   Global: "Moment, was ist gerade passiert? 🤯"
+  baby_de: "Baby erklärt dir Social Media besser als jeder Experte"
+  baby_global: "This baby just broke the internet with wisdom"
 
 image:
   crystal_glas_luxury:
