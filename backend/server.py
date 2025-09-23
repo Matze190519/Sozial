@@ -29,7 +29,56 @@ logger = logging.getLogger(__name__)
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-contacts_storage = []
+contacts_storage = [
+    {
+        "id": "1",
+        "name": "Dr. Michael Schmidt",
+        "position": "Geschäftsführer",
+        "company": "AutoTech GmbH",
+        "industry": "Automotive",
+        "email": "m.schmidt@autotech.de",
+        "phone": "+49 89 123456789",
+        "address": "München, Deutschland",
+        "company_size": "1000-5000",
+        "status": "new",
+        "notes": [],
+        "call_records": [],
+        "appointments": [],
+        "last_updated": "2025-09-23T17:40:00Z"
+    },
+    {
+        "id": "2", 
+        "name": "Sarah Weber",
+        "position": "Marketing Director",
+        "company": "Wellness Solutions AG",
+        "industry": "Healthcare",
+        "email": "s.weber@wellness-solutions.de",
+        "phone": "+49 30 987654321",
+        "address": "Berlin, Deutschland",
+        "company_size": "500-1000",
+        "status": "new",
+        "notes": [],
+        "call_records": [],
+        "appointments": [],
+        "last_updated": "2025-09-23T17:40:00Z"
+    },
+    {
+        "id": "3",
+        "name": "Thomas Müller",
+        "position": "CEO",
+        "company": "Premium Textiles GmbH",
+        "industry": "Textiles",
+        "email": "t.mueller@premium-textiles.de", 
+        "phone": "+49 40 555666777",
+        "address": "Hamburg, Deutschland",
+        "company_size": "100-500",
+        "status": "new",
+        "notes": [],
+        "call_records": [],
+        "appointments": [],
+        "last_updated": "2025-09-23T17:40:00Z"
+    }
+]
 mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
 use_mongodb = False
 client = None
