@@ -1,14 +1,20 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "helfer-finder-frontend",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "axios": "^1.8.4",
-    "cra-template": "1.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.400.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^7.5.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-select": "^5.7.4",
+    "react-textarea-autosize": "^8.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,6 +36,10 @@
   },
   "devDependencies": {
     "@eslint/js": "9.23.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-modal": "^3.16.0",
+    "ajv": "^8.17.1",
     "autoprefixer": "^10.4.20",
     "eslint": "9.23.0",
     "eslint-plugin-import": "2.31.0",
@@ -37,6 +47,7 @@
     "eslint-plugin-react": "7.37.4",
     "globals": "15.15.0",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^4.9.5"
   }
 }
