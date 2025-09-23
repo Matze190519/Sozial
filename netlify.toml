@@ -6,6 +6,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  REACT_APP_GOOGLE_API_KEY = "AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs"
 
 [[redirects]]
   from = "/*"

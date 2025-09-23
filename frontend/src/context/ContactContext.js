@@ -153,7 +153,9 @@ export function ContactProvider({ children }) {
   };
 
   useEffect(() => {
-    loadContacts();
+    if (BACKEND_URL && !BACKEND_URL.includes('localhost') && !BACKEND_URL.includes('placeholder')) {
+      loadContacts();
+    }
   }, []);
 
   const value = {
