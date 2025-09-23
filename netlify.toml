@@ -6,7 +6,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
-  REACT_APP_BACKEND_URL = "https://helfer-finder-app-tunnel-4wnftb8k.devinapps.com"
+  REACT_APP_BACKEND_URL = "https://user:275c327d508dd06533014705763dc192@helfer-finder-app-tunnel-dxgw68xp.devinapps.com"
   REACT_APP_GOOGLE_API_KEY = "AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs"
 
 [[redirects]]
