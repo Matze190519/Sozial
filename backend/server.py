@@ -52,14 +52,9 @@ app = FastAPI(title="Helfer-Finder Cockpit API", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://helfer-finder-app-avxvaq3x.devinapps.com",
-        "http://localhost:3000",
-        "https://localhost:3000",
-        "*"
-    ],
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
