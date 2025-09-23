@@ -1,11 +1,12 @@
 [build]
   base = "frontend"
-  publish = "build"
+  publish = "frontend/build"
   command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  REACT_APP_BACKEND_URL = "https://helfer-finder-app-tunnel-4wnftb8k.devinapps.com"
   REACT_APP_GOOGLE_API_KEY = "AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs"
 
 [[redirects]]
