@@ -1,0 +1,10 @@
+runtime: python312
+
+env_variables:
+  GOOGLE_API_KEY: "AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs"
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+
+entrypoint: uvicorn server:app --host 0.0.0.0 --port $PORT
