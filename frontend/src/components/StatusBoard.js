@@ -158,7 +158,7 @@ const StatusBoard = ({ onContactSelect }) => {
       </div>
       
       <div className="mt-6 text-sm text-gray-500">
-        <p>💡 Tipp: Ziehen Sie Kontakte zwischen den Spalten, um den Status zu ändern</p>
+        <p>Tipp: Ziehen Sie Kontakte zwischen den Spalten, um den Status zu ändern</p>
       </div>
     </div>
   );
