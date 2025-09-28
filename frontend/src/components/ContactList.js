@@ -39,10 +39,10 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow p-6">
+      <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-6">
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <span className="ml-2 text-gray-600">Lade Kontakte...</span>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+          <span className="ml-2 text-slate-600 font-medium">Lade Kontakte...</span>
         </div>
       </div>
     );

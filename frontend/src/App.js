@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { Calendar } from "lucide-react";
 import ContactSearch from "./components/ContactSearch";
 import ContactList from "./components/ContactList";
 import ContactDetail from "./components/ContactDetail";
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <ContactProvider>
-      <div className="App min-h-screen bg-gray-50">
+      <div className="App min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/30">
         <BrowserRouter>
           <Header currentView={currentView} setCurrentView={setCurrentView} />
           
@@ -50,9 +51,14 @@ function App() {
                   )}
                   
                   {currentView === "appointments" && (
-                    <div className="bg-white rounded-lg shadow p-6">
-                      <h2 className="text-2xl font-bold mb-4">Termine</h2>
-                      <p className="text-gray-600">Terminübersicht wird geladen...</p>
+                    <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-8">
+                      <div className="flex items-center mb-6">
+                        <div className="p-2 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl mr-3">
+                          <Calendar className="h-6 w-6 text-purple-600" />
+                        </div>
+                        <h2 className="text-2xl font-bold bg-gradient-to-r from-slate-800 to-purple-800 bg-clip-text text-transparent">Termine</h2>
+                      </div>
+                      <p className="text-slate-600 font-medium">Terminübersicht wird geladen...</p>
                     </div>
                   )}
                 </div>
@@ -75,8 +81,12 @@ function App() {
             toastOptions={{
               duration: 4000,
               style: {
-                background: '#363636',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 color: '#fff',
+                borderRadius: '12px',
+                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
               },
             }}
           />

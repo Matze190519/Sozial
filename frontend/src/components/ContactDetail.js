@@ -107,13 +107,13 @@ const ContactDetail = ({ contact, onClose, onUpdate }) => {
       className="fixed inset-0 flex items-center justify-center p-4 z-50"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+      <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-white/20">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b bg-gray-50">
+        <div className="flex items-center justify-between p-8 border-b border-gray-200/50">
           <div className="flex items-center space-x-4">
             <div>
-              <h2 className="text-xl font-bold text-gray-900">{contact.name}</h2>
-              <p className="text-sm text-gray-600">{contact.position}</p>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-purple-800 bg-clip-text text-transparent">{contact.name}</h2>
+              <p className="text-slate-600 font-medium text-lg">{contact.position}</p>
               <div className="flex items-center mt-1">
                 <Building className="h-4 w-4 mr-1 text-gray-400" />
                 <span className="text-sm text-gray-600">{contact.company}</span>
@@ -142,9 +142,9 @@ const ContactDetail = ({ contact, onClose, onUpdate }) => {
             </button>
             <button
               onClick={onClose}
-              className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100"
+              className="text-gray-400 hover:text-gray-600 transition-all duration-300 p-2 rounded-xl hover:bg-gray-100/50"
             >
-              <X className="h-5 w-5" />
+              <X className="h-7 w-7" />
             </button>
           </div>
         </div>
@@ -201,20 +201,20 @@ const ContactDetail = ({ contact, onClose, onUpdate }) => {
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b">
+        <div className="flex border-b border-gray-200/50 px-8">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                className={`flex items-center space-x-2 px-6 py-4 font-semibold transition-all duration-300 rounded-t-xl ${
                   activeTab === tab.id
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                    ? 'border-b-2 border-purple-500 text-purple-600 bg-purple-50/50'
+                    : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-gray-50/50'
                 }`}
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-5 w-5" />
                 <span>{tab.label}</span>
               </button>
             );
@@ -222,7 +222,7 @@ const ContactDetail = ({ contact, onClose, onUpdate }) => {
         </div>
 
         {/* Tab Content */}
-        <div className="p-6 overflow-y-auto max-h-96">
+        <div className="p-8 overflow-y-auto max-h-96">
           {activeTab === 'details' && (
             <div className="space-y-4">
               {editing ? (

@@ -50,17 +50,17 @@ const ContactSearch = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
+    <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500">
       <div className="p-8">
         <div className="flex items-center mb-8">
-          <div className="mr-4 p-3 bg-blue-50 rounded-xl">
-            <Search className="h-6 w-6 text-blue-600" />
+          <div className="mr-4 p-4 bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-inner">
+            <Search className="h-7 w-7 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-purple-800 bg-clip-text text-transparent mb-2">
               Neue Kontakte finden
             </h2>
-            <p className="text-gray-600 font-medium">
+            <p className="text-slate-600 font-medium text-lg">
               Tagesaktuelle Entscheider-Recherche
             </p>
           </div>
@@ -75,7 +75,7 @@ const ContactSearch = () => {
               <select
                 value={searchParams.industry}
                 onChange={(e) => setSearchParams({ ...searchParams, industry: e.target.value })}
-                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-4 rounded-xl border border-gray-200/50 text-gray-800 font-medium focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/60 backdrop-blur-sm hover:bg-white/80 shadow-sm"
               >
                 {industries.map(industry => (
                   <option key={industry} value={industry}>{industry}</option>
@@ -90,7 +90,7 @@ const ContactSearch = () => {
               <select
                 value={searchParams.position}
                 onChange={(e) => setSearchParams({ ...searchParams, position: e.target.value })}
-                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-4 rounded-xl border border-gray-200/50 text-gray-800 font-medium focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/60 backdrop-blur-sm hover:bg-white/80 shadow-sm"
               >
                 {positions.map(position => (
                   <option key={position} value={position}>{position}</option>
@@ -105,7 +105,7 @@ const ContactSearch = () => {
               <select
                 value={searchParams.company_size}
                 onChange={(e) => setSearchParams({ ...searchParams, company_size: e.target.value })}
-                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-4 rounded-xl border border-gray-200/50 text-gray-800 font-medium focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/60 backdrop-blur-sm hover:bg-white/80 shadow-sm"
               >
                 {companySizes.map(size => (
                   <option key={size} value={size}>{size}</option>
@@ -123,7 +123,7 @@ const ContactSearch = () => {
                 max="100"
                 value={searchParams.count}
                 onChange={(e) => setSearchParams({ ...searchParams, count: parseInt(e.target.value) })}
-                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-4 rounded-xl border border-gray-200/50 text-gray-800 font-medium focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 bg-white/60 backdrop-blur-sm hover:bg-white/80 shadow-sm"
                 placeholder="z.B. 50"
               />
             </div>
@@ -133,16 +133,16 @@ const ContactSearch = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-5 px-8 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+              className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-purple-700 hover:from-purple-700 hover:via-blue-700 hover:to-purple-800 text-white py-6 px-8 rounded-2xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-[1.02] hover:-translate-y-1"
             >
               {loading ? (
                 <>
-                  <Loader2 className="h-5 w-5 mr-3 animate-spin" />
+                  <Loader2 className="h-6 w-6 mr-3 animate-spin" />
                   <span className="animate-pulse">Suche aktuelle Kontakte...</span>
                 </>
               ) : (
                 <>
-                  <Search className="h-5 w-5 mr-3" />
+                  <Search className="h-6 w-6 mr-3" />
                   <span>Kontakte finden</span>
                 </>
               )}
@@ -150,7 +150,7 @@ const ContactSearch = () => {
           </div>
 
           <div className="text-center mt-6">
-            <p className="text-gray-500 font-medium">
+            <p className="text-slate-500 font-medium">
               Intelligente Recherche für aktuelle Entscheider
             </p>
           </div>

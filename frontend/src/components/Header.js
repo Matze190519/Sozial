@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Users, Calendar, BarChart3, Sparkles } from 'lucide-react';
+import { Home, Users, Calendar, BarChart3, Building2 } from 'lucide-react';
 
 const Header = ({ currentView, setCurrentView }) => {
   const navItems = [
@@ -10,18 +10,19 @@ const Header = ({ currentView, setCurrentView }) => {
   ];
 
   return (
-    <header className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 shadow-2xl sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <div>
-              <Sparkles className="h-10 w-10 text-white" />
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <Building2 className="h-10 w-10 text-white" />
+              <div className="absolute inset-0 h-10 w-10 bg-purple-400 opacity-20 rounded-full blur-lg"></div>
             </div>
             <div>
               <h1 className="text-2xl font-bold text-white tracking-tight">
                 Helfer-Finder Cockpit
               </h1>
-              <p className="text-sm text-white/80 font-medium">
+              <p className="text-sm text-white/90 font-medium">
                 Entscheider finden • Kontakte verwalten • Erfolg messen
               </p>
             </div>
@@ -36,15 +37,15 @@ const Header = ({ currentView, setCurrentView }) => {
                   key={item.id}
                   onClick={() => setCurrentView(item.id)}
                   className={`
-                    flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200
+                    flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105
                     ${isActive 
-                      ? 'bg-white text-blue-700 shadow-md' 
-                      : 'text-white/90 hover:text-white hover:bg-white/20'
+                      ? 'bg-white/95 text-purple-700 shadow-lg backdrop-blur-sm' 
+                      : 'text-white/90 hover:text-white hover:bg-white/20 backdrop-blur-sm'
                     }
                   `}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <Icon className={`h-5 w-5 ${isActive ? 'text-blue-600' : ''}`} />
+                  <Icon className={`h-5 w-5 ${isActive ? 'text-purple-600' : ''}`} />
                   <span className="hidden lg:inline font-semibold">{item.label}</span>
                 </button>
               );
@@ -53,7 +54,7 @@ const Header = ({ currentView, setCurrentView }) => {
         </div>
       </div>
       
-      <div className="h-1 bg-blue-500 opacity-80"></div>
+      <div className="h-1 bg-gradient-to-r from-purple-400 via-blue-500 to-purple-400 opacity-80"></div>
     </header>
   );
 };

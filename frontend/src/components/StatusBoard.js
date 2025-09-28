@@ -83,13 +83,13 @@ const StatusBoard = ({ onContactSelect }) => {
       draggable
       onDragStart={(e) => handleDragStart(e, contact)}
       onClick={() => onContactSelect(contact)}
-      className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 cursor-pointer hover:shadow-md transition-shadow mb-2"
+      className="bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/30 cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] mb-3"
     >
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
-          <h4 className="font-medium text-gray-900 text-sm">{contact.name}</h4>
-          <p className="text-xs text-gray-600">{contact.position}</p>
-          <p className="text-xs text-gray-500">{contact.company}</p>
+          <h4 className="font-bold text-gray-900 text-sm">{contact.name}</h4>
+          <p className="text-xs text-purple-600 font-medium">{contact.position}</p>
+          <p className="text-xs text-slate-500 font-medium">{contact.company}</p>
         </div>
         <div className="flex items-center space-x-1">
           {contact.phone && <Phone className="h-3 w-3 text-gray-400" />}
@@ -113,11 +113,13 @@ const StatusBoard = ({ onContactSelect }) => {
   );
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-6">
       <div className="flex items-center mb-6">
-        <User className="h-5 w-5 mr-2 text-blue-600" />
-        <h2 className="text-xl font-bold">Status Board</h2>
-        <span className="ml-2 text-sm text-gray-500">({contacts.length} Kontakte)</span>
+        <div className="p-2 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl mr-3">
+          <User className="h-5 w-5 text-purple-600" />
+        </div>
+        <h2 className="text-xl font-bold bg-gradient-to-r from-slate-800 to-purple-800 bg-clip-text text-transparent">Status Board</h2>
+        <span className="ml-2 text-sm text-slate-500 font-medium">({contacts.length} Kontakte)</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
@@ -127,15 +129,15 @@ const StatusBoard = ({ onContactSelect }) => {
           return (
             <div
               key={column.id}
-              className={`rounded-lg border-2 border-dashed p-4 min-h-96 ${column.color}`}
+              className={`rounded-2xl border-2 border-dashed p-5 min-h-96 ${column.color} backdrop-blur-sm shadow-lg border-white/20`}
               onDragOver={handleDragOver}
               onDrop={(e) => handleDrop(e, column.id)}
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className={`font-medium text-sm ${column.textColor}`}>
+                <h3 className={`font-bold text-lg ${column.textColor}`}>
                   {column.label}
                 </h3>
-                <span className={`text-xs px-2 py-1 rounded-full bg-white ${column.textColor}`}>
+                <span className={`text-sm px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm ${column.textColor} font-medium shadow-sm`}>
                   {columnContacts.length}
                 </span>
               </div>
@@ -157,8 +159,8 @@ const StatusBoard = ({ onContactSelect }) => {
         })}
       </div>
       
-      <div className="mt-6 text-sm text-gray-500">
-        <p>Tipp: Ziehen Sie Kontakte zwischen den Spalten, um den Status zu ändern</p>
+      <div className="mt-6 text-sm text-slate-500">
+        <p className="font-medium">Tipp: Ziehen Sie Kontakte zwischen den Spalten, um den Status zu ändern</p>
       </div>
     </div>
   );
