@@ -10,13 +10,12 @@ const Header = ({ currentView, setCurrentView }) => {
   ];
 
   return (
-    <header className="glass animate-fade-in sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3 animate-bounce-in">
-            <div className="relative">
-              <Sparkles className="h-10 w-10 text-white float" />
-              <div className="absolute inset-0 h-10 w-10 bg-white opacity-20 rounded-full blur-xl"></div>
+          <div className="flex items-center space-x-3">
+            <div>
+              <Sparkles className="h-10 w-10 text-white" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-white tracking-tight">
@@ -37,19 +36,16 @@ const Header = ({ currentView, setCurrentView }) => {
                   key={item.id}
                   onClick={() => setCurrentView(item.id)}
                   className={`
-                    flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 animate-slide-up
+                    flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200
                     ${isActive 
-                      ? 'bg-white text-purple-700 shadow-lg' 
-                      : 'text-white/90 hover:text-white hover:bg-white/20 backdrop-blur-sm'
+                      ? 'bg-white text-blue-700 shadow-md' 
+                      : 'text-white/90 hover:text-white hover:bg-white/20'
                     }
                   `}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <Icon className={`h-5 w-5 ${isActive ? 'text-purple-600' : ''}`} />
+                  <Icon className={`h-5 w-5 ${isActive ? 'text-blue-600' : ''}`} />
                   <span className="hidden lg:inline font-semibold">{item.label}</span>
-                  {isActive && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 rounded-xl blur-sm"></div>
-                  )}
                 </button>
               );
             })}
@@ -57,8 +53,7 @@ const Header = ({ currentView, setCurrentView }) => {
         </div>
       </div>
       
-      {/* Decorative gradient line */}
-      <div className="h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-60"></div>
+      <div className="h-1 bg-blue-500 opacity-80"></div>
     </header>
   );
 };
