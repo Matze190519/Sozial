@@ -79,6 +79,18 @@ contacts_storage = [
         "last_updated": "2025-09-23T17:40:00Z"
     }
 ]
+if os.path.exists("/app"):
+    STORAGE_DIR = Path("/app/data")
+else:
+    STORAGE_DIR = Path("./data")
+
+CONTACTS_FILE = STORAGE_DIR / "contacts.json"
+NOTES_FILE = STORAGE_DIR / "notes.json"
+APPOINTMENTS_FILE = STORAGE_DIR / "appointments.json"
+CALLS_FILE = STORAGE_DIR / "calls.json"
+
+STORAGE_DIR.mkdir(exist_ok=True)
+
 mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
 use_mongodb = False
 client = None
@@ -88,13 +100,38 @@ try:
     client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=1000)
     db = client[os.environ.get('DB_NAME', 'helfer_finder')]
     use_mongodb = False  # Force fallback storage for now
-    logger.info("Using in-memory storage fallback")
+    logger.info("Using file-based persistent storage")
 except Exception as e:
     logger.error(f"MongoDB connection failed: {e}")
     client = None
     db = None
     use_mongodb = False
-    logger.info("Using in-memory storage fallback")
+    logger.info("Using file-based persistent storage")
+
+def load_json_file(file_path: Path) -> Dict:
+    """Load data from JSON file"""
+    try:
+        if file_path.exists():
+            with open(file_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
+    except Exception as e:
+        logger.error(f"Error loading {file_path}: {e}")
+        return {}
+
+def save_json_file(file_path: Path, data: Dict) -> bool:
+    """Save data to JSON file"""
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return True
+    except Exception as e:
+        logger.error(f"Error saving {file_path}: {e}")
+        return False
+
+persistent_notes = load_json_file(NOTES_FILE)
+persistent_appointments = load_json_file(APPOINTMENTS_FILE)
+persistent_calls = load_json_file(CALLS_FILE)
 
 # Create the main app without a prefix
 app = FastAPI(title="Helfer-Finder Cockpit API", version="2.0.0")
@@ -582,7 +619,7 @@ async def get_contacts(skip: int = 0, limit: int = 100, status: Optional[str] = 
 
 @api_router.get("/contacts/{contact_id}", response_model=Contact)
 async def get_contact(contact_id: str):
-    """Get specific contact by ID"""
+    """Get specific contact by ID with persistent data"""
     try:
         if use_mongodb:
             contact = await db.contacts.find_one({"id": contact_id})
@@ -593,7 +630,25 @@ async def get_contact(contact_id: str):
             contact = next((c for c in contacts_storage if c.get("id") == contact_id), None)
             if not contact:
                 raise HTTPException(status_code=404, detail="Contact not found")
-            return Contact(**contact)
+            
+            contact_data = contact.copy()
+            
+            if contact_id in persistent_notes:
+                if "notes" not in contact_data:
+                    contact_data["notes"] = []
+                contact_data["notes"].extend(persistent_notes[contact_id])
+            
+            if contact_id in persistent_appointments:
+                if "appointments" not in contact_data:
+                    contact_data["appointments"] = []
+                contact_data["appointments"].extend(persistent_appointments[contact_id])
+            
+            if contact_id in persistent_calls:
+                if "call_records" not in contact_data:
+                    contact_data["call_records"] = []
+                contact_data["call_records"].extend(persistent_calls[contact_id])
+            
+            return Contact(**contact_data)
     except Exception as e:
         logger.error(f"Get contact error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -639,13 +694,29 @@ async def add_note(contact_id: str, note: Note):
             if result.matched_count == 0:
                 raise HTTPException(status_code=404, detail="Contact not found")
         else:
+            contact_found = False
             for contact in contacts_storage:
                 if contact.get("id") == contact_id:
+                    contact_found = True
                     if "notes" not in contact:
                         contact["notes"] = []
                     contact["notes"].append(note.dict())
-                    return {"message": "Note added successfully", "note": note}
-            raise HTTPException(status_code=404, detail="Contact not found")
+                    break
+            
+            if not contact_found:
+                raise HTTPException(status_code=404, detail="Contact not found")
+            
+            if contact_id not in persistent_notes:
+                persistent_notes[contact_id] = []
+            
+            note_data = note.dict()
+            note_data["timestamp"] = datetime.now().isoformat()
+            note_data["id"] = str(uuid.uuid4())
+            
+            persistent_notes[contact_id].append(note_data)
+            save_json_file(NOTES_FILE, persistent_notes)
+            
+            logger.info(f"Note saved persistently for contact {contact_id}")
             
         return {"message": "Note added successfully", "note": note}
     except Exception as e:
@@ -665,13 +736,29 @@ async def add_call_record(contact_id: str, call: CallRecord):
             if result.matched_count == 0:
                 raise HTTPException(status_code=404, detail="Contact not found")
         else:
+            contact_found = False
             for contact in contacts_storage:
                 if contact.get("id") == contact_id:
+                    contact_found = True
                     if "call_records" not in contact:
                         contact["call_records"] = []
                     contact["call_records"].append(call.dict())
-                    return {"message": "Call record added successfully", "call": call}
-            raise HTTPException(status_code=404, detail="Contact not found")
+                    break
+            
+            if not contact_found:
+                raise HTTPException(status_code=404, detail="Contact not found")
+            
+            if contact_id not in persistent_calls:
+                persistent_calls[contact_id] = []
+            
+            call_data = call.dict()
+            call_data["timestamp"] = datetime.now().isoformat()
+            call_data["id"] = str(uuid.uuid4())
+            
+            persistent_calls[contact_id].append(call_data)
+            save_json_file(CALLS_FILE, persistent_calls)
+            
+            logger.info(f"Call record saved persistently for contact {contact_id}")
             
         return {"message": "Call record added successfully", "call": call}
     except Exception as e:
@@ -691,13 +778,29 @@ async def add_appointment(contact_id: str, appointment: Appointment):
             if result.matched_count == 0:
                 raise HTTPException(status_code=404, detail="Contact not found")
         else:
+            contact_found = False
             for contact in contacts_storage:
                 if contact.get("id") == contact_id:
+                    contact_found = True
                     if "appointments" not in contact:
                         contact["appointments"] = []
                     contact["appointments"].append(appointment.dict())
-                    return {"message": "Appointment added successfully", "appointment": appointment}
-            raise HTTPException(status_code=404, detail="Contact not found")
+                    break
+            
+            if not contact_found:
+                raise HTTPException(status_code=404, detail="Contact not found")
+            
+            if contact_id not in persistent_appointments:
+                persistent_appointments[contact_id] = []
+            
+            appointment_data = appointment.dict()
+            appointment_data["created_at"] = datetime.now().isoformat()
+            appointment_data["id"] = str(uuid.uuid4())
+            
+            persistent_appointments[contact_id].append(appointment_data)
+            save_json_file(APPOINTMENTS_FILE, persistent_appointments)
+            
+            logger.info(f"Appointment saved persistently for contact {contact_id}")
             
         return {"message": "Appointment added successfully", "appointment": appointment}
     except Exception as e:
@@ -720,14 +823,58 @@ async def get_conversation_briefing(contact_id: str):
         logger.error(f"Briefing generation error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@api_router.get("/contacts/{contact_id}/notes")
+async def get_contact_notes(contact_id: str):
+    """Get all notes for a contact"""
+    try:
+        notes = persistent_notes.get(contact_id, [])
+        return {"contact_id": contact_id, "notes": notes, "total": len(notes)}
+    except Exception as e:
+        logger.error(f"Get notes error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/contacts/{contact_id}/appointments")
+async def get_contact_appointments(contact_id: str):
+    """Get all appointments for a contact"""
+    try:
+        appointments = persistent_appointments.get(contact_id, [])
+        return {"contact_id": contact_id, "appointments": appointments, "total": len(appointments)}
+    except Exception as e:
+        logger.error(f"Get appointments error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/contacts/{contact_id}/calls")
+async def get_contact_calls(contact_id: str):
+    """Get all call records for a contact"""
+    try:
+        calls = persistent_calls.get(contact_id, [])
+        return {"contact_id": contact_id, "calls": calls, "total": len(calls)}
+    except Exception as e:
+        logger.error(f"Get calls error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @api_router.delete("/contacts/{contact_id}")
 async def delete_contact(contact_id: str):
-    """Delete contact"""
+    """Delete contact and all associated persistent data"""
     try:
-        result = await db.contacts.delete_one({"id": contact_id})
-        if result.deleted_count == 0:
-            raise HTTPException(status_code=404, detail="Contact not found")
-        return {"message": "Contact deleted successfully"}
+        if contact_id in persistent_notes:
+            del persistent_notes[contact_id]
+            save_json_file(NOTES_FILE, persistent_notes)
+        
+        if contact_id in persistent_appointments:
+            del persistent_appointments[contact_id]
+            save_json_file(APPOINTMENTS_FILE, persistent_appointments)
+        
+        if contact_id in persistent_calls:
+            del persistent_calls[contact_id]
+            save_json_file(CALLS_FILE, persistent_calls)
+        
+        for i, contact in enumerate(contacts_storage):
+            if contact.get("id") == contact_id:
+                contacts_storage.pop(i)
+                break
+        
+        return {"message": "Contact and all associated data deleted successfully"}
     except Exception as e:
         logger.error(f"Delete contact error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
