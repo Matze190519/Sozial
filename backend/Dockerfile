@@ -13,6 +13,7 @@ COPY . .
 
 # Set environment variables
 ENV GOOGLE_API_KEY=AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs
+ENV GEMINI_API_KEY=AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs
 
 # Expose port
 EXPOSE 8000
