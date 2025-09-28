@@ -49,19 +49,18 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
   }
 
   return (
-    <div className="card-enhanced animate-fade-in">
-      <div className="p-6 border-b border-gray-100">
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
+      <div className="p-8 border-b border-gray-100">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="relative mr-3">
-              <User className="h-6 w-6 text-purple-600 float" />
-              <div className="absolute inset-0 h-6 w-6 bg-purple-400 opacity-30 rounded-full blur-lg"></div>
+            <div className="mr-4 p-3 bg-blue-50 rounded-xl">
+              <User className="h-6 w-6 text-blue-600" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-1">
-                {searchResults.length > 0 ? '🎯 Suchergebnisse' : '📋 Alle Kontakte'}
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                {searchResults.length > 0 ? 'Suchergebnisse' : 'Alle Kontakte'}
               </h2>
-              <p className="text-sm text-gray-600 font-medium">
+              <p className="text-gray-600 font-medium">
                 {displayContacts.length} Kontakte gefunden
               </p>
             </div>
@@ -73,7 +72,7 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
               <select
                 value={filters.status}
                 onChange={(e) => setFilters({ status: e.target.value })}
-                className="input-enhanced text-sm px-3 py-2 rounded-lg font-medium"
+                className="text-sm px-4 py-3 rounded-xl border border-gray-200 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 hover:bg-white transition-all duration-200"
               >
                 <option value="">Alle Status</option>
                 <option value="neu">Neu</option>
@@ -91,9 +90,8 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
       <div className="divide-y divide-gray-100 max-h-96 overflow-y-auto">
         {displayContacts.length === 0 ? (
           <div className="p-8 text-center text-gray-500 animate-bounce-in">
-            <div className="relative mb-4">
-              <User className="h-16 w-16 mx-auto text-gray-300 float" />
-              <div className="absolute inset-0 h-16 w-16 bg-gray-200 opacity-20 rounded-full blur-xl mx-auto"></div>
+            <div className="mb-4">
+              <User className="h-16 w-16 mx-auto text-gray-300" />
             </div>
             <p className="text-lg font-semibold text-gray-700 mb-2">Keine Kontakte gefunden</p>
             <p className="text-sm text-gray-500">Starten Sie eine neue Suche für aktuelle Entscheider</p>
@@ -103,8 +101,8 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
             <div
               key={contact.id}
               onClick={() => onContactSelect(contact)}
-              className={`p-5 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 cursor-pointer transition-all duration-300 transform hover:scale-[1.02] animate-slide-up ${
-                selectedContact?.id === contact.id ? 'bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-purple-500 shadow-lg' : ''
+              className={`p-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer transition-all duration-300 rounded-xl mx-2 my-1 ${
+                selectedContact?.id === contact.id ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 shadow-md' : 'hover:shadow-sm'
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
@@ -117,22 +115,22 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
                     </span>
                   </div>
                   
-                  <p className="text-sm text-gray-700 font-medium mb-2">👔 {contact.position}</p>
+                  <p className="text-sm text-gray-700 font-medium mb-2">{contact.position}</p>
                   
                   <div className="flex items-center text-sm text-gray-600 mb-3">
-                    <Building className="h-4 w-4 mr-2 text-purple-500" />
+                    <Building className="h-4 w-4 mr-2 text-gray-500" />
                     <span className="font-medium">{contact.company}</span>
                   </div>
                   
                   <div className="flex items-center space-x-6 text-sm">
                     {contact.phone && (
-                      <div className="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                      <div className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                         <Phone className="h-4 w-4 mr-2 text-green-500" />
                         <span className="font-medium">{contact.phone}</span>
                       </div>
                     )}
                     {contact.email && (
-                      <div className="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                      <div className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                         <Mail className="h-4 w-4 mr-2 text-blue-500" />
                         <span className="font-medium">{contact.email}</span>
                       </div>
@@ -142,7 +140,7 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
                 
                 <div className="text-right">
                   <div className="text-xs text-gray-500 font-medium mb-2">
-                    📅 {new Date(contact.last_updated).toLocaleDateString('de-DE')}
+                    {new Date(contact.last_updated).toLocaleDateString('de-DE')}
                   </div>
                   <div className="flex items-center justify-end">
                     <div className={`w-3 h-3 rounded-full mr-2 shadow-sm ${

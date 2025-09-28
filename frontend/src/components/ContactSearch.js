@@ -50,33 +50,32 @@ const ContactSearch = () => {
   };
 
   return (
-    <div className="card-enhanced animate-fade-in">
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
       <div className="p-8">
-        <div className="flex items-center mb-6">
-          <div className="relative mr-3">
-            <Search className="h-6 w-6 text-purple-600 float" />
-            <div className="absolute inset-0 h-6 w-6 bg-purple-400 opacity-30 rounded-full blur-lg"></div>
+        <div className="flex items-center mb-8">
+          <div className="mr-4 p-3 bg-blue-50 rounded-xl">
+            <Search className="h-6 w-6 text-blue-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-1">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Neue Kontakte finden
             </h2>
-            <p className="text-sm text-gray-600 font-medium">
+            <p className="text-gray-600 font-medium">
               Tagesaktuelle Entscheider-Recherche
             </p>
           </div>
         </div>
         
         <form onSubmit={handleSearch} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                🏭 Branche
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-800 mb-3">
+                Branche
               </label>
               <select
                 value={searchParams.industry}
                 onChange={(e) => setSearchParams({ ...searchParams, industry: e.target.value })}
-                className="input-enhanced w-full p-4 rounded-xl text-gray-800 font-medium shadow-sm"
+                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
               >
                 {industries.map(industry => (
                   <option key={industry} value={industry}>{industry}</option>
@@ -84,14 +83,14 @@ const ContactSearch = () => {
               </select>
             </div>
 
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                👔 Position
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-800 mb-3">
+                Position
               </label>
               <select
                 value={searchParams.position}
                 onChange={(e) => setSearchParams({ ...searchParams, position: e.target.value })}
-                className="input-enhanced w-full p-4 rounded-xl text-gray-800 font-medium shadow-sm"
+                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
               >
                 {positions.map(position => (
                   <option key={position} value={position}>{position}</option>
@@ -99,14 +98,14 @@ const ContactSearch = () => {
               </select>
             </div>
 
-            <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                🏢 Firmengröße
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-800 mb-3">
+                Firmengröße
               </label>
               <select
                 value={searchParams.company_size}
                 onChange={(e) => setSearchParams({ ...searchParams, company_size: e.target.value })}
-                className="input-enhanced w-full p-4 rounded-xl text-gray-800 font-medium shadow-sm"
+                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
               >
                 {companySizes.map(size => (
                   <option key={size} value={size}>{size}</option>
@@ -114,9 +113,9 @@ const ContactSearch = () => {
               </select>
             </div>
 
-            <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                🎯 Anzahl Kontakte
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-gray-800 mb-3">
+                Anzahl Kontakte
               </label>
               <input
                 type="number"
@@ -124,37 +123,35 @@ const ContactSearch = () => {
                 max="100"
                 value={searchParams.count}
                 onChange={(e) => setSearchParams({ ...searchParams, count: parseInt(e.target.value) })}
-                className="input-enhanced w-full p-4 rounded-xl text-gray-800 font-medium shadow-sm"
+                className="w-full p-4 rounded-xl border border-gray-200 text-gray-800 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-gray-50 hover:bg-white"
                 placeholder="z.B. 50"
               />
             </div>
           </div>
 
-          <div className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-8">
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary w-full text-white py-4 px-8 rounded-xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-300 transform hover:scale-105"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-5 px-8 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
             >
               {loading ? (
                 <>
                   <Loader2 className="h-5 w-5 mr-3 animate-spin" />
-                  <span className="animate-pulse">Generiere tagesaktuelle Leads...</span>
+                  <span className="animate-pulse">Suche aktuelle Kontakte...</span>
                 </>
               ) : (
                 <>
                   <Search className="h-5 w-5 mr-3" />
-                  <span>🚀 Kontakte finden</span>
+                  <span>Kontakte finden</span>
                 </>
               )}
             </button>
           </div>
 
-          <div className="text-center text-sm text-gray-500 animate-fade-in">
-            <p className="flex items-center justify-center space-x-2">
-              <span>✨</span>
-              <span>KI-gestützte Recherche für aktuelle Entscheider</span>
-              <span>✨</span>
+          <div className="text-center mt-6">
+            <p className="text-gray-500 font-medium">
+              Intelligente Recherche für aktuelle Entscheider
             </p>
           </div>
         </form>

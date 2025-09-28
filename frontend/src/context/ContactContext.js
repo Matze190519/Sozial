@@ -58,12 +58,20 @@ export function ContactProvider({ children }) {
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   const searchContacts = async (searchParams) => {
+    console.log('🔍 Starting contact search with params:', searchParams);
+    console.log('🌐 API URL:', `${API}/contacts/search`);
     dispatch({ type: 'SET_LOADING', payload: true });
     try {
+      console.log('📡 Making API request...');
       const response = await axios.post(`${API}/contacts/search`, searchParams);
+      console.log('✅ API response received:', response.data);
+      console.log('📊 Contacts count:', response.data.contacts?.length);
+      console.log('🔑 First contact ID:', response.data.contacts?.[0]?.id);
       dispatch({ type: 'SET_SEARCH_RESULTS', payload: response.data.contacts });
       toast.success(`${response.data.total} Kontakte gefunden`);
     } catch (error) {
+      console.error('❌ API request failed:', error);
+      console.error('❌ Error details:', error.response?.data);
       dispatch({ type: 'SET_ERROR', payload: error.message });
       toast.error('Fehler beim Suchen der Kontakte');
     }
