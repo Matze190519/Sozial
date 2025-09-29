@@ -1,0 +1,21 @@
+[build]
+  base = "frontend"
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+  REACT_APP_BACKEND_URL = "https://user:275c327d508dd06533014705763dc192@helfer-finder-app-tunnel-dxgw68xp.devinapps.com"
+  REACT_APP_GOOGLE_API_KEY = "AIzaSyB285UU0oOYF4Prk4tf0JjaLYm0g7pRRrs"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
