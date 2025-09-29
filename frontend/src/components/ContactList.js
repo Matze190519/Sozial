@@ -50,14 +50,14 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
 
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
-      <div className="p-8 border-b border-gray-100">
-        <div className="flex items-center justify-between">
+      <div className="p-4 sm:p-8 border-b border-gray-100">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div className="flex items-center">
-            <div className="mr-4 p-3 bg-blue-50 rounded-xl">
-              <User className="h-6 w-6 text-blue-600" />
+            <div className="mr-3 sm:mr-4 p-2 sm:p-3 bg-blue-50 rounded-xl">
+              <User className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
                 {searchResults.length > 0 ? 'Suchergebnisse' : 'Alle Kontakte'}
               </h2>
               <p className="text-gray-600 font-medium">
@@ -67,12 +67,12 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
           </div>
           
           {showFilters && (
-            <div className="flex items-center space-x-3 animate-slide-up">
-              <Filter className="h-5 w-5 text-gray-400" />
+            <div className="flex items-center space-x-3">
+              <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
               <select
                 value={filters.status}
                 onChange={(e) => setFilters({ status: e.target.value })}
-                className="text-sm px-4 py-3 rounded-xl border border-gray-200 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 hover:bg-white transition-all duration-200"
+                className="text-sm px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-gray-200 font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 hover:bg-white transition-all duration-200 min-h-[44px]"
               >
                 <option value="">Alle Status</option>
                 <option value="neu">Neu</option>
@@ -101,16 +101,16 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
             <div
               key={contact.id}
               onClick={() => onContactSelect(contact)}
-              className={`p-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer transition-all duration-300 rounded-xl mx-2 my-1 ${
+              className={`p-4 sm:p-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer transition-all duration-300 rounded-xl mx-2 my-1 min-h-[44px] ${
                 selectedContact?.id === contact.id ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 shadow-md' : 'hover:shadow-sm'
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <div className="flex items-start justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between space-y-3 sm:space-y-0">
                 <div className="flex-1">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <h3 className="font-bold text-gray-900 text-lg">{contact.name}</h3>
-                    <span className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${getStatusColor(contact.status)}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-2">
+                    <h3 className="font-bold text-gray-900 text-base sm:text-lg">{contact.name}</h3>
+                    <span className={`px-3 py-1 text-xs font-semibold rounded-full shadow-sm self-start ${getStatusColor(contact.status)}`}>
                       {getStatusLabel(contact.status)}
                     </span>
                   </div>
@@ -118,31 +118,31 @@ const ContactList = ({ onContactSelect, selectedContact, showFilters = false }) 
                   <p className="text-sm text-gray-700 font-medium mb-2">{contact.position}</p>
                   
                   <div className="flex items-center text-sm text-gray-600 mb-3">
-                    <Building className="h-4 w-4 mr-2 text-gray-500" />
+                    <Building className="h-4 w-4 mr-2 text-gray-500 flex-shrink-0" />
                     <span className="font-medium">{contact.company}</span>
                   </div>
                   
-                  <div className="flex items-center space-x-6 text-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
                     {contact.phone && (
                       <div className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                        <Phone className="h-4 w-4 mr-2 text-green-500" />
+                        <Phone className="h-4 w-4 mr-2 text-green-500 flex-shrink-0" />
                         <span className="font-medium">{contact.phone}</span>
                       </div>
                     )}
                     {contact.email && (
                       <div className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                        <Mail className="h-4 w-4 mr-2 text-blue-500" />
-                        <span className="font-medium">{contact.email}</span>
+                        <Mail className="h-4 w-4 mr-2 text-blue-500 flex-shrink-0" />
+                        <span className="font-medium break-all sm:break-normal">{contact.email}</span>
                       </div>
                     )}
                   </div>
                 </div>
                 
-                <div className="text-right">
+                <div className="text-left sm:text-right flex-shrink-0">
                   <div className="text-xs text-gray-500 font-medium mb-2">
                     {new Date(contact.last_updated).toLocaleDateString('de-DE')}
                   </div>
-                  <div className="flex items-center justify-end">
+                  <div className="flex items-center sm:justify-end">
                     <div className={`w-3 h-3 rounded-full mr-2 shadow-sm ${
                       contact.data_freshness_score > 0.8 ? 'bg-gradient-to-r from-green-400 to-green-500' :
                       contact.data_freshness_score > 0.6 ? 'bg-gradient-to-r from-yellow-400 to-yellow-500' : 

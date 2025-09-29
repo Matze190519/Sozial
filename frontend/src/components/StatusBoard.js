@@ -122,7 +122,7 @@ const StatusBoard = ({ onContactSelect }) => {
         <span className="ml-2 text-sm text-slate-500 font-medium">({contacts.length} Kontakte)</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4">
         {statusColumns.map((column) => {
           const columnContacts = getContactsByStatus(column.id);
           
