@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOD INFUSION - 18 Faszinierende Duftwelten</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .headline {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-align: center;
+            z-index: 5;
+            position: relative;
+        }
+        .subline {
+            font-size: 24px;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 30px;
+            z-index: 5;
+            position: relative;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            z-index: 5;
+            position: relative;
+        }
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .model-container {
+            width: 100%;
+            height: 200px;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .model-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .parfums-container {
+            width: 100%;
+            height: 220px;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .parfums-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: linear-gradient(135deg, #8B7EC8, #B8A8E8);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <h1 class="headline">MOOD INFUSION</h1>
+        <p class="subline"><span class="highlight">18 faszinierende Duftwelten</span> - entwickelt mit Weltmarktführer Robertet</p>
+        
+        <div class="content-grid">
+            <div class="image-section">
+                <div class="model-container">
+                    <img src="assets/images/mood_infusion_women_model.webp" alt="Women" class="model-image">
+                </div>
+                <div class="parfums-container">
+                    <img src="assets/images/mood_infusion_11_parfums_women.webp" alt="11 Parfums für Sie" class="parfums-image">
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <div class="model-container">
+                    <img src="assets/images/mood_infusion_men_model.webp" alt="Men" class="model-image">
+                </div>
+                <div class="parfums-container">
+                    <img src="assets/images/mood_infusion_7_parfums_men.webp" alt="7 Parfums für Ihn" class="parfums-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
