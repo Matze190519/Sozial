@@ -68,26 +68,15 @@
             max-height: 520px;
         }
         .car-frame {
-            padding: 3px;
-            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #C9A961 92%, #9B7E3C 100%);
-            border-radius: 10px;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #C9A961 92%, #9B7E3C 100%) 1;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             overflow: hidden;
-        }
-        .car-inner {
-            background: transparent;
-            border-radius: 7px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
         }
         .car-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
         }
     </style>
@@ -101,24 +90,16 @@
         
         <div class="cars-container">
             <div class="car-frame">
-                <div class="car-inner">
-                    <img src="assets/images/jubilaeums_mercedes_a180.png" alt="Mercedes A180 Kompakt - 169€" class="car-image">
-                </div>
+                <img src="assets/images/jubilaeums_mercedes_a180.png" alt="Mercedes A180 Kompakt - 169€" class="car-image">
             </div>
             <div class="car-frame">
-                <div class="car-inner">
-                    <img src="assets/images/jubilaeums_audi_s5.png" alt="Audi S5 Avant - 249€" class="car-image">
-                </div>
+                <img src="assets/images/jubilaeums_audi_s5.png" alt="Audi S5 Avant - 249€" class="car-image">
             </div>
             <div class="car-frame">
-                <div class="car-inner">
-                    <img src="assets/images/jubilaeums_mercedes_cle300.png" alt="Mercedes CLE 300 Coupé - 569€" class="car-image">
-                </div>
+                <img src="assets/images/jubilaeums_mercedes_cle300.png" alt="Mercedes CLE 300 Coupé - 569€" class="car-image">
             </div>
             <div class="car-frame">
-                <div class="car-inner">
-                    <img src="assets/images/jubilaeums_mercedes_cle53.png" alt="Mercedes CLE 53 AMG Coupé - 750€" class="car-image">
-                </div>
+                <img src="assets/images/jubilaeums_mercedes_cle53.png" alt="Mercedes CLE 53 AMG Coupé - 750€" class="car-image">
             </div>
         </div>
     </div>
