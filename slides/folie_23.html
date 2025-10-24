@@ -91,8 +91,10 @@
             position: relative;
             z-index: 5;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 20px;
         }
         .image-container {
             position: relative;
@@ -108,6 +110,18 @@
             display: block;
             border-radius: 12px;
             object-fit: contain;
+        }
+        .decision-text {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            margin: 0;
         }
     </style>
 </head>
@@ -137,6 +151,7 @@
             <div class="image-container">
                 <img src="assets/images/freiheit_vs_fesseln_final.png" alt="Business Track" class="main-image">
             </div>
+            <h2 class="decision-text">Du Entscheidest</h2>
         </div>
     </div>
 </body>
