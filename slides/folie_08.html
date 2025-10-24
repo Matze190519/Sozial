@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALOE VERA - 77 MIO. LITER MARKTFÜHRER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .fact-icon {
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .fact-text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 60px;
+        }
+        .main-image {
+            max-width: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 12px;
+            display: block;
+        }
+        .circles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        .circle-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .circle-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #E9D78E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            position: relative;
+            box-shadow: 0 0 20px rgba(233, 215, 142, 0.3);
+        }
+        .circle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .circle-image-dermatest {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+        }
+        .circle-image-fermentiert {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            object-position: center center;
+        }
+        .circle-image-iasc {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .circle-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        .placeholder {
+            width: 500px;
+            height: 400px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="../assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="../assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">ALOE VERA - 77 MIO. LITER MARKTFÜHRER</h1>
+            <div class="fact-item">
+                <i class="fas fa-heartbeat fact-icon"></i>
+                <p class="fact-text"><span class="highlight">77 Millionen Liter</span> Aloe Vera produziert</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-leaf fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Marktführer</span> in Europa</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-pills fact-icon"></i>
+                <p class="fact-text">NEU: <span class="highlight">Fermentation</span> für höchste Qualität</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-dumbbell fact-icon"></i>
+                <p class="fact-text">Mit <span class="highlight">Fresenius-Zertifikat</span></p>
+            </div>
+
+        </div>
+        
+        <div class="content-right">
+            <img src="../assets/images/aloe_vera_topseller.png" alt="Aloe Vera 77 Mio" class="main-image">
+            
+            <div class="circles-container">
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/dermatest.svg" alt="Dermatest" class="circle-image circle-image-dermatest">
+                    </div>
+                    <div class="circle-label">DERMATEST<br>ZERTIFIZIERT</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/fermentiert_clean.png" alt="Fermentiert" class="circle-image circle-image-fermentiert">
+                    </div>
+                    <div class="circle-label">FERMENTIERT<br>POWER</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/iasc_black.png" alt="IASC Zertifikat" class="circle-image circle-image-iasc">
+                    </div>
+                    <div class="circle-label">IASC<br>ZERTIFIKAT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

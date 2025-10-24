@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WERTVOLLSTE INHALTSSTOFFE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 40px 0;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .fact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .fact-icon {
+            font-size: 28px;
+            margin-right: 20px;
+            color: #E9D78E;
+        }
+        .fact-text {
+            font-size: 20px;
+            color: #FFFFFF;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid #E9D78E;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="../assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="../assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">WERTVOLLSTE INHALTSSTOFFE</h1>
+            <div class="fact-item">
+                <i class="fas fa-gem fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Jasminblüten</span> aus Ägypten - Kostbare Essenz</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-leaf fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Tonkabohne</span> aus Brasilien - Exotische Süße</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-tree fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Zedernholz</span> aus Virginia - Edle Holznote</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-seedling fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Vetiver</span> aus Haiti - Erdige Eleganz</p>
+            </div>
+
+        </div>
+        
+        <div class="content-right">
+            <img src="../assets/images/iconic_elixirs_discovery_box.png?v=1761089919" alt="Wertvollste Inhaltsstoffe" class="main-image">
+        </div>
+    </div>
+</body>
+</html>
+

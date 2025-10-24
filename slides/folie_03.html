@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REKORD 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+        .text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .text i {
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            padding: 6px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            border: 3px solid #000000;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="../assets/images/lr_40_jahre_logo_transparent.png?v1761221100" alt="LR 40 Jahre" class="lr-logo">
+        <img src="../assets/images/team_logo.png?v1761221100" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">REKORD 2024: DEIN KARRIERE-BOOST – JETZT STARTEN!</h1>
+            <p class="text"><i class="fas fa-trophy"></i><span class="highlight">Erfolgreichsten Monate</span> seit 40 Jahren!</p>
+            <p class="text"><i class="fas fa-users"></i>Über <span class="highlight">18.000 neue Karrieren</span> in 2024</p>
+            <p class="text"><i class="fas fa-user-tie"></i><span class="highlight">10.635 neue Junior Manager</span></p>
+            <p class="text"><i class="fas fa-rocket"></i>Der beste Zeitpunkt ist <span class="highlight">JETZT</span></p>
+        </div>
+        
+        <div class="content-right">
+            <img src="../assets/images/karriereleiter_2024.png?v1761221100" alt="Rekord 2024" class="main-image">
+        </div>
+    </div>
+</body>
+</html>
+

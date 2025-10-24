@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualität Made in Germany</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+        .text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .text i {
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 60px;
+        }
+        .main-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            padding: 6px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            border: 3px solid #000000;
+            border-radius: 8px;
+            display: block;
+        }
+        .circles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        .circle-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .circle-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #E9D78E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(233, 215, 142, 0.3);
+        }
+        .circle-image {
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+        }
+        .circle-image-zoom {
+            width: 200%;
+            height: 200%;
+            object-position: 35% center;
+        }
+        .circle-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="../assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="../assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">QUALITÄT<br>MADE IN GERMANY</h1>
+            <p class="text"><i class="fas fa-industry"></i><span class="highlight">Eigene Produktion</span> in Ahlen, Deutschland</p>
+            <p class="text"><i class="fas fa-certificate"></i><span class="highlight">Zertifizierte Qualität</span> nach höchsten Standards</p>
+            <p class="text"><i class="fas fa-microscope"></i><span class="highlight">Regelmäßige Laborkontrollen</span> für beste Ergebnisse</p>
+            <p class="text"><i class="fas fa-leaf"></i><span class="highlight">Frische Aloe Vera</span> aus eigenem Anbau</p>
+        </div>
+        
+        <div class="content-right">
+            <img src="../assets/images/produktion_tanks.jpg" alt="Produktionsanlage" class="main-image">
+            
+            <div class="circles-container">
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/AloeVera_Ernte_1500px_sm_small.png" alt="Aloe Vera" class="circle-image">
+                    </div>
+                    <div class="circle-label">FRISCHE<br>ALOE VERA</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/kreis_aloe_vera3_20000liter_1500px_sm_small.png" alt="20.000 Liter" class="circle-image">
+                    </div>
+                    <div class="circle-label">20.000 LITER<br>TANKS</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="../assets/images/2024_Produktion_Beauty_2_sm_small.png" alt="LR Gebäude" class="circle-image circle-image-zoom">
+                    </div>
+                    <div class="circle-label">MADE IN<br>GERMANY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

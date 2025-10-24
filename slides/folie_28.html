@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUBILÄUMSANGEBOTE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: #000000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 40px 30px 40px;
+            box-sizing: border-box;
+            border: 3px solid #E9D78E;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .headline {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #C9A961 92%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 5;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        .cars-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+            z-index: 5;
+            position: relative;
+            flex: 1;
+            padding: 0 10px;
+            max-height: 580px;
+        }
+        .car-frame {
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #C9A961 92%, #9B7E3C 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+        }
+        .car-inner {
+            background: #000000;
+            border-radius: 7px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+        .car-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="../assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="../assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <h1 class="headline">JUBILÄUMSANGEBOTE</h1>
+        
+        <div class="cars-container">
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="../assets/images/IMG_8588.jpeg" alt="Mercedes A180 Kompakt - 169€" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="../assets/images/IMG_8591.jpeg" alt="Audi S5 Avant - 249€" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="../assets/images/IMG_8589.jpeg" alt="Mercedes CLE 300 Coupé - 569€" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="../assets/images/IMG_8590.jpeg" alt="Mercedes CLE 53 AMG Coupé - 750€" class="car-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
