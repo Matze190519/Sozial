@@ -3,113 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>40 Jahre Erfolg</title>
+    <title>LR 40 Jahre Jubiläumspräsentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            overflow: hidden;
-        }
-        .slide-container {
-            width: 1280px;
-            min-height: 720px;
-            background: #000000;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            padding: 80px 60px;
             box-sizing: border-box;
-            align-items: center;
         }
-        .lr-logo {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            height: 80px;
-            width: auto;
-            z-index: 10;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
         }
-        .watermark-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 500px;
-            width: auto;
-            opacity: 0.08;
-            z-index: 1;
-        }
-        .content-left {
-            position: relative;
-            z-index: 5;
-        }
-        .headline {
-            font-size: 48px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-            margin-bottom: 40px;
-        }
-        .text {
-            font-size: 20px;
-            font-weight: 400;
-            color: #FFFFFF;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .text i {
+        h1 {
+            text-align: center;
             color: #D4AF37;
-            margin-right: 12px;
-            font-size: 20px;
+            margin-bottom: 30px;
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .highlight {
-            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+        .viewer {
+            max-width: 1320px;
+            margin: 0 auto;
+            text-align: center;
         }
-        .content-right {
-            position: relative;
-            z-index: 5;
+        .controls {
+            margin: 20px 0;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            gap: 20px;
         }
-        .main-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            padding: 6px;
-            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
-            border: 3px solid #000000;
+        button {
+            background: linear-gradient(135deg, #9B7E3C, #D4AF37, #9B7E3C);
+            color: #000;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
             border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        #current-slide {
+            color: #D4AF37;
+            font-size: 20px;
+            font-weight: 700;
+            min-width: 150px;
+        }
+        iframe {
+            width: 1280px;
+            height: 720px;
+            border: 4px solid #D4AF37;
+            border-radius: 12px;
+            background: #000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .slide-nav {
+            max-width: 1280px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .slide-link {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .slide-link:hover {
+            background: linear-gradient(135deg, #9B7E3C, #D4AF37, #9B7E3C);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+        .slide-number {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+        .slide-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        h2 {
+            text-align: center;
+            color: #D4AF37;
+            margin: 60px 0 30px 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
-    <div class="slide-container">
-        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
-        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
-        
-        <div class="content-left">
-            <h1 class="headline">40 JAHRE ERFOLG<br>MADE IN GERMANY</h1>
-            <p class="text"><i class="fas fa-calendar-check"></i>Seit <span class="highlight">1985</span> - 40 Jahre Erfahrung und Stabilität</p>
-            <p class="text"><i class="fas fa-award"></i>Deutsche Qualität - <span class="highlight">Made in Germany</span></p>
-            <p class="text"><i class="fas fa-globe"></i>Weltweite Präsenz in <span class="highlight">33 Ländern</span></p>
-            <p class="text"><i class="fas fa-euro-sign"></i>Über <span class="highlight">1,8 Milliarden Euro</span> Boni ausgezahlt</p>
+    <h1>🦁 LR 40 Jahre Jubiläumspräsentation 🦁</h1>
+    
+    <div class="viewer">
+        <div class="controls">
+            <button onclick="prevSlide()" id="prev-btn">← Vorherige</button>
+            <span id="current-slide">Folie 1 / 43</span>
+            <button onclick="nextSlide()" id="next-btn">Nächste →</button>
         </div>
-        
-        <div class="content-right">
-            <img src="assets/images/lr-finanzas.webp" alt="40 Jahre Erfolg" class="main-image">
-        </div>
+        <iframe id="slide-frame" src="slides/slide_01_loewenstarkes_team.html"></iframe>
     </div>
+    
+    <h2>📋 Alle Folien</h2>
+    <div class="slide-nav">
+        <a href="slides/slide_01_loewenstarkes_team.html" target="slide-frame" class="slide-link" onclick="updateCounter(1)">
+            <div class="slide-number">Folie 1</div>
+            <div class="slide-title">Löwenstarkes Team</div>
+        </a>
+        <a href="slides/slide_02_40_jahre.html" target="slide-frame" class="slide-link" onclick="updateCounter(2)">
+            <div class="slide-number">Folie 2</div>
+            <div class="slide-title">40 Jahre Erfolg</div>
+        </a>
+        <a href="slides/slide_03_rekord_2024.html" target="slide-frame" class="slide-link" onclick="updateCounter(3)">
+            <div class="slide-number">Folie 3</div>
+            <div class="slide-title">Rekord 2024</div>
+        </a>
+        <a href="slides/slide_04_zukunftsmaerkte_gesundheit.html" target="slide-frame" class="slide-link" onclick="updateCounter(4)">
+            <div class="slide-number">Folie 4</div>
+            <div class="slide-title">Zukunftsmärkte Gesundheit</div>
+        </a>
+        <a href="slides/slide_05_zukunftsmaerkte_makeup.html" target="slide-frame" class="slide-link" onclick="updateCounter(5)">
+            <div class="slide-number">Folie 5</div>
+            <div class="slide-title">Zukunftsmärkte Makeup</div>
+        </a>
+        <a href="slides/slide_06_300_produkte.html" target="slide-frame" class="slide-link" onclick="updateCounter(6)">
+            <div class="slide-number">Folie 6</div>
+            <div class="slide-title">300 Produkte</div>
+        </a>
+        <a href="slides/slide_07_qualitaet.html" target="slide-frame" class="slide-link" onclick="updateCounter(7)">
+            <div class="slide-number">Folie 7</div>
+            <div class="slide-title">Qualität Made in Germany</div>
+        </a>
+        <a href="slides/slide_08_aloe_vera.html" target="slide-frame" class="slide-link" onclick="updateCounter(8)">
+            <div class="slide-number">Folie 8</div>
+            <div class="slide-title">Aloe Vera</div>
+        </a>
+        <a href="slides/slide_09_health_mission.html" target="slide-frame" class="slide-link" onclick="updateCounter(9)">
+            <div class="slide-number">Folie 9</div>
+            <div class="slide-title">Health Mission</div>
+        </a>
+        <a href="slides/slide_10_body_mission.html" target="slide-frame" class="slide-link" onclick="updateCounter(10)">
+            <div class="slide-number">Folie 10</div>
+            <div class="slide-title">Body Mission</div>
+        </a>
+        <a href="slides/slide_11_nahrungsergaenzung.html" target="slide-frame" class="slide-link" onclick="updateCounter(11)">
+            <div class="slide-number">Folie 11</div>
+            <div class="slide-title">Nahrungsergänzung</div>
+        </a>
+        <a href="slides/slide_12_zeitgard.html" target="slide-frame" class="slide-link" onclick="updateCounter(12)">
+            <div class="slide-number">Folie 12</div>
+            <div class="slide-title">Zeitgard</div>
+        </a>
+        <a href="slides/slide_13_signature.html" target="slide-frame" class="slide-link" onclick="updateCounter(13)">
+            <div class="slide-number">Folie 13</div>
+            <div class="slide-title">Signature</div>
+        </a>
+        <a href="slides/slide_14_mood_infusion.html" target="slide-frame" class="slide-link" onclick="updateCounter(14)">
+            <div class="slide-number">Folie 14</div>
+            <div class="slide-title">Mood Infusion Düfte</div>
+        </a>
+        <a href="slides/slide_15_iconic_elixirs.html" target="slide-frame" class="slide-link" onclick="updateCounter(15)">
+            <div class="slide-number">Folie 15</div>
+            <div class="slide-title">Iconic Elixirs</div>
+        </a>
+        <a href="slides/slide_15a_iconic_elixirs_couple.html" target="slide-frame" class="slide-link" onclick="updateCounter(16)">
+            <div class="slide-number">Folie 15a</div>
+            <div class="slide-title">Iconic Elixirs Couple</div>
+        </a>
+        <a href="slides/slide_15b_discovery_box.html" target="slide-frame" class="slide-link" onclick="updateCounter(17)">
+            <div class="slide-number">Folie 15b</div>
+            <div class="slide-title">Discovery Box</div>
+        </a>
+        <a href="slides/slide_15b_iconic_elixirs_flakons.html" target="slide-frame" class="slide-link" onclick="updateCounter(18)">
+            <div class="slide-number">Folie 15c</div>
+            <div class="slide-title">Iconic Elixirs Flakons</div>
+        </a>
+        <a href="slides/slide_16_discovery_box.html" target="slide-frame" class="slide-link" onclick="updateCounter(19)">
+            <div class="slide-number">Folie 16</div>
+            <div class="slide-title">Discovery Box & Duftfinder</div>
+        </a>
+        <a href="slides/slide_17_werde_fan.html" target="slide-frame" class="slide-link" onclick="updateCounter(20)">
+            <div class="slide-number">Folie 17</div>
+            <div class="slide-title">Werde Fan der LR Produkte</div>
+        </a>
+        <a href="slides/slide_18_digital_tools.html" target="slide-frame" class="slide-link" onclick="updateCounter(21)">
+            <div class="slide-number">Folie 18</div>
+            <div class="slide-title">Digital Tools</div>
+        </a>
+        <a href="slides/slide_19_verdienst.html" target="slide-frame" class="slide-link" onclick="updateCounter(22)">
+            <div class="slide-number">Folie 19</div>
+            <div class="slide-title">Verdienst</div>
+        </a>
+        <a href="slides/slide_20_fast_track.html" target="slide-frame" class="slide-link" onclick="updateCounter(23)">
+            <div class="slide-number">Folie 20</div>
+            <div class="slide-title">Fast Track</div>
+        </a>
+        <a href="slides/slide_21_karriere_teil1.html" target="slide-frame" class="slide-link" onclick="updateCounter(24)">
+            <div class="slide-number">Folie 21</div>
+            <div class="slide-title">Karriere Teil 1</div>
+        </a>
+        <a href="slides/slide_22_karriere_teil2.html" target="slide-frame" class="slide-link" onclick="updateCounter(25)">
+            <div class="slide-number">Folie 22</div>
+            <div class="slide-title">Karriere Teil 2</div>
+        </a>
+        <a href="slides/slide_23_business_track.html" target="slide-frame" class="slide-link" onclick="updateCounter(26)">
+            <div class="slide-number">Folie 23</div>
+            <div class="slide-title">Business Track</div>
+        </a>
+        <a href="slides/slide_24_autokonzept.html" target="slide-frame" class="slide-link" onclick="updateCounter(27)">
+            <div class="slide-number">Folie 24</div>
+            <div class="slide-title">Autokonzept</div>
+        </a>
+        <a href="slides/slide_25_autobonus.html" target="slide-frame" class="slide-link" onclick="updateCounter(28)">
+            <div class="slide-number">Folie 25</div>
+            <div class="slide-title">Autobonus</div>
+        </a>
+        <a href="slides/slide_26_auto_angebote.html" target="slide-frame" class="slide-link" onclick="updateCounter(29)">
+            <div class="slide-number">Folie 26</div>
+            <div class="slide-title">Auto Angebote</div>
+        </a>
+        <a href="slides/slide_26b_auto_angebote_2.html" target="slide-frame" class="slide-link" onclick="updateCounter(30)">
+            <div class="slide-number">Folie 26b</div>
+            <div class="slide-title">Auto Angebote 2</div>
+        </a>
+        <a href="slides/slide_27_autoubergaben.html" target="slide-frame" class="slide-link" onclick="updateCounter(31)">
+            <div class="slide-number">Folie 27</div>
+            <div class="slide-title">Autoübergaben</div>
+        </a>
+        <a href="slides/slide_28_betreuung.html" target="slide-frame" class="slide-link" onclick="updateCounter(32)">
+            <div class="slide-number">Folie 28</div>
+            <div class="slide-title">Betreuung</div>
+        </a>
+        <a href="slides/slide_29_events.html" target="slide-frame" class="slide-link" onclick="updateCounter(33)">
+            <div class="slide-number">Folie 29</div>
+            <div class="slide-title">Events</div>
+        </a>
+        <a href="slides/slide_30_traumreisen.html" target="slide-frame" class="slide-link" onclick="updateCounter(34)">
+            <div class="slide-number">Folie 30</div>
+            <div class="slide-title">Traumreisen</div>
+        </a>
+        <a href="slides/slide_31_lina_intro.html" target="slide-frame" class="slide-link" onclick="updateCounter(35)">
+            <div class="slide-number">Folie 31</div>
+            <div class="slide-title">Lina Intro</div>
+        </a>
+        <a href="slides/slide_32_lina_video.html" target="slide-frame" class="slide-link" onclick="updateCounter(36)">
+            <div class="slide-number">Folie 32</div>
+            <div class="slide-title">Lina Video</div>
+        </a>
+        <a href="slides/slide_33_lina_features.html" target="slide-frame" class="slide-link" onclick="updateCounter(37)">
+            <div class="slide-number">Folie 33</div>
+            <div class="slide-title">Lina Features</div>
+        </a>
+        <a href="slides/slide_34_einstieg.html" target="slide-frame" class="slide-link" onclick="updateCounter(38)">
+            <div class="slide-number">Folie 34</div>
+            <div class="slide-title">Einstieg</div>
+        </a>
+        <a href="slides/slide_35_startersets.html" target="slide-frame" class="slide-link" onclick="updateCounter(39)">
+            <div class="slide-number">Folie 35</div>
+            <div class="slide-title">Startersets</div>
+        </a>
+        <a href="slides/slide_36_naechste_schritte.html" target="slide-frame" class="slide-link" onclick="updateCounter(40)">
+            <div class="slide-number">Folie 36</div>
+            <div class="slide-title">Nächste Schritte</div>
+        </a>
+        <a href="slides/slide_37_vertrauen.html" target="slide-frame" class="slide-link" onclick="updateCounter(41)">
+            <div class="slide-number">Folie 37</div>
+            <div class="slide-title">Vertrauen</div>
+        </a>
+        <a href="slides/slide_38_kontakt.html" target="slide-frame" class="slide-link" onclick="updateCounter(42)">
+            <div class="slide-number">Folie 38</div>
+            <div class="slide-title">Kontakt</div>
+        </a>
+        <a href="slides/slide_39_willkommen.html" target="slide-frame" class="slide-link" onclick="updateCounter(43)">
+            <div class="slide-number">Folie 39</div>
+            <div class="slide-title">Willkommen</div>
+        </a>
+    </div>
+
+    <script>
+        const slides = [
+            'slides/slide_01_loewenstarkes_team.html',
+            'slides/slide_02_40_jahre.html',
+            'slides/slide_03_rekord_2024.html',
+            'slides/slide_04_zukunftsmaerkte_gesundheit.html',
+            'slides/slide_05_zukunftsmaerkte_makeup.html',
+            'slides/slide_06_300_produkte.html',
+            'slides/slide_07_qualitaet.html',
+            'slides/slide_08_aloe_vera.html',
+            'slides/slide_09_health_mission.html',
+            'slides/slide_10_body_mission.html',
+            'slides/slide_11_nahrungsergaenzung.html',
+            'slides/slide_12_zeitgard.html',
+            'slides/slide_13_signature.html',
+            'slides/slide_14_mood_infusion.html',
+            'slides/slide_15_iconic_elixirs.html',
+            'slides/slide_15a_iconic_elixirs_couple.html',
+            'slides/slide_15b_discovery_box.html',
+            'slides/slide_15b_iconic_elixirs_flakons.html',
+            'slides/slide_16_discovery_box.html',
+            'slides/slide_17_werde_fan.html',
+            'slides/slide_18_digital_tools.html',
+            'slides/slide_19_verdienst.html',
+            'slides/slide_20_fast_track.html',
+            'slides/slide_21_karriere_teil1.html',
+            'slides/slide_22_karriere_teil2.html',
+            'slides/slide_23_business_track.html',
+            'slides/slide_24_autokonzept.html',
+            'slides/slide_25_autobonus.html',
+            'slides/slide_26_auto_angebote.html',
+            'slides/slide_26b_auto_angebote_2.html',
+            'slides/slide_27_autoubergaben.html',
+            'slides/slide_28_betreuung.html',
+            'slides/slide_29_events.html',
+            'slides/slide_30_traumreisen.html',
+            'slides/slide_31_lina_intro.html',
+            'slides/slide_32_lina_video.html',
+            'slides/slide_33_lina_features.html',
+            'slides/slide_34_einstieg.html',
+            'slides/slide_35_startersets.html',
+            'slides/slide_36_naechste_schritte.html',
+            'slides/slide_37_vertrauen.html',
+            'slides/slide_38_kontakt.html',
+            'slides/slide_39_willkommen.html'
+        ];
+
+        let currentIndex = 0;
+
+        function updateCounter(index) {
+            currentIndex = index - 1;
+            document.getElementById('current-slide').textContent = `Folie ${index} / 43`;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.getElementById('prev-btn').disabled = currentIndex === 0;
+            document.getElementById('next-btn').disabled = currentIndex === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                document.getElementById('slide-frame').src = slides[currentIndex];
+                updateCounter(currentIndex + 1);
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                document.getElementById('slide-frame').src = slides[currentIndex];
+                updateCounter(currentIndex + 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        updateButtons();
+    </script>
 </body>
 </html>
