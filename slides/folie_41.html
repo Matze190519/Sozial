@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herzlich Willkommen im LR Lifestyle Team</title>
+    <title>Dein direkter Kontakt</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -21,7 +21,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 60px;
+            padding: 60px 60px;
             box-sizing: border-box;
             border: 3px solid;
             border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
@@ -50,31 +50,84 @@
             z-index: 5;
             text-align: center;
         }
-        .main-logo {
-            height: 400px;
-            width: auto;
-            margin-bottom: 40px;
-        }
-        .gold-line {
-            width: 300px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-            margin: 0 auto 40px;
-        }
         .headline {
-            font-size: 60px;
+            font-size: 42px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        .subtitle {
-            font-size: 28px;
+        .photo-placeholder {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+        }
+        .photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .name {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 22px;
             color: #FFFFFF;
             font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .phone {
+            font-size: 26px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        .qr-placeholder {
+            width: 160px;
+            height: 160px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 auto;
+            border-radius: 8px;
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+        }
+        .qr-inner {
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -84,11 +137,21 @@
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
         <div class="content">
-            <img src="assets/images/team_logo.png" alt="LR Lifestyle Team" class="main-logo">
-            <div class="gold-line"></div>
-            <h1 class="headline">HERZLICH WILLKOMMEN<br>IM LR LIFESTYLE TEAM</h1>
-            <p class="subtitle">Emotionaler Abschluss - Willkommen in der Familie!</p>
+            <h1 class="headline">DEIN DIREKTER KONTAKT</h1>
+            
+            <div class="photo-placeholder">
+                <div class="photo-inner">FOTO: MATHIAS<br>(FREILASSEN)</div>
+            </div>
+            
+            <div class="name">MATHIAS</div>
+            <div class="title">Platin-Orgaleiter</div>
+            <div class="phone">+49 171 5060008</div>
+            
+            <div class="qr-placeholder">
+                <div class="qr-inner">WhatsApp QR-Code<br>(FREILASSEN)</div>
+            </div>
         </div>
     </div>
 </body>
 </html>
+

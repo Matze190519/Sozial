@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dein direkter Kontakt</title>
+    <title>Warum wir uns dein Vertrauen verdient haben</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -19,9 +19,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 60px;
+            justify-content: space-between;
+            padding: 80px 60px;
             box-sizing: border-box;
             border: 3px solid;
             border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
@@ -45,89 +44,39 @@
             opacity: 0.08;
             z-index: 1;
         }
-        .content {
+        .top-content {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .text {
+            font-size: 24px;
+            color: #FFFFFF;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        .bottom-text {
             position: relative;
             z-index: 5;
             text-align: center;
-        }
-        .headline {
-            font-size: 42px;
+            font-size: 60px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
-            margin-bottom: 25px;
-        }
-        .photo-placeholder {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #D4AF37;
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-            padding: 3px;
-            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
-        }
-        .photo-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .name {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 5px;
-        }
-        .title {
-            font-size: 22px;
-            color: #FFFFFF;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-        .phone {
-            font-size: 26px;
-            color: #FFFFFF;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-        .qr-placeholder {
-            width: 160px;
-            height: 160px;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #D4AF37;
-            font-size: 16px;
-            font-weight: 700;
-            margin: 0 auto;
-            border-radius: 8px;
-            padding: 3px;
-            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
-        }
-        .qr-inner {
-            width: 100%;
-            height: 100%;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -136,22 +85,26 @@
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
-        <div class="content">
-            <h1 class="headline">DEIN DIREKTER KONTAKT</h1>
-            
-            <div class="photo-placeholder">
-                <div class="photo-inner">FOTO: MATHIAS<br>(FREILASSEN)</div>
+        <div class="top-content">
+            <div>
+                <p class="text">
+                    <span class="highlight">Headquarter</span> in Ahlen, Deutschland<br><br>
+                    <span class="highlight">40 Jahre</span> Erfolgsgeschichte<br><br>
+                    <span class="highlight">95% Made in Germany</span>
+                </p>
             </div>
-            
-            <div class="name">MATHIAS</div>
-            <div class="title">Platin-Orgaleiter</div>
-            <div class="phone">+49 171 5060008</div>
-            
-            <div class="qr-placeholder">
-                <div class="qr-inner">WhatsApp QR-Code<br>(FREILASSEN)</div>
+            <div>
+                <p class="text">
+                    <span class="highlight">35.000 Autos</span> übergeben<br><br>
+                    <span class="highlight">1,8 Milliarden Euro</span> Boni ausgezahlt<br><br>
+                    <span class="highlight">33 Länder</span> weltweit
+                </p>
             </div>
+        </div>
+        
+        <div class="bottom-text">
+            ...DEIN VERTRAUEN<br>VERDIENT HABEN
         </div>
     </div>
 </body>
 </html>
-

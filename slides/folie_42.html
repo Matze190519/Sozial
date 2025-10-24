@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>40 YEARS LR - YOUR CHOICE!</title>
+    <title>Herzlich Willkommen im LR Lifestyle Team</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,15 +14,19 @@
         }
         .slide-container {
             width: 1280px;
-            height: 720px;
+            min-height: 720px;
             background: #000000;
             position: relative;
             display: flex;
-            padding: 50px 60px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 60px;
             box-sizing: border-box;
             border: 3px solid;
             border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
-        }
+        
+            border: 3px solid #E9D78E;}
         .lr-logo {
             position: absolute;
             top: 30px;
@@ -41,80 +45,36 @@
             opacity: 0.08;
             z-index: 1;
         }
-        .left-section {
-            flex: 1;
+        .content {
             position: relative;
             z-index: 5;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-right: 40px;
+            text-align: center;
+        }
+        .main-logo {
+            height: 400px;
+            width: auto;
+            margin-bottom: 40px;
+        }
+        .gold-line {
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin: 0 auto 40px;
         }
         .headline {
-            font-size: 48px;
+            font-size: 60px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 0 0 40px 0;
             line-height: 1.2;
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .feature-item {
-            color: #FFFFFF;
-            font-size: 20px;
             margin-bottom: 20px;
-            padding-left: 35px;
-            position: relative;
-            line-height: 1.4;
         }
-        .feature-item::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 18px;
-        }
-        .highlight {
-            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-        .right-section {
-            flex: 1;
-            position: relative;
-            z-index: 5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .image-container {
-            width: 100%;
-            max-height: 500px;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .main-image {
-            width: 100%;
-            height: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            object-position: center center;
-            background: #000000;
+        .subtitle {
+            font-size: 28px;
+            color: #FFFFFF;
+            font-weight: 400;
         }
     </style>
 </head>
@@ -123,20 +83,11 @@
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
-        <div class="left-section">
-            <h1 class="headline">DEINE WAHL</h1>
-            <ul class="feature-list">
-                <li class="feature-item"><span class="highlight">Freiheit:</span> Arbeite wann und wo du willst</li>
-                <li class="feature-item"><span class="highlight">Erfolg:</span> Baue dein eigenes Business auf</li>
-                <li class="feature-item"><span class="highlight">Lifestyle:</span> Lebe das Leben deiner Träume</li>
-                <li class="feature-item"><span class="highlight">Gemeinschaft:</span> Werde Teil unseres Teams</li>
-            </ul>
-        </div>
-        
-        <div class="right-section">
-            <div class="image-container">
-                <img src="assets/images/your_choice.png" alt="40 Years LR - Your Choice!" class="main-image">
-            </div>
+        <div class="content">
+            <img src="assets/images/team_logo.png" alt="LR Lifestyle Team" class="main-logo">
+            <div class="gold-line"></div>
+            <h1 class="headline">HERZLICH WILLKOMMEN<br>IM LR LIFESTYLE TEAM</h1>
+            <p class="subtitle">Emotionaler Abschluss - Willkommen in der Familie!</p>
         </div>
     </div>
 </body>
