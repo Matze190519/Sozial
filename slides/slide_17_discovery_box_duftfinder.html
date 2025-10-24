@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR DISCOVERY BOX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .fact-icon {
+            color: #D4AF37;
+            font-size: 24px;
+            margin-right: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .fact-text {
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            padding: 6px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            border: 3px solid #000000;
+            border-radius: 8px;
+        }
+        .placeholder {
+            width: 500px;
+            height: 400px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">LR DISCOVERY BOX</h1>
+            <div class="fact-item">
+                <i class="fas fa-spray-can fact-icon"></i>
+                <p class="fact-text"><span class='highlight'>Macht die LR Düfte erlebbar</span></p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-box-open fact-icon"></i>
+                <p class="fact-text"><span class='highlight'>Discovery Box</span> als professionelle Verkaufshilfe</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-mobile-alt fact-icon"></i>
+                <p class="fact-text"><span class='highlight'>Duftfinder Tool</span> für perfekte Auswahl</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-star fact-icon"></i>
+                <p class="fact-text"><span class='highlight'>Professionelle</span> Präsentation</p>
+            </div>
+
+        </div>
+        
+        <div class="content-right">
+            <img src="assets/images/discovery_box_full.png" alt="Discovery Box" class="main-image">
+        </div>
+    </div>
+</body>
+</html>

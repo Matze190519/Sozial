@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Präsentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 1) 60%);
+        }
+        iframe {
+            width: 1280px;
+            height: 720px;
+            border: none;
+            background: black;
+            box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), 0 0 150px rgba(212, 175, 55, 0.5), 0 0 250px rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+        .nav-button:hover {
+            background: rgba(255, 215, 0, 1);
+            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+        }
+        .nav-button:disabled {
+            background: rgba(100, 100, 100, 0.3);
+            cursor: not-allowed;
+            color: #666;
+        }
+        .nav-button.prev {
+            left: 20px;
+        }
+        .nav-button.next {
+            right: 20px;
+        }
+        .slide-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #ffd700;
+            z-index: 1000;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background: rgba(255, 215, 0, 1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="nav-button prev" onclick="prevSlide()">◀</button>
+        <iframe id="slideFrame" src=""></iframe>
+        <button class="nav-button next" onclick="nextSlide()">▶</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">46</span>
+        </div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
+    </div>
+
+    <script>
+        const slides = [
+            'slide_01_loewenstarkes_team',
+            'slide_02_40_jahre',
+            'slide_03_rekord_2024',
+            'slide_04_zukunftsmaerkte_gesundheit',
+            'slide_05_zukunftsmaerkte_makeup',
+            'slide_06_300_produkte',
+            'slide_07_qualitaet',
+            'slide_08_aloe_vera',
+            'slide_09_health_mission',
+            'slide_10_nahrungsergaenzung',
+            'slide_11_body_mission',
+            'slide_12_zeitgard',
+            'slide_13_signature',
+            'slide_14_mood_infusion',
+            'slide_15_iconic_elixirs',
+            'slide_16_discovery_box',
+            'slide_17_discovery_box_duftfinder',
+            'slide_18_werde_fan',
+            'slide_19_digital_tools',
+            'slide_20_verdienst',
+            'slide_21_fast_track',
+            'slide_22_karriere_teil1',
+            'slide_23_karriere_teil2',
+            'slide_24_was_kann_lr_bedeuten',
+            'slide_25_business_track',
+            'slide_26_autokonzept',
+            'slide_27_autobonus',
+            'slide_28_auto_angebote',
+            'slide_28b_auto_angebote_2',
+            'slide_29_autoubergaben',
+            'slide_30_betreuung',
+            'slide_31_events',
+            'slide_32_traumreisen',
+            'slide_33_lina_intro',
+            'slide_34_lina_video',
+            'slide_35_lina_features',
+            'slide_36_einstieg',
+            'slide_37_startersets',
+            'slide_38_naechste_schritte',
+            'slide_39_vertrauen',
+            'slide_40_kontakt',
+            'slide_41_willkommen',
+            'slide_42_deine_wahl',
+            'slide_43_karriereleiter',
+            'slide_44_coaching_support',
+            'slide_45_profi_business_sets',
+            'slide_46_danke'
+        ];
+
+        let currentIndex = 0;
+        const baseUrl = window.location.origin;
+
+        function loadSlide(index) {
+            const slideId = slides[index];
+            document.getElementById('slideFrame').src = `${slideId}.html`;
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('totalSlides').textContent = slides.length;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.querySelector('.prev').disabled = currentIndex === 0;
+            document.querySelector('.next').disabled = currentIndex === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+        });
+
+        // Load first slide
+        loadSlide(0);
+    </script>
+</body>
+</html>
