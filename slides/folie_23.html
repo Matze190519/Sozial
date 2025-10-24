@@ -23,6 +23,8 @@
             padding: 80px 60px;
             box-sizing: border-box;
             align-items: center;
+            border: 8px solid;
+            border-image: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%) 1;
         }
         .lr-logo {
             position: absolute;
@@ -66,24 +68,24 @@
             max-width: 550px;
         }
         .benefit-circle {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
             color: #000000;
             box-shadow: 0 4px 15px rgba(233, 215, 142, 0.5);
             line-height: 1.2;
         }
         .benefit-circle.small {
-            font-size: 14px;
+            font-size: 12px;
         }
         .content-right {
             position: relative;
@@ -92,11 +94,20 @@
             justify-content: center;
             align-items: center;
         }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            padding: 6px;
+            border-radius: 16px;
+        }
         .main-image {
             width: 100%;
             height: auto;
+            display: block;
             border-radius: 12px;
-            border: 3px solid #E9D78E;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -123,7 +134,9 @@
         </div>
         
         <div class="content-right">
-            <img src="assets/images/freiheit_vs_fesseln_final.png" alt="Business Track" class="main-image">
+            <div class="image-container">
+                <img src="assets/images/freiheit_vs_fesseln_final.png" alt="Business Track" class="main-image">
+            </div>
         </div>
     </div>
 </body>
