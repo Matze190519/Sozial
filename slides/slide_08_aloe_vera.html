@@ -64,7 +64,7 @@
         }
         .fact-icon {
             color: #D4AF37;
-            font-size: 24px;
+            font-size: 20px;
             margin-right: 15px;
             margin-top: 2px;
             flex-shrink: 0;
@@ -87,18 +87,78 @@
             position: relative;
             z-index: 5;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 60px;
         }
         .main-image {
             width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
+            height: 280px;
+            object-fit: cover;
+            object-position: center 85%;
             padding: 6px;
             background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             border: 3px solid #000000;
             border-radius: 8px;
+            display: block;
+        }
+        .circles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        .circle-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .circle-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #D4AF37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            position: relative;
+        }
+        .circle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .circle-image-dermatest {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+        }
+        .circle-image-fermentiert {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            object-position: center center;
+        }
+        .circle-image-iasc {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .circle-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            color: #D4AF37;
+            line-height: 1.2;
         }
         .placeholder {
             width: 500px;
@@ -108,7 +168,7 @@
             align-items: center;
             justify-content: center;
             color: #D4AF37;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             text-align: center;
             padding: 40px;
@@ -125,25 +185,48 @@
             <h1 class="headline">ALOE VERA - 77 MIO. LITER MARKTFÜHRER</h1>
             <div class="fact-item">
                 <i class="fas fa-heartbeat fact-icon"></i>
-                <p class="fact-text"><span class='highlight'>77 Millionen Liter</span> Aloe Vera produziert</p>
+                <p class="fact-text"><span class="highlight">77 Millionen Liter</span> Aloe Vera produziert</p>
             </div>
             <div class="fact-item">
                 <i class="fas fa-leaf fact-icon"></i>
-                <p class="fact-text"><span class='highlight'>Marktführer</span> in Europa</p>
+                <p class="fact-text"><span class="highlight">Marktführer</span> in Europa</p>
             </div>
             <div class="fact-item">
                 <i class="fas fa-pills fact-icon"></i>
-                <p class="fact-text">NEU: <span class='highlight'>Fermentation</span> für höchste Qualität</p>
+                <p class="fact-text">NEU: <span class="highlight">Fermentation</span> für höchste Qualität</p>
             </div>
             <div class="fact-item">
                 <i class="fas fa-dumbbell fact-icon"></i>
-                <p class="fact-text">Mit <span class='highlight'>Fresenius-Zertifikat</span></p>
+                <p class="fact-text">Mit <span class="highlight">Fresenius-Zertifikat</span></p>
             </div>
 
         </div>
         
         <div class="content-right">
-            <div class="image-frame"><div class="image-inner"><img src="assets/images/Aloevera77MioLiter.PNG" alt="Product Image" class="main-image"></div></div>
+            <img src="assets/images/aloe_vera_complete_new.png" alt="Aloe Vera 77 Mio" class="main-image">
+            
+            <div class="circles-container">
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/dermatest.svg" alt="Dermatest" class="circle-image circle-image-dermatest">
+                    </div>
+                    <div class="circle-label">DERMATEST<br>ZERTIFIZIERT</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/fermentiert_clean.png" alt="Fermentiert" class="circle-image circle-image-fermentiert">
+                    </div>
+                    <div class="circle-label">FERMENTIERT<br>POWER</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/iasc_black.png" alt="IASC Zertifikat" class="circle-image circle-image-iasc">
+                    </div>
+                    <div class="circle-label">IASC<br>ZERTIFIKAT</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

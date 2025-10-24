@@ -19,7 +19,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            padding: 60px;
+            padding: 40px 60px 40px 60px;
             box-sizing: border-box;
         }
         .lr-logo {
@@ -41,23 +41,23 @@
             z-index: 1;
         }
         .headline {
-            font-size: 56px;
+            font-size: 44px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.1;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
             z-index: 5;
             position: relative;
         }
         .subline {
-            font-size: 24px;
+            font-size: 18px;
             color: #FFFFFF;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             z-index: 5;
             position: relative;
         }
@@ -71,24 +71,27 @@
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
             z-index: 5;
             position: relative;
         }
         .image-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 12px;
         }
         .model-container {
             width: 100%;
-            height: 200px;
+            height: 250px;
             border: 6px solid transparent;
             background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             background-origin: border-box;
             background-clip: padding-box, border-box;
             border-radius: 12px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .model-image {
             width: 100%;
@@ -97,19 +100,43 @@
         }
         .parfums-container {
             width: 100%;
-            height: 220px;
+            height: 250px;
             border: 6px solid transparent;
             background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             background-origin: border-box;
             background-clip: padding-box, border-box;
             border-radius: 12px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .parfums-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             background: linear-gradient(135deg, #8B7EC8, #B8A8E8);
+        }
+        .robertet-logo {
+            position: absolute;
+            top: 58.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            z-index: 15;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#5B6FB8, #5B6FB8), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+        .robertet-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -117,6 +144,10 @@
     <div class="slide-container">
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="robertet-logo">
+            <img src="assets/images/robertet_logo.png" alt="Robertet">
+        </div>
         
         <h1 class="headline">MOOD INFUSION</h1>
         <p class="subline"><span class="highlight">18 faszinierende Duftwelten</span> - entwickelt mit Weltmarktführer Robertet</p>

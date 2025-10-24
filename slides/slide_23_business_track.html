@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>40 Jahre Erfolg</title>
+    <title>BUSINESS TRACK</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -57,17 +57,24 @@
             line-height: 1.2;
             margin-bottom: 40px;
         }
-        .text {
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .fact-icon {
+            color: #D4AF37;
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .fact-text {
             font-size: 20px;
             font-weight: 400;
             color: #FFFFFF;
             line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .text i {
-            color: #D4AF37;
-            margin-right: 12px;
-            font-size: 20px;
+            margin: 0;
         }
         .highlight {
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
@@ -85,11 +92,26 @@
         }
         .main-image {
             width: 100%;
+            height: auto;
             max-height: 400px;
             object-fit: contain;
             padding: 6px;
             background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             border: 3px solid #000000;
+            border-radius: 8px;
+        }
+        .placeholder {
+            width: 500px;
+            height: 400px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            padding: 40px;
             border-radius: 8px;
         }
     </style>
@@ -100,15 +122,28 @@
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
         <div class="content-left">
-            <h1 class="headline">40 JAHRE ERFOLG<br>MADE IN GERMANY</h1>
-            <p class="text"><i class="fas fa-calendar-check"></i>Seit <span class="highlight">1985</span> - 40 Jahre Erfahrung und Stabilität</p>
-            <p class="text"><i class="fas fa-award"></i>Deutsche Qualität - <span class="highlight">Made in Germany</span></p>
-            <p class="text"><i class="fas fa-globe"></i>Weltweite Präsenz in <span class="highlight">33 Ländern</span></p>
-            <p class="text"><i class="fas fa-euro-sign"></i>Über <span class="highlight">1,8 Milliarden Euro</span> Boni ausgezahlt</p>
+            <h1 class="headline">BUSINESS TRACK</h1>
+            <div class="fact-item">
+                <i class="fas fa-heartbeat fact-icon"></i>
+                <p class="fact-text">Garantiertes Mindesteinkommen von <span class="highlight">2.000€</span></p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-leaf fact-icon"></i>
+                <p class="fact-text">Bis <span class="highlight">40.000€</span> und mehr!</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-pills fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Planbare</span> Einnahmen</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-dumbbell fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Finanzielle Sicherheit</span></p>
+            </div>
+
         </div>
         
         <div class="content-right">
-            <img src="assets/images/lr-finanzas.webp" alt="40 Jahre Erfolg" class="main-image">
+            <div class="image-frame"><div class="image-inner"><img src="assets/images/ÜbersichtBusinessgesamt.PNG" alt="Product Image" class="main-image"></div></div>
         </div>
     </div>
 </body>

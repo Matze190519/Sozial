@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>40 Jahre Erfolg</title>
+    <title>BODY MISSION</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -55,19 +55,26 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-        .text {
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .fact-icon {
+            color: #D4AF37;
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .fact-text {
             font-size: 20px;
             font-weight: 400;
             color: #FFFFFF;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .text i {
-            color: #D4AF37;
-            margin-right: 12px;
-            font-size: 20px;
+            line-height: 1.4;
+            margin: 0;
         }
         .highlight {
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
@@ -83,10 +90,10 @@
             align-items: center;
             justify-content: center;
         }
-        .main-image {
+        .body-image {
             width: 100%;
-            max-height: 400px;
-            object-fit: contain;
+            height: 400px;
+            object-fit: cover;
             padding: 6px;
             background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             border: 3px solid #000000;
@@ -100,15 +107,27 @@
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
         <div class="content-left">
-            <h1 class="headline">40 JAHRE ERFOLG<br>MADE IN GERMANY</h1>
-            <p class="text"><i class="fas fa-calendar-check"></i>Seit <span class="highlight">1985</span> - 40 Jahre Erfahrung und Stabilität</p>
-            <p class="text"><i class="fas fa-award"></i>Deutsche Qualität - <span class="highlight">Made in Germany</span></p>
-            <p class="text"><i class="fas fa-globe"></i>Weltweite Präsenz in <span class="highlight">33 Ländern</span></p>
-            <p class="text"><i class="fas fa-euro-sign"></i>Über <span class="highlight">1,8 Milliarden Euro</span> Boni ausgezahlt</p>
+            <h1 class="headline">BODY MISSION</h1>
+            <div class="fact-item">
+                <i class="fas fa-heartbeat fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Ganzheitliches Smart-Ernährungskonzept</span> - von Experten entwickelt</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-utensils fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Effektiver Mahlzeitenersatz</span> mit FIGUACTIVE Shakes & Suppen</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-star fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Smarte Begleiter</span> - Protein Power & Pro Balance</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-trophy fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Motivations-Support</span> mit Wochenplänen & Rezepten</p>
+            </div>
         </div>
         
         <div class="content-right">
-            <img src="assets/images/lr-finanzas.webp" alt="40 Jahre Erfolg" class="main-image">
+            <img src="assets/images/body_mission_neu.PNG" alt="Body Mission Neu" class="body-image">
         </div>
     </div>
 </body>

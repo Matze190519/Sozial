@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Bonusstaffel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 80px;
+            box-sizing: border-box;
+            gap: 40px;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .section {
+            position: relative;
+            z-index: 5;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #000000;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .earnings-table {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .earnings-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+            color: #FFFFFF;
+            padding: 8px 0;
+        }
+        .earnings-label {
+            font-weight: 400;
+        }
+        .earnings-equals {
+            color: #D4AF37;
+            font-weight: 700;
+        }
+        .earnings-value {
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: right;
+            min-width: 80px;
+        }
+        .total-row {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            padding: 12px 20px;
+            margin-top: 8px;
+            font-weight: 900;
+            color: #000000;
+        }
+        .bonus-table {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .bonus-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 14px 20px;
+            border: 2px solid #D4AF37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .bonus-row.highlight {
+            border: 3px solid #D4AF37;
+            background: rgba(212, 175, 55, 0.15);
+            position: relative;
+        }
+        .bonus-row.highlight::after {
+            content: "←";
+            position: absolute;
+            right: -50px;
+            font-size: 32px;
+            color: #D4AF37;
+            font-weight: 900;
+        }
+        .bonus-row.star {
+            position: relative;
+        }
+        .bonus-row.star::after {
+            content: "✦";
+            position: absolute;
+            right: -50px;
+            font-size: 28px;
+            color: #D4AF37;
+        }
+        .bonus-pw {
+            font-size: 20px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bonus-percent {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="section">
+            <div class="section-title">BESTELLUNG EINES MONATS</div>
+            <div class="earnings-table">
+                <div class="earnings-row">
+                    <span class="earnings-label">Partnerpreis (ca. 40% Handelsspanne)</span>
+                    <span class="earnings-equals">=</span>
+                    <span class="earnings-value">500€</span>
+                </div>
+                <div class="earnings-row">
+                    <span class="earnings-label">Verkaufspreis an Endkunden</span>
+                    <span class="earnings-equals">=</span>
+                    <span class="earnings-value">700€</span>
+                </div>
+                <div class="earnings-row">
+                    <span class="earnings-label">Verdienst aus Verkauf</span>
+                    <span class="earnings-equals">=</span>
+                    <span class="earnings-value">700€</span>
+                </div>
+                <div class="earnings-row">
+                    <span class="earnings-label">+ 9% Bonus auf 500€</span>
+                    <span class="earnings-equals">=</span>
+                    <span class="earnings-value">45€</span>
+                </div>
+                <div class="earnings-row total-row">
+                    <span class="earnings-label">GESAMTVERDIENST</span>
+                    <span class="earnings-equals">=</span>
+                    <span class="earnings-value">745 €</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">DEINE LR BONUSSTAFFEL</div>
+            <div class="bonus-table">
+                <div class="bonus-row">
+                    <span class="bonus-pw">12.000 PW</span>
+                    <span class="bonus-percent">21 % Bonus</span>
+                </div>
+                <div class="bonus-row">
+                    <span class="bonus-pw">8.000 PW</span>
+                    <span class="bonus-percent">16 % Bonus</span>
+                </div>
+                <div class="bonus-row">
+                    <span class="bonus-pw">4.000 PW</span>
+                    <span class="bonus-percent">14 % Bonus</span>
+                </div>
+                <div class="bonus-row">
+                    <span class="bonus-pw">2.000 PW</span>
+                    <span class="bonus-percent">11 % Bonus</span>
+                </div>
+                <div class="bonus-row highlight">
+                    <span class="bonus-pw">1.000 PW</span>
+                    <span class="bonus-percent">9 % Bonus</span>
+                </div>
+                <div class="bonus-row">
+                    <span class="bonus-pw">500 PW</span>
+                    <span class="bonus-percent">6 % Bonus</span>
+                </div>
+                <div class="bonus-row star">
+                    <span class="bonus-pw">250 PW</span>
+                    <span class="bonus-percent">3 % Bonus</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
