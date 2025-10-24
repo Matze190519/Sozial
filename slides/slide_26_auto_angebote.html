@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUSINESS ÜBERSICHT</title>
+    <title>JUBILÄUMSANGEBOTE</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,9 +18,8 @@
             background: #000000;
             position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 60px;
+            flex-direction: column;
+            padding: 50px 40px;
             box-sizing: border-box;
         }
         .lr-logo {
@@ -42,41 +41,39 @@
             z-index: 1;
         }
         .headline {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 48px;
             font-weight: 900;
-            background: linear-gradient(135deg, #E5C04A 0%, #E5C04A 50%, #E5C04A 100%);
+            background: linear-gradient(135deg, #D5B455 0%, #D5B455 50%, #D5B455 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-align: center;
-            letter-spacing: 2px;
+            margin-bottom: 25px;
             z-index: 5;
-            margin: 0;
-        }
-        .image-container {
             position: relative;
+        }
+        .cars-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 25px;
             z-index: 5;
-            width: 100%;
-            max-width: 1100px;
-            margin-top: 60px;
+            position: relative;
+            margin: auto 0;
         }
-        .image-frame {
-            padding: 6px;
-            background: linear-gradient(135deg, #E5C04A 0%, #E5C04A 50%, #E5C04A 100%);
+        .car-frame {
+            padding: 5px;
+            background: linear-gradient(135deg, #D5B455, #D5B455, #D5B455);
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
-        .image-inner {
-            background: #000000;
-            padding: 0;
+        .car-inner {
             border-radius: 4px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .business-image {
+        .car-image {
             width: 100%;
             height: auto;
             display: block;
@@ -86,14 +83,29 @@
 <body>
     <div class="slide-container">
         <img src="https://app-kmdfnuog.fly.dev/assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
-        <img src="https://app-kmdfnuog.fly.dev/assets/images/lr_lifestyle_team_watermark.png" alt="Watermark" class="watermark-logo">
+        <img src="https://app-kmdfnuog.fly.dev/assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
-        <h1 class="headline">DEINE BUSINESS TOOLS</h1>
+        <h1 class="headline">JUBILÄUMSANGEBOTE</h1>
         
-        <div class="image-container">
-            <div class="image-frame">
-                <div class="image-inner">
-                    <img src="https://app-kmdfnuog.fly.dev/assets/images/slide_18_new.png" alt="Business Übersicht" class="business-image">
+        <div class="cars-container">
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="https://app-kmdfnuog.fly.dev/assets/images/IMG_8588.jpeg" alt="Mercedes A180" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="https://app-kmdfnuog.fly.dev/assets/images/IMG_8591.jpeg" alt="Audi S5 Avant" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="https://app-kmdfnuog.fly.dev/assets/images/IMG_8589.jpeg" alt="Mercedes CLE 300" class="car-image">
+                </div>
+            </div>
+            <div class="car-frame">
+                <div class="car-inner">
+                    <img src="https://app-kmdfnuog.fly.dev/assets/images/IMG_8590.jpeg" alt="Mercedes CLE 53 AMG" class="car-image">
                 </div>
             </div>
         </div>

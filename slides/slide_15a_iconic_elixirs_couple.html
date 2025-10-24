@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICONIC ELIXIRS - Pure Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .left-section {
+            z-index: 5;
+            position: relative;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #D5B455 0%, #D5B455 15%, #D5B455 30%, #D5B455 45%, #D5B455 55%, #D5B455 70%, #D5B455 85%, #D5B455 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .feature-item {
+            font-size: 20px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .feature-item:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #E5C04A;
+            font-size: 20px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #D5B455 0%, #D5B455 50%, #D5B455 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .right-section {
+            z-index: 5;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container {
+            width: 100%;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#000, #000), linear-gradient(135deg, #D5B455, #D5B455, #D5B455);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .main-image {
+            width: 100%;
+            height: 550px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="https://app-kmdfnuog.fly.dev/assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="https://app-kmdfnuog.fly.dev/assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="left-section">
+            <h1 class="headline">ICONIC<br>ELIXIRS</h1>
+            <ul class="feature-list">
+                <li class="feature-item"><span class="highlight">4 Luxus-Düfte</span> - Glorious, Fabulous, Graceful & Precious</li>
+                <li class="feature-item"><span class="highlight">Absolue de Parfum</span> - höchste Duftkonzentration</li>
+                <li class="feature-item"><span class="highlight">8-12h Duftintensität</span> - außergewöhnlich langanhaltend</li>
+                <li class="feature-item"><span class="highlight">Kostbarste Rohstoffe</span> - Jasmin, Tonkabohne, Zedernholz, Vetiver</li>
+                <li class="feature-item"><span class="highlight">Magnetverschluss</span> - wie ein Schatz zu öffnen</li>
+            </ul>
+        </div>
+        
+        <div class="right-section">
+            <div class="image-container">
+                <img src="https://app-kmdfnuog.fly.dev/assets/images/einzelduft.png" alt="Einzelduft" class="main-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
