@@ -60,28 +60,30 @@
         }
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             padding: 0;
+            max-width: 550px;
         }
-        .benefit-box {
-            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .benefit-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             text-align: center;
-            padding: 12px;
-            border: 2px solid #E9D78E;
-            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(233, 215, 142, 0.5);
+            line-height: 1.2;
         }
-        .benefit-box.large {
-            font-size: 24px;
-            font-weight: 900;
-        }
-        .benefit-box.full {
-            grid-column: span 2;
+        .benefit-circle.small {
+            font-size: 14px;
         }
         .content-right {
             position: relative;
@@ -106,17 +108,17 @@
         <div class="content-left">
             <h1 class="headline">WAS KANN LR FÜR DICH BEDEUTEN?</h1>
             <div class="benefits-grid">
-                <div class="benefit-box">Gesundheit</div>
-                <div class="benefit-box">Unabhängigkeit</div>
-                <div class="benefit-box">Freiheit</div>
-                <div class="benefit-box">Reichtum</div>
-                <div class="benefit-box large full">Passives Einkommen</div>
-                <div class="benefit-box">Spaß</div>
-                <div class="benefit-box large">Sicherheit</div>
-                <div class="benefit-box">Status</div>
-                <div class="benefit-box">Work/Life-Balance</div>
-                <div class="benefit-box">Unternehmergeist</div>
-                <div class="benefit-box full">Soziale Anerkennung</div>
+                <div class="benefit-circle">Gesundheit</div>
+                <div class="benefit-circle small">Unabhängigkeit</div>
+                <div class="benefit-circle">Freiheit</div>
+                <div class="benefit-circle">Reichtum</div>
+                <div class="benefit-circle small">Passives<br>Einkommen</div>
+                <div class="benefit-circle">Spaß</div>
+                <div class="benefit-circle">Sicherheit</div>
+                <div class="benefit-circle">Status</div>
+                <div class="benefit-circle small">Work/Life-<br>Balance</div>
+                <div class="benefit-circle small">Unternehmer-<br>geist</div>
+                <div class="benefit-circle small">Soziale<br>Anerkennung</div>
             </div>
         </div>
         
