@@ -162,6 +162,7 @@
             document.getElementById('slideFrame').src = `${slideId}.html`;
             document.getElementById('currentSlide').textContent = index + 1;
             document.getElementById('totalSlides').textContent = slides.length;
+            window.location.hash = slideId;
             updateButtons();
         }
 
