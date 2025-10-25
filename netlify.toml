@@ -1,0 +1,7 @@
+[build]
+  publish = "slides"
+
+[[redirects]]
+  from = "/"
+  to = "/presentation.html"
+  status = 302
