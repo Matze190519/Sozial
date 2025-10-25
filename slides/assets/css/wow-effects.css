@@ -308,37 +308,49 @@
     border-radius: 0 !important;
 }
 
-/* === GOLD GRADIENT ROUNDED BORDER (two-background technique - FUNKTIONIERT!) === */
+/* === GOLD GRADIENT ROUNDED BORDER (two-background technique with CSS variables) === */
 /* Diese Klasse ersetzt border-image, weil border-image border-radius blockiert */
-/* Verwendet die zuverlässige two-background transparent-border Methode */
+/* Verwendet CSS-Variablen für anpassbare Füllfarben (schwarz/weiß) */
+
+:root {
+    --gold-gradient: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #9B7E3C 100%);
+}
 
 .gold-border {
+    --gold-fill: #000; /* Standard: schwarz, kann pro Element überschrieben werden */
     border: 3px solid transparent;
     border-radius: 8px;
     background: 
-        linear-gradient(#000, #000) padding-box,
-        linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #9B7E3C 100%) border-box;
+        linear-gradient(var(--gold-fill), var(--gold-fill)) padding-box,
+        var(--gold-gradient) border-box;
     background-clip: padding-box, border-box;
     overflow: hidden;
 }
 
 .gold-border-circle {
+    --gold-fill: #000; /* Standard: schwarz, kann pro Element überschrieben werden */
     border: 3px solid transparent;
     border-radius: 50%;
     background: 
-        linear-gradient(#000, #000) padding-box,
-        linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #9B7E3C 100%) border-box;
+        linear-gradient(var(--gold-fill), var(--gold-fill)) padding-box,
+        var(--gold-gradient) border-box;
     background-clip: padding-box, border-box;
     overflow: hidden;
 }
 
+/* Helper class for white backgrounds (e.g., certification badges) */
+.white-fill {
+    --gold-fill: #fff;
+}
+
 /* Legacy class name support - redirect to new class */
 .gold-gradient-border {
+    --gold-fill: #000;
     border: 3px solid transparent;
     border-radius: 8px;
     background: 
-        linear-gradient(#000, #000) padding-box,
-        linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #9B7E3C 100%) border-box;
+        linear-gradient(var(--gold-fill), var(--gold-fill)) padding-box,
+        var(--gold-gradient) border-box;
     background-clip: padding-box, border-box;
     overflow: hidden;
 }
