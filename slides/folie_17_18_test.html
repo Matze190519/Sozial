@@ -98,18 +98,19 @@
         }
         .image-container {
             width: 80%;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            border: 3px solid #000000;
+            border-radius: 8px;
             overflow: hidden;
         }
         .main-image {
             width: 100%;
             height: auto;
             max-height: 220px;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center center;
             display: block;
-            background: linear-gradient(135deg, #4A3520, #2A1810);
         }
     </style>
 </head>
