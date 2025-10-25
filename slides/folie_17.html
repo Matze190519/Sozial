@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICONIC ELIXIRS - 4 Luxus-Flakons</title>
+    <title>ICONIC ELIXIRS - Kombiniert</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,7 +20,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            padding: 60px;
+            padding: 80px 60px;
             box-sizing: border-box;
             border: 3px solid;
             border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
@@ -49,14 +49,14 @@
             position: relative;
         }
         .headline {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.1;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .feature-list {
             list-style: none;
@@ -64,9 +64,9 @@
             margin: 0;
         }
         .feature-item {
-            font-size: 20px;
+            font-size: 18px;
             color: #FFFFFF;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
         }
@@ -78,7 +78,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 20px;
+            font-size: 18px;
         }
         .highlight {
             background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
@@ -91,23 +91,26 @@
             z-index: 5;
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 25px;
         }
         .image-container {
-            width: 100%;
-            max-height: 450px;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
+            width: 80%;
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            border: 3px solid #000000;
+            border-radius: 8px;
             overflow: hidden;
         }
         .main-image {
             width: 100%;
-            height: 100%;
-            max-height: 450px;
-            object-fit: contain;
+            height: auto;
+            max-height: 220px;
+            object-fit: cover;
             object-position: center center;
-            background: linear-gradient(135deg, #4A3520, #2A1810);
+            display: block;
         }
     </style>
 </head>
@@ -122,13 +125,20 @@
                 <li class="feature-item"><span class="highlight">Pure Luxury</span> - Luxus in einem Flakon</li>
                 <li class="feature-item"><span class="highlight">4 exklusive Düfte</span> - Höchste Qualität</li>
                 <li class="feature-item"><span class="highlight">Absolue de Parfum</span> - 8-12h Duftintensität</li>
-                <li class="feature-item"><span class="highlight">Zeitloses Design</span> - Edle Glasflakons mit Magnetverschluss</li>
+                <li class="feature-item"><span class="highlight">Zeitloses Design</span> - Edle Glasflakons</li>
+                <li class="feature-item"><span class="highlight">Glorious Elixir</span> - Jasminblüten aus Ägypten</li>
+                <li class="feature-item"><span class="highlight">Fabulous Elixir</span> - Tonkabohne aus Brasilien</li>
+                <li class="feature-item"><span class="highlight">Graceful Elixir</span> - Zedernholz aus Virginia</li>
+                <li class="feature-item"><span class="highlight">Precious Elixir</span> - Vetiver aus Haiti</li>
             </ul>
         </div>
         
         <div class="right-section">
             <div class="image-container">
-                <img src="assets/images/folie17_design.png" alt="4 Luxus-Flakons" class="main-image">
+                <img src="assets/images/folie17_design.png" alt="4 Luxus-Flakons Design" class="main-image">
+            </div>
+            <div class="image-container">
+                <img src="assets/images/folie18_pure_luxury.png" alt="4 Luxus-Flakons Pure Luxury" class="main-image">
             </div>
         </div>
     </div>
