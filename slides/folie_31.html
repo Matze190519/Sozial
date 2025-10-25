@@ -95,13 +95,12 @@
             position: relative;
             z-index: 5;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
         }
         .image-container {
             width: 100%;
+            max-height: 500px;
             border: 3px solid;
             border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
             overflow: hidden;
@@ -109,15 +108,10 @@
             align-items: center;
             justify-content: center;
         }
-        .image-container.top {
-            height: 240px;
-        }
-        .image-container.bottom {
-            height: 340px;
-        }
         .main-image {
             width: 100%;
             height: 100%;
+            max-height: 500px;
             object-fit: contain;
             object-position: center center;
             background: #000000;
@@ -134,17 +128,17 @@
             <ul class="feature-list">
                 <li class="feature-item"><span class="highlight">Persönliches Coaching:</span> Von deinem Sponsor und Team</li>
                 <li class="feature-item"><span class="highlight">Schulungskonzept:</span> Seminare, Webinare und Videos</li>
-                <li class="feature-item"><span class="highlight">Professionelle Tools:</span> Für deinen Erfolg</li>
+                <li class="feature-item"><span class="highlight">Digitale Businesstools:</span> Moderne Tools für dein Business</li>
+                <li class="feature-item"><span class="highlight">LRWorld.com:</span> Deine Online-Plattform</li>
+                <li class="feature-item"><span class="highlight">Printunterlagen & Downloadbereich:</span> Alle Materialien digital verfügbar</li>
+                <li class="feature-item"><span class="highlight">Verkaufshilfen:</span> Professionelle Unterstützung für deinen Erfolg</li>
                 <li class="feature-item"><span class="highlight">Starke Community:</span> Unterstützung auf jedem Schritt</li>
             </ul>
         </div>
         
         <div class="right-section">
-            <div class="image-container top">
+            <div class="image-container">
                 <img src="assets/images/coaching_schulung.png" alt="Persönliches Coaching und Schulungskonzept" class="main-image">
-            </div>
-            <div class="image-container bottom">
-                <img src="assets/images/business_tools_grid.png" alt="Business Tools Grid" class="main-image">
             </div>
         </div>
     </div>
