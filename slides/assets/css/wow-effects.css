@@ -308,6 +308,49 @@
     border-radius: 0 !important;
 }
 
+/* === GOLD GRADIENT ROUNDED BORDER (funktioniert mit border-radius!) === */
+/* Diese Klasse ersetzt border-image, weil border-image border-radius blockiert */
+.gold-gradient-border {
+    position: relative;
+    border: none !important;
+    border-image: none !important;
+    background: #000000;
+}
+
+.gold-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 50%, #E9D78E 70%, #D5B455 85%, #9B7E3C 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gold-gradient-border > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fallback für ältere Browser */
+@supports not (mask-composite: exclude) {
+    .gold-gradient-border {
+        border: 3px solid #E9D78E !important;
+    }
+    .gold-gradient-border::before {
+        display: none;
+    }
+}
+
 /* === ACCESSIBILITY === */
 @media (prefers-reduced-motion: reduce) {
     *,
