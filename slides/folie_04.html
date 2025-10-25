@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZUKUNFTSMÄRKTE GESUNDHEIT</title>
+    <title>ZUKUNFTSMÄRKTE</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -50,19 +50,19 @@
             z-index: 5;
         }
         .headline {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 900;
             background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .fact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
         }
         .fact-icon {
             background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
@@ -92,17 +92,22 @@
             position: relative;
             z-index: 5;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 30px;
+        }
+        .image-frame {
+            width: 100%;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
+            overflow: hidden;
         }
         .main-image {
             width: 100%;
-            max-height: 400px;
+            height: auto;
+            display: block;
             object-fit: contain;
-            padding: 3px;
-            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
-            border: 3px solid #000000;
-            border-radius: 8px;
         }
         .placeholder {
             width: 500px;
@@ -126,7 +131,7 @@
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
         <div class="content-left">
-            <h1 class="headline">ZUKUNFTSMÄRKTE GESUNDHEIT</h1>
+            <h1 class="headline">ZUKUNFTSMÄRKTE</h1>
             <div class="fact-item">
                 <i class="fas fa-calendar-alt fact-icon"></i>
                 <p class="fact-text"><span class="highlight">Gesundheit</span> - Wachstumsmarkt der Zukunft</p>
@@ -143,11 +148,31 @@
                 <i class="fas fa-coins fact-icon"></i>
                 <p class="fact-text">Wissenschaftlich <span class="highlight">fundierte Produkte</span></p>
             </div>
-
+            <div class="fact-item">
+                <i class="fas fa-calendar-alt fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Beauty</span> - Milliardenmarkt</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-award fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Luxus-Düfte</span> - MOOD & ICONIC ELIXIRS</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-globe fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Zeitgard</span> - Premium Hautpflege</p>
+            </div>
+            <div class="fact-item">
+                <i class="fas fa-coins fact-icon"></i>
+                <p class="fact-text"><span class="highlight">Signature</span> - Exklusive Kosmetik</p>
+            </div>
         </div>
         
         <div class="content-right">
-            <img src="assets/images/produkte_neu_ohne_ueberschrift.PNG" alt="Product Image" class="main-image">
+            <div class="image-frame">
+                <img src="assets/images/produkte_neu_ohne_ueberschrift.PNG" alt="Gesundheit Produkte" class="main-image">
+            </div>
+            <div class="image-frame">
+                <img src="assets/images/produkte_smahl_2.PNG" alt="Makeup & Düfte Produkte" class="main-image">
+            </div>
         </div>
     </div>
 </body>
