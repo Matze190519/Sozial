@@ -100,15 +100,19 @@
             gap: 30px;
             padding-top: 40px;
         }
-        .main-image {
+        .image-wrapper {
             max-width: 100%;
             max-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-image {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
-            border-radius: 8px;
-            overflow: hidden;
             display: block;
+            border-radius: inherit;
         }
         .circles-container {
             display: grid;
@@ -241,7 +245,9 @@
         </div>
         
         <div class="content-right">
-            <img src="assets/images/aloe_vera_topseller.png" alt="Aloe Vera 77 Mio" class="main-image">
+            <div class="image-wrapper gold-border">
+                <img src="assets/images/aloe_vera_topseller.png" alt="Aloe Vera 77 Mio" class="main-image">
+            </div>
             
             <div class="circles-container">
                 <div class="circle-item">

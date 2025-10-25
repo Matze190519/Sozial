@@ -90,14 +90,19 @@
             align-items: center;
             justify-content: center;
         }
-        .main-image {
+        .image-wrapper {
             width: 100%;
             max-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-image {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            padding: 3px;
-            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
-            border: 3px solid #000000;
-            border-radius: 8px;
+            display: block;
+            border-radius: inherit;
         }
     </style>
     <link rel="stylesheet" href="assets/css/wow-effects.css">
@@ -134,7 +139,9 @@
         </div>
         
         <div class="content-right">
-            <img src="assets/images/karriereleiter_2024.png?v1761221100" alt="Rekord 2024" class="main-image">
+            <div class="image-wrapper gold-border">
+                <img src="assets/images/karriereleiter_2024.png?v1761221100" alt="Rekord 2024" class="main-image">
+            </div>
         </div>
     </div>
 </body>
