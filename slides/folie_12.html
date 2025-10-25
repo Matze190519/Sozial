@@ -117,14 +117,22 @@
             z-index: 10;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
+            padding: 3px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
             box-shadow: 0 4px 12px rgba(0,0,0,0.6);
         }
-        .price-overlay-right img {
+        .price-overlay-right-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #000000;
+        }
+        .price-overlay-right-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
         .placeholder {
             width: 500px;
@@ -174,7 +182,9 @@
             <div class="image-container">
                 <img src="assets/images/zeitgard_new_clean.png" alt="Product Image" class="main-image">
                 <div class="price-overlay-right">
-                    <img src="assets/images/zeitgard_preise.PNG" alt="Zeitgard Preise">
+                    <div class="price-overlay-right-inner">
+                        <img src="assets/images/zeitgard_preise.PNG" alt="Zeitgard Preise">
+                    </div>
                 </div>
             </div>
         </div>
