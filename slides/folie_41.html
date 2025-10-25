@@ -60,29 +60,22 @@
             line-height: 1.2;
             margin-bottom: 25px;
         }
-        .photo-placeholder {
+        .photo-container {
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #D4AF37;
-            font-size: 18px;
-            font-weight: 700;
             margin: 0 auto 20px;
             padding: 3px;
             background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            overflow: hidden;
         }
-        .photo-inner {
+        .photo-image {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
         .name {
             font-size: 32px;
@@ -139,8 +132,8 @@
         <div class="content">
             <h1 class="headline">DEIN DIREKTER KONTAKT</h1>
             
-            <div class="photo-placeholder">
-                <div class="photo-inner">FOTO: MATHIAS<br>(FREILASSEN)</div>
+            <div class="photo-container">
+                <img src="assets/images/mathias_photo.png" alt="Mathias" class="photo-image">
             </div>
             
             <div class="name">MATHIAS</div>
