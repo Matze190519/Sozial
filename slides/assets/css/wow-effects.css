@@ -281,6 +281,33 @@
 .particle:nth-child(14) { left: 55%; animation-delay: 6.5s; animation-duration: 10s; }
 .particle:nth-child(15) { left: 65%; animation-delay: 0.5s; animation-duration: 8s; }
 
+/* === ZENTRALE BORDER-RADIUS REGELN === */
+/* Alle Bilder standardmäßig abrunden */
+.slide-container img {
+    border-radius: 8px;
+}
+
+/* Container mit Overflow Hidden */
+.image-container, .image-card, .image-frame, .car-frame {
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Kreisförmige Elemente (Zertifikate, Badges) */
+.circle-image, .badge-image, .certification-badge {
+    border-radius: 50% !important;
+    overflow: hidden;
+}
+
+.circle-image img, .badge-image img, .certification-badge img {
+    border-radius: 50% !important;
+}
+
+/* Logos sollen NICHT abgerundet werden */
+.lr-logo, .watermark-logo {
+    border-radius: 0 !important;
+}
+
 /* === ACCESSIBILITY === */
 @media (prefers-reduced-motion: reduce) {
     *,
