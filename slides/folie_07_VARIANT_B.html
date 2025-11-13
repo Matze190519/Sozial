@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folie 07 - VARIANT B (Montserrat, No Particles, Logo 0.03)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 60px;
+            box-sizing: border-box;
+            border: none;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            opacity: 0.03;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.03;
+            z-index: 1;
+        }
+        .content-left {
+            grid-column: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 5;
+        }
+        .headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+        .text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .text i {
+            background: linear-gradient(135deg, #8B6E2C 0%, #D9C77E 50%, #8B6E2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-right: 12px;
+            font-size: 20px;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5));
+        }
+        .highlight {
+            background: linear-gradient(135deg, #8B6E2C 0%, #B99951 20%, #D9C77E 40%, #D9C77E 60%, #B99951 80%, #8B6E2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5));
+        }
+        .content-right {
+            grid-column: 2;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 60px;
+            z-index: 5;
+        }
+        .image-wrapper {
+            width: 100%;
+            max-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7));
+            transition: all 0.4s ease;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9));
+        }
+        
+        .circles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        
+        .circle-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .circle-wrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid gold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7));
+        }
+        
+        .circle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .circle-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.3;
+            color: #D9C77E;
+        }
+        
+        .variant-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 150, 255, 0.9);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="variant-label">VARIANT B: Montserrat, No Particles, Logo 0.03</div>
+        
+        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">QUALITÄT MADE IN GERMANY</h1>
+            <p class="text"><i class="fas fa-industry"></i><span class="highlight">Eigene Produktion</span> in Ahlen, Deutschland</p>
+            <p class="text"><i class="fas fa-certificate"></i><span class="highlight">Zertifizierte Qualität</span> nach höchsten Standards</p>
+            <p class="text"><i class="fas fa-microscope"></i><span class="highlight">Regelmäßige Laborkontrollen</span> für beste Ergebnisse</p>
+            <p class="text"><i class="fas fa-leaf"></i><span class="highlight">Frische Aloe Vera</span> aus eigenem Anbau</p>
+        </div>
+        
+        <div class="content-right">
+            <div class="image-wrapper">
+                <img src="assets/images/produktion_tanks.jpg" alt="LR Gebäude" class="main-image">
+            </div>
+            
+            <div class="circles-container">
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/AloeVera_Ernte_1500px_sm_small.png" alt="Aloe Vera" class="circle-image">
+                    </div>
+                    <div class="circle-label">FRISCHE<br>ALOE VERA</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/kreis_aloe_vera3_20000liter_1500px_sm_small.png" alt="20.000 Liter" class="circle-image">
+                    </div>
+                    <div class="circle-label">20.000 LITER<br>TANKS</div>
+                </div>
+                
+                <div class="circle-item">
+                    <div class="circle-wrapper">
+                        <img src="assets/images/2024_Produktion_Beauty_2_sm_small.png" alt="LR Gebäude" class="circle-image">
+                    </div>
+                    <div class="circle-label">MADE IN<br>GERMANY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
