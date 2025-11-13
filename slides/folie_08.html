@@ -91,6 +91,7 @@
         
         .highlight {
             color: #D9C77E;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5));
             font-weight: bold;
         }
         
@@ -119,8 +120,15 @@
             object-position: center;
             display: block;
             border-radius: 8px;
-            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7));
+            
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
         }
+        
+        .main-image:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 80px rgba(255, 255, 255, 0.7));
+        }
+
         
         /* STERNE */
         .star {
@@ -177,7 +185,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7));
+            
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
         }
         
         .circle-image {
