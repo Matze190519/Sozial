@@ -176,9 +176,9 @@
             'folie_42'
         ];
 
-        // Use commit SHA for stable htmlpreview URLs
-        const SHA = '090b97b1c51ab5f089ad4675af9ce0209b89bd79';
-        const RAW_BASE = `https://raw.githubusercontent.com/Matze190519/Sozial/${SHA}/slides/`;
+        // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
+        const rawUrl = decodeURIComponent(window.location.search.slice(1));
+        const RAW_BASE = rawUrl.replace(/slides\/presentation_preview\.html.*/, 'slides/');
         const PREVIEW = 'https://htmlpreview.github.io/?';
 
         function srcFor(slideId) {
