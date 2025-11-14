@@ -1,17 +1,69 @@
 /* ============================================
-   WHITE GLOW EFFECTS - Sanitized from wow-effects.css
+   WHITE GLOW EFFECTS - Premium CSS Design 2025
    Layout-critical rules preserved, gold replaced with white
+   CSS Custom Properties for consistent, elegant effects
    ============================================ */
+
+/* === CSS TOKENS (Design System) === */
+:root {
+    /* Glow Colors */
+    --glow-color: 255, 255, 255;
+    --glow-rgb: rgb(255, 255, 255);
+    
+    /* Container Glow (4-layer box-shadow) */
+    --container-glow: 
+        0 0 30px rgba(var(--glow-color), 0.6),
+        0 0 60px rgba(var(--glow-color), 0.5),
+        0 0 90px rgba(var(--glow-color), 0.4),
+        0 0 120px rgba(var(--glow-color), 0.3);
+    
+    /* Image Glow (2-layer drop-shadow) */
+    --image-glow-base: 
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5));
+    
+    --image-glow-hover: 
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.9))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.7));
+    
+    /* Hover Effects */
+    --elevate-scale: 1.03;
+    --elevate-duration: 220ms;
+    --elevate-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius-container: 8px;
+    --radius-image: 8px;
+    --radius-circle: 50%;
+    
+    /* Gold Gradient (Headlines & Highlights) */
+    --gold-gradient: linear-gradient(135deg, 
+        #9B7E3C 0%, 
+        #C9A961 15%, 
+        #E9D78E 30%, 
+        #F4E4A6 45%, 
+        #E9D78E 55%, 
+        #D5B455 70%, 
+        #C9A961 85%, 
+        #9B7E3C 100%);
+    
+    --gold-gradient-short: linear-gradient(135deg, 
+        #9B7E3C 0%, 
+        #E9D78E 50%, 
+        #9B7E3C 100%);
+    
+    /* Typography */
+    --font-headline: 'Bebas Neue', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --size-headline: 36px;
+    --size-body: 18px;
+}
 
 /* === WHITE CONTAINER GLOW (no animation) === */
 .slide-container {
-    box-shadow: 
-        0 0 30px rgba(255, 255, 255, 0.6),
-        0 0 60px rgba(255, 255, 255, 0.5),
-        0 0 90px rgba(255, 255, 255, 0.4),
-        0 0 120px rgba(255, 255, 255, 0.3);
+    box-shadow: var(--container-glow);
     border: none !important;
-    border-radius: 8px;
+    border-radius: var(--radius-container);
     position: relative;
 }
 
@@ -19,10 +71,11 @@
 /* Ensure all headlines have consistent formatting */
 .headline,
 .slide-container h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
+    font-family: var(--font-headline);
+    font-size: var(--size-headline);
     font-weight: 900;
-    background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+    background: var(--gold-gradient);
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -30,6 +83,13 @@
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    animation: subtleShimmer 4s ease-in-out infinite alternate;
+}
+
+/* Subtle gold shimmer animation (very gentle) */
+@keyframes subtleShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 2% 50%; }
 }
 
 /* === CANONICAL FEATURE LIST STYLES === */
@@ -40,7 +100,7 @@
 }
 
 .feature-item {
-    font-size: 18px;
+    font-size: var(--size-body);
     color: #FFFFFF;
     margin-bottom: 15px;
     padding-left: 30px;
@@ -49,7 +109,7 @@
 
 .feature-item .highlight,
 .feature-item span[class*="highlight"] {
-    background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+    background: var(--gold-gradient-short);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,13 +147,13 @@
 .image-box,
 .nutrition-card,
 .product-card {
-    border-radius: 8px;
+    border-radius: var(--radius-image);
     overflow: hidden;
     border: none !important;
     background: transparent !important;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) 
-            drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
-    transition: transform 0.25s ease, filter 0.25s ease;
+    filter: var(--image-glow-base);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .image-wrapper:hover,
@@ -107,9 +167,8 @@
 .image-box:hover,
 .nutrition-card:hover,
 .product-card:hover {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) 
-            drop-shadow(0 0 80px rgba(255, 255, 255, 0.7));
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-hover);
 }
 
 /* Images inside wrappers: inherit rounding, no filter */
@@ -135,22 +194,21 @@
 .six-grid .grid-item,
 .four-grid .grid-item,
 .grid-item {
-    border-radius: 8px;
+    border-radius: var(--radius-image);
     overflow: hidden;
     border: none !important;
     background: transparent !important;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) 
-            drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
-    transition: transform 0.25s ease, filter 0.25s ease;
+    filter: var(--image-glow-base);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .benefits-grid .grid-item:hover,
 .six-grid .grid-item:hover,
 .four-grid .grid-item:hover,
 .grid-item:hover {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) 
-            drop-shadow(0 0 80px rgba(255, 255, 255, 0.7));
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-hover);
 }
 
 /* Images inside grid items: inherit rounding, no filter */
@@ -165,21 +223,20 @@
 
 /* === CIRCLES === */
 .circle-wrapper {
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     overflow: hidden;
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) 
-            drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
-    transition: all 0.4s ease;
+    filter: var(--image-glow-base);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .circle-wrapper:hover {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) 
-            drop-shadow(0 0 80px rgba(255, 255, 255, 0.7));
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-hover);
 }
 
 .circle-wrapper img {
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     filter: none; /* Glow is on wrapper, not img */
 }
 
@@ -202,13 +259,13 @@
 
 /* === VIDEOS (no glow, just rounded corners) === */
 .video-wrapper {
-    border-radius: 8px;
+    border-radius: var(--radius-image);
     overflow: hidden;
     /* No filter on video wrappers */
 }
 
 .slide-container video {
-    border-radius: 8px;
+    border-radius: var(--radius-image);
     filter: none;
 }
 
@@ -216,7 +273,7 @@
 /* This ensures ALL content images have rounded corners, even if wrapper isn't in our list */
 /* Exclude logos, watermarks, and icons */
 .slide-container img:not(.lr-logo):not(.watermark-logo):not([class*="logo"]):not([class*="icon"]):not(.fa):not(.fas):not(.far):not(.fab) {
-    border-radius: 8px;
+    border-radius: var(--radius-image);
     /* NO filter here - filters stay on wrappers only */
 }
 
@@ -224,16 +281,28 @@
 .circle-wrapper img,
 .circle-image,
 img[class*="circle"] {
-    border-radius: 50% !important;
+    border-radius: var(--radius-circle) !important;
+}
+
+/* === NO-GLOW UTILITY CLASS === */
+/* Use this class to explicitly exclude elements from glow effects */
+.no-glow {
+    filter: none !important;
+    box-shadow: none !important;
 }
 
 /* === EXCLUDE LOGOS AND ICONS === */
-.lr-logo, .watermark-logo,
-[class*="logo"],
+/* Logos and icons should never have glow or rounded corners */
+/* Exception: .robertet-badge is allowed to be round */
+.lr-logo, 
+.watermark-logo,
+[class*="logo"]:not(.robertet-badge),
 [class*="icon"],
 .fa, .fas, .far, .fab {
     filter: none !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
 /* === ENTRANCE ANIMATIONS === */
@@ -358,6 +427,7 @@ img[class*="circle"] {
 .particle:nth-child(15) { left: 95%; top: 35%; animation-delay: 1.3s; }
 
 /* === ACCESSIBILITY === */
+/* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -366,4 +436,39 @@ img[class*="circle"] {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+    
+    /* Disable shimmer animation for reduced motion */
+    .headline,
+    .slide-container h1 {
+        animation: none !important;
+        background-position: 0% 50%;
+    }
+    
+    /* Disable hover scale for reduced motion */
+    .image-wrapper:hover,
+    .image-frame:hover,
+    .image-card:hover,
+    .circle-wrapper:hover,
+    .grid-item:hover {
+        transform: none !important;
+    }
+}
+
+/* === PERFORMANCE OPTIMIZATION === */
+/* Use GPU acceleration for smooth animations */
+.image-wrapper,
+.image-frame,
+.image-card,
+.circle-wrapper,
+.grid-item {
+    will-change: transform, filter;
+}
+
+/* Remove will-change after animation completes to save resources */
+.image-wrapper:not(:hover),
+.image-frame:not(:hover),
+.image-card:not(:hover),
+.circle-wrapper:not(:hover),
+.grid-item:not(:hover) {
+    will-change: auto;
 }
