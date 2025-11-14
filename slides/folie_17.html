@@ -269,94 +269,76 @@
 
     
 
-
-
-
-
-/* ===== REMOVE GOLD COLORS ONLY (PRESERVE LAYOUT) ===== */
-
-/* Remove gold box-shadows from slide container */
-.slide-container {
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
-                0 0 60px rgba(255, 255, 255, 0.5),
-                0 0 90px rgba(255, 255, 255, 0.4),
-                0 0 120px rgba(255, 255, 255, 0.3) !important;
-    border-radius: 8px !important;
-    position: relative !important;
-}
-
-/* Remove gold borders from wrappers (but keep layout properties) */
+/* ===== REMOVE ALL GOLD BORDERS AND BOX-SHADOWS ===== */
+/* Kill gold borders and box-shadows on all wrappers */
+.slide-container,
+.image-card,
+.image-wrapper,
+.image-panel,
+.image-box,
+.circle-wrapper,
+.grid-item,
+.card,
 .gold-border,
-.gold-border-circle {
+.gold-border-circle,
+.nutrition-card,
+.product-card {
     border: none !important;
+    outline: none !important;
     border-image: none !important;
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
 }
 
-/* Kill gold pseudo-element rings */
+/* Kill pseudo-element rings */
+.slide-container::before,
+.slide-container::after,
+.image-card::before,
+.image-card::after,
+.image-wrapper::before,
+.image-wrapper::after,
+.circle-wrapper::before,
+.circle-wrapper::after,
+.grid-item::before,
+.grid-item::after,
 .gold-border::before,
 .gold-border::after,
 .gold-border-circle::before,
 .gold-border-circle::after {
     content: none !important;
     display: none !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* Image containers need overflow:hidden for layout */
-.image-container,
-.image-card,
-.image-frame,
-.car-frame,
-.image-wrapper {
-    overflow: hidden !important;
+/* Re-apply white container glow only */
+.slide-container {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 60px rgba(255, 255, 255, 0.5),
+                0 0 90px rgba(255, 255, 255, 0.4),
+                0 0 120px rgba(255, 255, 255, 0.3) !important;
     border-radius: 8px !important;
 }
 
-/* Content sections need proper z-index for layering */
-.content-left,
-.content-right,
-.left-section,
-.right-section,
-.facts-container,
-.cars-container,
-.benefits-grid {
-    position: relative !important;
-    z-index: 5 !important;
-}
-
-/* ===== IMAGE STYLING (WHITE GLOW, HOVER, ROUNDED CORNERS) ===== */
-
-/* Apply white glow and rounded corners to ALL content images */
-.slide-container img:not(.lr-logo):not(.watermark-logo):not([class*="logo"]):not([class*="icon"]):not(.fa):not(.fas):not(.far):not(.fab) {
-    border-radius: 8px !important;
+/* Keep white glow on images only */
+.main-image,
+.nutrition-image,
+.image-card img,
+.image-grid img,
+.grid-item img {
+    border: none !important;
     filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7))
             drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) !important;
-    transition: transform 0.25s ease, filter 0.25s ease !important;
+    border-radius: 8px;
 }
 
-/* Hover effect for all content images */
-.slide-container img:not(.lr-logo):not(.watermark-logo):not([class*="logo"]):not([class*="icon"]):not(.fa):not(.fas):not(.far):not(.fab):hover {
-    transform: scale(1.04) !important;
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9))
-            drop-shadow(0 0 80px rgba(255, 255, 255, 0.6)) !important;
-}
-
-/* Circle images must be perfectly round */
-.circle-wrapper img,
-.circle-image,
-img[class*="circle"] {
+.circle-wrapper img {
+    border: none !important;
     border-radius: 50% !important;
-}
-
-/* Circle wrappers need proper sizing */
-.circle-wrapper {
-    overflow: hidden !important;
-    border-radius: 50% !important;
-}
-
-/* Videos get rounded corners but no glow */
-.slide-container video {
-    border-radius: 8px !important;
-    filter: none !important;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) !important;
 }
 </style>
     </head>
