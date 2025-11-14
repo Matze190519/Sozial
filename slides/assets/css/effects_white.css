@@ -156,6 +156,21 @@
     filter: none;
 }
 
+/* === FALLBACK: ROUNDED CORNERS ON ALL CONTENT IMAGES === */
+/* This ensures ALL content images have rounded corners, even if wrapper isn't in our list */
+/* Exclude logos, watermarks, and icons */
+.slide-container img:not(.lr-logo):not(.watermark-logo):not([class*="logo"]):not([class*="icon"]):not(.fa):not(.fas):not(.far):not(.fab) {
+    border-radius: 8px;
+    /* NO filter here - filters stay on wrappers only */
+}
+
+/* Circle images must be perfectly round */
+.circle-wrapper img,
+.circle-image,
+img[class*="circle"] {
+    border-radius: 50% !important;
+}
+
 /* === EXCLUDE LOGOS AND ICONS === */
 .lr-logo, .watermark-logo,
 [class*="logo"],
