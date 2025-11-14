@@ -31,23 +31,25 @@
         drop-shadow(0 0 64px rgba(var(--glow-color), 0.24));
     
     /* M (Medium) - DEFAULT: Images float! */
-    /* TEST: Very strong glow to verify system works */
+    /* CRISP EDGE LIGHT: Strong near rim (0.58) + Weak far bloom (0.14) = Floating without haze */
+    /* Research: CSS-Tricks/Material Design - Shift alpha to near layer for crisp edges */
     --image-glow-m: 
-        drop-shadow(0 0 32px rgba(var(--glow-color), 0.70))
-        drop-shadow(0 0 80px rgba(var(--glow-color), 0.40));
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.58))
+        drop-shadow(0 0 96px rgba(var(--glow-color), 0.14));
     
     --image-glow-m-hover: 
-        drop-shadow(0 0 40px rgba(var(--glow-color), 0.85))
-        drop-shadow(0 0 100px rgba(var(--glow-color), 0.50));
+        drop-shadow(0 0 32px rgba(var(--glow-color), 0.66))
+        drop-shadow(0 0 112px rgba(var(--glow-color), 0.18));
     
     /* L (Large) - Hero emphasis, maximum float */
+    /* CRISP HERO: Even stronger near rim (0.68) + Weak far bloom (0.20) */
     --image-glow-l: 
-        drop-shadow(0 0 36px rgba(var(--glow-color), 0.60))
-        drop-shadow(0 0 96px rgba(var(--glow-color), 0.32));
+        drop-shadow(0 0 36px rgba(var(--glow-color), 0.68))
+        drop-shadow(0 0 120px rgba(var(--glow-color), 0.20));
     
     --image-glow-l-hover: 
-        drop-shadow(0 0 40px rgba(var(--glow-color), 0.70))
-        drop-shadow(0 0 112px rgba(var(--glow-color), 0.38));
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.76))
+        drop-shadow(0 0 136px rgba(var(--glow-color), 0.24));
     
     /* Hover Effects */
     --elevate-scale: 1.03;
