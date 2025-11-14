@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Präsentation - Showcase Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 1) 60%);
+        }
+        iframe {
+            width: 1280px;
+            height: 720px;
+            border: none;
+            background: black;
+            box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), 0 0 150px rgba(212, 175, 55, 0.5), 0 0 250px rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+        .nav-button:hover {
+            background: rgba(255, 215, 0, 1);
+            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+        }
+        .nav-button:disabled {
+            background: rgba(100, 100, 100, 0.3);
+            cursor: not-allowed;
+            color: #666;
+        }
+        .nav-button.prev {
+            left: 20px;
+        }
+        .nav-button.next {
+            right: 20px;
+        }
+        .slide-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #ffd700;
+            z-index: 1000;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background: rgba(255, 215, 0, 1);
+            opacity: 1;
+        }
+        .info-banner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #ffd700;
+            z-index: 1000;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info-banner">
+            ✨ Showcase Preview - 10 Folien mit Variant C Design
+        </div>
+        <button class="nav-button prev" onclick="prevSlide()">◀</button>
+        <iframe id="slideFrame" src=""></iframe>
+        <button class="nav-button next" onclick="nextSlide()">▶</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+        </div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
+    </div>
+
+    <script>
+        // 10 Showcase slides with Variant C design
+        const slides = [
+            'folie_07',
+            'folie_08',
+            'folie_11',
+            'folie_14',
+            'folie_17',
+            'folie_28',
+            'folie_31',
+            'folie_35',
+            'folie_37',
+            'folie_39'
+        ];
+
+        // Use commit SHA for stable htmlpreview URLs
+        const SHA = '241ec9231c9c7422e5c464d7dd911da91684c287';
+        const RAW_BASE = `https://raw.githubusercontent.com/Matze190519/Sozial/${SHA}/slides/`;
+        const PREVIEW = 'https://htmlpreview.github.io/?';
+
+        function srcFor(slideId) {
+            return PREVIEW + RAW_BASE + slideId + '.html';
+        }
+
+        let currentIndex = 0;
+
+        function loadSlide(index) {
+            const slideId = slides[index];
+            document.getElementById('slideFrame').src = srcFor(slideId);
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('totalSlides').textContent = slides.length;
+            window.location.hash = slideId;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.querySelector('.prev').disabled = currentIndex === 0;
+            document.querySelector('.next').disabled = currentIndex === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+        });
+
+        // Load first slide or slide from hash
+        const hash = window.location.hash.substring(1);
+        const hashIndex = slides.indexOf(hash);
+        if (hashIndex !== -1) {
+            currentIndex = hashIndex;
+        }
+        loadSlide(currentIndex);
+    </script>
+</body>
+</html>
