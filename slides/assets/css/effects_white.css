@@ -31,15 +31,14 @@
         drop-shadow(0 0 64px rgba(var(--glow-color), 0.24));
     
     /* M (Medium) - DEFAULT: Images float! */
-    /* CRISP EDGE LIGHT: Strong near rim (0.58) + Weak far bloom (0.14) = Floating without haze */
-    /* Research: CSS-Tricks/Material Design - Shift alpha to near layer for crisp edges */
+    /* EXACT VALUES FROM TEST SITE (user approved: "wesentlich besser") */
     --image-glow-m: 
-        drop-shadow(0 0 28px rgba(var(--glow-color), 0.58))
-        drop-shadow(0 0 96px rgba(var(--glow-color), 0.14));
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5));
     
     --image-glow-m-hover: 
-        drop-shadow(0 0 32px rgba(var(--glow-color), 0.66))
-        drop-shadow(0 0 112px rgba(var(--glow-color), 0.18));
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.9))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.7));
     
     /* L (Large) - Hero emphasis, maximum float */
     /* CRISP HERO: Even stronger near rim (0.68) + Weak far bloom (0.20) */
