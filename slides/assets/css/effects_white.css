@@ -136,13 +136,14 @@
 
 /* === CONTENT IMAGE WRAPPERS WITH WHITE GLOW === */
 /* Apply glow to WRAPPERS to prevent clipping by overflow: hidden */
+/* NOTE: .image-item is NOT in this list because it often contains labels */
+/* Use .image-card inside .image-item for the glow effect */
 .image-wrapper,
 .image-frame,
 .image-card,
 .car-frame,
 .image-container,
 .photo-container,
-.image-item,
 .image-panel,
 .image-box,
 .nutrition-card,
@@ -162,7 +163,6 @@
 .car-frame:hover,
 .image-container:hover,
 .photo-container:hover,
-.image-item:hover,
 .image-panel:hover,
 .image-box:hover,
 .nutrition-card:hover,
@@ -240,13 +240,25 @@
     filter: none; /* Glow is on wrapper, not img */
 }
 
-/* Circle items (parent containers) - no glow, just layout */
+/* === LAYOUT CONTAINERS (no glow) === */
+/* These are parent containers that often include labels/text */
+/* Keep them clean - glow should be on inner image wrappers only */
 .circle-item,
 .fact-item,
 .feature-item,
 .image-item {
-    /* These are layout containers, not image wrappers */
-    /* No glow needed here */
+    filter: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.circle-item:hover,
+.fact-item:hover,
+.feature-item:hover,
+.image-item:hover {
+    filter: none !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* === LAYOUT-CRITICAL RULES === */
