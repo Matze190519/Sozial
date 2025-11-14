@@ -5,27 +5,48 @@
    ============================================ */
 
 /* === CSS TOKENS (Design System) === */
+/* Multi-source research: CSS-Tricks, Smashing, Codrops, Awwwards, Material/Fluent/Apple HIG */
 :root {
     /* Glow Colors */
     --glow-color: 255, 255, 255;
     --glow-rgb: rgb(255, 255, 255);
     
-    /* Container Glow (3-layer box-shadow - optimized for crisp white) */
-    /* Research-based: Lower alpha prevents "cloudy" appearance on black */
+    /* Container Glow (3-layer box-shadow - ambient stage light) */
+    /* USER APPROVED: Keep as-is! Subtle, crisp, non-cloudy */
     --container-glow: 
         0 0 24px rgba(var(--glow-color), 0.18),
         0 0 64px rgba(var(--glow-color), 0.12),
         0 0 120px rgba(var(--glow-color), 0.08);
     
-    /* Image Glow (2-layer drop-shadow - optimized for elevation) */
-    /* Research-based: Balanced alpha for professional depth without fog */
-    --image-glow-base: 
-        drop-shadow(0 0 24px rgba(var(--glow-color), 0.28))
-        drop-shadow(0 0 56px rgba(var(--glow-color), 0.16));
+    /* Image Glow - S/M/L Intensity Presets (Near+Far Dual-Component) */
+    /* Research consensus: Tight rim (high alpha) + Soft bloom (low alpha) = FLOATING */
     
-    --image-glow-hover: 
-        drop-shadow(0 0 28px rgba(var(--glow-color), 0.36))
+    /* S (Small) - Dense grids, minimal lift */
+    --image-glow-s: 
+        drop-shadow(0 0 24px rgba(var(--glow-color), 0.30))
+        drop-shadow(0 0 56px rgba(var(--glow-color), 0.18));
+    
+    --image-glow-s-hover: 
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.38))
+        drop-shadow(0 0 64px rgba(var(--glow-color), 0.24));
+    
+    /* M (Medium) - DEFAULT: Images float! */
+    --image-glow-m: 
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.42))
         drop-shadow(0 0 72px rgba(var(--glow-color), 0.22));
+    
+    --image-glow-m-hover: 
+        drop-shadow(0 0 32px rgba(var(--glow-color), 0.52))
+        drop-shadow(0 0 88px rgba(var(--glow-color), 0.28));
+    
+    /* L (Large) - Hero emphasis, maximum float */
+    --image-glow-l: 
+        drop-shadow(0 0 36px rgba(var(--glow-color), 0.60))
+        drop-shadow(0 0 96px rgba(var(--glow-color), 0.32));
+    
+    --image-glow-l-hover: 
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.70))
+        drop-shadow(0 0 112px rgba(var(--glow-color), 0.38));
     
     /* Hover Effects */
     --elevate-scale: 1.03;
@@ -70,6 +91,7 @@
 
 /* === CANONICAL HEADLINE STYLES === */
 /* Ensure all headlines have consistent formatting */
+/* Shimmer gated by .has-shimmer class - default off for grids */
 .headline,
 .slide-container h1 {
     font-family: var(--font-headline);
@@ -84,6 +106,11 @@
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+/* Shimmer animation - only on slides with .has-shimmer class */
+.slide-container.has-shimmer .headline,
+.slide-container.has-shimmer h1 {
     animation: subtleShimmer 6s ease-in-out infinite alternate;
 }
 
@@ -154,7 +181,7 @@
     overflow: hidden;
     border: none !important;
     background: transparent !important;
-    filter: var(--image-glow-base);
+    filter: var(--image-glow-m);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
@@ -170,7 +197,28 @@
 .nutrition-card:hover,
 .product-card:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-hover);
+    filter: var(--image-glow-m-hover);
+}
+
+/* === INTENSITY UTILITIES === */
+/* Apply these classes to wrappers to override default M intensity */
+
+/* Small intensity for dense grids */
+.halo-s {
+    filter: var(--image-glow-s) !important;
+}
+
+.halo-s:hover {
+    filter: var(--image-glow-s-hover) !important;
+}
+
+/* Large intensity for hero images */
+.halo-l {
+    filter: var(--image-glow-l) !important;
+}
+
+.halo-l:hover {
+    filter: var(--image-glow-l-hover) !important;
 }
 
 /* Images inside wrappers: inherit rounding, no filter */
@@ -200,7 +248,7 @@
     overflow: hidden;
     border: none !important;
     background: transparent !important;
-    filter: var(--image-glow-base);
+    filter: var(--image-glow-m);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
@@ -210,7 +258,7 @@
 .four-grid .grid-item:hover,
 .grid-item:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-hover);
+    filter: var(--image-glow-m-hover);
 }
 
 /* Images inside grid items: inherit rounding, no filter */
@@ -227,19 +275,95 @@
 .circle-wrapper {
     border-radius: var(--radius-circle);
     overflow: hidden;
-    filter: var(--image-glow-base);
+    filter: var(--image-glow-m);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .circle-wrapper:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-hover);
+    filter: var(--image-glow-m-hover);
 }
 
 .circle-wrapper img {
     border-radius: var(--radius-circle);
     filter: none; /* Glow is on wrapper, not img */
+}
+
+/* === RADIAL-GRADIENT HALO (Premium Studio Light) === */
+/* Apply .halo class to image wrappers for Apple/Tesla-style lighting */
+/* Research: Codrops/Awwwards - radial halos read cleaner than stacked drop-shadows */
+.image-wrapper.halo,
+.image-frame.halo,
+.image-card.halo,
+.car-frame.halo,
+.image-container.halo,
+.photo-container.halo {
+    position: relative;
+}
+
+.image-wrapper.halo::before,
+.image-frame.halo::before,
+.image-card.halo::before,
+.car-frame.halo::before,
+.image-container.halo::before,
+.photo-container.halo::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    background: radial-gradient(
+        closest-side,
+        rgba(255, 255, 255, 0.42),
+        rgba(255, 255, 255, 0.18) 55%,
+        transparent 72%
+    );
+    filter: blur(12px);
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.image-wrapper.halo:hover::before,
+.image-frame.halo:hover::before,
+.image-card.halo:hover::before,
+.car-frame.halo:hover::before,
+.image-container.halo:hover::before,
+.photo-container.halo:hover::before {
+    filter: blur(14px);
+    opacity: 1;
+}
+
+/* === AMBIENT SPOTLIGHT (Deepens contrast) === */
+/* Apply .spotlight class to .slide-container for hero slides */
+/* Research: Premium brands use large, low-alpha spotlights to make halos appear whiter */
+.slide-container.spotlight::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === GLASS CHIPS FOR LABELS === */
+/* Apply .glass-chip class to label containers for backdrop-filter effect */
+/* Research: Fluent Design - acrylic used sparingly for legibility */
+.glass-chip {
+    backdrop-filter: blur(8px) saturate(1.15);
+    -webkit-backdrop-filter: blur(8px) saturate(1.15);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px 12px;
 }
 
 /* === LAYOUT CONTAINERS (no glow) === */
@@ -390,7 +514,9 @@ img[class*="circle"] {
 }
 
 /* === WHITE PARTICLES (gentle twinkle) === */
-.particles {
+/* Gated by .has-particles class - default off, enable only on hero/title slides */
+/* Research: Dribbble/Behance consensus - fewer, slower particles for luxury feel */
+.slide-container.has-particles .particles {
     position: absolute;
     top: 0;
     left: 0;
@@ -401,7 +527,7 @@ img[class*="circle"] {
     z-index: 2;
 }
 
-.particle {
+.slide-container.has-particles .particle {
     position: absolute;
     width: 2px;
     height: 2px;
@@ -442,6 +568,7 @@ img[class*="circle"] {
 
 /* === ACCESSIBILITY === */
 /* Respect user's motion preferences */
+/* Research: Apple HIG - motion should be meaningful and respect user preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -458,13 +585,26 @@ img[class*="circle"] {
         background-position: 0% 50%;
     }
     
-    /* Disable hover scale for reduced motion */
+    /* Disable particle twinkle for reduced motion */
+    .particle {
+        animation: none !important;
+        opacity: 0.25 !important;
+    }
+    
+    /* Disable hover scale for reduced motion - keep glow change only */
     .image-wrapper:hover,
     .image-frame:hover,
     .image-card:hover,
     .circle-wrapper:hover,
     .grid-item:hover {
         transform: none !important;
+    }
+    
+    /* Disable halo blur animation for reduced motion */
+    .image-wrapper.halo:hover::before,
+    .image-frame.halo:hover::before,
+    .image-card.halo:hover::before {
+        filter: blur(12px) !important;
     }
 }
 
