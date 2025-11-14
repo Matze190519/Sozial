@@ -23,14 +23,14 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 1) 60%);
+            background: #000;
         }
         iframe {
             width: 1280px;
             height: 720px;
             border: none;
             background: black;
-            box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), 0 0 150px rgba(212, 175, 55, 0.5), 0 0 250px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.3);
             border-radius: 8px;
         }
         .nav-button {
@@ -110,39 +110,74 @@
             z-index: 1000;
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
+        .info-banner.all-slides {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 8px 16px;
+            font-size: 11px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="info-banner">
-            ✨ Showcase Preview - 10 Folien mit Variant C Design
+        <div class="info-banner all-slides">
+            📊 LR Präsentation - Alle Folien (10 mit Variant C Design)
         </div>
         <button class="nav-button prev" onclick="prevSlide()">◀</button>
         <iframe id="slideFrame" src=""></iframe>
         <button class="nav-button next" onclick="nextSlide()">▶</button>
         <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">39</span>
         </div>
         <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
     </div>
 
     <script>
-        // 10 Showcase slides with Variant C design
+        // All slides from presentation.html
+        // Note: Slides 07, 08, 11, 14, 17, 28, 31, 35, 37, 39 have Variant C design applied
         const slides = [
+            'folie_01',
+            'folie_02',
+            'folie_03',
+            'folie_04',
+            'folie_06',
             'folie_07',
             'folie_08',
+            'folie_09',
+            'folie_10',
             'folie_11',
+            'folie_13',
+            'folie_12',
             'folie_14',
             'folie_17',
+            'folie_19b',
+            'folie_19',
+            'folie_16b',
+            'folie_20',
+            'folie_21',
+            'folie_22',
+            'folie_23',
+            'folie_24',
+            'folie_25',
+            'folie_26',
+            'folie_27',
             'folie_28',
+            'folie_28a',
+            'folie_29',
+            'folie_30',
             'folie_31',
+            'folie_32',
+            'folie_33',
+            'folie_34',
             'folie_35',
+            'folie_36',
             'folie_37',
-            'folie_39'
+            'folie_39',
+            'folie_41',
+            'folie_42'
         ];
 
-        // Use commit SHA for stable htmlpreview URLs
-        const SHA = '241ec9231c9c7422e5c464d7dd911da91684c287';
+        // Use commit SHA for stable htmlpreview URLs (will be updated after commit)
+        const SHA = 'PLACEHOLDER_SHA';
         const RAW_BASE = `https://raw.githubusercontent.com/Matze190519/Sozial/${SHA}/slides/`;
         const PREVIEW = 'https://htmlpreview.github.io/?';
 
