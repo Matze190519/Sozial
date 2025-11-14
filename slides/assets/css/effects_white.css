@@ -10,21 +10,22 @@
     --glow-color: 255, 255, 255;
     --glow-rgb: rgb(255, 255, 255);
     
-    /* Container Glow (4-layer box-shadow) */
+    /* Container Glow (3-layer box-shadow - optimized for crisp white) */
+    /* Research-based: Lower alpha prevents "cloudy" appearance on black */
     --container-glow: 
-        0 0 30px rgba(var(--glow-color), 0.6),
-        0 0 60px rgba(var(--glow-color), 0.5),
-        0 0 90px rgba(var(--glow-color), 0.4),
-        0 0 120px rgba(var(--glow-color), 0.3);
+        0 0 24px rgba(var(--glow-color), 0.18),
+        0 0 64px rgba(var(--glow-color), 0.12),
+        0 0 120px rgba(var(--glow-color), 0.08);
     
-    /* Image Glow (2-layer drop-shadow) */
+    /* Image Glow (2-layer drop-shadow - optimized for elevation) */
+    /* Research-based: Balanced alpha for professional depth without fog */
     --image-glow-base: 
-        drop-shadow(0 0 30px rgba(var(--glow-color), 0.7))
-        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5));
+        drop-shadow(0 0 24px rgba(var(--glow-color), 0.28))
+        drop-shadow(0 0 56px rgba(var(--glow-color), 0.16));
     
     --image-glow-hover: 
-        drop-shadow(0 0 40px rgba(var(--glow-color), 0.9))
-        drop-shadow(0 0 80px rgba(var(--glow-color), 0.7));
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.36))
+        drop-shadow(0 0 72px rgba(var(--glow-color), 0.22));
     
     /* Hover Effects */
     --elevate-scale: 1.03;
@@ -83,13 +84,14 @@
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    animation: subtleShimmer 4s ease-in-out infinite alternate;
+    animation: subtleShimmer 6s ease-in-out infinite alternate;
 }
 
-/* Subtle gold shimmer animation (very gentle) */
+/* Subtle gold shimmer animation (very gentle, refined) */
+/* Reduced amplitude: 1% instead of 2% for more elegance */
 @keyframes subtleShimmer {
     0% { background-position: 0% 50%; }
-    100% { background-position: 2% 50%; }
+    100% { background-position: 1% 50%; }
 }
 
 /* === CANONICAL FEATURE LIST STYLES === */
@@ -405,19 +407,19 @@ img[class*="circle"] {
     height: 2px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 6px rgba(255, 255, 255, 0.4);
-    animation: twinkle 6s ease-in-out infinite;
-    opacity: 0.3;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.3);
+    animation: twinkle 8s ease-in-out infinite;
+    opacity: 0.15;
 }
 
 @keyframes twinkle {
     0%, 100% { 
-        opacity: 0.3; 
+        opacity: 0.15; 
         transform: scale(1); 
     }
     50% { 
-        opacity: 1; 
-        transform: scale(1.5); 
+        opacity: 0.35; 
+        transform: scale(1); 
     }
 }
 
