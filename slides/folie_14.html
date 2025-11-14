@@ -111,7 +111,7 @@
             border-radius: 8px;
             /* White glow comes from effects_white.css via .image-container wrapper */
         }
-        .robertet-logo {
+        .robertet-badge {
             position: absolute;
             top: 58.5%;
             left: 50%;
@@ -125,10 +125,11 @@
             background: #5B6FB8;
             box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
         }
-        .robertet-logo img {
+        .robertet-badge img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%;
         }
         .particle {
             position: absolute;
@@ -180,16 +181,6 @@
         }
     </style>
     <link rel="stylesheet" href="assets/css/effects_white.css">
-    <style>
-        /* Override effects_white.css [class*="logo"] rule to make Robertet badge round */
-        .robertet-logo {
-            border-radius: 50% !important;
-            overflow: hidden;
-        }
-        .robertet-logo img {
-            border-radius: 50%;
-        }
-    </style>
 </head>
 <body>
     <div class="slide-container">
@@ -214,7 +205,7 @@
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
-        <div class="robertet-logo">
+        <div class="robertet-badge">
             <img src="assets/images/robertet_logo.png" alt="Robertet">
         </div>
         
