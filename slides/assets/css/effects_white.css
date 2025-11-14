@@ -127,6 +127,15 @@
     filter: none; /* Glow is on wrapper, not img */
 }
 
+/* Circle items (parent containers) - no glow, just layout */
+.circle-item,
+.fact-item,
+.feature-item,
+.image-item {
+    /* These are layout containers, not image wrappers */
+    /* No glow needed here */
+}
+
 /* === LAYOUT-CRITICAL RULES === */
 /* Content sections need proper z-index for layering */
 .content-left, .content-right, .left-section, .right-section, 
@@ -136,6 +145,12 @@
 }
 
 /* === VIDEOS (no glow, just rounded corners) === */
+.video-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    /* No filter on video wrappers */
+}
+
 .slide-container video {
     border-radius: 8px;
     filter: none;
