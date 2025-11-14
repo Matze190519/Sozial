@@ -15,6 +15,47 @@
     position: relative;
 }
 
+/* === CANONICAL HEADLINE STYLES === */
+/* Ensure all headlines have consistent formatting */
+.headline,
+.slide-container h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* === CANONICAL FEATURE LIST STYLES === */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-item {
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.feature-item .highlight,
+.feature-item span[class*="highlight"] {
+    background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
 /* === REMOVE GOLD BORDERS === */
 .gold-border,
 .gold-border-circle,
