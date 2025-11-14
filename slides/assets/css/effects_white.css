@@ -514,9 +514,8 @@ img[class*="circle"] {
 }
 
 /* === WHITE PARTICLES (gentle twinkle) === */
-/* Gated by .has-particles class - default off, enable only on hero/title slides */
-/* Research: Dribbble/Behance consensus - fewer, slower particles for luxury feel */
-.slide-container.has-particles .particles {
+/* Base positioning - ALWAYS applied to prevent layout breakage */
+.particles {
     position: absolute;
     top: 0;
     left: 0;
@@ -527,15 +526,26 @@ img[class*="circle"] {
     z-index: 2;
 }
 
-.slide-container.has-particles .particle {
+.particle {
     position: absolute;
     width: 2px;
     height: 2px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+/* Animation gated by .has-particles class - default visible but static */
+/* Research: Dribbble/Behance consensus - fewer, slower particles for luxury feel */
+.slide-container.has-particles .particle {
     animation: twinkle 8s ease-in-out infinite;
     opacity: 0.15;
+}
+
+/* Default: particles visible but no animation */
+.slide-container:not(.has-particles) .particle {
+    opacity: 0.15;
+    animation: none;
 }
 
 @keyframes twinkle {
