@@ -24,7 +24,7 @@
             padding: 80px 60px;
             box-sizing: border-box;
             border: 3px solid;
-            border-image: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C) 1;
+            /* Gold border-image removed */
             border-radius: 8px;
             overflow: hidden;
             align-items: center;
@@ -130,7 +130,80 @@
             padding: 40px;
             border-radius: 8px;
         }
-    </style>
+    
+
+/* ===== REMOVE ALL GOLD BORDERS AND BOX-SHADOWS ===== */
+/* Kill gold borders and box-shadows on all wrappers */
+.slide-container,
+.image-card,
+.image-wrapper,
+.image-panel,
+.image-box,
+.circle-wrapper,
+.grid-item,
+.card,
+.gold-border,
+.gold-border-circle,
+.nutrition-card,
+.product-card {
+    border: none !important;
+    outline: none !important;
+    border-image: none !important;
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+}
+
+/* Kill pseudo-element rings */
+.slide-container::before,
+.slide-container::after,
+.image-card::before,
+.image-card::after,
+.image-wrapper::before,
+.image-wrapper::after,
+.circle-wrapper::before,
+.circle-wrapper::after,
+.grid-item::before,
+.grid-item::after,
+.gold-border::before,
+.gold-border::after,
+.gold-border-circle::before,
+.gold-border-circle::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Re-apply white container glow only */
+.slide-container {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 60px rgba(255, 255, 255, 0.5),
+                0 0 90px rgba(255, 255, 255, 0.4),
+                0 0 120px rgba(255, 255, 255, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+/* Keep white glow on images only */
+.main-image,
+.nutrition-image,
+.image-card img,
+.image-grid img,
+.grid-item img {
+    border: none !important;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) !important;
+    border-radius: 8px;
+}
+
+.circle-wrapper img {
+    border: none !important;
+    border-radius: 50% !important;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7))
+            drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) !important;
+}
+</style>
     <link rel="stylesheet" href="assets/css/wow-effects.css">
 </head>
 <body>
