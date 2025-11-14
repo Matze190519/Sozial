@@ -72,8 +72,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        
             border-radius: 8px;
+            /* CRITICAL: Remove glow from .image-item to prevent "frame" under labels */
+            /* The glow should only be on .image-card (the image wrapper), not the whole tile */
+            filter: none !important;
+            transform: none !important;
+        }
+        .image-item:hover {
+            /* Prevent hover transform on the whole tile */
+            transform: none !important;
         }
         .image-card {
             width: 100%;
@@ -102,7 +109,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-align: center;
-            margin-top: 5px;
+            margin-top: 12px;
         }
             .particle {
             position: absolute;
@@ -175,7 +182,7 @@
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
         <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
         
-        <h1 class="headline">DEIN LEBEN. DEIN TAKT<br>Lifetakt</h1>
+        <h1 class="headline">DEIN LEBEN. DEIN TAKT<br>LIFETAKT</h1>
         
         <div class="images-container">
             <div class="image-item">
