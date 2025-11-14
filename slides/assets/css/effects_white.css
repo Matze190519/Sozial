@@ -31,13 +31,14 @@
         drop-shadow(0 0 64px rgba(var(--glow-color), 0.24));
     
     /* M (Medium) - DEFAULT: Images float! */
+    /* TEST: Very strong glow to verify system works */
     --image-glow-m: 
-        drop-shadow(0 0 28px rgba(var(--glow-color), 0.42))
-        drop-shadow(0 0 72px rgba(var(--glow-color), 0.22));
+        drop-shadow(0 0 32px rgba(var(--glow-color), 0.70))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.40));
     
     --image-glow-m-hover: 
-        drop-shadow(0 0 32px rgba(var(--glow-color), 0.52))
-        drop-shadow(0 0 88px rgba(var(--glow-color), 0.28));
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.85))
+        drop-shadow(0 0 100px rgba(var(--glow-color), 0.50));
     
     /* L (Large) - Hero emphasis, maximum float */
     --image-glow-l: 
