@@ -434,9 +434,9 @@ img[class*="circle"] {
 /* === EXCLUDE LOGOS AND ICONS === */
 /* Logos and icons should never have glow or rounded corners */
 /* Exception: .robertet-badge is allowed to be round */
+/* Exception: .watermark-logo needs transform for centering */
 .lr-logo, 
-.watermark-logo,
-[class*="logo"]:not(.robertet-badge),
+[class*="logo"]:not(.robertet-badge):not(.watermark-logo),
 [class*="icon"],
 .fa, .fas, .far, .fab {
     filter: none !important;
@@ -494,17 +494,21 @@ img[class*="circle"] {
 
 /* === WATERMARK POSITIONING & PULSE === */
 /* Ensure watermark is perfectly centered in the frame */
+/* Use !important to override any inline styles in slide files */
 .watermark-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     max-width: clamp(420px, 55vw, 820px);
     width: auto;
-    height: auto;
+    height: auto !important;
     opacity: 0.03;
     z-index: 1;
     pointer-events: none;
+    filter: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
     animation: watermarkPulse 6s ease-in-out infinite;
 }
 
