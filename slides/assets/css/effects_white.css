@@ -646,6 +646,20 @@ img[class*="circle"] {
     filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 36px rgba(255, 255, 255, 0.35)) !important;
 }
 
+/* === CIRCLE LOGO STYLING === */
+/* For certification/quality logos in circles that need visibility on dark backgrounds */
+/* Use .circle-logo class on circle-wrapper elements containing logos (not photos) */
+.circle-logo {
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 12px !important;
+}
+
+.circle-logo img {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 /* === PERFORMANCE OPTIMIZATION === */
 /* Use GPU acceleration for smooth animations */
 .image-wrapper,
