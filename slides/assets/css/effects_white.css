@@ -444,6 +444,7 @@ img[class*="circle"] {
     height: 80px !important;
     width: auto !important;
     z-index: 10 !important;
+    opacity: 1 !important;
     pointer-events: none !important;
     filter: none !important;
     border-radius: 0 !important;
