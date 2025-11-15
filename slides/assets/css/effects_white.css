@@ -492,8 +492,19 @@ img[class*="circle"] {
     animation: fadeInRight 0.8s ease-out 0.4s both;
 }
 
-/* === WATERMARK PULSE === */
+/* === WATERMARK POSITIONING & PULSE === */
+/* Ensure watermark is perfectly centered in the frame */
 .watermark-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: clamp(420px, 55vw, 820px);
+    width: auto;
+    height: auto;
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
     animation: watermarkPulse 6s ease-in-out infinite;
 }
 
