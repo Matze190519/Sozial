@@ -213,32 +213,6 @@
             opacity: 0.03;
         }
         
-        /* NAVIGATION */
-        .nav-arrow {
-            position: fixed;
-            font-size: 48px;
-            color: rgba(217, 199, 126, 0.8);
-            cursor: pointer;
-            z-index: 1000;
-            transition: color 0.3s;
-            user-select: none;
-        }
-        
-        .nav-arrow:hover {
-            color: rgba(217, 199, 126, 1);
-        }
-        
-        .nav-left {
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .nav-right {
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
             .particle {
             position: absolute;
             width: 2px;
@@ -310,10 +284,6 @@
 
         <!-- LOGO (fast unsichtbar) -->
         <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
-        
-        <!-- NAVIGATION -->
-        <div class="nav-arrow nav-left" onclick="window.location.href='folie_07.html'">◀</div>
-        <div class="nav-arrow nav-right" onclick="window.location.href='folie_09.html'">▶</div>
         
         <!-- LINKE SPALTE: TEXT -->
         <div class="content-left">
@@ -391,15 +361,5 @@
         </div>
     </div>
     
-    <script>
-        // Tastatur-Navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                window.location.href = 'folie_07.html';
-            } else if (e.key === 'ArrowRight') {
-                window.location.href = 'folie_09.html';
-            }
-        });
-    </script>
 </body>
 </html>
