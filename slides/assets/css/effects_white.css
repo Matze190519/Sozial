@@ -435,12 +435,29 @@ img[class*="circle"] {
     box-shadow: none !important;
 }
 
-/* === EXCLUDE LOGOS AND ICONS === */
-/* Logos and icons should never have glow or rounded corners */
+/* === LR LOGO POSITIONING (top right corner) === */
+/* Position the LR 40 Jahre logo in the top right corner of every slide */
+.lr-logo {
+    position: absolute !important;
+    top: 30px !important;
+    right: 30px !important;
+    height: 80px !important;
+    width: auto !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    filter: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* === EXCLUDE OTHER LOGOS AND ICONS === */
+/* Other logos and icons should never have glow or rounded corners */
 /* Exception: .robertet-badge is allowed to be round */
 /* Exception: .watermark-logo needs transform for centering */
-.lr-logo, 
-[class*="logo"]:not(.robertet-badge):not(.watermark-logo),
+/* Exception: .lr-logo has its own positioning rules above */
+/* Exception: .circle-badge needs glow for visibility */
+[class*="logo"]:not(.robertet-badge):not(.watermark-logo):not(.lr-logo):not(.circle-badge):not(.main-logo):not(.logo-glow),
 [class*="icon"],
 .fa, .fas, .far, .fab {
     filter: none !important;
@@ -641,9 +658,27 @@ img[class*="circle"] {
 
 /* === LOGO GLOW (for first and last slides) === */
 /* Apply .logo-glow class to logo elements on title and conclusion slides */
-/* White glow effect matching the approved white glow style */
+/* White glow effect - STRENGTHENED to be clearly visible */
 .logo-glow {
-    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 36px rgba(255, 255, 255, 0.35)) !important;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.4)) !important;
+}
+
+/* Override for watermark-logo which has filter: none by default */
+.watermark-logo.logo-glow {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.4)) !important;
+}
+
+/* === CIRCLE LABEL STYLING === */
+/* Unified typography for circle labels across all slides */
+/* Ensures consistent font, size, and styling on folie_07, folie_08, etc. */
+.circle-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.3 !important;
 }
 
 /* === CIRCLE BADGE STYLING === */
