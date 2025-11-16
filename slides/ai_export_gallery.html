@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Präsentation - Bilder Export</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 48px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .instructions {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 4px solid #9B7E3C;
+        }
+        
+        .instructions h2 {
+            color: #E9D78E;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .instructions li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .instructions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #9B7E3C;
+            font-weight: bold;
+        }
+        
+        .slide-section {
+            margin-bottom: 50px;
+        }
+        
+        .slide-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #9B7E3C;
+            color: #E9D78E;
+        }
+        
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .image-card {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 215, 142, 0.3);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #1a1a1a;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .image-name {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        
+        .download-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .stats {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LR PRÄSENTATION - BILDER EXPORT</h1>
+        <p class="subtitle">Alle Bilder sortiert nach Foliennummern</p>
+        
+        <div class="instructions">
+            <h2>📋 Anleitung</h2>
+            <ul>
+                <li><strong>Download:</strong> Klicke auf "Download" unter jedem Bild</li>
+                <li><strong>Drag & Drop:</strong> Ziehe Bilder direkt in deine KI (funktioniert bei manchen Tools)</li>
+                <li><strong>Format:</strong> Alle Bilder sind JPG oder PNG (KI-kompatibel)</li>
+                <li><strong>Nach Bearbeitung:</strong> Schicke die bearbeiteten Bilder zurück (gleiche Dateinamen behalten!)</li>
+            </ul>
+        </div>
+        
+        <div class="stats" id="stats">Lade Bilder...</div>
+        
+        <div id="gallery"></div>
+    </div>
+    
+    <script>
+        // Get commit SHA from URL or use placeholder
+        const urlParams = new URLSearchParams(window.location.search);
+        const commitSHA = urlParams.get('sha') || 'COMMIT_SHA_PLACEHOLDER';
+        
+        // Image list will be populated by script
+        const images = ["folie_02_lr-finanzas.png", "folie_03_karriereleiter_2024.png", "folie_04_produkte_neu_ohne_ueberschrift.PNG", "folie_04_produkte_smahl_2.PNG", "folie_06_katalog_2025.png", "folie_07_2024_Produktion_Beauty_2_sm_small.png", "folie_07_AloeVera_Ernte_1500px_sm_small.png", "folie_07_kreis_aloe_vera3_20000liter_1500px_sm_small.png", "folie_07_produktion_tanks.jpg", "folie_08_aloe_vera_topseller.png", "folie_08_dermatest.png", "folie_08_fermentiert_clean.png", "folie_08_iasc_black.png", "folie_09_health_mission_final.jpg", "folie_10_body_mission_neu.PNG", "folie_11_Nahrung_Allgemein.PNG", "folie_11_Nahrung_Aloevera.PNG", "folie_11_Nahrung_Bewegung.PNG", "folie_11_Nahrung_Energie.PNG", "folie_11_Nahrung_Immunsystem.PNG", "folie_11_Nahrung_Verdauung.PNG", "folie_12_zeitgard_new_clean.png", "folie_12_zeitgard_preise.PNG", "folie_13_zeitgard_signature_better.png", "folie_14_mood_infusion_men.png", "folie_14_mood_infusion_men_parfums.png", "folie_14_mood_infusion_women.png", "folie_14_mood_infusion_women_parfums.png", "folie_14_robertet_logo.png", "folie_16_iconic_elixirs_4_flakons_inhaltsstoffe.png", "folie_16b_iconic_elixirs_luxus_flakom_detail.png", "folie_17_folie17_design.png", "folie_17_folie18_pure_luxury.png", "folie_19_iconic_elixirs_personen.png", "folie_19b_iconic_elixirs_inhaltsstoffe_4_flakons.png", "folie_20_discovery_box_duftfinder.png", "folie_21_couple_handelsspanne_new_v2.png", "folie_22_bonus_tabelle_korrigiert.png", "folie_23_freiheit_vs_fesseln_cropped.png", "folie_24_schneller_start_karriereleiter.png", "folie_25_karrierestufen_teil2.png", "folie_26_fast_track_programm_neu.png", "folie_27_struktur_junior_manager_teamleiter.png", "folie_28_jubilaeums_audi_s5.png", "folie_28_jubilaeums_mercedes_a180.png", "folie_28_jubilaeums_mercedes_cle300.png", "folie_28_jubilaeums_mercedes_cle53.png", "folie_28a_jubilaeums_audi_q8_hybrid.png", "folie_28b_jubilaeums_q7.png", "folie_29_karrierestufen_preise.png", "folie_30_karriereleiter.png", "folie_31_coaching_schulung.png", "folie_32_EventsHalle.PNG", "folie_33_traumreise_collage.png", "folie_34_lr_40_jahre_botschafterin.png", "folie_37_profi_business_sets.png", "folie_37_profi_business_vergleich.png", "folie_39_your_choice_40_years.png", "folie_41_mathias_photo.png", "folie_43_your_choice.png"];
+        
+        // Group images by slide
+        const slideGroups = {};
+        images.forEach(img => {
+            const match = img.match(/^folie_(\d+[a-z]?)_/);
+            if (match) {
+                const slideNum = match[1];
+                if (!slideGroups[slideNum]) {
+                    slideGroups[slideNum] = [];
+                }
+                slideGroups[slideNum].push(img);
+            }
+        });
+        
+        // Sort slide numbers
+        const sortedSlides = Object.keys(slideGroups).sort((a, b) => {
+            const numA = parseInt(a);
+            const numB = parseInt(b);
+            if (numA !== numB) return numA - numB;
+            return a.localeCompare(b);
+        });
+        
+        // Update stats
+        document.getElementById('stats').textContent = 
+            `📊 ${images.length} Bilder auf ${sortedSlides.length} Folien`;
+        
+        // Generate gallery
+        const gallery = document.getElementById('gallery');
+        sortedSlides.forEach(slideNum => {
+            const section = document.createElement('div');
+            section.className = 'slide-section';
+            
+            const title = document.createElement('h2');
+            title.className = 'slide-title';
+            title.textContent = `Folie ${slideNum}`;
+            section.appendChild(title);
+            
+            const grid = document.createElement('div');
+            grid.className = 'images-grid';
+            
+            slideGroups[slideNum].forEach(imgName => {
+                const card = document.createElement('div');
+                card.className = 'image-card';
+                
+                const rawURL = `https://raw.githubusercontent.com/Matze190519/Sozial/${commitSHA}/slides/assets/ai_export/${imgName}`;
+                
+                const img = document.createElement('img');
+                img.src = rawURL;
+                img.alt = imgName;
+                img.draggable = true;
+                
+                const name = document.createElement('div');
+                name.className = 'image-name';
+                name.textContent = imgName;
+                
+                const downloadLink = document.createElement('a');
+                downloadLink.href = rawURL;
+                downloadLink.download = imgName;
+                downloadLink.className = 'download-btn';
+                downloadLink.textContent = '⬇ Download';
+                
+                card.appendChild(img);
+                card.appendChild(name);
+                card.appendChild(downloadLink);
+                grid.appendChild(card);
+            });
+            
+            section.appendChild(grid);
+            gallery.appendChild(section);
+        });
+    </script>
+</body>
+</html>
