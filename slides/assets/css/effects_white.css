@@ -11,44 +11,42 @@
     --glow-color: 255, 255, 255;
     --glow-rgb: rgb(255, 255, 255);
     
-    /* Container Glow (3-layer box-shadow - ambient stage light) */
-    /* USER APPROVED: Keep as-is! Subtle, crisp, non-cloudy */
+    /* Container Glow (4-layer box-shadow - SUPER BRIGHT per documentation) */
+    /* UPDATED: Per technical documentation - super helles weißes Glow */
     --container-glow: 
-        0 0 24px rgba(var(--glow-color), 0.18),
-        0 0 64px rgba(var(--glow-color), 0.12),
-        0 0 120px rgba(var(--glow-color), 0.08);
+        0 0 30px rgba(var(--glow-color), 0.6),
+        0 0 60px rgba(var(--glow-color), 0.5),
+        0 0 90px rgba(var(--glow-color), 0.4),
+        0 0 120px rgba(var(--glow-color), 0.3);
     
     /* Image Glow - S/M/L Intensity Presets (Near+Far Dual-Component) */
     /* Research consensus: Tight rim (high alpha) + Soft bloom (low alpha) = FLOATING */
     
     /* S (Small) - Dense grids, minimal lift */
     --image-glow-s: 
-        drop-shadow(0 0 24px rgba(var(--glow-color), 0.30))
-        drop-shadow(0 0 56px rgba(var(--glow-color), 0.18));
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.3));
     
     --image-glow-s-hover: 
-        drop-shadow(0 0 28px rgba(var(--glow-color), 0.38))
-        drop-shadow(0 0 64px rgba(var(--glow-color), 0.24));
+        drop-shadow(0 0 25px rgba(var(--glow-color), 0.4));
     
     /* M (Medium) - DEFAULT: Images float! */
-    /* EXACT VALUES FROM TEST SITE (user approved: "wesentlich besser") */
+    /* UPDATED: Per technical documentation baseline */
     --image-glow-m: 
-        drop-shadow(0 0 30px rgba(var(--glow-color), 0.7))
-        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5));
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.5));
     
     --image-glow-m-hover: 
-        drop-shadow(0 0 40px rgba(var(--glow-color), 0.9))
-        drop-shadow(0 0 80px rgba(var(--glow-color), 0.7));
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.4));
     
     /* L (Large) - Hero emphasis, maximum float */
-    /* CRISP HERO: Even stronger near rim (0.68) + Weak far bloom (0.20) */
+    /* UPDATED: Per technical documentation - stronger for hero elements */
     --image-glow-l: 
-        drop-shadow(0 0 36px rgba(var(--glow-color), 0.68))
-        drop-shadow(0 0 120px rgba(var(--glow-color), 0.20));
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.4));
     
     --image-glow-l-hover: 
-        drop-shadow(0 0 40px rgba(var(--glow-color), 0.76))
-        drop-shadow(0 0 136px rgba(var(--glow-color), 0.24));
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.5));
     
     /* Hover Effects */
     --elevate-scale: 1.03;
@@ -61,7 +59,22 @@
     --radius-circle: 50%;
     
     /* Gold Gradient (Headlines & Highlights) */
+    /* UPDATED: Per technical documentation - darker bronze-toned gold */
     --gold-gradient: linear-gradient(135deg, 
+        #8B6E2C 0%, 
+        #B99951 20%, 
+        #D9C77E 40%, 
+        #D9C77E 60%, 
+        #B99951 80%, 
+        #8B6E2C 100%);
+    
+    --gold-gradient-short: linear-gradient(135deg, 
+        #8B6E2C 0%, 
+        #D9C77E 50%, 
+        #8B6E2C 100%);
+    
+    /* Previous gold gradient (backup) */
+    --gold-gradient-prev: linear-gradient(135deg, 
         #9B7E3C 0%, 
         #C9A961 15%, 
         #E9D78E 30%, 
@@ -69,11 +82,6 @@
         #E9D78E 55%, 
         #D5B455 70%, 
         #C9A961 85%, 
-        #9B7E3C 100%);
-    
-    --gold-gradient-short: linear-gradient(135deg, 
-        #9B7E3C 0%, 
-        #E9D78E 50%, 
         #9B7E3C 100%);
     
     /* Typography */
