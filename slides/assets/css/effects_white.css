@@ -48,6 +48,20 @@
         drop-shadow(0 0 40px rgba(var(--glow-color), 0.7))
         drop-shadow(0 0 80px rgba(var(--glow-color), 0.5));
     
+    /* XL (Extra Large) - SUPER BRIGHT: 4-layer like container glow */
+    /* Matches "super helles weißes Glow" documentation for hero images */
+    --image-glow-xl: 
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 90px rgba(var(--glow-color), 0.4))
+        drop-shadow(0 0 120px rgba(var(--glow-color), 0.3));
+    
+    --image-glow-xl-hover: 
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 70px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 100px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 140px rgba(var(--glow-color), 0.4));
+    
     /* Hover Effects */
     --elevate-scale: 1.03;
     --elevate-duration: 220ms;
@@ -229,6 +243,15 @@
 
 .halo-l:hover {
     filter: var(--image-glow-l-hover) !important;
+}
+
+/* Extra Large intensity - SUPER BRIGHT (4-layer) for hero images and badges */
+.halo-xl {
+    filter: var(--image-glow-xl) !important;
+}
+
+.halo-xl:hover {
+    filter: var(--image-glow-xl-hover) !important;
 }
 
 /* Images inside wrappers: inherit rounding, no filter */
