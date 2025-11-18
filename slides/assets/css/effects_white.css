@@ -285,9 +285,12 @@
 /* Extra Large TIGHT - Cleaner glow like frame (less spread) */
 .halo-xl-tight {
     filter: var(--image-glow-xl-tight) !important;
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .halo-xl-tight:hover {
+    transform: scale(var(--elevate-scale));
     filter: var(--image-glow-xl-tight-hover) !important;
 }
 
