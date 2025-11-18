@@ -76,6 +76,20 @@
         drop-shadow(0 0 60px rgba(var(--glow-color), 0.32))
         drop-shadow(0 0 80px rgba(var(--glow-color), 0.22));
     
+    /* M TIGHT - Cleaner glow for small images (grids, circles) */
+    /* Scaled down from XL-tight for smaller elements */
+    --image-glow-m-tight: 
+        drop-shadow(0 0 12px rgba(var(--glow-color), 0.60))
+        drop-shadow(0 0 24px rgba(var(--glow-color), 0.35))
+        drop-shadow(0 0 36px rgba(var(--glow-color), 0.22))
+        drop-shadow(0 0 48px rgba(var(--glow-color), 0.14));
+    
+    --image-glow-m-tight-hover: 
+        drop-shadow(0 0 16px rgba(var(--glow-color), 0.70))
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.45))
+        drop-shadow(0 0 44px rgba(var(--glow-color), 0.28))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.18));
+    
     /* Hover Effects */
     --elevate-scale: 1.03;
     --elevate-duration: 220ms;
@@ -318,7 +332,7 @@
     overflow: hidden;
     border: none !important;
     background: transparent !important;
-    filter: var(--image-glow-m);
+    filter: var(--image-glow-m-tight);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
@@ -328,7 +342,7 @@
 .four-grid .grid-item:hover,
 .grid-item:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-m-hover);
+    filter: var(--image-glow-m-tight-hover);
 }
 
 /* Images inside grid items: inherit rounding, no filter */
@@ -345,14 +359,14 @@
 .circle-wrapper {
     border-radius: var(--radius-circle);
     overflow: hidden;
-    filter: var(--image-glow-m);
+    filter: var(--image-glow-m-tight);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .circle-wrapper:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-m-hover);
+    filter: var(--image-glow-m-tight-hover);
 }
 
 .circle-wrapper img {
