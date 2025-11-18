@@ -62,6 +62,20 @@
         drop-shadow(0 0 100px rgba(var(--glow-color), 0.5))
         drop-shadow(0 0 140px rgba(var(--glow-color), 0.4));
     
+    /* XL TIGHT - Cleaner, tighter glow like frame (less spread) */
+    /* Smaller radii, higher near-alpha for crisp edge */
+    --image-glow-xl-tight: 
+        drop-shadow(0 0 16px rgba(var(--glow-color), 0.75))
+        drop-shadow(0 0 32px rgba(var(--glow-color), 0.45))
+        drop-shadow(0 0 48px rgba(var(--glow-color), 0.28))
+        drop-shadow(0 0 64px rgba(var(--glow-color), 0.18));
+    
+    --image-glow-xl-tight-hover: 
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.8))
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.32))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.22));
+    
     /* Hover Effects */
     --elevate-scale: 1.03;
     --elevate-duration: 220ms;
@@ -252,6 +266,29 @@
 
 .halo-xl:hover {
     filter: var(--image-glow-xl-hover) !important;
+}
+
+/* Extra Large TIGHT - Cleaner glow like frame (less spread) */
+.halo-xl-tight {
+    filter: var(--image-glow-xl-tight) !important;
+}
+
+.halo-xl-tight:hover {
+    filter: var(--image-glow-xl-tight-hover) !important;
+}
+
+/* Extra Large FRAME - Uses box-shadow like container (perfect match) */
+.halo-xl-frame {
+    box-shadow: var(--container-glow) !important;
+    filter: none !important;
+}
+
+.halo-xl-frame:hover {
+    box-shadow: 
+        0 0 40px rgba(var(--glow-color), 0.7),
+        0 0 70px rgba(var(--glow-color), 0.6),
+        0 0 100px rgba(var(--glow-color), 0.5),
+        0 0 140px rgba(var(--glow-color), 0.4) !important;
 }
 
 /* Images inside wrappers: inherit rounding, no filter */
