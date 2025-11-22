@@ -105,7 +105,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: visible;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .image-wrapper:hover {
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
         }
         .main-image {
             width: auto;
@@ -261,7 +267,7 @@
     </p>
    </div>
    <div class="content-right">
-    <div class="image-wrapper gold-border halo-xl-tight">
+    <div class="image-wrapper">
      <img alt="Product Image" class="main-image" src="assets/images/zeitgard_signature_better.png"/>
     </div>
    </div>
