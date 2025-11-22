@@ -179,10 +179,10 @@
         // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
         const rawUrl = decodeURIComponent(window.location.search.slice(1));
         const RAW_BASE = rawUrl.replace(/slides\/presentation_preview\.html.*/, 'slides/');
-        const PREVIEW = 'https://htmlpreview.github.io/?';
+        const PREVIEW = '';
 
         function srcFor(slideId) {
-            return PREVIEW + RAW_BASE + slideId + '.html';
+            return slideId + '.html';
         }
 
         let currentIndex = 0;
