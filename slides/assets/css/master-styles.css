@@ -1,32 +1,16 @@
 /**
- * LR 40-JAHRE PRÄSENTATION - MASTER STYLESHEET
+ * LR 40-JAHRE PRÄSENTATION - MASTER STYLESHEET FINAL
  * Stand: 22.11.2025
  * 
- * BUSINESS-PRÄSENTATIONS-STANDARDS
- * - Konsistenz über alles
- * - Subtile, professionelle Effekte
- * - Keine ablenkenden Animationen
- * - Fokus auf Inhalt
+ * ALLES MUSS GLEICH SEIN - KEINE AUSNAHMEN
+ * Überschriften, Text, Stichpunkte, Icons - IDENTISCH auf JEDER Folie
  */
 
 /* ========================================
    GLOBALE CSS-VARIABLEN
    ======================================== */
 :root {
-    /* Farben */
-    --color-black: #000000;
-    --color-white: #FFFFFF;
-    --color-gold-dark: #9B7E3C;
-    --color-gold-mid: #C9A961;
-    --color-gold-light: #E9D78E;
-    --color-gold-bright: #F4E4A6;
-    
-    /* Glow-Effekte (einheitlich!) */
-    --glow-slide: 0 0 40px rgba(255, 255, 255, 0.3);
-    --glow-image: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
-    --glow-image-hover: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
-    
-    /* Gold-Gradient (exakt gleich überall) */
+    /* EXAKTER Gold-Gradient (überall gleich) */
     --gradient-gold: linear-gradient(
         135deg, 
         #9B7E3C 0%, 
@@ -39,28 +23,116 @@
         #9B7E3C 100%
     );
     
-    /* Typografie */
-    --font-size-headline: 36px;
-    --font-size-text: 20px;
-    --font-size-icon: 20px;
-    --line-height-text: 1.5;
+    /* Glow-Effekte (einheitlich) */
+    --glow-slide: 0 0 40px rgba(255, 255, 255, 0.3);
+    --glow-image: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    --glow-image-hover: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
     
-    /* Transitions (kurz und professionell) */
-    --transition-fast: 0.3s ease;
+    /* Typografie */
+    --font-headline: 'Bebas Neue', sans-serif;
+    --font-text: 'Poppins', sans-serif;
+    --size-headline: 36px;
+    --size-text: 20px;
+    --weight-headline: 900;
+    --weight-text: 400;
+    --line-headline: 1.2;
+    --line-text: 1.5;
+    
+    /* Farben */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    
+    /* Transitions */
+    --transition: 0.3s ease;
+}
+
+/* ========================================
+   ÜBERSCHRIFTEN - EXAKT GLEICH ÜBERALL
+   ======================================== */
+.headline,
+h1.headline,
+h2.headline,
+h3.headline,
+.headline-text,
+.title,
+h1,
+h2 {
+    font-family: var(--font-headline) !important;
+    font-size: var(--size-headline) !important;
+    font-weight: var(--weight-headline) !important;
+    background: var(--gradient-gold) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: var(--line-headline) !important;
+    margin-bottom: 40px !important;
+    /* KEINE Animation! */
+}
+
+/* ========================================
+   TEXT - EXAKT GLEICH ÜBERALL
+   ======================================== */
+.text,
+p,
+.content-left p,
+.content-right p,
+.description {
+    font-family: var(--font-text) !important;
+    font-size: var(--size-text) !important;
+    font-weight: var(--weight-text) !important;
+    color: var(--color-white) !important;
+    line-height: var(--line-text) !important;
+    margin-bottom: 20px !important;
+}
+
+/* ========================================
+   STICHPUNKTE - EXAKT GLEICH ÜBERALL
+   ======================================== */
+li,
+ul li,
+ol li,
+.text li {
+    font-family: var(--font-text) !important;
+    font-size: var(--size-text) !important;
+    font-weight: var(--weight-text) !important;
+    color: var(--color-white) !important;
+    line-height: var(--line-text) !important;
+    margin-bottom: 15px !important;
+}
+
+/* ========================================
+   ICONS - EXAKT GLEICH ÜBERALL
+   ======================================== */
+.text i,
+li i,
+i.fa,
+i.fas,
+i.far,
+i.fab,
+.fa,
+.fas,
+.far,
+.fab {
+    background: var(--gradient-gold) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin-right: 12px !important;
+    font-size: var(--size-text) !important;
+    filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
 }
 
 /* ========================================
    SLIDE-CONTAINER GLOW
-   Einheitlich auf ALLEN Folien
    ======================================== */
 .slide-container {
     box-shadow: var(--glow-slide) !important;
     border-radius: 8px !important;
+    background: var(--color-black) !important;
 }
 
 /* ========================================
-   STERNENHINTERGRUND
-   Subtil und STATISCH (keine Animation!)
+   STERNENHINTERGRUND (STATISCH)
    ======================================== */
 .slide-container::before {
     content: '';
@@ -83,108 +155,99 @@
         radial-gradient(1px 1px at 25% 45%, white, transparent),
         radial-gradient(1px 1px at 75% 25%, white, transparent);
     background-size: 100% 100%;
-    opacity: 0.3 !important;  /* Subtil, nicht aufdringlich */
+    opacity: 0.3 !important;
     z-index: 1;
     pointer-events: none;
     /* KEINE Animation! */
 }
 
 /* ========================================
-   ÜBERSCHRIFTEN
-   Gold-Gradient OHNE Animation
-   ======================================== */
-.headline {
-    font-size: var(--font-size-headline) !important;
-    background: var(--gradient-gold) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    /* KEINE Animation! Gold-Shimmer ist zu ablenkend */
-}
-
-/* ========================================
    BILD-EFFEKTE
-   Einheitlicher Glow auf ALLEN Bildern
    ======================================== */
 .main-image,
 .circle-image,
-.circle-wrapper img {
+.circle-wrapper img,
+img[class*="image"],
+img[class*="circle"],
+.content-right img,
+.image-container img {
     filter: var(--glow-image) !important;
-    transition: all var(--transition-fast) !important;
+    transition: all var(--transition) !important;
 }
 
-/* Hover-Effekt: Subtil! */
+/* Hover */
 .main-image:hover,
 .circle-image:hover,
-.circle-wrapper:hover img {
-    transform: scale(1.03) !important;  /* Nur 3% größer */
+.circle-wrapper:hover img,
+img[class*="image"]:hover,
+img[class*="circle"]:hover {
+    transform: scale(1.03) !important;
     filter: var(--glow-image-hover) !important;
 }
 
-/* Container-Hover (falls vorhanden) */
-.circle-wrapper {
-    transition: all var(--transition-fast) !important;
+.circle-wrapper,
+.image-container {
+    transition: all var(--transition) !important;
 }
 
-.circle-wrapper:hover {
+.circle-wrapper:hover,
+.image-container:hover {
     transform: scale(1.03) !important;
 }
 
 /* ========================================
-   ICONS
-   Gold-Farbe konsistent
+   CONTAINER-FIXES
    ======================================== */
-.text i,
-i.fa,
-i.fas,
-i.far {
+.content-right,
+.content-left,
+.image-container,
+.circle-wrapper {
+    overflow: visible !important;
+}
+
+/* ========================================
+   KEINE SLIDE TRANSITIONS
+   ======================================== */
+.slide-container {
+    /* Kein Fade-In - sofort sichtbar */
+}
+
+/* ========================================
+   HIGHLIGHT-TEXT (Gold)
+   ======================================== */
+.highlight,
+strong,
+b {
     background: var(--gradient-gold) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-    font-size: var(--font-size-icon) !important;
+    font-weight: 700 !important;
+    filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
 }
 
 /* ========================================
-   SLIDE TRANSITIONS
-   KEINE oder nur sanftes Fade
+   LOGOS (Konsistent)
    ======================================== */
-/* Option 1: Kein Transition (Standard für Business) */
-.slide-container {
-    /* Kein Fade-In - Folie erscheint sofort */
+.lr-logo {
+    position: absolute !important;
+    top: 30px !important;
+    right: 30px !important;
+    height: 80px !important;
+    width: auto !important;
+    opacity: 0.03 !important;
+    z-index: 10 !important;
 }
 
-/* Option 2: Falls gewünscht - NUR sanftes Fade */
-/* Auskommentiert, da "grottenschlecht" */
-/*
-.slide-container {
-    animation: simpleFade 0.3s ease-in-out;
-}
-
-@keyframes simpleFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-*/
-
-/* ========================================
-   TYPOGRAFIE
-   Konsistente Größen und Abstände
-   ======================================== */
-.text {
-    font-size: var(--font-size-text) !important;
-    line-height: var(--line-height-text) !important;
-    margin-bottom: 20px !important;
-}
-
-/* ========================================
-   CONTAINER-FIXES
-   Overflow-Hidden entfernen für Glow
-   ======================================== */
-.content-right,
-.image-container,
-.circle-wrapper {
-    overflow: visible !important;  /* Glow nicht abschneiden */
+.watermark-logo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 500px !important;
+    width: auto !important;
+    opacity: 0.03 !important;
+    z-index: 1 !important;
 }
 
 /* ========================================
@@ -200,7 +263,6 @@ i.far {
 
 /* ========================================
    ACCESSIBILITY
-   Animationen deaktivieren falls gewünscht
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
     * {
@@ -210,40 +272,12 @@ i.far {
 }
 
 /* ========================================
-   WICHTIG: OVERRIDE FÜR INKONSISTENTE STYLES
-   ======================================== */
-
-/* Alle box-shadows vereinheitlichen */
-.slide-container {
-    box-shadow: var(--glow-slide) !important;
-}
-
-/* Alle Bild-Filter vereinheitlichen */
-.main-image,
-.circle-image,
-.circle-wrapper img,
-img[class*="image"],
-img[class*="circle"] {
-    filter: var(--glow-image) !important;
-}
-
-/* Alle Überschriften vereinheitlichen */
-.headline,
-h1.headline,
-h2.headline,
-.headline-text {
-    background: var(--gradient-gold) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
-
-/* ========================================
-   DEBUGGING
-   Uncomment to see which elements are affected
+   DEBUGGING HELPER
+   Uncomment to see applied styles
    ======================================== */
 /*
-.slide-container { outline: 2px solid red !important; }
-.main-image, .circle-image { outline: 2px solid blue !important; }
-.headline { outline: 2px solid green !important; }
+.headline { outline: 2px solid gold !important; }
+.text { outline: 2px solid blue !important; }
+li { outline: 2px solid green !important; }
+i { outline: 2px solid red !important; }
 */
