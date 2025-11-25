@@ -119,7 +119,7 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
-            object-position: center top;
+            object-position: center 30%;
             display: block;
             border-radius: 8px;
             
@@ -299,10 +299,16 @@
             transform: scale(1.14);
             transform-origin: 50% 50%;
         }
-        /* Folie 8 - Scale middle circle (fermentiert) more */
-        .circles-container .circle-item:nth-child(2) .circle-image {
-            transform: scale(1.50);
+        /* Folie 8 - Scale left circle (dermatest) more */
+        .circles-container .circle-item:nth-child(1) .circle-image {
+            transform: scale(1.40);
             transform-origin: 50% 50%;
+        }
+        /* Folie 8 - Scale middle circle (fermentiert) more and shift right */
+        .circles-container .circle-item:nth-child(2) .circle-image {
+            transform: scale(1.70);
+            transform-origin: 50% 50%;
+            object-position: 60% 50%;
         }
   </style>
   <link href="assets/css/effects_white.css" rel="stylesheet"/>
