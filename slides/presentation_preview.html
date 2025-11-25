@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LR Präsentation - Premium Showcase</title>
+    <title>LR Präsentation - Showcase Preview</title>
     <style>
         * {
             margin: 0;
@@ -30,156 +30,166 @@
             height: 720px;
             border: none;
             background: black;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 
-                        0 0 60px rgba(255, 215, 0, 0.5), 
-                        0 0 90px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.3);
             border-radius: 8px;
         }
         .nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(212, 175, 55, 0.9);
+            background: rgba(255, 215, 0, 0.8);
             color: black;
             border: none;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
             z-index: 1000;
-            opacity: 0.7;
-            font-weight: bold;
+            opacity: 0.3;
         }
         .nav-button:hover {
-            background: rgba(212, 175, 55, 1);
-            transform: translateY(-50%) scale(1.15);
+            background: rgba(255, 215, 0, 1);
+            transform: translateY(-50%) scale(1.1);
             opacity: 1;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
         }
         .nav-button:disabled {
             background: rgba(100, 100, 100, 0.3);
             cursor: not-allowed;
             color: #666;
-            opacity: 0.3;
         }
         .nav-button.prev {
-            left: 30px;
+            left: 20px;
         }
         .nav-button.next {
-            right: 30px;
+            right: 20px;
         }
         .slide-counter {
             position: absolute;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(0, 0, 0, 0.85);
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 18px;
-            color: #d4af37;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #ffd700;
             z-index: 1000;
-            border: 2px solid #d4af37;
-            font-weight: bold;
         }
         .fullscreen-btn {
             position: absolute;
-            top: 30px;
-            right: 30px;
-            background: rgba(212, 175, 55, 0.9);
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.8);
             color: black;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
             cursor: pointer;
             z-index: 1000;
-            opacity: 0.7;
+            opacity: 0.3;
             transition: all 0.3s;
-            font-weight: bold;
         }
         .fullscreen-btn:hover {
-            background: rgba(212, 175, 55, 1);
+            background: rgba(255, 215, 0, 1);
             opacity: 1;
-            transform: scale(1.05);
         }
         .info-banner {
             position: absolute;
-            top: 30px;
-            left: 30px;
-            background: rgba(0, 0, 0, 0.85);
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #d4af37;
-            z-index: 1000;
-            border: 2px solid rgba(212, 175, 55, 0.5);
-            font-weight: bold;
-        }
-        .keyboard-hint {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            background: rgba(0, 0, 0, 0.7);
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
             padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #aaa;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #ffd700;
             z-index: 1000;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
-        @media (max-width: 1400px) {
-            iframe {
-                width: 90vw;
-                height: calc(90vw * 9 / 16);
-            }
+        .info-banner.all-slides {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 8px 16px;
+            font-size: 11px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="info-banner">
-            🌟 LR Health & Beauty - Premium Präsentation (58 Bilder)
+        <div class="info-banner all-slides">
+            📊 LR Präsentation - Alle Folien (10 mit Variant C Design)
         </div>
         <button class="nav-button prev" onclick="prevSlide()">◀</button>
         <iframe id="slideFrame" src=""></iframe>
         <button class="nav-button next" onclick="nextSlide()">▶</button>
         <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">58</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">39</span>
         </div>
         <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
-        <div class="keyboard-hint">
-            ⌨️ Tastatur: ← → für Navigation
-        </div>
     </div>
 
     <script>
+        // All slides from presentation.html
+        // Note: Slides 07, 08, 11, 14, 17, 28, 31, 35, 37, 39 have Variant C design applied
         const slides = [
-            'folie_02', 'folie_03', 'folie_04a', 'folie_04b', 'folie_06',
-            'folie_07a', 'folie_07b', 'folie_07c', 'folie_07d',
-            'folie_08a', 'folie_08b', 'folie_08c',
-            'folie_11', 'folie_12',
-            'folie_14a', 'folie_14b', 'folie_14c',
-            'folie_15a', 'folie_15b', 'folie_15c',
-            'folie_16a', 'folie_16b', 'folie_16c', 'folie_16d', 'folie_16e', 'folie_16f', 'folie_16g', 'folie_16h',
-            'folie_17a', 'folie_17b', 'folie_17c', 'folie_17d', 'folie_17e', 'folie_17f', 'folie_17g', 'folie_17h', 'folie_17i',
-            'folie_18',
-            'folie_21', 'folie_22', 'folie_23', 'folie_24', 'folie_25', 'folie_26', 'folie_27',
-            'folie_28a', 'folie_28b', 'folie_28c', 'folie_28d', 'folie_28e', 'folie_28f',
-            'folie_29', 'folie_30', 'folie_31', 'folie_32', 'folie_33', 'folie_34',
-            'folie_37a', 'folie_37b',
-            'folie_39', 'folie_41', 'folie_43'
+            'folie_01',
+            'folie_02',
+            'folie_03',
+            'folie_04',
+            'folie_06',
+            'folie_07',
+            'folie_08',
+            'folie_09',
+            'folie_10',
+            'folie_11',
+            'folie_13',
+            'folie_12',
+            'folie_14',
+            'folie_17',
+            'folie_19b',
+            'folie_19',
+            'folie_16b',
+            'folie_20',
+            'folie_21',
+            'folie_22',
+            'folie_23',
+            'folie_24',
+            'folie_25',
+            'folie_26',
+            'folie_27',
+            'folie_28',
+            'folie_28a',
+            'folie_29',
+            'folie_30',
+            'folie_31',
+            'folie_32',
+            'folie_33',
+            'folie_34',
+            'folie_35',
+            'folie_36',
+            'folie_37',
+            'folie_39',
+            'folie_41',
+            'folie_42'
         ];
+
+        // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
+        const rawUrl = decodeURIComponent(window.location.search.slice(1));
+        const RAW_BASE = rawUrl.replace(/slides\/presentation_preview\.html.*/, 'slides/');
+        const PREVIEW = 'https://htmlpreview.github.io/?';
+
+        function srcFor(slideId) {
+            return PREVIEW + RAW_BASE + slideId + '.html';
+        }
 
         let currentIndex = 0;
 
         function loadSlide(index) {
             const slideId = slides[index];
-            document.getElementById('slideFrame').src = slideId + '.html';
+            document.getElementById('slideFrame').src = srcFor(slideId);
             document.getElementById('currentSlide').textContent = index + 1;
             document.getElementById('totalSlides').textContent = slides.length;
             window.location.hash = slideId;
@@ -191,16 +201,16 @@
             document.querySelector('.next').disabled = currentIndex === slides.length - 1;
         }
 
-        function nextSlide() {
-            if (currentIndex < slides.length - 1) {
-                currentIndex++;
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
                 loadSlide(currentIndex);
             }
         }
 
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
                 loadSlide(currentIndex);
             }
         }
@@ -215,28 +225,18 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'Home') {
-                currentIndex = 0;
-                loadSlide(currentIndex);
-            }
-            if (e.key === 'End') {
-                currentIndex = slides.length - 1;
-                loadSlide(currentIndex);
-            }
+            if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'f' || e.key === 'F') toggleFullscreen();
         });
 
-        // Initialize on hash or start
-        window.onload = () => {
-            const hash = window.location.hash.substring(1);
-            const hashIndex = slides.indexOf(hash);
-            if (hashIndex >= 0) {
-                currentIndex = hashIndex;
-            }
-            loadSlide(currentIndex);
-        };
+        // Load first slide or slide from hash
+        const hash = window.location.hash.substring(1);
+        const hashIndex = slides.indexOf(hash);
+        if (hashIndex !== -1) {
+            currentIndex = hashIndex;
+        }
+        loadSlide(currentIndex);
     </script>
 </body>
 </html>
