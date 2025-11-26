@@ -84,8 +84,11 @@
             object-fit: contain;
             object-position: center center;
             display: block;
-        
             border-radius: 8px;
+        }
+        /* Top-left image: shift up to show full price */
+        .car-frame:first-child .car-image {
+            object-position: center top;
         }
             .particle {
             position: absolute;
