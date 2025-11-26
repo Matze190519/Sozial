@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REKORD 2024</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   REKORD 2024
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
@@ -105,46 +107,128 @@
         }
     
 
-</style>
-        <link rel="stylesheet" href="assets/css/effects_white.css">
-</head>
-<body>
-    <div class="slide-container">
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
 
-        <img src="assets/images/lr_40_jahre_logo_transparent.png?v1761221100" alt="LR 40 Jahre" class="lr-logo">
-        <img src="assets/images/team_logo.png?v1761221100" alt="Watermark" class="watermark-logo">
-        
-        <div class="content-left">
-            <h1 class="headline">REKORD 2024: DEIN KARRIERE-BOOST – JETZT STARTEN!</h1>
-            <p class="text"><i class="fas fa-trophy"></i><span class="highlight">Erfolgreichsten Monate</span> seit 40 Jahren!</p>
-            <p class="text"><i class="fas fa-users"></i>Über <span class="highlight">18.000 neue Karrieren</span> in 2024</p>
-            <p class="text"><i class="fas fa-user-tie"></i><span class="highlight">10.635 neue Junior Manager</span></p>
-            <p class="text"><i class="fas fa-rocket"></i>Der beste Zeitpunkt ist <span class="highlight">JETZT</span></p>
-        </div>
-        
-        <div class="content-right">
-            <div class="image-wrapper gold-border">
-                <img src="assets/images/karriereleiter_2024.png?v1761221100" alt="Rekord 2024" class="main-image">
-            </div>
-        </div>
+        /* CORRECT UNIFIED STYLING - Headlines larger + gold, Bullets smaller + white */
+        .headline, h1 {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            line-height: 1.3 !important;
+            text-shadow: 0 0 12px rgba(233, 215, 142, 0.4) !important;
+        }
+        .text, .fact-text, .benefit-text, li {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: #FFFFFF !important;
+            line-height: 1.5 !important;
+        }
+        .text i, .fact-text i {
+            color: #FFFFFF !important;
+            margin-right: 12px !important;
+            font-size: 20px !important;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
+            font-weight: 700 !important;
+        }
+  </style>
+  <link href="assets/css/effects_white.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="slide-container">
+   <div class="particles">
+    <div class="particle">
     </div>
-</body>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+   </div>
+   <img alt="LR 40 Jahre" class="lr-logo" src="assets/images/lr_40_jahre_logo_transparent.png?v1761221100"/>
+   <img alt="Watermark" class="watermark-logo" src="assets/images/team_logo.png?v1761221100"/>
+   <div class="content-left">
+    <h1 class="headline">
+     REKORD 2024: DEIN KARRIERE-BOOST – JETZT STARTEN!
+    </h1>
+    <p class="text">
+     <i class="fas fa-trophy">
+     </i>
+     <span class="highlight">
+      Erfolgreichsten Monate
+     </span>
+     seit 40 Jahren!
+    </p>
+    <p class="text">
+     <i class="fas fa-users">
+     </i>
+     Über
+     <span class="highlight">
+      18.000 neue Karrieren
+     </span>
+     in 2024
+    </p>
+    <p class="text">
+     <i class="fas fa-user-tie">
+     </i>
+     <span class="highlight">
+      10.635 neue Junior Manager
+     </span>
+    </p>
+    <p class="text">
+     <i class="fas fa-rocket">
+     </i>
+     Der beste Zeitpunkt ist
+     <span class="highlight">
+      JETZT
+     </span>
+    </p>
+    <p class="text">
+     <i class="fas fa-rocket">
+     </i>
+     <span class="highlight">
+      Jetzt durchstarten
+     </span>
+     und vom Rekordwachstum profitieren
+    </p>
+   </div>
+   <div class="content-right">
+    <div class="image-wrapper gold-border halo-xl-tight">
+     <img alt="Rekord 2024" class="main-image" src="assets/images/karriereleiter_chart_new.png"/>
+    </div>
+   </div>
+  </div>
+ </body>
 </html>
-

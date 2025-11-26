@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUBILÄUMSANGEBOTE - AUDI Q8 HYBRID</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -69,19 +70,27 @@
             color: #FFFFFF;
             font-size: 20px;
             margin-bottom: 20px;
-            padding-left: 35px;
-            position: relative;
+            
+            
             line-height: 1.4;
         }
-        .feature-item::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-item i {
             background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 18px;
+            font-size: 20px;
+            margin-right: 8px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        /* Override effects_white.css padding for this slide */
+        .feature-list .feature-item {
+            padding-left: 0;
         }
         .highlight {
             background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
@@ -119,7 +128,41 @@
         }
     
 
-</style>
+
+        /* CORRECT UNIFIED STYLING - Headlines larger + gold, Bullets smaller + white */
+        .headline, h1 {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            line-height: 1.3 !important;
+            text-shadow: 0 0 12px rgba(233, 215, 142, 0.4) !important;
+        }
+        .text, .fact-text, .benefit-text, li {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: #FFFFFF !important;
+            line-height: 1.5 !important;
+        }
+        .text i, .fact-text i {
+            color: #FFFFFF !important;
+            margin-right: 12px !important;
+            font-size: 20px !important;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
+            font-weight: 700 !important;
+        }
+
+    </style>
         <link rel="stylesheet" href="assets/css/effects_white.css">
 </head>
 <body>
@@ -147,15 +190,16 @@
         <div class="left-section">
             <h1 class="headline">UNSCHLAGBARE JUBILÄUMSANGEBOTE</h1>
             <ul class="feature-list">
-                <li class="feature-item"><span class="highlight">Audi Q8 Hybrid:</span> Luxus-SUV mit Plug-in-Hybrid-Technologie</li>
-                <li class="feature-item"><span class="highlight">Nur 349€ monatlich:</span> Unschlagbares Jubiläumsangebot</li>
-                <li class="feature-item"><span class="highlight">LR Autokonzept:</span> Neuwagen bis zu 80% günstiger</li>
-                <li class="feature-item"><span class="highlight">OHNE Anzahlung:</span> Sofort losfahren</li>
+                <li class="feature-item"><i class="fas fa-car"></i><span class="highlight">Audi Q8 Hybrid:</span>&nbsp;Luxus-SUV mit Plug-in-Hybrid</li>
+                <li class="feature-item"><i class="fas fa-euro-sign"></i><span class="highlight">Nur 349€ monatlich:</span>&nbsp;Jubiläumsangebot</li>
+                <li class="feature-item"><i class="fas fa-percent"></i><span class="highlight">LR Autokonzept:</span>&nbsp;Neuwagen bis 80% günstiger</li>
+                <li class="feature-item"><i class="fas fa-check-circle"></i><span class="highlight">OHNE Anzahlung:</span>&nbsp;Sofort losfahren</li>
+                <li class="feature-item"><i class="fas fa-star"></i><span class="highlight">40 Jahre LR:</span>&nbsp;Exklusive Jubiläumskonditionen</li>
             </ul>
         </div>
         
         <div class="right-section">
-                <div class="image-container gold-border">
+                <div class="image-container gold-border halo-xl-tight">
                 <img src="assets/images/jubilaeums_audi_q8_hybrid.png" alt="Audi Q8 Hybrid - 349€" class="main-image">
             </div>
         </div>

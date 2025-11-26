@@ -179,11 +179,45 @@
                 transform: scale(1.5); 
             }
         }
+    
+        /* CORRECT UNIFIED STYLING - Headlines larger + gold, Bullets smaller + white */
+        .headline, h1 {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            line-height: 1.3 !important;
+            text-shadow: 0 0 12px rgba(233, 215, 142, 0.4) !important;
+        }
+        .text, .fact-text, .benefit-text, li {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: #FFFFFF !important;
+            line-height: 1.5 !important;
+        }
+        .text i, .fact-text i {
+            color: #FFFFFF !important;
+            margin-right: 12px !important;
+            font-size: 20px !important;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
+            font-weight: 700 !important;
+        }
+
     </style>
     <link rel="stylesheet" href="assets/css/effects_white.css">
 </head>
 <body>
-    <div class="slide-container">
+    <div class="slide-container has-shimmer has-particles spotlight">
         <div class="particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -214,19 +248,19 @@
         
         <div class="content-grid">
             <div class="image-section">
-                <div class="image-container model-container">
+                <div class="image-container model-container halo-xl-tight">
                     <img src="assets/images/mood_infusion_women.png" alt="Women" class="model-image">
                 </div>
-                <div class="image-container parfums-container">
+                <div class="image-container parfums-container halo-xl-tight">
                     <img src="assets/images/mood_infusion_women_parfums.png" alt="11 Parfums für Sie" class="parfums-image">
                 </div>
             </div>
             
             <div class="image-section">
-                <div class="image-container model-container">
+                <div class="image-container model-container halo-xl-tight">
                     <img src="assets/images/mood_infusion_men.png" alt="Men" class="model-image">
                 </div>
-                <div class="image-container parfums-container">
+                <div class="image-container parfums-container halo-xl-tight">
                     <img src="assets/images/mood_infusion_men_parfums.png" alt="7 Parfums für Ihn" class="parfums-image">
                 </div>
             </div>
