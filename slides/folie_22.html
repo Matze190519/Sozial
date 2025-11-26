@@ -100,24 +100,27 @@
         }
         .image-container {
             width: 100%;
-            overflow: visible !important;
+            height: 420px;
+            background: #000;
+            border-radius: 12px !important;
+            overflow: hidden !important;
         }
-        /* Disable glow on wrapper for this slide - move it to image instead */
+        /* Use box-shadow instead of filter so glow respects border-radius */
         .image-container.gold-border.halo-xl-tight {
             filter: none !important;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                        0 0 60px rgba(255, 255, 255, 0.5),
+                        0 0 90px rgba(255, 255, 255, 0.4),
+                        0 0 120px rgba(255, 255, 255, 0.3) !important;
         }
         .main-image {
             width: 100%;
-            height: auto;
-            max-height: 420px;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
             object-position: 50% 50%;
             display: block;
-            margin: 0 auto;
-            /* Apply rounded corners AND glow to the image itself */
-            border-radius: 12px !important;
-            clip-path: inset(0 round 12px);
-            filter: var(--image-glow-xl-tight) !important;
+            border-radius: inherit;
+            filter: none !important;
         }
         .placeholder {
             width: 500px;
