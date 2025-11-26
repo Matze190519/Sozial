@@ -173,9 +173,10 @@
         .cars-container .car-frame .car-image {
             border-radius: 10px !important;
         }
-        /* Move only the image in the top-left frame slightly up */
+        /* Top-left image: adjust vertical position to show full price */
         .cars-container .car-frame:nth-child(1) .car-image {
-            transform: translateY(-6px);
+            object-fit: cover;
+            object-position: center 55%;
         }
 
     </style>
