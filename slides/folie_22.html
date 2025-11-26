@@ -99,11 +99,14 @@
             justify-content: center;
         }
         .image-container {
-            width: 100%;
+            width: 80%;
+            margin: 0 auto;
             height: auto;
             background: #000;
             border-radius: 12px !important;
             overflow: hidden !important;
+            transition: transform var(--elevate-duration) var(--elevate-timing),
+                        box-shadow var(--elevate-duration) var(--elevate-timing);
         }
         /* Use box-shadow instead of filter so glow respects border-radius */
         .image-container.gold-border.halo-xl-tight {
@@ -112,6 +115,13 @@
                         0 0 60px rgba(255, 255, 255, 0.5),
                         0 0 90px rgba(255, 255, 255, 0.4),
                         0 0 120px rgba(255, 255, 255, 0.3) !important;
+        }
+        .image-container.gold-border.halo-xl-tight:hover {
+            transform: scale(var(--elevate-scale));
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.7),
+                        0 0 70px rgba(255, 255, 255, 0.6),
+                        0 0 100px rgba(255, 255, 255, 0.5),
+                        0 0 140px rgba(255, 255, 255, 0.4) !important;
         }
         .main-image {
             width: 100%;
