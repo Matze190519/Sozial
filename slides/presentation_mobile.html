@@ -32,6 +32,9 @@
             height: 56.25vw; /* 16:9 aspect ratio */
             max-width: 1280px;
             max-height: 720px;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) 1;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
         iframe {
             position: absolute;
@@ -50,37 +53,7 @@
             pointer-events: auto;
         }
         .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 215, 0, 0.9);
-            color: black;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0.7;
-        }
-        .nav-button:active {
-            background: rgba(255, 215, 0, 1);
-            transform: translateY(-50%) scale(0.95);
-            opacity: 1;
-        }
-        .nav-button:disabled {
-            background: rgba(100, 100, 100, 0.3);
-            color: #666;
-        }
-        .nav-button.prev {
-            left: 10px;
-        }
-        .nav-button.next {
-            right: 10px;
+            display: none; /* Buttons ausgeblendet - Navigation nur per Swipe */
         }
         .slide-counter {
             position: absolute;
@@ -158,20 +131,7 @@
             transform: scale(0.98);
         }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .nav-button {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-            .nav-button.prev {
-                left: 5px;
-            }
-            .nav-button.next {
-                right: 5px;
-            }
-        }
+        /* Mobile responsive - keine speziellen Anpassungen nötig */
     </style>
 </head>
 <body>
