@@ -174,8 +174,18 @@
 
         // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
         const rawUrl = decodeURIComponent(window.location.search.slice(1));
-        const RAW_BASE = rawUrl.replace(/slides\/presentation_recording\.html.*/, 'slides/');
-        const PREVIEW = 'https://htmlpreview.github.io/?';
+        let RAW_BASE = '';
+        let PREVIEW = '';
+
+        if (rawUrl && rawUrl.includes('raw.githubusercontent.com')) {
+            // Online mode: opened via htmlpreview
+            RAW_BASE = rawUrl.replace(/slides\/presentation_recording\.html.*/, 'slides/');
+            PREVIEW = 'https://htmlpreview.github.io/?';
+        } else {
+            // Local mode: opened directly from disk
+            RAW_BASE = '';
+            PREVIEW = '';
+        }
 
         function srcFor(slideId) {
             return PREVIEW + RAW_BASE + slideId + '.html';
