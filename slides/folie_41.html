@@ -196,6 +196,29 @@
             <div class="phone">+49 171 5060008</div>
         </div>
     </div>
+    
+    <script>
+        // Personalisierung via URL-Parameter
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const phone = params.get('phone');
+        const photo = params.get('photo');
+        
+        if (name) {
+            const nameEl = document.querySelector('.name');
+            if (nameEl) nameEl.textContent = name.toUpperCase();
+        }
+        
+        if (phone) {
+            const phoneEl = document.querySelector('.phone');
+            if (phoneEl) phoneEl.textContent = phone;
+        }
+        
+        if (photo) {
+            const photoEl = document.querySelector('.photo-image');
+            if (photoEl) photoEl.src = decodeURIComponent(photo);
+        }
+    </script>
 </body>
 </html>
 

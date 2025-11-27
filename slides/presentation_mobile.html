@@ -250,8 +250,16 @@
             PREVIEW = '';
         }
 
+        // Personalisierungs-Parameter extrahieren (name, phone, photo)
+        const urlParams = new URLSearchParams(window.location.search);
+        const personParams = new URLSearchParams();
+        if (urlParams.get('name')) personParams.set('name', urlParams.get('name'));
+        if (urlParams.get('phone')) personParams.set('phone', urlParams.get('phone'));
+        if (urlParams.get('photo')) personParams.set('photo', urlParams.get('photo'));
+        const personQuery = personParams.toString() ? '?' + personParams.toString() : '';
+
         function srcFor(slideId) {
-            return PREVIEW + RAW_BASE + slideId + '.html';
+            return PREVIEW + RAW_BASE + slideId + '.html' + personQuery;
         }
 
         let currentIndex = 0;
