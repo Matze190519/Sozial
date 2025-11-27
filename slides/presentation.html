@@ -23,50 +23,18 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 1) 60%);
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 1) 60%);
         }
         iframe {
             width: 1280px;
             height: 720px;
             border: none;
             background: black;
-            box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), 0 0 150px rgba(212, 175, 55, 0.5), 0 0 250px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 80px rgba(255, 255, 255, 0.6), 0 0 150px rgba(255, 255, 255, 0.4), 0 0 250px rgba(255, 255, 255, 0.2);
             border-radius: 8px;
         }
         .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 215, 0, 0.8);
-            color: black;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 1000;
-            opacity: 0.3;
-        }
-        .nav-button:hover {
-            background: rgba(255, 215, 0, 1);
-            transform: translateY(-50%) scale(1.1);
-            opacity: 1;
-        }
-        .nav-button:disabled {
-            background: rgba(100, 100, 100, 0.3);
-            cursor: not-allowed;
-            color: #666;
-        }
-        .nav-button.prev {
-            left: 20px;
-        }
-        .nav-button.next {
-            right: 20px;
+            display: none; /* Buttons ausgeblendet */
         }
         .slide-counter {
             position: absolute;
@@ -83,19 +51,19 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 215, 0, 0.8);
-            color: black;
-            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 14px;
             cursor: pointer;
             z-index: 1000;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: all 0.3s;
         }
         .fullscreen-btn:hover {
-            background: rgba(255, 215, 0, 1);
+            background: rgba(255, 255, 255, 0.4);
             opacity: 1;
         }
     </style>
