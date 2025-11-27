@@ -237,8 +237,18 @@
         ];
 
         const rawUrl = decodeURIComponent(window.location.search.slice(1));
-        const RAW_BASE = rawUrl.replace(/slides\/presentation_mobile\.html.*/, 'slides/');
-        const PREVIEW = 'https://htmlpreview.github.io/?';
+        let RAW_BASE = '';
+        let PREVIEW = '';
+
+        if (rawUrl && rawUrl.includes('raw.githubusercontent.com')) {
+            // Online mode via htmlpreview
+            RAW_BASE = rawUrl.replace(/slides\/presentation_mobile\.html.*/, 'slides/');
+            PREVIEW = 'https://htmlpreview.github.io/?';
+        } else {
+            // Direct hosting (frontend deploy, local, etc.)
+            RAW_BASE = '';
+            PREVIEW = '';
+        }
 
         function srcFor(slideId) {
             return PREVIEW + RAW_BASE + slideId + '.html';
