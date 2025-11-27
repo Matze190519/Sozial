@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Folie 08 - Aloe Vera 77 Mio. Liter
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            align-items: center;
+        }
+        
+        /* LINKE SPALTE */
+        .content-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .headline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #8B6E2C 0%, #B99951 20%, #D9C77E 40%, #D9C77E 60%, #B99951 80%, #8B6E2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .facts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .fact-icon {
+            font-size: 24px;
+            margin-top: 5px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #8B6E2C 0%, #D9C77E 50%, #8B6E2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .fact-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0;
+            color: #ffffff;
+        }
+        
+        .highlight {
+            color: #D9C77E;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5));
+            font-weight: bold;
+        }
+        
+        /* RECHTE SPALTE */
+        .content-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+            padding-top: 60px;
+        }
+        
+        /* HAUPTBILD MIT STERNEN */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-height: 250px;
+            border-radius: 8px;
+            overflow: visible;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center 45%;
+            display: block;
+            border-radius: 8px;
+            
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
+        }
+        
+        .main-image:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 80px rgba(255, 255, 255, 0.7));
+        }
+
+        
+        /* STERNE */
+        .star {
+            position: absolute;
+            color: white;
+            font-size: 24px;
+            z-index: 10;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+        }
+        
+        .star-top-left {
+            top: -10px;
+            left: -10px;
+        }
+        
+        .star-top-right {
+            top: -10px;
+            right: -10px;
+        }
+        
+        .star-bottom-left {
+            bottom: -10px;
+            left: -10px;
+        }
+        
+        .star-bottom-right {
+            bottom: -10px;
+            right: -10px;
+        }
+        
+        /* KREISBILDER */
+        .circles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .circle-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .circle-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* White glow and hover effects come from effects_white.css */
+        }
+        
+        .circle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .circle-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.3;
+            color: #D9C77E;
+        }
+        
+        /* LOGO OBEN RECHTS */
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 80px;
+            height: auto;
+            opacity: 0.03;
+        }
+        
+            .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 6px rgba(255, 255, 255, 0.4);
+            animation: twinkle 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 0.3s; }
+        .particle:nth-child(3) { left: 50%; top: 10%; animation-delay: 0.6s; }
+        .particle:nth-child(4) { left: 70%; top: 60%; animation-delay: 0.9s; }
+        .particle:nth-child(5) { left: 90%; top: 30%; animation-delay: 1.2s; }
+        .particle:nth-child(6) { left: 15%; top: 70%; animation-delay: 1.5s; }
+        .particle:nth-child(7) { left: 45%; top: 80%; animation-delay: 1.8s; }
+        .particle:nth-child(8) { left: 65%; top: 50%; animation-delay: 2.1s; }
+        .particle:nth-child(9) { left: 85%; top: 15%; animation-delay: 2.4s; }
+        .particle:nth-child(10) { left: 25%; top: 90%; animation-delay: 2.7s; }
+        .particle:nth-child(11) { left: 20%; top: 25%; animation-delay: 0.5s; }
+        .particle:nth-child(12) { left: 40%; top: 45%; animation-delay: 1.0s; }
+        .particle:nth-child(13) { left: 60%; top: 15%; animation-delay: 1.4s; }
+        .particle:nth-child(14) { left: 80%; top: 65%; animation-delay: 1.9s; }
+        .particle:nth-child(15) { left: 95%; top: 35%; animation-delay: 2.3s; }
+        
+        
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+    
+
+
+    
+
+        /* CORRECT UNIFIED STYLING - Headlines larger + gold, Bullets smaller + white */
+        .headline, h1 {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            line-height: 1.3 !important;
+            text-shadow: 0 0 12px rgba(233, 215, 142, 0.4) !important;
+        }
+        .text, .fact-text, .benefit-text, li {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
+            color: #FFFFFF !important;
+            line-height: 1.5 !important;
+        }
+        .text i, .fact-text i {
+            color: #FFFFFF !important;
+            margin-right: 12px !important;
+            font-size: 20px !important;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            filter: drop-shadow(0 0 8px rgba(217, 199, 126, 0.5)) !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Folie 8 - Scale ALL circle images to fill frames properly */
+        .circles-container .circle-item .circle-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.36);
+            transform-origin: 50% 50%;
+        }
+        /* Folie 8 - Shift middle circle right so text is readable */
+        .circles-container .circle-item:nth-child(2) .circle-image {
+            object-position: 62% 50%;
+        }
+  </style>
+  <link href="assets/css/effects_white.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="slide-container">
+   <div class="particles">
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+    <div class="particle">
+    </div>
+   </div>
+   <!-- LOGO (fast unsichtbar) -->
+   <img alt="LR 40 Jahre" class="lr-logo" src="assets/images/lr_40_jahre_logo_transparent.png"/>
+   <img alt="Watermark" class="watermark-logo" src="assets/images/team_logo.png"/>
+   <!-- LINKE SPALTE: TEXT -->
+   <div class="content-left">
+        <h1 class="headline">
+         ALOE VERA – MARKTFÜHRER & INNOVATION
+        </h1>
+        <div class="facts-container">
+         <div class="fact-item">
+          <i class="fas fa-crown fact-icon">
+          </i>
+          <p class="fact-text">
+           <span class="highlight">
+            20 Jahre Aloe Vera-Experte
+           </span>
+           und Marktführer
+          </p>
+         </div>
+         <div class="fact-item">
+          <i class="fas fa-certificate fact-icon">
+          </i>
+          <p class="fact-text">
+           <span class="highlight">
+            Höchste Qualität
+           </span>
+           bestätigt durch SGS INSTITUT FRESENIUS und IASC
+          </p>
+         </div>
+         <div class="fact-item">
+          <i class="fas fa-flask fact-icon">
+          </i>
+          <p class="fact-text">
+           <span class="highlight">
+            Innovative Fermentation
+           </span>
+           (Magic Power Duo)
+          </p>
+         </div>
+         <div class="fact-item">
+          <i class="fas fa-tint fact-icon">
+          </i>
+          <p class="fact-text">
+           <span class="highlight">
+            77 Millionen Liter
+           </span>
+           Aloe Vera produziert
+          </p>
+         </div>
+         <div class="fact-item">
+          <i class="fas fa-leaf fact-icon">
+          </i>
+          <p class="fact-text">
+           <span class="highlight">
+            Wirkt wie ein natürliches Anti-Aging
+           </span>
+          </p>
+         </div>
+        </div>
+   </div>
+   <!-- RECHTE SPALTE: BILDER -->
+   <div class="content-right">
+    <!-- HAUPTBILD MIT STERNEN -->
+    <div class="image-wrapper gold-border halo-xl-tight">
+     <img alt="Aloe Vera 77 Mio. Topseller" class="main-image" src="assets/images/aloe_vera_77mio_topseller.png"/>
+    </div>
+    <!-- 3 KREISBILDER MIT STERNEN -->
+    <div class="circles-container">
+     <!-- KREIS 1: DERMATEST -->
+     <div class="circle-item">
+      <div class="circle-wrapper gold-border-circle circle-badge halo-xl-tight">
+       <img alt="Dermatest" class="circle-image" src="assets/images/dermatest_black.png"/>
+      </div>
+      <div class="circle-label glass-chip">
+       DERMATEST
+       <br/>
+       ZERTIFIZIERT
+      </div>
+     </div>
+          <!-- KREIS 2: IASC -->
+          <div class="circle-item">
+           <div class="circle-wrapper gold-border-circle circle-badge halo-xl-tight">
+            <img alt="IASC" class="circle-image" src="assets/images/iasc_black.png"/>
+           </div>
+           <div class="circle-label glass-chip">
+            IASC
+            <br/>
+            ZERTIFIKAT
+           </div>
+          </div>
+          <!-- KREIS 3: FERMENTIERT -->
+          <div class="circle-item">
+           <div class="circle-wrapper gold-border-circle circle-badge halo-xl-tight">
+            <img alt="Aloe Fermented Power" class="circle-image" src="assets/images/aloe_fermented_power.png"/>
+           </div>
+           <div class="circle-label glass-chip">
+            FERMENTIERT
+            <br/>
+            POWER
+           </div>
+          </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

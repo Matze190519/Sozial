@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Präsentation - Showcase Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #000;
+        }
+        iframe {
+            width: 1280px;
+            height: 720px;
+            border: none;
+            background: black;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+        .nav-button:hover {
+            background: rgba(255, 215, 0, 1);
+            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+        }
+        .nav-button:disabled {
+            background: rgba(100, 100, 100, 0.3);
+            cursor: not-allowed;
+            color: #666;
+        }
+        .nav-button.prev {
+            left: 20px;
+        }
+        .nav-button.next {
+            right: 20px;
+        }
+        .slide-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #ffd700;
+            z-index: 1000;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.8);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background: rgba(255, 215, 0, 1);
+            opacity: 1;
+        }
+        .info-banner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #ffd700;
+            z-index: 1000;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        .info-banner.all-slides {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 8px 16px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <button class="nav-button prev" onclick="prevSlide()">◀</button>
+        <iframe id="slideFrame" src=""></iframe>
+        <button class="nav-button next" onclick="nextSlide()">▶</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">39</span>
+        </div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
+    </div>
+
+    <script>
+        // All slides from presentation.html
+        // Note: Slides 07, 08, 11, 14, 17, 28, 31, 35, 37, 39 have Variant C design applied
+        const slides = [
+            'folie_01',
+            'folie_02',
+            'folie_03',
+            'folie_04',
+            'folie_06',
+            'folie_07',
+            'folie_08',
+            'folie_09',
+            'folie_10',
+            'folie_11',
+            'folie_13',
+            'folie_12',
+            'folie_14',
+            'folie_20',
+            'folie_17',
+            'folie_19b',
+            'folie_19',
+            'folie_21',
+            'folie_22',
+            'folie_23',
+            'folie_24',
+            'folie_25',
+            'folie_26',
+            'folie_27',
+            'folie_28',
+            'folie_28a',
+            'folie_29',
+            'folie_30',
+            'folie_31',
+            'folie_32',
+            'folie_33',
+            'folie_34',
+            'folie_35',
+            'folie_36',
+            'folie_37',
+            'folie_39',
+            'folie_41',
+            'folie_42'
+        ];
+
+        // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
+        const rawUrl = decodeURIComponent(window.location.search.slice(1));
+        let RAW_BASE = '';
+        let PREVIEW = '';
+
+        if (rawUrl && rawUrl.includes('raw.githubusercontent.com')) {
+            // Online mode: opened via htmlpreview
+            RAW_BASE = rawUrl.replace(/slides\/presentation_recording\.html.*/, 'slides/');
+            PREVIEW = 'https://htmlpreview.github.io/?';
+        } else {
+            // Local mode: opened directly from disk
+            RAW_BASE = '';
+            PREVIEW = '';
+        }
+
+        function srcFor(slideId) {
+            return PREVIEW + RAW_BASE + slideId + '.html';
+        }
+
+        let currentIndex = 0;
+
+        function loadSlide(index) {
+            const slideId = slides[index];
+            document.getElementById('slideFrame').src = srcFor(slideId);
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('totalSlides').textContent = slides.length;
+            window.location.hash = slideId;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.querySelector('.prev').disabled = currentIndex === 0;
+            document.querySelector('.next').disabled = currentIndex === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                loadSlide(currentIndex);
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+        });
+
+        // Load first slide or slide from hash
+        const hash = window.location.hash.substring(1);
+        const hashIndex = slides.indexOf(hash);
+        if (hashIndex !== -1) {
+            currentIndex = hashIndex;
+        }
+        loadSlide(currentIndex);
+    </script>
+</body>
+</html>

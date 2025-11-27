@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAS KANN LR FÜR DICH BEDEUTEN?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #000000;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 80px 60px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .lr-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 80px;
+            width: auto;
+            z-index: 10;
+        }
+        .watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            opacity: 0.08;
+            z-index: 1;
+        }
+        .content-left {
+            position: relative;
+            z-index: 5;
+        }
+        .headline {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        .content-right {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container {
+            width: 100%;
+            border: 6px solid transparent;
+            background-image: linear-gradient(#000, #000), linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .main-image {
+            width: 100%;
+            height: 580px;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <img src="assets/images/lr_40_jahre_logo_transparent.png" alt="LR 40 Jahre" class="lr-logo">
+        <img src="assets/images/team_logo.png" alt="Watermark" class="watermark-logo">
+        
+        <div class="content-left">
+            <h1 class="headline">WAS KANN LR FÜR DICH BEDEUTEN?</h1>
+            <div class="benefits-grid">
+                <div class="benefit-item">Gesundheit</div>
+                <div class="benefit-item">Unabhängigkeit</div>
+                <div class="benefit-item">Freiheit</div>
+                <div class="benefit-item">Reichtum</div>
+                <div class="benefit-item">Passives Einkommen</div>
+                <div class="benefit-item">Spaß</div>
+                <div class="benefit-item">Sicherheit</div>
+                <div class="benefit-item">Status</div>
+                <div class="benefit-item">Work/Life-Balance</div>
+                <div class="benefit-item">Unternehmergeist</div>
+                <div class="benefit-item">Soziale Anerkennung</div>
+            </div>
+        </div>
+        
+        <div class="content-right">
+            <div class="image-container">
+                <img src="assets/images/827e4b4b-d557-4b1b-ab42-6349c8dfa514.png" alt="Freiheit" class="main-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

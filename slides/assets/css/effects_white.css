@@ -1,0 +1,804 @@
+/* ============================================
+   WHITE GLOW EFFECTS - Premium CSS Design 2025
+   Layout-critical rules preserved, gold replaced with white
+   CSS Custom Properties for consistent, elegant effects
+   ============================================ */
+
+/* === CSS TOKENS (Design System) === */
+/* Multi-source research: CSS-Tricks, Smashing, Codrops, Awwwards, Material/Fluent/Apple HIG */
+:root {
+    /* Glow Colors */
+    --glow-color: 255, 255, 255;
+    --glow-rgb: rgb(255, 255, 255);
+    
+    /* Container Glow (4-layer box-shadow - SUPER BRIGHT per documentation) */
+    /* UPDATED: Per technical documentation - super helles weißes Glow */
+    --container-glow: 
+        0 0 30px rgba(var(--glow-color), 0.6),
+        0 0 60px rgba(var(--glow-color), 0.5),
+        0 0 90px rgba(var(--glow-color), 0.4),
+        0 0 120px rgba(var(--glow-color), 0.3);
+    
+    /* Image Glow - S/M/L Intensity Presets (Near+Far Dual-Component) */
+    /* Research consensus: Tight rim (high alpha) + Soft bloom (low alpha) = FLOATING */
+    
+    /* S (Small) - Dense grids, minimal lift */
+    --image-glow-s: 
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.3));
+    
+    --image-glow-s-hover: 
+        drop-shadow(0 0 25px rgba(var(--glow-color), 0.4));
+    
+    /* M (Medium) - DEFAULT: Images float! */
+    /* UPDATED: Per technical documentation baseline */
+    --image-glow-m: 
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.5));
+    
+    --image-glow-m-hover: 
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.4));
+    
+    /* L (Large) - Hero emphasis, maximum float */
+    /* UPDATED: Per technical documentation - stronger for hero elements */
+    --image-glow-l: 
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.4));
+    
+    --image-glow-l-hover: 
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.5));
+    
+    /* XL (Extra Large) - SUPER BRIGHT: 4-layer like container glow */
+    /* Matches "super helles weißes Glow" documentation for hero images */
+    --image-glow-xl: 
+        drop-shadow(0 0 30px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 90px rgba(var(--glow-color), 0.4))
+        drop-shadow(0 0 120px rgba(var(--glow-color), 0.3));
+    
+    --image-glow-xl-hover: 
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.7))
+        drop-shadow(0 0 70px rgba(var(--glow-color), 0.6))
+        drop-shadow(0 0 100px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 140px rgba(var(--glow-color), 0.4));
+    
+    /* XL TIGHT - Cleaner, tighter glow like frame (less spread) */
+    /* Smaller radii, higher near-alpha for crisp edge */
+    --image-glow-xl-tight: 
+        drop-shadow(0 0 16px rgba(var(--glow-color), 0.75))
+        drop-shadow(0 0 32px rgba(var(--glow-color), 0.45))
+        drop-shadow(0 0 48px rgba(var(--glow-color), 0.28))
+        drop-shadow(0 0 64px rgba(var(--glow-color), 0.18));
+    
+    --image-glow-xl-tight-hover: 
+        drop-shadow(0 0 20px rgba(var(--glow-color), 0.8))
+        drop-shadow(0 0 40px rgba(var(--glow-color), 0.5))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.32))
+        drop-shadow(0 0 80px rgba(var(--glow-color), 0.22));
+    
+    /* M TIGHT - Cleaner glow for small images (grids, circles) */
+    /* Scaled down from XL-tight for smaller elements */
+    --image-glow-m-tight: 
+        drop-shadow(0 0 12px rgba(var(--glow-color), 0.60))
+        drop-shadow(0 0 24px rgba(var(--glow-color), 0.35))
+        drop-shadow(0 0 36px rgba(var(--glow-color), 0.22))
+        drop-shadow(0 0 48px rgba(var(--glow-color), 0.14));
+    
+    --image-glow-m-tight-hover: 
+        drop-shadow(0 0 16px rgba(var(--glow-color), 0.70))
+        drop-shadow(0 0 28px rgba(var(--glow-color), 0.45))
+        drop-shadow(0 0 44px rgba(var(--glow-color), 0.28))
+        drop-shadow(0 0 60px rgba(var(--glow-color), 0.18));
+    
+    /* Hover Effects */
+    --elevate-scale: 1.03;
+    --elevate-duration: 220ms;
+    --elevate-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius-container: 8px;
+    --radius-image: 8px;
+    --radius-circle: 50%;
+    
+    /* Gold Gradient (Headlines & Highlights) */
+    /* UPDATED: Per technical documentation - darker bronze-toned gold */
+    --gold-gradient: linear-gradient(135deg, 
+        #8B6E2C 0%, 
+        #B99951 20%, 
+        #D9C77E 40%, 
+        #D9C77E 60%, 
+        #B99951 80%, 
+        #8B6E2C 100%);
+    
+    --gold-gradient-short: linear-gradient(135deg, 
+        #8B6E2C 0%, 
+        #D9C77E 50%, 
+        #8B6E2C 100%);
+    
+    /* Previous gold gradient (backup) */
+    --gold-gradient-prev: linear-gradient(135deg, 
+        #9B7E3C 0%, 
+        #C9A961 15%, 
+        #E9D78E 30%, 
+        #F4E4A6 45%, 
+        #E9D78E 55%, 
+        #D5B455 70%, 
+        #C9A961 85%, 
+        #9B7E3C 100%);
+    
+    /* Typography */
+    --font-headline: 'Bebas Neue', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --size-headline: 36px;
+    --size-body: 18px;
+}
+
+/* === WHITE CONTAINER GLOW (no animation) === */
+.slide-container {
+    box-shadow: var(--container-glow);
+    border: none !important;
+    border-radius: var(--radius-container);
+    position: relative;
+}
+
+/* === CANONICAL HEADLINE STYLES === */
+/* Ensure all headlines have consistent formatting */
+/* Shimmer gated by .has-shimmer class - default off for grids */
+.headline,
+.slide-container h1 {
+    font-family: var(--font-headline);
+    font-size: var(--size-headline);
+    font-weight: 900;
+    background: var(--gold-gradient);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Shimmer animation - only on slides with .has-shimmer class */
+.slide-container.has-shimmer .headline,
+.slide-container.has-shimmer h1 {
+    animation: subtleShimmer 6s ease-in-out infinite alternate;
+}
+
+/* Subtle gold shimmer animation (gentle, refined) */
+/* 3% amplitude for hero slides - visible but elegant */
+@keyframes subtleShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 3% 50%; }
+}
+
+/* === CANONICAL FEATURE LIST STYLES === */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-item {
+    font-size: var(--size-body);
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.feature-item .highlight,
+.feature-item span[class*="highlight"] {
+    background: var(--gold-gradient-short);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* === REMOVE GOLD BORDERS === */
+.gold-border,
+.gold-border-circle,
+.gold-gradient-border {
+    border: none !important;
+    border-image: none !important;
+    background: none !important;
+}
+
+/* Kill gold pseudo-element rings */
+.gold-border::before,
+.gold-border::after,
+.gold-border-circle::before,
+.gold-border-circle::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* === CONTENT IMAGE WRAPPERS WITH WHITE GLOW === */
+/* Apply glow to WRAPPERS to prevent clipping by overflow: hidden */
+/* NOTE: .image-item is NOT in this list because it often contains labels */
+/* Use .image-card inside .image-item for the glow effect */
+.image-wrapper,
+.image-frame,
+.image-card,
+.car-frame,
+.image-container,
+.photo-container,
+.image-panel,
+.image-box,
+.nutrition-card,
+.product-card {
+    border-radius: var(--radius-image);
+    overflow: hidden;
+    border: none !important;
+    background: transparent !important;
+    filter: var(--image-glow-m);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
+}
+
+.image-wrapper:hover,
+.image-frame:hover,
+.image-card:hover,
+.car-frame:hover,
+.image-container:hover,
+.photo-container:hover,
+.image-panel:hover,
+.image-box:hover,
+.nutrition-card:hover,
+.product-card:hover {
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-m-hover);
+}
+
+/* === INTENSITY UTILITIES === */
+/* Apply these classes to wrappers to override default M intensity */
+
+/* Small intensity for dense grids */
+.halo-s {
+    filter: var(--image-glow-s) !important;
+}
+
+.halo-s:hover {
+    filter: var(--image-glow-s-hover) !important;
+}
+
+/* Large intensity for hero images */
+.halo-l {
+    filter: var(--image-glow-l) !important;
+}
+
+.halo-l:hover {
+    filter: var(--image-glow-l-hover) !important;
+}
+
+/* Extra Large intensity - SUPER BRIGHT (4-layer) for hero images and badges */
+.halo-xl {
+    filter: var(--image-glow-xl) !important;
+}
+
+.halo-xl:hover {
+    filter: var(--image-glow-xl-hover) !important;
+}
+
+/* Extra Large TIGHT - Cleaner glow like frame (less spread) */
+.halo-xl-tight {
+    filter: var(--image-glow-xl-tight) !important;
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
+}
+
+.halo-xl-tight:hover {
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-xl-tight-hover) !important;
+}
+
+/* Extra Large FRAME - Uses box-shadow like container (perfect match) */
+.halo-xl-frame {
+    box-shadow: var(--container-glow) !important;
+    filter: none !important;
+}
+
+.halo-xl-frame:hover {
+    box-shadow: 
+        0 0 40px rgba(var(--glow-color), 0.7),
+        0 0 70px rgba(var(--glow-color), 0.6),
+        0 0 100px rgba(var(--glow-color), 0.5),
+        0 0 140px rgba(var(--glow-color), 0.4) !important;
+}
+
+/* Images inside wrappers: inherit rounding, no filter */
+.image-wrapper img,
+.image-frame img,
+.image-card img,
+.car-frame img,
+.image-container img,
+.photo-container img,
+.image-item img,
+.image-panel img,
+.image-box img,
+.nutrition-card img,
+.product-card img {
+    border-radius: inherit;
+    filter: none;
+    display: block;
+}
+
+/* === GRID ITEMS WITH WHITE GLOW === */
+/* Apply glow to grid items (wrappers) */
+.benefits-grid .grid-item,
+.six-grid .grid-item,
+.four-grid .grid-item,
+.grid-item {
+    border-radius: var(--radius-image);
+    overflow: hidden;
+    border: none !important;
+    background: transparent !important;
+    filter: var(--image-glow-m-tight);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
+}
+
+.benefits-grid .grid-item:hover,
+.six-grid .grid-item:hover,
+.four-grid .grid-item:hover,
+.grid-item:hover {
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-m-tight-hover);
+}
+
+/* Images inside grid items: inherit rounding, no filter */
+.benefits-grid .grid-item img,
+.six-grid .grid-item img,
+.four-grid .grid-item img,
+.grid-item img {
+    border-radius: inherit;
+    filter: none;
+    display: block;
+}
+
+/* === CIRCLES === */
+.circle-wrapper {
+    border-radius: var(--radius-circle);
+    overflow: hidden;
+    filter: var(--image-glow-m-tight);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
+}
+
+.circle-wrapper:hover {
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-m-tight-hover);
+}
+
+.circle-wrapper img {
+    border-radius: var(--radius-circle);
+    filter: none; /* Glow is on wrapper, not img */
+}
+
+/* === RADIAL-GRADIENT HALO (Premium Studio Light) === */
+/* Apply .halo class to image wrappers for Apple/Tesla-style lighting */
+/* Research: Codrops/Awwwards - radial halos read cleaner than stacked drop-shadows */
+.image-wrapper.halo,
+.image-frame.halo,
+.image-card.halo,
+.car-frame.halo,
+.image-container.halo,
+.photo-container.halo {
+    position: relative;
+}
+
+.image-wrapper.halo::before,
+.image-frame.halo::before,
+.image-card.halo::before,
+.car-frame.halo::before,
+.image-container.halo::before,
+.photo-container.halo::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: inherit;
+    background: radial-gradient(
+        closest-side,
+        rgba(255, 255, 255, 0.55),
+        rgba(255, 255, 255, 0.28) 55%,
+        transparent 72%
+    );
+    filter: blur(16px);
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.image-wrapper.halo:hover::before,
+.image-frame.halo:hover::before,
+.image-card.halo:hover::before,
+.car-frame.halo:hover::before,
+.image-container.halo:hover::before,
+.photo-container.halo:hover::before {
+    filter: blur(14px);
+    opacity: 1;
+}
+
+/* === AMBIENT SPOTLIGHT (Deepens contrast) === */
+/* Apply .spotlight class to .slide-container for hero slides */
+/* Research: Premium brands use large, low-alpha spotlights to make halos appear whiter */
+.slide-container.spotlight::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.12) 0%,
+        transparent 65%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* === GLASS CHIPS FOR LABELS === */
+/* Apply .glass-chip class to label containers for backdrop-filter effect */
+/* Research: Fluent Design - acrylic used sparingly for legibility */
+.glass-chip {
+    backdrop-filter: blur(8px) saturate(1.15);
+    -webkit-backdrop-filter: blur(8px) saturate(1.15);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 4px 12px;
+    /* Override gradient text to make it visible on glass background */
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    background-clip: border-box !important;
+}
+
+/* === LAYOUT CONTAINERS (no glow) === */
+/* These are parent containers that often include labels/text */
+/* Keep them clean - glow should be on inner image wrappers only */
+.circle-item,
+.fact-item,
+.feature-item,
+.image-item {
+    filter: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.circle-item:hover,
+.fact-item:hover,
+.feature-item:hover,
+.image-item:hover {
+    filter: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* === LAYOUT-CRITICAL RULES === */
+/* Content sections need proper z-index for layering */
+.content-left, .content-right, .left-section, .right-section, 
+.facts-container, .cars-container, .benefits-grid {
+    position: relative;
+    z-index: 5;
+}
+
+/* === VIDEOS (no glow, just rounded corners) === */
+.video-wrapper {
+    border-radius: var(--radius-image);
+    overflow: hidden;
+    /* No filter on video wrappers */
+}
+
+.slide-container video {
+    border-radius: var(--radius-image);
+    filter: none;
+}
+
+/* === FALLBACK: ROUNDED CORNERS ON ALL CONTENT IMAGES === */
+/* This ensures ALL content images have rounded corners, even if wrapper isn't in our list */
+/* Exclude logos, watermarks, and icons */
+.slide-container img:not(.lr-logo):not(.watermark-logo):not([class*="logo"]):not([class*="icon"]):not(.fa):not(.fas):not(.far):not(.fab) {
+    border-radius: var(--radius-image);
+    /* NO filter here - filters stay on wrappers only */
+}
+
+/* Circle images must be perfectly round */
+.circle-wrapper img,
+.circle-image,
+img[class*="circle"] {
+    border-radius: var(--radius-circle) !important;
+}
+
+/* === NO-GLOW UTILITY CLASS === */
+/* Use this class to explicitly exclude elements from glow effects */
+.no-glow {
+    filter: none !important;
+    box-shadow: none !important;
+}
+
+/* === LR LOGO POSITIONING (top right corner) === */
+/* Position the LR 40 Jahre logo in the top right corner of every slide */
+.lr-logo {
+    position: absolute !important;
+    top: 30px !important;
+    right: 30px !important;
+    height: 80px !important;
+    width: auto !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    filter: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* === EXCLUDE OTHER LOGOS AND ICONS === */
+/* Other logos and icons should never have glow or rounded corners */
+/* Exception: .robertet-badge is allowed to be round */
+/* Exception: .watermark-logo needs transform for centering */
+/* Exception: .lr-logo has its own positioning rules above */
+/* Exception: .circle-badge needs glow for visibility */
+[class*="logo"]:not(.robertet-badge):not(.watermark-logo):not(.lr-logo):not(.circle-badge):not(.main-logo):not(.logo-glow),
+[class*="icon"],
+.fa, .fas, .far, .fab {
+    filter: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* === ENTRANCE ANIMATIONS === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Entrance Animations anwenden */
+.headline {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.feature-list, .facts-container {
+    animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+.image-container, .car-frame, .benefits-grid {
+    animation: fadeInRight 0.8s ease-out 0.4s both;
+}
+
+/* === WATERMARK POSITIONING & PULSE === */
+/* Ensure watermark is perfectly centered in the frame */
+/* Use !important to override any inline styles in slide files */
+.watermark-logo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: clamp(420px, 55vw, 820px);
+    width: auto;
+    height: auto !important;
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+    filter: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    animation: watermarkPulse 6s ease-in-out infinite;
+}
+
+@keyframes watermarkPulse {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.05; }
+}
+
+/* === VIGNETTE EFFEKT === */
+.slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === WHITE PARTICLES (gentle twinkle) === */
+/* Base positioning - ALWAYS applied to prevent layout breakage */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Animation gated by .has-particles class - default visible but static */
+/* Research: Dribbble/Behance consensus - fewer, slower particles for luxury feel */
+.slide-container.has-particles .particle {
+    animation: twinkle 8s ease-in-out infinite;
+    opacity: 0.35;
+}
+
+/* Default: particles visible but no animation */
+.slide-container:not(.has-particles) .particle {
+    opacity: 0.15;
+    animation: none;
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.35; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.3); 
+    }
+}
+
+/* Partikel Staggering */
+.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 0.5s; }
+.particle:nth-child(3) { left: 50%; top: 10%; animation-delay: 1s; }
+.particle:nth-child(4) { left: 70%; top: 60%; animation-delay: 1.5s; }
+.particle:nth-child(5) { left: 90%; top: 30%; animation-delay: 2s; }
+.particle:nth-child(6) { left: 15%; top: 70%; animation-delay: 2.5s; }
+.particle:nth-child(7) { left: 45%; top: 80%; animation-delay: 3s; }
+.particle:nth-child(8) { left: 65%; top: 50%; animation-delay: 3.5s; }
+.particle:nth-child(9) { left: 85%; top: 15%; animation-delay: 4s; }
+.particle:nth-child(10) { left: 25%; top: 90%; animation-delay: 4.5s; }
+.particle:nth-child(11) { left: 20%; top: 25%; animation-delay: 5s; }
+.particle:nth-child(12) { left: 40%; top: 45%; animation-delay: 5.5s; }
+.particle:nth-child(13) { left: 60%; top: 15%; animation-delay: 0.3s; }
+.particle:nth-child(14) { left: 80%; top: 65%; animation-delay: 0.8s; }
+.particle:nth-child(15) { left: 95%; top: 35%; animation-delay: 1.3s; }
+
+/* === ACCESSIBILITY === */
+/* Respect user's motion preferences */
+/* Research: Apple HIG - motion should be meaningful and respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    /* Disable shimmer animation for reduced motion */
+    .headline,
+    .slide-container h1 {
+        animation: none !important;
+        background-position: 0% 50%;
+    }
+    
+    /* Disable particle twinkle for reduced motion */
+    .particle {
+        animation: none !important;
+        opacity: 0.25 !important;
+    }
+    
+    /* Disable hover scale for reduced motion - keep glow change only */
+    .image-wrapper:hover,
+    .image-frame:hover,
+    .image-card:hover,
+    .circle-wrapper:hover,
+    .grid-item:hover {
+        transform: none !important;
+    }
+    
+    /* Disable halo blur animation for reduced motion */
+    .image-wrapper.halo:hover::before,
+    .image-frame.halo:hover::before,
+    .image-card.halo:hover::before {
+        filter: blur(12px) !important;
+    }
+}
+
+/* === LOGO GLOW (for first and last slides) === */
+/* Apply .logo-glow class to logo elements on title and conclusion slides */
+/* White glow effect - STRENGTHENED to be clearly visible */
+.logo-glow {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.4)) !important;
+}
+
+/* Override for watermark-logo which has filter: none by default */
+.watermark-logo.logo-glow {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.4)) !important;
+}
+
+/* === CIRCLE LABEL STYLING === */
+/* Unified typography for circle labels across all slides */
+/* Ensures consistent font, size, and styling on folie_07, folie_08, etc. */
+.circle-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.3 !important;
+}
+
+/* === CIRCLE BADGE STYLING === */
+/* For certification/quality badges in circles that need visibility on dark backgrounds */
+/* Use .circle-badge class on circle-wrapper elements containing certification logos */
+/* Note: Don't use "logo" in class name - it triggers the [class*="logo"] exclusion rule */
+.circle-badge {
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 12px !important;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 36px rgba(255, 255, 255, 0.35)) !important;
+}
+
+.circle-badge img {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* === PERFORMANCE OPTIMIZATION === */
+/* Use GPU acceleration for smooth animations */
+.image-wrapper,
+.image-frame,
+.image-card,
+.circle-wrapper,
+.grid-item {
+    will-change: transform, filter;
+}
+
+/* Remove will-change after animation completes to save resources */
+.image-wrapper:not(:hover),
+.image-frame:not(:hover),
+.image-card:not(:hover),
+.circle-wrapper:not(:hover),
+.grid-item:not(:hover) {
+    will-change: auto;
+}
