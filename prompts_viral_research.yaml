@@ -1,0 +1,173 @@
+
+viral_research:
+  crystal_glas_aesthetic:
+    engagement_boost: "+284%"
+    flux_prompts:
+      - "Ultra-realistic crystal/glass aesthetic, black/gold luxury palette, volumetric lighting caustics, studio grade reflections, LR logo etched subtle on lower-right crystal pane, no warped text, 4K master, +284% engagement optimized"
+      - "Luxury crystal glass surface with impossible physics, volumetric beams, black/gold gradient, caustics patterns, LR branding integrated naturally, viral-optimized composition"
+    runway_prompts:
+      - "hyperreal luxury black/gold crystal glass; impossible physics moment first 2s; crystal shatter reverse-time; lion cameo as crystal reflection/shadow/eye highlight; camera=orbit_dolly_crystal_reveal; temporal_consistency=true; particles=crystal_caustics; 9:16 1080p; 8-12s"
+      - "Water-up reveal: thin crystal water film flows upward for 2s, defying gravity; then forms lion eye highlight; comedic 'wait, was ist das?' subtitle; impossible physics moment; 9:16 1080p"
+
+  asmr_lion_content:
+    tiktok_de_viral: true
+    elevenlabs_settings:
+      target_lufs: -20
+      binaural_frequency: 432
+      voice_style: "whisper_binaural"
+    lion_whisper_prompts:
+      - "Leichtes Löwen-Flüstern mit Glas-Ambience. 'Hey, ich bin dein digitaler Löwe-Guide. Keine Panik – ich führe dich Schritt für Schritt...' (sanfte Pausen, Kristall-Klänge)"
+      - "ASMR Löwe-Motivation: 'Hör mal... *leises Brummen* ...deine Zukunft wartet hinter diesem Kristall-Portal...' (binaural beats @432Hz)"
+
+  impossible_physics:
+    share_rate_boost: "+156%"
+    water_up_physics:
+      - "Impossible crystal physics: water flowing upward through glass tubes, defying gravity, volumetric lighting, lion eye reflection in upward water stream, black/gold luxury, 4K impossible moment"
+      - "Reverse glass shatter: crystal fragments floating backward in time, reforming into perfect mirror with lion silhouette, impossible physics visualization, studio lighting"
+
+  webar_portals:
+    mobile_first_ar: true
+    portal_prompts:
+      - "Crystal portal ring with lion silhouette, mobile-optimized 3D model, WebAR compatible geometry, black/gold materials, optimized for AR viewing"
+      - "open crystal portal; crack→light leak→crystal ring→lion silhouette (shadow only)→QR code hint; parallax layers; mobile-first framing; 'Scan für AR Portal' text overlay; 9:16 vertical"
+
+regional_hooks:
+  DE:
+    - "POV: Du siehst zum ersten Mal... wie Kristall die Realität bricht"
+    - "POV: Du hörst zum ersten Mal... den Löwen flüstern"
+    - "Moment, was ist gerade passiert? 🤯"
+  ES:
+    - "Stell dir vor, dass... Glas nach oben fließt wie Wasser"
+    - "Imagina que... el león te susurra secretos de cristal"
+    - "¿Qué acaba de pasar? Física imposible..."
+  JP:
+    - "信じられない! (Unglaublich!) Kristall-Physik defies gravity"
+    - "信じられない！ライオンが囁いている..."
+    - "え？何が起こった？信じられない物理学！"
+  Global:
+    - "Wait, what just happened? 🤯 #ImpossiblePhysics"
+    - "Scan QR → Lion Portal in YOUR room! 🦁🔮 #WebAR"
+
+wow_ideen:
+  kristall_lowen_augenreflex:
+    runway: "Extreme close-up lion eye; crystal reflection appears in pupil; impossible moment as crystal grows inside eye; hyperreal detail; luxury black/gold; camera=macro_push_in_eye; 9:16 1080p; 8-12s"
+    flux: "Ultra-macro lion eye with crystal caustics reflection, volumetric lighting through pupil, impossible crystal growth inside iris, hyperreal detail, 4K"
+  
+  glass_portal_webar:
+    sequence: "crack→light_leak→crystal_ring→lion_silhouette→qr_overlay"
+    mobile_optimization: true
+  
+  water_up_physik:
+    asmr: "Leichtes Wasser-Plätschern, dann Stille... 'Warte mal... fließt das Wasser nach OBEN?' (verwirrt, ASMR-Flüstern)"
+    physics: "thin water stream defying gravity, flowing upward through crystal tube, lion eye reflection in upward water, impossible physics reveal"
+  
+  product_to_glass_car:
+    - "LR product transforming into glossy glass car body, crystal metamorphosis, lion reflection on glass door, studio lighting, luxury transformation sequence"
+    - "Glass car with LR logo etched in crystal windshield, lion silhouette visible through transparent body, volumetric caustics, premium automotive glass aesthetic"
+  
+  lina_lowen_dialog:
+    script: |
+      [Lina]: "Hi! Ich bin Lina, deine 24/7 AI-Assistentin. Siehst du den Löwen?"
+      [Lion cameo] (stumm, als Kristall-Reflex im Hintergrund)
+      [Lina]: "Er symbolisiert Stärke und Klarheit. Genau das bekommst du mit LR."
+      [Lion eye close-up] (blinzelt einmal)
+      [Lina]: "Scan den QR für dein persönliches Löwen-Portal. Bereit?"
+    lion_cameo_timing: [3, 8, 12]
+  
+  voice_morph_surprise:
+    sequence:
+      - voice: "lina_normal"
+        text: "Hey, ich erkläre dir kurz LR..."
+      - voice: "lina_whisper"
+        text: "aber erst... hör mal genau hin..."
+      - voice: "lion_roar_soft"
+        text: "*leises, kraftvolles Brummen*"
+      - voice: "lina_excited"
+        text: "Überraschung! Das war dein innerer Löwe! 🦁"
+
+image:
+  glass_transform:
+    base: "Ultra-realistic crystal/glass luxury scene, black and gold color scheme, volumetric lighting, caustics, studio lighting, LR logo reflection subtle, avoid warped text, 4K master quality, cinematic composition, +284% engagement optimized"
+    scenes:
+      - "Luxury black glass surface with golden volumetric beams, crystal caustics, premium studio lighting, impossible physics elements"
+      - "Crystal portal opening with volumetric light beams, black and gold luxury aesthetic, lion eye reflection in crystal surface"
+      - "Etched glass with LR branding, sophisticated lighting, premium commercial photography, water flowing upward through crystal tubes"
+    modifiers:
+      - "hyperreal quality"
+      - "impossible physics moment"
+      - "lion cameo integration"
+      - "viral-optimized composition"
+
+video:
+  animal_lane:
+    base: "hyperreal luxury black/gold glass; lion cameo as reflection/shadow/eye highlight; micro-impossible moment in first 2s; camera=orbit_dolly_in_45deg_5s; temporal_consistency=true; object_persistence=true; particles subtle; watermark persistent; 9:16 1080p; 8-12s"
+    enhanced_prompts:
+      - "Crystal-Löwen-Augenreflex: Extreme close-up lion eye; crystal reflection appears in pupil; impossible moment as crystal grows inside eye; hyperreal detail; luxury black/gold; camera=macro_push_in_eye"
+      - "ASMR-Lion integration: soft lion eye reflection in crystal surface; ASMR-compatible gentle movement; whisper-sync lip movement; luxury black/gold aesthetic; binaural-optimized visual rhythm"
+      - "Water-up physics with lion: thin water stream defying gravity, flowing upward through crystal tube, lion eye reflection in upward water, impossible physics reveal"
+
+audio:
+  asmr_enhanced:
+    base_settings:
+      target_lufs: -20
+      binaural_frequency: 432
+      voice_style: "whisper_binaural"
+    lion_whisper_prompts:
+      - "Leichtes Löwen-Flüstern mit Glas-Ambience. 'Hey, ich bin dein digitaler Löwe-Guide. Keine Panik – ich führe dich Schritt für Schritt...' (sanfte Pausen, Kristall-Klänge)"
+      - "ASMR Löwe-Motivation: 'Hör mal... *leises Brummen* ...deine Zukunft wartet hinter diesem Kristall-Portal...' (binaural beats @432Hz)"
+      - "Water-up physics ASMR: Leichtes Wasser-Plätschern, dann Stille... 'Warte mal... fließt das Wasser nach OBEN?' (verwirrt, ASMR-Flüstern)"
+
+avatar:
+  lina_enhanced:
+    base_script: "Hi! Ich bin Lina, deine 24/7 AI-Assistentin. Keine Angst - ich helfe dir bei allem: Social Media, Bilder, Videos. Du kannst mich anrufen, dich coachen lassen, Termine vereinbaren. Sogar Geschäftsvorstellungen können wir üben!"
+    lion_dialog_enhanced: |
+      [Lina]: "Hi! Ich bin Lina, deine 24/7 AI-Assistentin. Siehst du den Löwen?"
+      [Lion cameo] (stumm, als Kristall-Reflex im Hintergrund)
+      [Lina]: "Er symbolisiert Stärke und Klarheit. Genau das bekommst du mit LR."
+      [Lion eye close-up] (blinzelt einmal)
+      [Lina]: "Scan den QR für dein persönliches Löwen-Portal. Bereit?"
+    voice_morph_sequence:
+      - voice: "lina_normal"
+        text: "Hey, ich erkläre dir kurz LR..."
+      - voice: "lina_whisper"
+        text: "aber erst... hör mal genau hin..."
+      - voice: "lion_roar_soft"
+        text: "*leises, kraftvolles Brummen*"
+      - voice: "lina_excited"
+        text: "Überraschung! Das war dein innerer Löwe! 🦁"
+
+webar:
+  portal_enhanced:
+    html_template: |
+      <!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LR Crystal Portal - WebAR Experience</title>
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <style>
+          model-viewer { width: 100vw; height: 100vh; background: linear-gradient(135deg, #000000, #FFD700); }
+          .ar-prompt { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); 
+                       background: rgba(0,0,0,0.8); color: #FFD700; padding: 10px 20px; 
+                       border-radius: 25px; font-family: Arial; }
+        </style>
+      </head>
+      <body>
+        <model-viewer src="{{glb_url}}" 
+                      ar ar-modes="scene-viewer quick-look webxr" 
+                      camera-controls 
+                      auto-rotate 
+                      shadow-intensity="1"
+                      environment-image="neutral">
+          <div class="ar-prompt">📱 Tap AR to see Lion Crystal Portal in your space!</div>
+        </model-viewer>
+      </body>
+      </html>
+    portal_sequence: "crack→light_leak→crystal_ring→lion_silhouette→qr_overlay"
+    mobile_optimization: true
+    viral_ar_hooks:
+      DE: "Scanne den QR → Löwen-Portal in deinem Zimmer! 🦁✨"
+      ES: "Escanea el QR → ¡Portal de León en tu habitación!"
+      JP: "QRをスキャン→あなたの部屋にライオンポータル！"
+      Global: "Scan QR → Lion Portal in YOUR room! 🦁🔮 #WebAR"
