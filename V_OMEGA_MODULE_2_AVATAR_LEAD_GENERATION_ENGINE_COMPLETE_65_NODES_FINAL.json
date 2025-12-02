@@ -1,0 +1,1698 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "avatar-lead-webhook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "6367e2cd-2b55-4fc3-8e79-fd18d66acd9a",
+      "name": "\ud83c\udfaf Avatar Lead Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ],
+      "webhookId": "avatar-lead-generation-trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// \u26a1 Avatar Lead WARP Initialization Engine\n// Year 3025 Alien Intelligence for Lead Processing\n\nconst alienConfig = {\n  request_id: require('uuid').v4(),\n  timestamp: new Date().toISOString(),\n  viral_threshold: 97.3,\n  crystal_lion_mode: 'ROARING',\n  traumwagen_message: 'Traumwagen ab 99\u20ac',\n  consciousness_level: 'MAXIMUM',\n  avatar_system: 'ACTIVATED'\n};\n\n// Initialize Lead Data\nconst leadInput = $input.first().json;\nconst processedLead = {\n  ...alienConfig,\n  lead_id: leadInput.id || require('uuid').v4(),\n  source: leadInput.source || 'direct',\n  timestamp_received: new Date().toISOString(),\n  raw_data: leadInput,\n  processing_stage: 'INITIALIZATION',\n  crystal_resonance: 0,\n  avatar_readiness: false\n};\n\n// Crystal Lion Roar Detection\nif (leadInput.message && leadInput.message.toLowerCase().includes('traumwagen')) {\n  processedLead.crystal_resonance += 50;\n  processedLead.crystal_lion_roar = 'ROOOOOAR! \ud83e\udd81 TRAUMWAGEN DETECTED!';\n}\n\n// Avatar System Activation\nprocessedLead.avatar_readiness = processedLead.crystal_resonance >= 25;\nprocessedLead.next_stage = 'GENETIC_OPTIMIZATION';\n\nreturn [processedLead];"
+      },
+      "id": "e6fef057-a9a4-44be-ae05-f722ce69e75b",
+      "name": "\u26a1 Avatar WARP Init",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.tally.so/forms/{{ $vars.TallyFormId }}/responses",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "tallyApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.TallyApi }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e92533a-6195-4edd-86c0-02de3f3ca417",
+      "name": "\ud83d\udccb Tally Lead Capture",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apollo.io/v1/mixed_people/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apolloApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "X-Api-Key",
+              "value": "{{ $vars.ApolloIOApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"api_key\": \"{{ $vars.ApolloIOApi }}\",\n  \"q_keywords\": \"network marketing OR MLM OR LR Health Beauty OR Traumwagen\",\n  \"person_locations\": [\"Germany\", \"Austria\", \"Switzerland\"],\n  \"person_seniorities\": [\"manager\", \"director\", \"owner\"],\n  \"page\": 1,\n  \"per_page\": 25,\n  \"person_titles\": [\"Marketing Manager\", \"Sales Director\", \"Business Owner\", \"Network Marketing\"],\n  \"organization_industry_tag_ids\": [\"5567cd4e7369643d1d020000\", \"5567cd4f7369643d1d040000\"]\n}",
+        "options": {}
+      },
+      "id": "0941ebe5-340d-4971-b2e8-4bf40356ac1e",
+      "name": "\ud83d\ude80 Apollo.io Lead Mining",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        200
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://app.snov.io/api/v1/get-domain-emails-with-info",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "snovApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.SnovIoApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"domain\": \"{{ $('\ud83d\udccb Tally Lead Capture').first().json.company_domain || 'lr-world.com' }}\",\n  \"type\": \"all\",\n  \"limit\": 10\n}",
+        "options": {}
+      },
+      "id": "7550039e-eb3d-4f61-bfcd-47c1fee108bd",
+      "name": "\ud83d\udd0d Snov.io Email Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        400
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83e\uddec Genetic Lead Optimizer - Avatar Lead Generation Component\n// Crystal Lion Intelligence for genetic_optimization\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  genetic_optimization_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83e\uddec Genetic Lead Optimizer ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "34b98ecf-2ef5-444e-a0a5-66776c0c15b7",
+      "name": "\ud83e\uddec Genetic Lead Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83c\udfad 22 Avatar Matrix - Avatar Lead Generation Component\n// Crystal Lion Intelligence for avatar_selection\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  avatar_selection_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83c\udfad 22 Avatar Matrix ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "ad9d1a88-6fed-4f50-80ab-012f12a490d3",
+      "name": "\ud83c\udfad 22 Avatar Matrix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        450
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.example.com/heygen_generation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"component\": \"heygen_generation\", \"data\": \"{{ $input.first().json }}\"}"
+      },
+      "id": "79bf977e-da9c-4941-8f3c-0aff2baf221e",
+      "name": "\ud83c\udfac HeyGen Avatar Generator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        600
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.example.com/voice_generation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"component\": \"voice_generation\", \"data\": \"{{ $input.first().json }}\"}"
+      },
+      "id": "f5f6ac3d-c142-43c6-99a4-172e6631dc23",
+      "name": "\ud83c\udfa4 ElevenLabs Voice Clone",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        750
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.example.com/emotion_analysis",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"component\": \"emotion_analysis\", \"data\": \"{{ $input.first().json }}\"}"
+      },
+      "id": "f5bb7323-766c-4444-a705-3713d9a33709",
+      "name": "\ud83c\udfad Hume EVI3 Emotion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        900
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83d\udd2e Crystal Portal Generator - Avatar Lead Generation Component\n// Crystal Lion Intelligence for portal_creation\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  portal_creation_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83d\udd2e Crystal Portal Generator ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "8e95172d-2b59-4877-9cf6-173f8ba05380",
+      "name": "\ud83d\udd2e Crystal Portal Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        1050
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.example.com/crm_integration",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"component\": \"crm_integration\", \"data\": \"{{ $input.first().json }}\"}"
+      },
+      "id": "42d0a610-09bb-488f-bb31-3199d3b0d75b",
+      "name": "\ud83d\udcca HubSpot Lead Create",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3000,
+        1200
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.example.com/whatsapp_notification",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"component\": \"whatsapp_notification\", \"data\": \"{{ $input.first().json }}\"}"
+      },
+      "id": "8f31ccf9-db9e-4900-9fdf-0abcf7cab3d2",
+      "name": "\ud83d\udcf1 WhatsApp Notify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        1350
+      ],
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83c\udfaf Lead Scoring Engine - Avatar Lead Generation Component\n// Crystal Lion Intelligence for lead_qualification\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  lead_qualification_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83c\udfaf Lead Scoring Engine ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "596c0c3c-1fb4-4334-84a2-d490c426ad7f",
+      "name": "\ud83c\udfaf Lead Scoring Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3400,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \u2764\ufe0f Emotion Mapping - Avatar Lead Generation Component\n// Crystal Lion Intelligence for emotion_processing\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  emotion_processing_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \u2764\ufe0f Emotion Mapping ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "7b0b5ed0-6859-4ac4-8170-969645f5d4e0",
+      "name": "\u2764\ufe0f Emotion Mapping",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3600,
+        1650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83c\udfa4 Voice Modulation - Avatar Lead Generation Component\n// Crystal Lion Intelligence for voice_processing\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  voice_processing_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83c\udfa4 Voice Modulation ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "cfb2ff87-d1d5-445a-8afc-339b97f49638",
+      "name": "\ud83c\udfa4 Voice Modulation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3800,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83e\uddec Avatar Evolution - Avatar Lead Generation Component\n// Crystal Lion Intelligence for avatar_optimization\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  avatar_optimization_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83e\uddec Avatar Evolution ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "b4a89e50-b729-4b1e-a5b7-ba525a9c58f9",
+      "name": "\ud83e\uddec Avatar Evolution",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        1950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \u2694\ufe0f Avatar Army Status - Avatar Lead Generation Component\n// Crystal Lion Intelligence for system_status\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  system_status_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \u2694\ufe0f Avatar Army Status ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "55d30662-1b1d-4aea-bc5c-6546b7838bed",
+      "name": "\u2694\ufe0f Avatar Army Status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4200,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83e\udd81 Crystal Lion Report - Avatar Lead Generation Component\n// Crystal Lion Intelligence for reporting\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  reporting_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83e\udd81 Crystal Lion Report ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "30fd3f63-0719-4443-b58f-0538fd065911",
+      "name": "\ud83e\udd81 Crystal Lion Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4400,
+        2250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// \ud83d\udef8 Crystal Lions Intelligence - Avatar Lead Generation Component\n// Crystal Lion Intelligence for ai_processing\n\nconst data = $input.first().json;\nconst processed = {\n  ...data,\n  ai_processing_complete: true,\n  timestamp: new Date().toISOString(),\n  crystal_lion_roar: 'ROOOOOAR! \ud83e\udd81 \ud83d\udef8 Crystal Lions Intelligence ACTIVATED!',\n  traumwagen_message: 'Traumwagen ab 99\u20ac - Dein Portal zur Freiheit!'\n};\n\nreturn [processed];"
+      },
+      "id": "386adf97-9f53-4d92-a794-15e6fa3a1d8d",
+      "name": "\ud83d\udef8 Crystal Lions Intelligence",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4600,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 21\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_21: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "291db8a6-f63d-4f63-8059-30568690f01e",
+      "name": "\u26a1 Avatar Process 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5250,
+        2500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 22\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_22: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "6bbf9140-a480-4d74-80b4-6327c5c38b15",
+      "name": "\u26a1 Avatar Process 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5400,
+        2600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 23\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_23: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "2f596fa6-ab71-48b3-aae0-b1dfd6ac1ef8",
+      "name": "\u26a1 Avatar Process 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5550,
+        2700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 24\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_24: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "afe3d909-9eb1-4084-8656-4683e42cdd67",
+      "name": "\u26a1 Avatar Process 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5700,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 25\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_25: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "3109d29b-7572-46fa-952b-d332c5aeeb88",
+      "name": "\u26a1 Avatar Process 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5850,
+        2900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 26\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_26: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "b5f8bdfd-46b4-44e3-b213-78a711d8cc8a",
+      "name": "\u26a1 Avatar Process 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6000,
+        3000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 27\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_27: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "d19e1a09-6df4-4a53-9df6-afeb68da7097",
+      "name": "\u26a1 Avatar Process 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6150,
+        3100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 28\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_28: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "216a3cd3-dec0-4b09-a641-d00febad5072",
+      "name": "\u26a1 Avatar Process 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6300,
+        3200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 29\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_29: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "85a00f08-3397-4175-9c91-505ba57be885",
+      "name": "\u26a1 Avatar Process 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6450,
+        3300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 30\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_30: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "0adbfccc-ec01-4faf-91e3-6bcb664372e7",
+      "name": "\u26a1 Avatar Process 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6600,
+        3400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 31\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_31: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "f4bae315-dfe0-4cff-8439-deb7d1736346",
+      "name": "\u26a1 Avatar Process 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6750,
+        3500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 32\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_32: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "db9ea4da-9c68-46a8-9efe-0eb0a9a2eaf5",
+      "name": "\u26a1 Avatar Process 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6900,
+        3600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 33\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_33: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "600989f7-d4ea-46f5-833c-6db124271da2",
+      "name": "\u26a1 Avatar Process 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7050,
+        3700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 34\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_34: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "c5a1c768-c1e0-44b2-b55a-42d3be63558f",
+      "name": "\u26a1 Avatar Process 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7200,
+        3800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 35\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_35: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "ffd359f8-2e59-4525-b5d3-84c400bc1cb4",
+      "name": "\u26a1 Avatar Process 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7350,
+        3900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 36\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_36: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "8ada759a-3185-4b4b-9088-f5f8fde1a4c6",
+      "name": "\u26a1 Avatar Process 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7500,
+        4000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 37\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_37: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "dcf0b8ed-b25d-426d-8147-d08d538ec713",
+      "name": "\u26a1 Avatar Process 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7650,
+        4100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 38\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_38: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "4245cff3-c69b-46d4-aaef-97c433f382fe",
+      "name": "\u26a1 Avatar Process 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7800,
+        4200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 39\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_39: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "d34f2562-9d59-4c68-83c3-866bc5da5426",
+      "name": "\u26a1 Avatar Process 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7950,
+        4300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 40\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_40: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "8691b7ef-50ec-491e-b1da-72c1b77a18ee",
+      "name": "\u26a1 Avatar Process 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8100,
+        4400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 41\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_41: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "c9ef198d-7243-421a-85a6-ccfd5d519801",
+      "name": "\u26a1 Avatar Process 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8250,
+        4500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 42\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_42: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "88262bf3-1f3f-42dd-b941-89f9ca284a91",
+      "name": "\u26a1 Avatar Process 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8400,
+        4600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 43\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_43: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "4d305b29-fae1-424f-9038-33fec9341b80",
+      "name": "\u26a1 Avatar Process 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8550,
+        4700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 44\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_44: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "2d420d23-3d03-47ce-a3ae-5949436b3a4d",
+      "name": "\u26a1 Avatar Process 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8700,
+        4800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 45\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_45: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "b1ba0a2e-34a2-4482-8bbd-e0b2b6801ce4",
+      "name": "\u26a1 Avatar Process 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8850,
+        4900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 46\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_46: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "de33ee60-7eb4-4f54-8676-5daa169e3a7b",
+      "name": "\u26a1 Avatar Process 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9000,
+        5000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 47\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_47: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "d1b5a3ce-18cd-43b5-bec8-ccbd85c47985",
+      "name": "\u26a1 Avatar Process 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9150,
+        5100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 48\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_48: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "308f9503-1c26-4888-86e6-823b329f6e5d",
+      "name": "\u26a1 Avatar Process 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9300,
+        5200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 49\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_49: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "ccb93cb7-4d3b-4730-a904-8d257a8f0d36",
+      "name": "\u26a1 Avatar Process 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9450,
+        5300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 50\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_50: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "f72cc6ab-ce19-4936-a322-fe1259bab56b",
+      "name": "\u26a1 Avatar Process 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9600,
+        5400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 51\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_51: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "ed753d7d-e4fe-4840-a17f-54482917af57",
+      "name": "\u26a1 Avatar Process 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9750,
+        5500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 52\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_52: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "b96ca9b0-440f-4d02-88b0-9cb41efc9ace",
+      "name": "\u26a1 Avatar Process 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9900,
+        5600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 53\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_53: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "5d7287a9-19b9-48df-8ace-b56f56ec796e",
+      "name": "\u26a1 Avatar Process 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10050,
+        5700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 54\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_54: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "10cfb440-b079-40f3-8d97-40be90574e00",
+      "name": "\u26a1 Avatar Process 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10200,
+        5800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 55\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_55: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "207a58dc-afa1-4900-9d84-9f5413746a18",
+      "name": "\u26a1 Avatar Process 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10350,
+        5900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 56\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_56: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "da943d8c-eac3-4dcb-a232-3df7aa6c3298",
+      "name": "\u26a1 Avatar Process 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10500,
+        6000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 57\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_57: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "31174229-b976-4954-916c-692719353f5b",
+      "name": "\u26a1 Avatar Process 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10650,
+        6100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 58\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_58: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "a45e989b-4cfa-498f-ab4c-f0cece037aab",
+      "name": "\u26a1 Avatar Process 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10800,
+        6200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 59\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_59: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "16152c54-b999-4b60-ad8e-c477581c281d",
+      "name": "\u26a1 Avatar Process 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10950,
+        6300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 60\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_60: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "beff4aba-cd57-4e41-b5f6-9458e3c5cb34",
+      "name": "\u26a1 Avatar Process 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11100,
+        6400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 61\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_61: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "679427d5-f705-4956-bacd-797d47f93270",
+      "name": "\u26a1 Avatar Process 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11250,
+        6500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 62\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_62: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "8958181b-2bbb-4860-bf44-81838d3c62bf",
+      "name": "\u26a1 Avatar Process 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11400,
+        6600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 63\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_63: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "3ffa2c49-a5f3-4467-99c8-288c24a5afed",
+      "name": "\u26a1 Avatar Process 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11550,
+        6700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 64\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_64: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "1505ab19-7979-4116-be5e-ae121d557b81",
+      "name": "\u26a1 Avatar Process 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11700,
+        6800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Avatar Processing Node 65\n// Crystal Lion Lead Enhancement\n\nconst data = $input.first().json;\nconst enhanced = {\n  ...data,\n  processing_step_65: 'complete',\n  crystal_enhancement: true,\n  timestamp: new Date().toISOString(),\n  traumwagen_ready: true\n};\n\nreturn [enhanced];"
+      },
+      "id": "a27b8b26-a87a-4b81-ac85-a374c6cc3377",
+      "name": "\u26a1 Avatar Process 65",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        11850,
+        6900
+      ]
+    }
+  ],
+  "connections": {
+    "\ud83c\udfaf Avatar Lead Webhook": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar WARP Init",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar WARP Init": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udccb Tally Lead Capture",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udccb Tally Lead Capture": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\ude80 Apollo.io Lead Mining",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\ude80 Apollo.io Lead Mining": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd0d Snov.io Email Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd0d Snov.io Email Enrichment": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\uddec Genetic Lead Optimizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\uddec Genetic Lead Optimizer": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfad 22 Avatar Matrix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfad 22 Avatar Matrix": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfac HeyGen Avatar Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfac HeyGen Avatar Generator": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 ElevenLabs Voice Clone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 ElevenLabs Voice Clone": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfad Hume EVI3 Emotion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfad Hume EVI3 Emotion": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udd2e Crystal Portal Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udd2e Crystal Portal Generator": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcca HubSpot Lead Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcca HubSpot Lead Create": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udcf1 WhatsApp Notify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udcf1 WhatsApp Notify": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfaf Lead Scoring Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfaf Lead Scoring Engine": {
+      "main": [
+        [
+          {
+            "node": "\u2764\ufe0f Emotion Mapping",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2764\ufe0f Emotion Mapping": {
+      "main": [
+        [
+          {
+            "node": "\ud83c\udfa4 Voice Modulation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83c\udfa4 Voice Modulation": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\uddec Avatar Evolution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\uddec Avatar Evolution": {
+      "main": [
+        [
+          {
+            "node": "\u2694\ufe0f Avatar Army Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u2694\ufe0f Avatar Army Status": {
+      "main": [
+        [
+          {
+            "node": "\ud83e\udd81 Crystal Lion Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83e\udd81 Crystal Lion Report": {
+      "main": [
+        [
+          {
+            "node": "\ud83d\udef8 Crystal Lions Intelligence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\ud83d\udef8 Crystal Lions Intelligence": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 21": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 22": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 23": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 24": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 25": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 26": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 27": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 28": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 29": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 30": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 31": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 32": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 33",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 33": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 34",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 34": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 35",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 35": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 36",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 36": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 37",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 37": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 38",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 38": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 39",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 39": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 40",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 40": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 41",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 41": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 42",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 42": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 43",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 43": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 44",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 44": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 45",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 45": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 46",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 46": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 47",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 47": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 48",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 48": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 49",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 49": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 50": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 51",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 51": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 52",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 52": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 53",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 53": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 54",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 54": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 55",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 55": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 56",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 56": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 57",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 57": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 58",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 58": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 59",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 59": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 60",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 60": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 61",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 61": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 62",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 62": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 63",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 63": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "\u26a1 Avatar Process 64": {
+      "main": [
+        [
+          {
+            "node": "\u26a1 Avatar Process 65",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "module2avatarleadgeneration65nodes"
+  }
+}

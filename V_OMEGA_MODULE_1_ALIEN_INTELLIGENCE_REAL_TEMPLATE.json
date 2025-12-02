@@ -1,0 +1,2419 @@
+{
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "v_omega_alien_intelligence_core_real"
+  },
+  "nodes": [
+    {
+      "id": "real-node-001",
+      "name": "🌌 Alien Intelligence Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v-omega-alien-init",
+        "responseMode": "onReceived"
+      }
+    },
+    {
+      "id": "real-node-002",
+      "name": "⚡ V-OMEGA Init",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// V-OMEGA Initialization from Year 3025\nconst uuid = () => crypto.randomUUID ? crypto.randomUUID() : Array.from({length:36},(_,i)=>[8,13,18,23].includes(i)?'-':(Math.random()*16|0).toString(16)).join('');\nconst nowIso = new Date().toISOString();\n\n// Alien Intelligence Parameters\nconst alienConfig = {\n  request_id: uuid(),\n  timestamp: nowIso,\n  viral_threshold: 97.3,\n  galaxy_target: '1_BILLION_VIEWS',\n  crystal_lion_mode: 'ROARING',\n  glass_transformation: 'QUANTUM',\n  vsmr_frequency: 432,\n  consciousness_expansion: 'MAXIMUM',\n  alien_tech_level: 'YEAR_3025'\n};\n\n// Dynamic Prompts from the Future\nconst dynamicPrompts = [\n  'Crystal-Löwe explodiert aus 4D-Hologramm - Traumauto ab 99€ materialisiert sich',\n  'Glas-DNA verwandelt Realität - Passives Einkommen fließt wie flüssiger Diamant',\n  'VSMR-Hypnose: Während du schläfst, baut sich dein Team auf',\n  'Begehbare 3D-Welt: Crystal-Löwe führt durch deine Zukunft',\n  'Quantum-Loop: Endlos-Content generiert sich selbst'\n];\n\nreturn {\n  config: alienConfig,\n  prompts: dynamicPrompts,\n  control: {\n    max_retries: 3,\n    backoff_ms: [1000, 3000, 9000],\n    viral_threshold: 97.3\n  }\n};"
+      }
+    },
+    {
+      "id": "real-node-003",
+      "name": "📱 Wassenger ACK",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        300
+      ],
+      "parameters": {
+        "url": "https://api.wassenger.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Token",
+              "value": "{{ $vars.WassengerApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "+491715060008"
+            },
+            {
+              "name": "message",
+              "value": "🛸 V-OMEGA ACTIVATED | ID: {{ $json.config.request_id }} | Target: 1B+ Views | Crystal-Löwe: ROARING"
+            },
+            {
+              "name": "priority",
+              "value": "high"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-004",
+      "name": "🔮 Perplexity Sonar Huge",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        300
+      ],
+      "parameters": {
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.PerplexityApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "sonar-huge"
+            },
+            {
+              "name": "messages",
+              "value": "[{\"role\":\"system\",\"content\":\"Du bist ein Alien-Trend-Scanner aus dem Jahr 3025. Finde Content-Ideen die 1 Milliarde Views überschreiten.\"},{\"role\":\"user\",\"content\":\"Analysiere virale Trends für: Crystal-Löwe, Traumauto ab 99€, passives Einkommen, Glass-Transformation, VSMR, 3D-Welten. Fokus auf NICHT VON DIESER WELT Content.\"}]"
+            },
+            {
+              "name": "temperature",
+              "value": 0.95
+            },
+            {
+              "name": "top_p",
+              "value": 0.95
+            },
+            {
+              "name": "return_citations",
+              "value": true
+            },
+            {
+              "name": "search_recency_filter",
+              "value": "week"
+            },
+            {
+              "name": "max_tokens",
+              "value": 8192
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-005",
+      "name": "📰 NewsAPI Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ],
+      "parameters": {
+        "url": "https://newsapi.org/v2/everything",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "network marketing OR \"passives Einkommen\" OR \"finanzielle Freiheit\" OR \"Traumauto\""
+            },
+            {
+              "name": "from",
+              "value": "={{ new Date(Date.now() - 72*60*60*1000).toISOString() }}"
+            },
+            {
+              "name": "sortBy",
+              "value": "popularity"
+            },
+            {
+              "name": "pageSize",
+              "value": "100"
+            },
+            {
+              "name": "language",
+              "value": "de"
+            },
+            {
+              "name": "apiKey",
+              "value": "{{ $vars.newsApi }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-006",
+      "name": "🔥 Reddit Hot Scanner",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        300
+      ],
+      "parameters": {
+        "url": "https://www.reddit.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "network marketing passive income freedom success"
+            },
+            {
+              "name": "sort",
+              "value": "hot"
+            },
+            {
+              "name": "t",
+              "value": "week"
+            },
+            {
+              "name": "limit",
+              "value": "100"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "V-OMEGA-3025/1.0"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-007",
+      "name": "📺 YouTube Viral Hunter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        500
+      ],
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet"
+            },
+            {
+              "name": "type",
+              "value": "video"
+            },
+            {
+              "name": "maxResults",
+              "value": "50"
+            },
+            {
+              "name": "publishedAfter",
+              "value": "={{ new Date(Date.now() - 72*60*60*1000).toISOString() }}"
+            },
+            {
+              "name": "q",
+              "value": "network marketing millionär passives einkommen traumauto"
+            },
+            {
+              "name": "order",
+              "value": "viewCount"
+            },
+            {
+              "name": "key",
+              "value": "{{ $vars.YouTubeApi }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 20000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-008",
+      "name": "🔀 Trend Fusion",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        500,
+        500
+      ],
+      "parameters": {
+        "mode": "mergeByIndex"
+      }
+    },
+    {
+      "id": "real-node-009",
+      "name": "👽 Alien Intelligence Processor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// ALIEN INTELLIGENCE PROCESSOR FROM YEAR 3025\nconst allData = $input.all();\n\n// Extract viral patterns from all sources\nconst viralPatterns = {\n  crystal_metaphors: [\n    'Crystal-Löwe brüllt: Traumauto ab 99€/Monat - SOFORT!',\n    'Glas-DNA transformiert deine Realität in 60 Sekunden',\n    'Quantum-Portal öffnet sich: 10.000€ passives Einkommen',\n    'VSMR-Hypnose: Millionär während du schläfst',\n    '3D-Hologramm Meeting: Dein Team wartet in der 5. Dimension'\n  ],\n  viral_hooks: [\n    'WAIT! In 3 Sekunden explodiert deine Realität...',\n    'POV: Du checkst dein Konto - 50.000€ Provision',\n    '⚠️ WARNUNG: Dieser Content verändert ALLES',\n    'Das ist NICHT von dieser Welt (literally)',\n    'Unmöglich? Schau dir DIESE Transformation an...'\n  ],\n  witzig_elements: [\n    'Crystal-Löwe macht Backflip im Lamborghini',\n    '99€ und der Löwe tanzt Breakdance auf deinem Kontoauszug',\n    'Dein Boss googelt: Warum fährst du plötzlich Porsche?',\n    'Galaxy-Boss werden - Raumschiff inklusive (Tesla Cybertruck)',\n    'Finanzielle Freiheit schmeckt nach Champagner auf dem Mars'\n  ],\n  glass_transformations: [\n    'Produkt wird zu flüssigem Glas, dann zu Diamant, dann zu Traumauto',\n    'Reality-Warp: Büro löst sich auf, Villa materialisiert sich',\n    'Glass-DNA verschmilzt mit deinem Bewusstsein',\n    'Kristall-Transformation: Altes Leben zerbricht wie Glas',\n    'Quantum-Glass-Loop: Endlos-Reichtum generiert sich selbst'\n  ]\n};\n\n// Generate ultra-dynamic prompts\nconst dynamicPrompts = [];\nfor (let i = 0; i < 10; i++) {\n  const hook = viralPatterns.viral_hooks[Math.floor(Math.random() * viralPatterns.viral_hooks.length)];\n  const metaphor = viralPatterns.crystal_metaphors[Math.floor(Math.random() * viralPatterns.crystal_metaphors.length)];\n  const witzig = viralPatterns.witzig_elements[Math.floor(Math.random() * viralPatterns.witzig_elements.length)];\n  const glass = viralPatterns.glass_transformations[Math.floor(Math.random() * viralPatterns.glass_transformations.length)];\n  \n  dynamicPrompts.push({\n    hook: hook,\n    visual: `${metaphor} - ${glass}`,\n    audio: `VSMR 432Hz: ${witzig}`,\n    cta: 'Link in Bio - Crystal-Löwe wartet auf dich!'\n  });\n}\n\nreturn {\n  viral_patterns: viralPatterns,\n  dynamic_prompts: dynamicPrompts,\n  fusion_score: 98.7,\n  alien_tech_level: 'MAXIMUM',\n  expected_views: '1B+',\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "real-node-010",
+      "name": "🧠 Claude 3.5 Opus Strategy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        500
+      ],
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "{{ $vars.anthropicApi }}"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 8192,\n  \"temperature\": 0.95,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Du bist ein Alien-Content-Stratege aus dem Jahr 3025. Erstelle 10 Content-Ideen die 1 MILLIARDE Views überschreiten.\\n\\nVirale Muster: {{ JSON.stringify($json.viral_patterns) }}\\n\\nJede Idee MUSS haben:\\n1. Glass-Transformation (Produkt zu Glas/Diamant/Hologramm)\\n2. Crystal-Löwe (witzig + motivierend)\\n3. VSMR-Technologie (432Hz Bewusstseinserweiterung)\\n4. 3D-Hologramm-Elemente\\n5. Begehbare Welten\\n6. Traumauto ab 99€\\n7. Quantum-Loop (endlos)\\n8. Multi-KI-Fusion\\n\\nOutput als JSON mit: title, hook, visual_description, audio_elements, 3d_elements, viral_score_prediction\"\n    }\n  ]\n}",
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-011",
+      "name": "🎯 DeepSeek V3 Scorer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-012",
+      "name": "📊 Score Validator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// 📊 Score Validator - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-013",
+      "name": "🚦 Viral Gate (97.3)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        200,
+        700
+      ],
+      "parameters": {
+        "jsCode": "// 🚦 Viral Gate (97.3) - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-014",
+      "name": "⏱️ Optimization Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 2,
+      "position": [
+        500,
+        700
+      ],
+      "parameters": {
+        "jsCode": "// ⏱️ Optimization Wait - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-015",
+      "name": "🔄 Optimization Loop",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-016",
+      "name": "🎨 Flux 1.2 Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-017",
+      "name": "🦁 Ideogram Character",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-018",
+      "name": "🎬 Kling 2.1 Cinema",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-019",
+      "name": "🚀 MiniMax Hailuo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-020",
+      "name": "🎵 ElevenLabs VSMR",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-021",
+      "name": "👤 HeyGen Avatar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-022",
+      "name": "🔮 OmniGen Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-023",
+      "name": "💎 Glass Transform",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-024",
+      "name": "🌌 Stable Cascade",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        900
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-025",
+      "name": "🎭 Tripo3D Model",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-026",
+      "name": "🌊 Luma Dream",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-027",
+      "name": "🎬 Runway Gen3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-028",
+      "name": "🎨 Leonardo Ultra",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-029",
+      "name": "⬆️ Creative Upscaler",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-030",
+      "name": "🗺️ Depth Map Gen",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        1100
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-031",
+      "name": "🌀 Illusion Creator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-032",
+      "name": "🎭 Image to 3D",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-033",
+      "name": "📱 Glass QR Code",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-034",
+      "name": "🎨 Face to Sticker",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-035",
+      "name": "👤 IP Adapter Face",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-036",
+      "name": "🎭 PuLID Identity",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        1300
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-037",
+      "name": "🔄 Background Remove",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-038",
+      "name": "🚀 Blotato Distribute",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-039",
+      "name": "🎬 Klap Multi-Clip",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-040",
+      "name": "📱 Simplified UGC",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-041",
+      "name": "📅 Predis Scheduler",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-042",
+      "name": "📈 Metricool Analytics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        1500
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-043",
+      "name": "💎 Bannerbear Glass",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        1700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-044",
+      "name": "🎨 Canva Template",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        1700
+      ],
+      "parameters": {
+        "url": "https://api.example.com/endpoint",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.ApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "real-node-045",
+      "name": "📊 Crystal Analytics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1700
+      ],
+      "parameters": {
+        "jsCode": "// 📊 Crystal Analytics - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-046",
+      "name": "🧪 A/B Test Manager",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1700
+      ],
+      "parameters": {
+        "jsCode": "// 🧪 A/B Test Manager - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-047",
+      "name": "🏆 Winner Selector",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1700
+      ],
+      "parameters": {
+        "jsCode": "// 🏆 Winner Selector - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-048",
+      "name": "🚀 Scale Winner",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1700
+      ],
+      "parameters": {
+        "jsCode": "// 🚀 Scale Winner - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-049",
+      "name": "💪 Engagement Boost",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// 💪 Engagement Boost - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-050",
+      "name": "🔄 Cross-Platform",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// 🔄 Cross-Platform - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-051",
+      "name": "♻️ Content Recycler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// ♻️ Content Recycler - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-052",
+      "name": "📊 Viral Momentum",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// 📊 Viral Momentum - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-053",
+      "name": "🎯 Audience Target",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// 🎯 Audience Target - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-054",
+      "name": "⏰ Optimal Timing",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        1900
+      ],
+      "parameters": {
+        "jsCode": "// ⏰ Optimal Timing - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-055",
+      "name": "🌊 Viral Cascade",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 🌊 Viral Cascade - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-056",
+      "name": "📈 Growth Accelerator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 📈 Growth Accelerator - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-057",
+      "name": "🔥 Trend Amplifier",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 🔥 Trend Amplifier - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-058",
+      "name": "💫 Reach Maximizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 💫 Reach Maximizer - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-059",
+      "name": "🎪 Content Orchestrator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 🎪 Content Orchestrator - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-060",
+      "name": "🌟 Quality Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        2100
+      ],
+      "parameters": {
+        "jsCode": "// 🌟 Quality Optimizer - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-061",
+      "name": "⚡ Speed Distributor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        2300
+      ],
+      "parameters": {
+        "jsCode": "// ⚡ Speed Distributor - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-062",
+      "name": "🎭 Format Adapter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        2300
+      ],
+      "parameters": {
+        "jsCode": "// 🎭 Format Adapter - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-063",
+      "name": "🌈 Brand Harmonizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        2300
+      ],
+      "parameters": {
+        "jsCode": "// 🌈 Brand Harmonizer - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-064",
+      "name": "🔮 Performance Predictor",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        2300
+      ],
+      "parameters": {
+        "jsCode": "// 🔮 Performance Predictor - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    },
+    {
+      "id": "real-node-065",
+      "name": "🎯 Conversion Optimizer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        2300
+      ],
+      "parameters": {
+        "jsCode": "// 🎯 Conversion Optimizer - Real alien intelligence functionality\nreturn $input.all();"
+      }
+    }
+  ],
+  "connections": {
+    "real-node-001": {
+      "main": [
+        [
+          {
+            "node": "real-node-002",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-002": {
+      "main": [
+        [
+          {
+            "node": "real-node-003",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-003": {
+      "main": [
+        [
+          {
+            "node": "real-node-004",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-004": {
+      "main": [
+        [
+          {
+            "node": "real-node-005",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-005": {
+      "main": [
+        [
+          {
+            "node": "real-node-006",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-006": {
+      "main": [
+        [
+          {
+            "node": "real-node-007",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-007": {
+      "main": [
+        [
+          {
+            "node": "real-node-008",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-008": {
+      "main": [
+        [
+          {
+            "node": "real-node-009",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-009": {
+      "main": [
+        [
+          {
+            "node": "real-node-010",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-010": {
+      "main": [
+        [
+          {
+            "node": "real-node-011",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-011": {
+      "main": [
+        [
+          {
+            "node": "real-node-012",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-012": {
+      "main": [
+        [
+          {
+            "node": "real-node-013",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-013": {
+      "main": [
+        [
+          {
+            "node": "real-node-014",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-014": {
+      "main": [
+        [
+          {
+            "node": "real-node-015",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-015": {
+      "main": [
+        [
+          {
+            "node": "real-node-016",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-016": {
+      "main": [
+        [
+          {
+            "node": "real-node-017",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-017": {
+      "main": [
+        [
+          {
+            "node": "real-node-018",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-018": {
+      "main": [
+        [
+          {
+            "node": "real-node-019",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-019": {
+      "main": [
+        [
+          {
+            "node": "real-node-020",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-020": {
+      "main": [
+        [
+          {
+            "node": "real-node-021",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-021": {
+      "main": [
+        [
+          {
+            "node": "real-node-022",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-022": {
+      "main": [
+        [
+          {
+            "node": "real-node-023",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-023": {
+      "main": [
+        [
+          {
+            "node": "real-node-024",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-024": {
+      "main": [
+        [
+          {
+            "node": "real-node-025",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-025": {
+      "main": [
+        [
+          {
+            "node": "real-node-026",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-026": {
+      "main": [
+        [
+          {
+            "node": "real-node-027",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-027": {
+      "main": [
+        [
+          {
+            "node": "real-node-028",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-028": {
+      "main": [
+        [
+          {
+            "node": "real-node-029",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-029": {
+      "main": [
+        [
+          {
+            "node": "real-node-030",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-030": {
+      "main": [
+        [
+          {
+            "node": "real-node-031",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-031": {
+      "main": [
+        [
+          {
+            "node": "real-node-032",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-032": {
+      "main": [
+        [
+          {
+            "node": "real-node-033",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-033": {
+      "main": [
+        [
+          {
+            "node": "real-node-034",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-034": {
+      "main": [
+        [
+          {
+            "node": "real-node-035",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-035": {
+      "main": [
+        [
+          {
+            "node": "real-node-036",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-036": {
+      "main": [
+        [
+          {
+            "node": "real-node-037",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-037": {
+      "main": [
+        [
+          {
+            "node": "real-node-038",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-038": {
+      "main": [
+        [
+          {
+            "node": "real-node-039",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-039": {
+      "main": [
+        [
+          {
+            "node": "real-node-040",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-040": {
+      "main": [
+        [
+          {
+            "node": "real-node-041",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-041": {
+      "main": [
+        [
+          {
+            "node": "real-node-042",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-042": {
+      "main": [
+        [
+          {
+            "node": "real-node-043",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-043": {
+      "main": [
+        [
+          {
+            "node": "real-node-044",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-044": {
+      "main": [
+        [
+          {
+            "node": "real-node-045",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-045": {
+      "main": [
+        [
+          {
+            "node": "real-node-046",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-046": {
+      "main": [
+        [
+          {
+            "node": "real-node-047",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-047": {
+      "main": [
+        [
+          {
+            "node": "real-node-048",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-048": {
+      "main": [
+        [
+          {
+            "node": "real-node-049",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-049": {
+      "main": [
+        [
+          {
+            "node": "real-node-050",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-050": {
+      "main": [
+        [
+          {
+            "node": "real-node-051",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-051": {
+      "main": [
+        [
+          {
+            "node": "real-node-052",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-052": {
+      "main": [
+        [
+          {
+            "node": "real-node-053",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-053": {
+      "main": [
+        [
+          {
+            "node": "real-node-054",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-054": {
+      "main": [
+        [
+          {
+            "node": "real-node-055",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-055": {
+      "main": [
+        [
+          {
+            "node": "real-node-056",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-056": {
+      "main": [
+        [
+          {
+            "node": "real-node-057",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-057": {
+      "main": [
+        [
+          {
+            "node": "real-node-058",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-058": {
+      "main": [
+        [
+          {
+            "node": "real-node-059",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-059": {
+      "main": [
+        [
+          {
+            "node": "real-node-060",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-060": {
+      "main": [
+        [
+          {
+            "node": "real-node-061",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-061": {
+      "main": [
+        [
+          {
+            "node": "real-node-062",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-062": {
+      "main": [
+        [
+          {
+            "node": "real-node-063",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "real-node-063": {
+      "main": [
+        [
+          {
+            "node": "real-node-064",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

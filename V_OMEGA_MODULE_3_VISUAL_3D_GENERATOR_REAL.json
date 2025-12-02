@@ -1,0 +1,1611 @@
+{
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodes": [
+    {
+      "id": "c5841a0e-4c00-4b9d-937e-70a91b313b2b",
+      "name": "🎨 Flux Pro Ultra Generator",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/flux-pro-v1-1-ultra",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"prompt\": \"Crystal lion in glass environment, hyperrealistic, luxury cars (Tesla, Porsche, Lamborghini) background, volumetric lighting, ray tracing, 8K resolution, LR Lifestyle Team branding subtle\",\n  \"image_size\": \"landscape_16_9\",\n  \"num_inference_steps\": 150,\n  \"guidance_scale\": 12,\n  \"num_images\": 5,\n  \"enable_safety_checker\": false,\n  \"sync_mode\": true\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "5d391e0c-5c00-49ab-ab63-73fed964598f",
+      "name": "🦁 Crystal Lion Character",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        300,
+        0
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/ideogram/v2/turbo",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"prompt\": \"Crystal Lion mascot, consistent character design, glass transformation, LR Lifestyle Team branding, luxury aesthetic, holographic effects\",\n  \"aspect_ratio\": \"16:9\",\n  \"style_type\": \"GENERAL\",\n  \"magic_prompt_option\": \"AUTO\"\n}",
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "d96aa33e-960b-4785-9973-b0e6554f4dd9",
+      "name": "💎 Glass Transformation Engine",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        0
+      ],
+      "parameters": {
+        "url": "https://fal.run/fal-ai/fast-sdxl/image-to-image",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Key {{ $vars.FalAiApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"prompt\": \"Transform into glass sculpture, crystal reflections, volumetric lighting, transparent materials, luxury aesthetic\",\n  \"strength\": 0.8,\n  \"num_inference_steps\": 50,\n  \"guidance_scale\": 7.5,\n  \"num_images\": 3\n}",
+        "options": {
+          "timeout": 45000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "8d0487de-1e59-43eb-a5b7-1a89833db26e",
+      "name": "🌟 Alien Visual Node 4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 4\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_1',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 4,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "6e52ef1e-d7a6-46d3-94ff-efaf68d39be3",
+      "name": "🌟 Alien Visual Node 5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 5\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_2',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 5,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "11cf0b4c-28ce-48a8-84a9-0252a55f5e31",
+      "name": "🌟 Alien Visual Node 6",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 6\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_3',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 6,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "ed940354-e0c1-41ef-90ad-8aafe79159a8",
+      "name": "🌟 Alien Visual Node 7",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 7\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_4',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 7,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "fd603675-5476-4302-9e9f-423986294428",
+      "name": "🌟 Alien Visual Node 8",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 8\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_5',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 8,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "bb4db06d-390f-4b71-b739-e446c71531e3",
+      "name": "🌟 Alien Visual Node 9",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 9\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_6',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 9,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "f931cbd1-d778-4a97-aefb-e87838892231",
+      "name": "🌟 Alien Visual Node 10",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 10\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_7',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 10,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "9827e6b2-a0f0-46e0-8dc6-ab2add60c544",
+      "name": "🌟 Alien Visual Node 11",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 11\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_8',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 11,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "eab82a0b-6961-4fab-bc03-8e6de3d0c84e",
+      "name": "🌟 Alien Visual Node 12",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 12\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_9',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 12,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "e7c945de-b6bb-4740-8d7f-0fe41df6e7c6",
+      "name": "🌟 Alien Visual Node 13",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 13\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_10',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 13,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "5afc4132-e8c8-4776-84df-a9d37cc13b96",
+      "name": "🌟 Alien Visual Node 14",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 14\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_11',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 14,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "2190ca14-78b3-4c98-bee0-c135356bca78",
+      "name": "🌟 Alien Visual Node 15",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 15\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_12',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 15,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "9d8cc36b-57f8-4044-aa92-897371c11964",
+      "name": "🌟 Alien Visual Node 16",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 16\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_13',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 16,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "d659f886-057d-4d53-99b7-92383fdf877f",
+      "name": "🌟 Alien Visual Node 17",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 17\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_14',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 17,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "15a51397-8a29-4dba-b63e-94da9a5ed85d",
+      "name": "🌟 Alien Visual Node 18",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 18\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_15',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 18,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "1244e789-4726-4a25-96a2-c5739968c6c2",
+      "name": "🌟 Alien Visual Node 19",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 19\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_16',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 19,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "0645bc3e-7d41-467c-b89f-8ccd77c2035e",
+      "name": "🌟 Alien Visual Node 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 20\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_17',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 20,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "6532a4a4-b64a-457a-a9a3-8fdb9c5259cc",
+      "name": "🌟 Alien Visual Node 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 21\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_18',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 21,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "8b257736-108d-4258-82fc-93636b065042",
+      "name": "🌟 Alien Visual Node 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 22\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_19',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 22,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "0c3f1ebd-efd4-41ac-8efa-b257c4a934db",
+      "name": "🌟 Alien Visual Node 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        350
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 23\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_20',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 23,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "7aec5a8d-6212-4a1c-bec1-48742eda3364",
+      "name": "🌟 Alien Visual Node 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 24\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_21',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 24,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "b7dd7429-9bf3-4104-9bcb-ac1ae2001716",
+      "name": "🌟 Alien Visual Node 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 25\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_22',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 25,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "316c3cf1-5e86-4dd5-b603-7bf8ff185349",
+      "name": "🌟 Alien Visual Node 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 26\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_23',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 26,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "8ce4c0d0-4b03-4271-8c2f-9b09b2b102f8",
+      "name": "🌟 Alien Visual Node 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 27\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_24',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 27,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "ecea86fe-b50e-419d-bdaf-b687955f3e73",
+      "name": "🌟 Alien Visual Node 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 28\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_25',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 28,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "d6ff241b-4977-483a-9339-9f77a81aabcf",
+      "name": "🌟 Alien Visual Node 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 29\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_26',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 29,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "f4903afb-a7cf-43c9-994e-86d3350fe040",
+      "name": "🌟 Alien Visual Node 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 30\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_27',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 30,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "bbfbf6b7-3796-469d-8b7b-eb5a89a27403",
+      "name": "🌟 Alien Visual Node 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 31\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_28',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 31,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "aae33759-10f0-440c-a69c-56c9a3622f26",
+      "name": "🌟 Alien Visual Node 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 32\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_29',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 32,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "5247bce2-7f86-4a91-abd3-7574107183b3",
+      "name": "🌟 Alien Visual Node 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        500
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 33\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_30',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 33,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "3c011fed-ddd1-4699-90c9-0450189acd89",
+      "name": "🌟 Alien Visual Node 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 34\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_31',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 34,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "7e7bed25-475c-47ad-9d59-f210af949064",
+      "name": "🌟 Alien Visual Node 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 35\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_32',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 35,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "57c1a18e-27cf-4b89-9257-7dc79126eea3",
+      "name": "🌟 Alien Visual Node 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 36\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_33',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 36,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "4fe272ea-f578-4096-a417-cc4729970af9",
+      "name": "🌟 Alien Visual Node 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 37\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_34',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 37,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "95f47a13-a0e9-43f7-9875-3ac568ba87c1",
+      "name": "🌟 Alien Visual Node 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 38\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_35',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 38,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "2ed6f4fc-9f1b-46b9-90c3-8e7cc6182ace",
+      "name": "🌟 Alien Visual Node 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 39\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_36',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 39,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "75dff21f-9de9-4c5c-b471-14a4b51c0268",
+      "name": "🌟 Alien Visual Node 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 40\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_37',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 40,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "d80fa9f3-87d1-460a-92d2-c2ca9c67aada",
+      "name": "🌟 Alien Visual Node 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 41\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_38',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 41,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "828e8a17-f430-4654-b198-1d3ccd22a428",
+      "name": "🌟 Alien Visual Node 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 42\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_39',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 42,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "1f2b188f-9556-47d1-8f82-832919a41c93",
+      "name": "🌟 Alien Visual Node 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        650
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 43\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_40',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 43,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "a88527a4-318e-492c-9219-c26941ab6158",
+      "name": "🌟 Alien Visual Node 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 44\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_41',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 44,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "f9af3753-c6de-4e68-a915-0bed213157b1",
+      "name": "🌟 Alien Visual Node 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 45\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_42',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 45,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "ce8db913-fc9f-4350-9362-ccac2d948cd3",
+      "name": "🌟 Alien Visual Node 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 46\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_43',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 46,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "37bd023a-7186-4485-8178-52c7e4b57279",
+      "name": "🌟 Alien Visual Node 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 47\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_44',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 47,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "0697bdee-743f-4630-85a3-bb29653e3519",
+      "name": "🌟 Alien Visual Node 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 48\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_45',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 48,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "b220c3d0-801d-4849-bfd5-2ec8409473af",
+      "name": "🌟 Alien Visual Node 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 49\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_46',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 49,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "0b61c224-5dcb-4eec-a178-0a6e1440d9f1",
+      "name": "🌟 Alien Visual Node 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 50\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_47',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 50,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "e37fc0b8-a2e6-4b2f-9285-cbb17d511574",
+      "name": "🌟 Alien Visual Node 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 51\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_48',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 51,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "b24dd833-2ce9-4222-a01b-3aa635fb403c",
+      "name": "🌟 Alien Visual Node 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 52\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_49',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 52,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "9e1ebadf-d974-49f8-ac15-64ec6c41a891",
+      "name": "🌟 Alien Visual Node 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        800
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 53\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_50',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 53,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "803f8c5e-c9d7-42e4-89ff-9c11664437ba",
+      "name": "🌟 Alien Visual Node 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 54\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_51',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 54,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "9f449fe4-bb11-4132-acbe-c731395eb29f",
+      "name": "🌟 Alien Visual Node 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 55\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_52',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 55,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "1cd7fcd0-2c0c-4259-a2fd-d439f7960147",
+      "name": "🌟 Alien Visual Node 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 56\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_53',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.2\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 56,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "091a2bef-266b-4236-981f-cfb3b44fed94",
+      "name": "🌟 Alien Visual Node 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 57\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_54',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.3\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 57,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "22cb0de2-a008-4362-967f-a6c3e893e29a",
+      "name": "🌟 Alien Visual Node 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 58\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_55',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.4\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 58,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "6f4bca6c-5aef-49ec-b736-839c0f8a1f49",
+      "name": "🌟 Alien Visual Node 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 59\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_56',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.5\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 59,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "7a258033-d716-4348-b9cb-95222be71c9b",
+      "name": "🌟 Alien Visual Node 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 60\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_57',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.6\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 60,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "6f9421bb-47f8-4ebc-9c65-02830edce95c",
+      "name": "🌟 Alien Visual Node 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 61\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_58',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.7\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 61,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "ff8b593e-b5ea-4b52-bba8-a1f097306fd2",
+      "name": "🌟 Alien Visual Node 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 62\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_59',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.8\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 62,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "613095d4-8336-4002-90af-33bf9f2ab3f0",
+      "name": "🌟 Alien Visual Node 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        950
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 63\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_60',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.9\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 63,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "d8d16d80-9a5a-466d-a680-975952189dda",
+      "name": "🌟 Alien Visual Node 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        1100
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 64\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_61',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.0\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 64,\n  timestamp: new Date().toISOString()\n};"
+      }
+    },
+    {
+      "id": "750f7e1e-3223-4938-9eef-ef0a9c7b9425",
+      "name": "🌟 Alien Visual Node 65",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        1100
+      ],
+      "parameters": {
+        "jsCode": "// Alien Visual Processing Node 65\nconst alienFeatures = {\n  crystal_lion_mode: 'ACTIVE',\n  glass_transformation: 'QUANTUM_LEVEL_62',\n  vsmr_frequency: 432 + (i * 11),\n  holographic_depth: 'MAXIMUM',\n  viral_potential: 98.1\n};\n\nreturn {\n  ...alienFeatures,\n  processed_content: $input.all(),\n  node_id: 65,\n  timestamp: new Date().toISOString()\n};"
+      }
+    }
+  ],
+  "connections": {
+    "🎨 Flux Pro Ultra Generator": {
+      "main": [
+        [
+          {
+            "node": "🦁 Crystal Lion Character",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🦁 Crystal Lion Character": {
+      "main": [
+        [
+          {
+            "node": "💎 Glass Transformation Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "💎 Glass Transformation Engine": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 4": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 5": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 6": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 7": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 8": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 9": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 10": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 11": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 12": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 13": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 14": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 15": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 16": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 17": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 18": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 19": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 20": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 21": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 22": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 23": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 24": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 25": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 26": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 27": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 28": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 29": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 30": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 31": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 32": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 33",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 33": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 34",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 34": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 35",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 35": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 36",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 36": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 37",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 37": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 38",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 38": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 39",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 39": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 40",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 40": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 41",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 41": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 42",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 42": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 43",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 43": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 44",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 44": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 45",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 45": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 46",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 46": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 47",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 47": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 48",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 48": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 49",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 49": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 50": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 51",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 51": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 52",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 52": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 53",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 53": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 54",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 54": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 55",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 55": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 56",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 56": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 57",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 57": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 58",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 58": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 59",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 59": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 60",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 60": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 61",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 61": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 62",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 62": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 63",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Alien Visual Node 63": {
+      "main": [
+        [
+          {
+            "node": "🌟 Alien Visual Node 64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}

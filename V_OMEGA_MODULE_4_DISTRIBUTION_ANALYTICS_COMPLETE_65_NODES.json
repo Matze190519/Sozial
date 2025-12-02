@@ -1,0 +1,1667 @@
+{
+  "meta": {
+    "instanceId": "v-omega-module-4-distribution"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v-omega-distribution-analytics",
+        "responseMode": "responseNode",
+        "jsCode": "// V-OMEGA Initialization from Year 3025\nconst uuid = () => crypto.randomUUID ? crypto.randomUUID() : Array.from({length:36},(_,i)=>[8,13,18,23].includes(i)?'-':(Math.random()*16|0).toString(16)).join('');\nconst nowIso = new Date().toISOString();\n\n// Alien Intelligence Parameters\nconst alienConfig = {\n  request_id: uuid(),\n  timestamp: nowIso,\n  viral_threshold: 97.3,\n  galaxy_target: '5_BILLION_VIEWS',\n  crystal_lion_mode: 'ROARING',\n  glass_transformation: 'QUANTUM',\n  vsmr_frequency: 432,\n  consciousness_expansion: 'MAXIMUM',\n  alien_tech_level: 'YEAR_3025'\n};\n\n// Dynamic Prompts from the Future\nconst dynamicPrompts = [\n  'Crystal-Löwe explodiert aus 4D-Hologramm - Traumauto ab 99€ materialisiert sich',\n  'Glas-DNA verwandelt Realität - Passives Einkommen fließt wie flüssiger Diamant',\n  'VSMR-Hypnose: Während du schläfst, baut sich dein Team auf',\n  'Begehbare 3D-Welt: Crystal-Löwe führt durch deine Zukunft',\n  'Quantum-Loop: Endlos-Content generiert sich selbst'\n];\n\nreturn {\n  config: alienConfig,\n  prompts: dynamicPrompts,\n  control: {\n    max_retries: 3,\n    backoff_ms: [1000, 3000, 9000],\n    viral_threshold: 97.3\n  }\n};"
+      },
+      "id": "distribution-webhook-001",
+      "name": "⚡ V-OMEGA Init",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// 🎬 VSMR COMPOSITOR - YEAR 3025 DISTRIBUTION ENGINE\nconst distributionConfig = {\n  request_id: require('uuid').v4(),\n  timestamp: new Date().toISOString(),\n  viral_threshold: 97.3,\n  distribution_mode: 'GALACTIC_DOMINATION',\n  target_views: '2_BILLION',\n  crystal_lion_roar: 'MAXIMUM_VOLUME',\n  traumwagen_visibility: 'EVERYWHERE'\n};\n\nconst contentData = $input.first().json;\nconst processedContent = {\n  ...distributionConfig,\n  content_id: contentData.id || require('uuid').v4(),\n  raw_content: contentData,\n  processing_stage: 'DISTRIBUTION_INITIALIZATION',\n  platforms: ['tiktok', 'instagram', 'youtube', 'facebook', 'linkedin'],\n  viral_score: 0,\n  engagement_prediction: 0,\n  lead_generation_potential: 0\n};\n\nreturn [processedContent];"
+      },
+      "id": "vsmr-compositor-002",
+      "name": "🎬 VSMR Compositor Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.runwayml.com/v1/image_to_video",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.RunwayApi }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"promptImage\": \"{{ $json.raw_content.crystal_image_url }}\",\n  \"promptText\": \"Crystal Lion roars and glass shatters into TRAUMWAGEN AB 99€ materialization, 4D holographic effects, consciousness expansion, viral transformation\",\n  \"model\": \"gen4_turbo\",\n  \"watermark\": false,\n  \"duration\": 10,\n  \"enhance_prompt\": true,\n  \"ratio\": \"16:9\",\n  \"motion\": \"high\",\n  \"upscale\": true,\n  \"interpolate\": true\n}"
+      },
+      "id": "runway-production-003",
+      "name": "🎬 Runway Video Production",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.lumalabs.ai/dream-machine/v1/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.LumaApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"prompt\": \"Begehbare 3D world with Crystal Lion as guide, infinite wealth visualization loop, TRAUMWAGEN AB 99€ portal opening, holographic LR Lifestyle team building\",\n  \"aspect_ratio\": \"16:9\",\n  \"loop\": true,\n  \"keyframes\": {\n    \"frame0\": {\n      \"type\": \"image\",\n      \"url\": \"{{ $('🎬 Runway Video Production').first().json.output[0] }}\"\n    }\n  }\n}"
+      },
+      "id": "luma-enhancement-004",
+      "name": "🌟 Luma Dream Enhancement",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.bannerbear.com/v2/videos",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.BannerbearApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"template\": \"{{ $vars.BannerbearTemplateId }}\",\n  \"input_media_url\": \"{{ $('🌟 Luma Dream Enhancement').first().json.video.url }}\",\n  \"modifications\": [\n    {\n      \"name\": \"lr_logo\",\n      \"image_url\": \"{{ $vars.LRLifestyleLogoUrl }}\",\n      \"opacity\": 0.8\n    },\n    {\n      \"name\": \"traumwagen_text\",\n      \"text\": \"TRAUMWAGEN AB 99€\",\n      \"color\": \"#FFD700\"\n    },\n    {\n      \"name\": \"crystal_lion_watermark\",\n      \"text\": \"🦁 Crystal Lion Team\",\n      \"color\": \"#FFFFFF\"\n    }\n  ],\n  \"webhook_url\": \"{{ $vars.WebhookUrl }}/bannerbear-complete\"\n}"
+      },
+      "id": "bannerbear-composition-005",
+      "name": "🎨 Bannerbear Final Composition",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.klap.app/v1/videos/reframe",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.KlapApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_url\": \"{{ $('🎨 Bannerbear Final Composition').first().json.video_url }}\",\n  \"clips\": \"auto\",\n  \"max_clips\": 5,\n  \"aspect_ratios\": [\"9:16\", \"1:1\", \"16:9\"],\n  \"auto_subtitles\": true,\n  \"subtitle_style\": \"modern\",\n  \"viral_optimization\": true,\n  \"hook_generation\": true\n}"
+      },
+      "id": "klap-reframe-006",
+      "name": "📱 Klap Multi-Format Reframe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.blotato.com/v2/viral-engine/distribute",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.BlotatoApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"videos\": \"{{ $('📱 Klap Multi-Format Reframe').first().json.clips }}\",\n  \"platforms\": {\n    \"tiktok\": {\n      \"enabled\": true,\n      \"hashtags\": [\"#traumwagen\", \"#crystallion\", \"#freiheit\", \"#passiveseinkommen\", \"#lrlifestyle\"],\n      \"schedule\": \"optimal_viral_times\"\n    },\n    \"instagram\": {\n      \"enabled\": true,\n      \"story\": true,\n      \"reels\": true,\n      \"feed\": true\n    },\n    \"youtube\": {\n      \"enabled\": true,\n      \"shorts\": true,\n      \"title\": \"🦁 TRAUMWAGEN AB 99€ - Crystal Lion ROAR für deine Freiheit!\"\n    },\n    \"facebook\": {\n      \"enabled\": true,\n      \"groups\": \"network_marketing\"\n    },\n    \"linkedin\": {\n      \"enabled\": true,\n      \"target\": \"entrepreneurs\"\n    }\n  },\n  \"viral_optimization\": {\n    \"a_b_testing\": true,\n    \"engagement_boost\": true,\n    \"algorithm_optimization\": true\n  }\n}"
+      },
+      "id": "blotato-distribution-007",
+      "name": "🚀 Blotato Viral Distribution",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.predis.ai/v1/posts/schedule",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.PredisApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"content\": {\n    \"videos\": \"{{ $('📱 Klap Multi-Format Reframe').first().json.clips }}\",\n    \"captions\": [\n      \"🦁 ROOOOOAR! Crystal Lion bringt dir deinen TRAUMWAGEN AB 99€! Bereit für die Freiheit? #CrystalLion #Traumwagen #Freiheit\",\n      \"✨ VSMR 432Hz aktiviert! Spürst du schon das passive Einkommen? TRAUMWAGEN AB 99€ wartet! #VSMR #PassivesEinkommen #LRLifestyle\",\n      \"🚗 Glas-DNA verwandelt Realität! Dein TRAUMWAGEN materialisiert sich... JETZT! #GlassDNA #Traumwagen #Manifestation\"\n    ]\n  },\n  \"scheduling\": {\n    \"optimal_times\": true,\n    \"timezone\": \"Europe/Berlin\",\n    \"frequency\": \"3_times_daily\",\n    \"duration\": \"30_days\"\n  },\n  \"platforms\": [\"instagram\", \"tiktok\", \"youtube\", \"facebook\", \"linkedin\"],\n  \"brand_kit\": {\n    \"logo\": \"{{ $vars.LRLifestyleLogoUrl }}\",\n    \"colors\": [\"#FFD700\", \"#FFFFFF\", \"#000000\"],\n    \"fonts\": [\"Montserrat\", \"Open Sans\"]\n  }\n}"
+      },
+      "id": "predis-scheduling-008",
+      "name": "📅 Predis Social Scheduling",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.metricool.com/v1/analytics/track",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.MetricoolApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"campaign_id\": \"crystal_lion_traumwagen_2025\",\n  \"content_ids\": \"{{ $('🚀 Blotato Viral Distribution').first().json.post_ids }}\",\n  \"tracking\": {\n    \"views\": true,\n    \"engagement\": true,\n    \"shares\": true,\n    \"comments\": true,\n    \"leads\": true,\n    \"conversions\": true\n  },\n  \"goals\": {\n    \"target_views\": 2000000000,\n    \"target_engagement\": 0.15,\n    \"target_leads\": 100000,\n    \"target_conversions\": 10000\n  },\n  \"reporting\": {\n    \"frequency\": \"real_time\",\n    \"alerts\": true,\n    \"dashboard\": true\n  }\n}"
+      },
+      "id": "metricool-analytics-009",
+      "name": "📊 Metricool Analytics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts/{{ $json.lead_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $vars.HubSpotApi }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"viral_content_views\": \"{{ $('📊 Metricool Analytics').first().json.total_views }}\",\n    \"engagement_score\": \"{{ $('📊 Metricool Analytics').first().json.engagement_rate }}\",\n    \"crystal_lion_interaction\": \"ACTIVATED\",\n    \"traumwagen_interest_level\": \"MAXIMUM\",\n    \"lead_temperature\": \"HOT\",\n    \"next_action\": \"IMMEDIATE_CONTACT\"\n  }\n}"
+      },
+      "id": "hubspot-scoring-010",
+      "name": "🎯 HubSpot Lead Scoring",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot{{ $vars.TelegramBotToken }}/sendMessage",
+        "sendHeaders": true,
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"chat_id\": \"{{ $vars.TelegramChatId }}\",\n  \"text\": \"🦁 CRYSTAL LION DISTRIBUTION COMPLETE!\\n\\n📊 Performance Report:\\n• Views: {{ $('📊 Metricool Analytics').first().json.total_views }}\\n• Engagement: {{ $('📊 Metricool Analytics').first().json.engagement_rate }}%\\n• Leads Generated: {{ $('📊 Metricool Analytics').first().json.leads_count }}\\n• Viral Score: {{ $json.viral_threshold }}\\n\\n🚗 TRAUMWAGEN AB 99€ Campaign Status: GALACTIC DOMINATION ACHIEVED!\\n\\nROOOOOAR! 🦁✨\",\n  \"parse_mode\": \"HTML\"\n}"
+      },
+      "id": "telegram-report-011",
+      "name": "📱 Telegram Final Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Instagram Distribution via Blotato API\nconst contentData = $input.first().json;\nconst instagramConfig = {\n  platform: \"instagram\",\n  content_type: contentData.content_type || \"reel\",\n  caption: `${contentData.current_viral_hook || '🦁 Crystal Lion ROAR!'} #LRTeam #Traumwagen #Freiheit #CrystalLion #PassivesEinkommen`,\n  hashtags: [\"#LRHealthBeauty\", \"#NetworkMarketing\", \"#Erfolg\", \"#TeamLR\", \"#Motivation\"],\n  media_url: contentData.media_url,\n  aspect_ratio: \"9:16\",\n  auto_post: true,\n  optimal_timing: true\n};\n\nreturn [{\n  ...contentData,\n  instagram_config: instagramConfig,\n  distribution_status: 'INSTAGRAM_QUEUED',\n  platform_reach: 'VIRAL_POTENTIAL_HIGH'\n}];"
+      },
+      "id": "distribution-process-012",
+      "name": "📱 Instagram Distribution Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// YouTube Distribution via YouTube API v3\nconst contentData = $input.first().json;\nconst youtubeConfig = {\n  title: `${contentData.current_viral_hook || 'Crystal Lion TRANSFORMATION'} | LR Team Erfolg`,\n  description: `🦁 ROAR-SOME Content vom LR Team! ${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'} \n  \n✨ Crystal Lion zeigt dir den Weg\n🚗 Traumwagen ab 99€/Monat  \n💎 Passives Einkommen aufbauen\n🌟 LÖWENSTARKES TEAM werden\n\n  tags: [\"LR Health Beauty\", \"Network Marketing\", \"Traumwagen\", \"Passives Einkommen\", \"Crystal Lion\"],\n  category_id: \"22\",\n  privacy_status: \"public\",\n  thumbnail_url: contentData.thumbnail_url\n};\n\nreturn [{\n  ...contentData,\n  youtube_config: youtubeConfig,\n  distribution_status: 'YOUTUBE_QUEUED',\n  platform_reach: 'GLOBAL_VIRAL_POTENTIAL'\n}];"
+      },
+      "id": "distribution-process-013",
+      "name": "🎥 YouTube Upload Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1150,
+        550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// LinkedIn Distribution for B2B Reach\nconst contentData = $input.first().json;\nconst linkedinConfig = {\n  text: `🦁 Erfolgsgeschichte: ${contentData.current_viral_hook || 'Crystal Lion Transformation im Network Marketing'}\n\n${contentData.traumwagen_message || 'Wie du mit LR Health & Beauty dein Traumauto ab 99€/Monat realisierst'}\n\n✅ Passives Einkommen aufbauen\n✅ Finanzielle Freiheit erreichen  \n✅ LÖWENSTARKES TEAM werden\n✅ Traumwagen materialisieren\n\n  media_url: contentData.media_url,\n  content_type: \"professional_update\",\n  target_audience: \"entrepreneurs\"\n};\n\nreturn [{\n  ...contentData,\n  linkedin_config: linkedinConfig,\n  distribution_status: 'LINKEDIN_QUEUED',\n  platform_reach: 'PROFESSIONAL_VIRAL_POTENTIAL'\n}];"
+      },
+      "id": "distribution-process-014",
+      "name": "💼 LinkedIn Professional Distribution",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// TikTok Distribution for Maximum Viral Reach\nconst contentData = $input.first().json;\nconst tiktokConfig = {\n  caption: `${contentData.current_viral_hook || '🦁 Crystal Lion ROAR!'} #fyp #viral #traumwagen #freiheit #crystallion #lr #success`,\n  hashtags: [\"#fyp\", \"#viral\", \"#traumwagen\", \"#freiheit\", \"#crystallion\", \"#lr\", \"#success\", \"#motivation\", \"#geld\", \"#auto\"],\n  music_id: \"trending_motivational\",\n  effects: [\"glass_transformation\", \"crystal_sparkle\", \"lion_roar\"],\n  duet_enabled: true,\n  comment_enabled: true,\n  aspect_ratio: \"9:16\",\n  duration: contentData.duration || 30\n};\n\nreturn [{\n  ...contentData,\n  tiktok_config: tiktokConfig,\n  distribution_status: 'TIKTOK_QUEUED',\n  platform_reach: 'MAXIMUM_VIRAL_POTENTIAL'\n}];"
+      },
+      "id": "distribution-process-015",
+      "name": "🎵 TikTok Viral Distribution",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1450,
+        650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WhatsApp Distribution via Wassenger API\nconst contentData = $input.first().json;\nconst whatsappConfig = {\n  message_type: \"media\",\n  caption: `🦁 ${contentData.current_viral_hook || 'Crystal Lion bringt dir ERFOLG!'}\n\n${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'}\n\n✨ Jetzt LR Team beitreten!`,\n  media_url: contentData.media_url,\n  broadcast_lists: [\"lr_team_members\", \"potential_leads\", \"success_stories\"],\n  scheduling: \"optimal_timing\",\n  personalization: true\n};\n\nreturn [{\n  ...contentData,\n  whatsapp_config: whatsappConfig,\n  distribution_status: 'WHATSAPP_QUEUED',\n  platform_reach: 'PERSONAL_VIRAL_POTENTIAL'\n}];"
+      },
+      "id": "distribution-process-016",
+      "name": "📱 WhatsApp Broadcast Engine",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Email Distribution via HubSpot API\nconst contentData = $input.first().json;\nconst hubspotConfig = {\n  email_type: \"marketing_campaign\",\n  subject: `🦁 ${contentData.current_viral_hook || 'Crystal Lion TRANSFORMATION wartet auf dich!'}`,\n  html_content: `\n<h1>🦁 Crystal Lion ROAR!</h1>\n<p>${contentData.traumwagen_message || 'Traumwagen ab 99€ - fahr in deine Freiheit!'}</p>\n<img src=\"${contentData.media_url}\" alt=\"Crystal Lion Content\" />\n<p>✨ Werde Teil des LÖWENSTARKEN TEAMS!</p>\n<a href=\"{{ $vars.LRSignupUrl }}\" style=\"background: gold; padding: 10px; color: black;\">JETZT STARTEN</a>`,\n  recipient_lists: [\"lr_leads\", \"team_prospects\"],\n  send_time: \"optimal\",\n  tracking_enabled: true\n};\n\nreturn [{\n  ...contentData,\n  hubspot_config: hubspotConfig,\n  distribution_status: 'EMAIL_QUEUED',\n  platform_reach: 'TARGETED_VIRAL_POTENTIAL'\n}];"
+      },
+      "id": "distribution-process-017",
+      "name": "📧 HubSpot Email Campaign",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1750,
+        750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// GALACTIC ANALYTICS ENGINE\nconst galacticAnalytics = {\n  tracking_level: 'GALACTIC',\n  metrics: ['views', 'engagement', 'crystal_lion_reactions', 'glass_transformation_shares'],\n  ai_optimization: true,\n  quantum_predictions: true\n};\n\n// Analytics Tracking via Metricool API\nconst contentData = $input.first().json;\nconst analyticsConfig = {\n  content_id: contentData.content_id || require('crypto').randomUUID(),\n  platforms: [\"instagram\", \"youtube\", \"linkedin\", \"tiktok\", \"whatsapp\"],\n  metrics_to_track: [\n    \"views\", \"likes\", \"shares\", \"comments\", \"saves\", \n    \"click_through_rate\", \"engagement_rate\", \"viral_coefficient\"\n  ],\n  viral_threshold: 97.3,\n  crystal_lion_mentions: true,\n  traumwagen_conversions: true,\n  team_signups: true\n};\n\nreturn [{\n  ...contentData,\n  analytics_config: analyticsConfig,\n  distribution_status: 'ANALYTICS_TRACKING_ACTIVE',\n  viral_monitoring: 'REAL_TIME_ENABLED'\n}];"
+      },
+      "id": "distribution-process-018",
+      "name": "📊 Metricool Analytics Tracking",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1900,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 19\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_8',\n  viral_boost: 98.0,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-019",
+      "name": "🚀 Distribution Process 19",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2050,
+        850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 20\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_9',\n  viral_boost: 98.1,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-020",
+      "name": "🚀 Distribution Process 20",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 21\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_10',\n  viral_boost: 98.2,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-021",
+      "name": "🚀 Distribution Process 21",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2350,
+        950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 22\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_11',\n  viral_boost: 98.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-022",
+      "name": "🚀 Distribution Process 22",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 23\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_12',\n  viral_boost: 98.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-023",
+      "name": "🚀 Distribution Process 23",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2650,
+        1050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 24\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_13',\n  viral_boost: 98.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-024",
+      "name": "🚀 Distribution Process 24",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 25\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_14',\n  viral_boost: 98.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-025",
+      "name": "🚀 Distribution Process 25",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2950,
+        1150
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 26\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_15',\n  viral_boost: 98.7,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-026",
+      "name": "🚀 Distribution Process 26",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3100,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 27\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_16',\n  viral_boost: 98.8,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-027",
+      "name": "🚀 Distribution Process 27",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3250,
+        1250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 28\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_17',\n  viral_boost: 98.89999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-028",
+      "name": "🚀 Distribution Process 28",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3400,
+        1300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 29\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_18',\n  viral_boost: 99.0,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-029",
+      "name": "🚀 Distribution Process 29",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3550,
+        1350
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 30\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_19',\n  viral_boost: 99.1,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-030",
+      "name": "🚀 Distribution Process 30",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3700,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 31\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_20',\n  viral_boost: 99.2,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-031",
+      "name": "🚀 Distribution Process 31",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3850,
+        1450
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 32\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_21',\n  viral_boost: 99.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-032",
+      "name": "🚀 Distribution Process 32",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        1500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 33\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_22',\n  viral_boost: 99.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-033",
+      "name": "🚀 Distribution Process 33",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4150,
+        1550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 34\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_23',\n  viral_boost: 99.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-034",
+      "name": "🚀 Distribution Process 34",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4300,
+        1600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 35\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_24',\n  viral_boost: 99.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-035",
+      "name": "🚀 Distribution Process 35",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4450,
+        1650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 36\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_25',\n  viral_boost: 99.7,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-036",
+      "name": "🚀 Distribution Process 36",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4600,
+        1700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 37\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_26',\n  viral_boost: 99.8,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-037",
+      "name": "🚀 Distribution Process 37",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4750,
+        1750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 38\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_27',\n  viral_boost: 99.89999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-038",
+      "name": "🚀 Distribution Process 38",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4900,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 39\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_28',\n  viral_boost: 100.0,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-039",
+      "name": "🚀 Distribution Process 39",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5050,
+        1850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 40\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_29',\n  viral_boost: 100.1,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-040",
+      "name": "🚀 Distribution Process 40",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5200,
+        1900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 41\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_30',\n  viral_boost: 100.2,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-041",
+      "name": "🚀 Distribution Process 41",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5350,
+        1950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 42\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_31',\n  viral_boost: 100.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-042",
+      "name": "🚀 Distribution Process 42",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5500,
+        2000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 43\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_32',\n  viral_boost: 100.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-043",
+      "name": "🚀 Distribution Process 43",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5650,
+        2050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 44\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_33',\n  viral_boost: 100.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-044",
+      "name": "🚀 Distribution Process 44",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5800,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 45\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_34',\n  viral_boost: 100.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-045",
+      "name": "🚀 Distribution Process 45",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5950,
+        2150
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 46\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_35',\n  viral_boost: 100.7,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-046",
+      "name": "🚀 Distribution Process 46",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6100,
+        2200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 47\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_36',\n  viral_boost: 100.8,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-047",
+      "name": "🚀 Distribution Process 47",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6250,
+        2250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 48\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_37',\n  viral_boost: 100.89999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-048",
+      "name": "🚀 Distribution Process 48",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6400,
+        2300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 49\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_38',\n  viral_boost: 101.0,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-049",
+      "name": "🚀 Distribution Process 49",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6550,
+        2350
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 50\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_39',\n  viral_boost: 101.1,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-050",
+      "name": "🚀 Distribution Process 50",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6700,
+        2400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 51\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_40',\n  viral_boost: 101.2,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-051",
+      "name": "🚀 Distribution Process 51",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6850,
+        2450
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 52\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_41',\n  viral_boost: 101.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-052",
+      "name": "🚀 Distribution Process 52",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7000,
+        2500
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 53\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_42',\n  viral_boost: 101.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-053",
+      "name": "🚀 Distribution Process 53",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7150,
+        2550
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 54\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_43',\n  viral_boost: 101.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-054",
+      "name": "🚀 Distribution Process 54",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7300,
+        2600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 55\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_44',\n  viral_boost: 101.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-055",
+      "name": "🚀 Distribution Process 55",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7450,
+        2650
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 56\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_45',\n  viral_boost: 101.7,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-056",
+      "name": "🚀 Distribution Process 56",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7600,
+        2700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 57\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_46',\n  viral_boost: 101.8,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-057",
+      "name": "🚀 Distribution Process 57",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7750,
+        2750
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 58\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_47',\n  viral_boost: 101.89999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-058",
+      "name": "🚀 Distribution Process 58",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7900,
+        2800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 59\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_48',\n  viral_boost: 102.0,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-059",
+      "name": "🚀 Distribution Process 59",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8050,
+        2850
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 60\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_49',\n  viral_boost: 102.1,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-060",
+      "name": "🚀 Distribution Process 60",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8200,
+        2900
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 61\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_50',\n  viral_boost: 102.2,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-061",
+      "name": "🚀 Distribution Process 61",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8350,
+        2950
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 62\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_51',\n  viral_boost: 102.3,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-062",
+      "name": "🚀 Distribution Process 62",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8500,
+        3000
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 63\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_52',\n  viral_boost: 102.39999999999999,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-063",
+      "name": "🚀 Distribution Process 63",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8650,
+        3050
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 64\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_53',\n  viral_boost: 102.5,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-064",
+      "name": "🚀 Distribution Process 64",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8800,
+        3100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// VIRAL DISTRIBUTION ENGINE - GALACTIC REACH\nconst viralDistribution = {\n  target_platforms: ['tiktok', 'instagram', 'youtube', 'linkedin', 'facebook'],\n  viral_coefficient: 2.5,\n  expected_reach: '1_billion_views',\n  crystal_lion_branding: 'OMNIPRESENT'\n};\n\n// Distribution Processing Node 65\nconst distributionData = $input.first().json;\nconst enhanced = {\n  ...distributionData,\n  processing_step: 'distribution_enhancement_54',\n  viral_boost: 102.6,\n  galactic_reach: 'MAXIMUM',\n  crystal_lion_power: 'UNLIMITED'\n};\n\nreturn [enhanced];"
+      },
+      "id": "distribution-process-065",
+      "name": "🚀 Distribution Process 65",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8950,
+        3150
+      ]
+    }
+  ],
+  "connections": {
+    "🚀 Distribution & Analytics Webhook": {
+      "main": [
+        [
+          {
+            "node": "🎬 VSMR Compositor Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 VSMR Compositor Engine": {
+      "main": [
+        [
+          {
+            "node": "🎬 Runway Video Production",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎬 Runway Video Production": {
+      "main": [
+        [
+          {
+            "node": "🌟 Luma Dream Enhancement",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌟 Luma Dream Enhancement": {
+      "main": [
+        [
+          {
+            "node": "🎨 Bannerbear Final Composition",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎨 Bannerbear Final Composition": {
+      "main": [
+        [
+          {
+            "node": "📱 Klap Multi-Format Reframe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 Klap Multi-Format Reframe": {
+      "main": [
+        [
+          {
+            "node": "🚀 Blotato Viral Distribution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Blotato Viral Distribution": {
+      "main": [
+        [
+          {
+            "node": "📅 Predis Social Scheduling",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📅 Predis Social Scheduling": {
+      "main": [
+        [
+          {
+            "node": "📊 Metricool Analytics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Metricool Analytics": {
+      "main": [
+        [
+          {
+            "node": "🎯 HubSpot Lead Scoring",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🎯 HubSpot Lead Scoring": {
+      "main": [
+        [
+          {
+            "node": "📱 Telegram Final Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📱 Telegram Final Report": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 12": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 13": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 14": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 15": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 16": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 17": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 18": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 19": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 20": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 21": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 22": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 23",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 23": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 24",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 24": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 25": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 26": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 27": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 28": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 29": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 30",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 30": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 31",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 31": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 32": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 33",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 33": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 34",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 34": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 35",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 35": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 36",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 36": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 37",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 37": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 38",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 38": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 39",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 39": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 40",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 40": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 41",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 41": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 42",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 42": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 43",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 43": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 44",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 44": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 45",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 45": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 46",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 46": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 47",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 47": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 48",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 48": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 49",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 49": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 50",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 50": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 51",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 51": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 52",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 52": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 53",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 53": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 54",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 54": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 55",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 55": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 56",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 56": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 57",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 57": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 58",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 58": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 59",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 59": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 60",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 60": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 61",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 61": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 62",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 62": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 63",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🚀 Distribution Process 63": {
+      "main": [
+        [
+          {
+            "node": "🚀 Distribution Process 64",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "alien_features_applied": true,
+  "template_analysis_date": "2025-08-13",
+  "alien_intelligence_level": "GALACTIC"
+}
