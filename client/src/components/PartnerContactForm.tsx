@@ -56,6 +56,14 @@ export default function PartnerContactForm() {
 
       setIsSuccess(true);
       toast.success("Anfrage erfolgreich gesendet!");
+      
+      // Meta Pixel Lead Event mit korrekten Währungsparametern
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          currency: 'EUR',
+          value: 0.00
+        });
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error("Fehler beim Senden. Bitte versuche es später erneut.");
@@ -96,7 +104,7 @@ export default function PartnerContactForm() {
             </a>
             
             <a 
-              href="https://youtu.be/N-soKAiyjsA?si=hgXTIzLd9KB4lxqj" 
+              href="https://www.youtube.com/watch?v=fGd5jwI1EJo" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

@@ -153,7 +153,7 @@ export default function Karriere() {
             </a>
             
             <a 
-              href="https://youtu.be/N-soKAiyjsA?si=hgXTIzLd9KB4lxqj" 
+              href="https://www.youtube.com/watch?v=fGd5jwI1EJo" 
               target="_blank" 
               rel="noopener noreferrer"
             >
