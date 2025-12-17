@@ -10,6 +10,36 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
+  // Parse JSON bodies
+  app.use(express.json());
+
+  // HeyGen Access Token API endpoint
+  app.post("/api/get-access-token", async (_req, res) => {
+    try {
+      const apiKey = process.env.VITE_HEYGEN_API_KEY;
+      if (!apiKey) {
+        return res.status(500).send("HeyGen API key not configured");
+      }
+
+      const response = await fetch("https://api.heygen.com/v1/streaming.create_token", {
+        method: "POST",
+        headers: {
+          "x-api-key": apiKey,
+        },
+      });
+
+      const data = await response.json();
+      if (data.data && data.data.token) {
+        res.send(data.data.token);
+      } else {
+        res.status(500).send("Failed to get access token");
+      }
+    } catch (error) {
+      console.error("Error fetching access token:", error);
+      res.status(500).send("Internal server error");
+    }
+  });
+
   // Serve static files from dist/public in production
   const staticPath =
     process.env.NODE_ENV === "production"
