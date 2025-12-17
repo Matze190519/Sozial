@@ -17,7 +17,7 @@ async function startServer() {
   // HeyGen Access Token API endpoint
   app.post("/api/get-access-token", async (_req, res) => {
     try {
-      const apiKey = process.env.VITE_HEYGEN_API_KEY;
+      const apiKey = process.env.VITE_HEYGEN_API_KEY || 'YmFlMjg2MWQxMzQxNDFlZThkOTVhYjlhMmI4MWRjODEtMTc0OTkxMTYzNw==';
       if (!apiKey) {
         return res.status(500).send("HeyGen API key not configured");
       }
