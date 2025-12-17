@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { AvatarLisa } from '@/components/AvatarLisa';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -423,6 +424,9 @@ export default function Home() {
           </p>
         </footer>
       </div>
+
+      {/* Avatar Lisa - Floating Chat */}
+      <AvatarLisa />
     </div>
   );
 }
