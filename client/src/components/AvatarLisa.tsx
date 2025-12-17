@@ -62,6 +62,10 @@ export default function AvatarLisa() {
         avatarName: 'Katya_ProfessionalLook2_public',
         knowledgeId: '762753739eb4ac6a1e76b8b6c35ed20',
         language: 'en',
+        voice: {
+          voiceId: 'f6d7e19df7364577b0025bda1f4ef842',
+          rate: 1.0,
+        },
       };
 
       await avatar.current.createStartAvatar(config);
