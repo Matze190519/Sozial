@@ -51,8 +51,8 @@ export function AvatarLisa() {
       const isMobile = window.innerWidth < 768;
       await avatar.createStartAvatar({
         quality: isMobile ? AvatarQuality.Medium : AvatarQuality.High,
-        avatarName: 'Katya_Black_Suit_public',
-        knowledgeId: 'demo-1', // TODO: Replace with real Knowledge Base ID
+        avatarName: 'Katya_ProfessionalLook2_public',
+        knowledgeId: '762753739eb4ac6a1e76b8b6c35ed20', // LR Lifestyle Onboarding Knowledge Base
         voice: {
           voiceId: 'de-DE-KatjaNeural',
           rate: 1.0,
