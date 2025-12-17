@@ -24,25 +24,52 @@ import ScrollToTop from "./components/ScrollToTop";
 
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/technology" component={Technology} />
-        <Route path="/partners" component={Partners} />
-        <Route path="/concept" component={Concept} />
-        <Route path="/autokonzept" component={Autokonzept} />
-        <Route path="/lr-partner" component={LRPartner} />
-        <Route path="/karriere" component={Karriere} />
-        <Route path="/about" component={About} />
-        <Route path="/process" component={Process} />
-        <Route path="/datenschutz" component={Datenschutz} />
-        <Route path="/impressum" component={Impressum} />
-        <Route path="/agb" component={AGB} />
-        <Route path="/kontakt" component={Contact} />
-        <Route path="/faq" component={FAQ} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <Switch>
+      {/* Home without Layout (standalone onboarding page) */}
+      <Route path="/" component={Home} />
+      
+      {/* All other pages with Layout */}
+      <Route path="/technology">
+        <Layout><Technology /></Layout>
+      </Route>
+      <Route path="/partners">
+        <Layout><Partners /></Layout>
+      </Route>
+      <Route path="/concept">
+        <Layout><Concept /></Layout>
+      </Route>
+      <Route path="/autokonzept">
+        <Layout><Autokonzept /></Layout>
+      </Route>
+      <Route path="/lr-partner">
+        <Layout><LRPartner /></Layout>
+      </Route>
+      <Route path="/karriere">
+        <Layout><Karriere /></Layout>
+      </Route>
+      <Route path="/about">
+        <Layout><About /></Layout>
+      </Route>
+      <Route path="/process">
+        <Layout><Process /></Layout>
+      </Route>
+      <Route path="/datenschutz">
+        <Layout><Datenschutz /></Layout>
+      </Route>
+      <Route path="/impressum">
+        <Layout><Impressum /></Layout>
+      </Route>
+      <Route path="/agb">
+        <Layout><AGB /></Layout>
+      </Route>
+      <Route path="/kontakt">
+        <Layout><Contact /></Layout>
+      </Route>
+      <Route path="/faq">
+        <Layout><FAQ /></Layout>
+      </Route>
+      <Route component={NotFound} />
+    </Switch>
   );
 }
 
