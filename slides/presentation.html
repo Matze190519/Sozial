@@ -37,22 +37,12 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 1280px;
-            height: 720px;
+            width: 100%;
+            height: 100%;
             border: none;
             background: black;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), 0 0 120px rgba(255, 255, 255, 0.2);
             border-radius: 8px;
-            transform-origin: top left;
-        }
-        @media (max-width: 1280px) {
-            .frame-wrapper {
-                width: 100vw;
-                height: 56.25vw;
-            }
-            iframe {
-                transform: scale(calc(100vw / 1280));
-            }
         }
         .nav-button {
             display: none; /* Buttons ausgeblendet */
