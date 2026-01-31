@@ -320,182 +320,70 @@
 .image-box img,
 .nutrition-card img,
 .product-card img {
-    border-radius: inherit;
-    filter: none;
-    display: block;
-}
-
-/* === GRID ITEMS WITH WHITE GLOW === */
-/* Apply glow to grid items (wrappers) */
-.benefits-grid .grid-item,
-.six-grid .grid-item,
-.four-grid .grid-item,
-.grid-item {
     border-radius: var(--radius-image);
-    overflow: hidden;
-    border: none !important;
-    background: transparent !important;
-    filter: var(--image-glow-m-tight);
-    transition: transform var(--elevate-duration) var(--elevate-timing), 
-                filter var(--elevate-duration) var(--elevate-timing);
-}
-
-.benefits-grid .grid-item:hover,
-.six-grid .grid-item:hover,
-.four-grid .grid-item:hover,
-.grid-item:hover {
-    transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-m-tight-hover);
-}
-
-/* Images inside grid items: inherit rounding, no filter */
-.benefits-grid .grid-item img,
-.six-grid .grid-item img,
-.four-grid .grid-item img,
-.grid-item img {
-    border-radius: inherit;
-    filter: none;
+    filter: none !important;
     display: block;
+    width: 100%;
+    height: auto;
 }
 
-/* === CIRCLES === */
+/* === CIRCLE WRAPPERS (for team photos, icons) === */
 .circle-wrapper {
     border-radius: var(--radius-circle);
     overflow: hidden;
-    filter: var(--image-glow-m-tight);
+    border: none !important;
+    background: transparent !important;
+    filter: var(--image-glow-m);
     transition: transform var(--elevate-duration) var(--elevate-timing), 
                 filter var(--elevate-duration) var(--elevate-timing);
 }
 
 .circle-wrapper:hover {
     transform: scale(var(--elevate-scale));
-    filter: var(--image-glow-m-tight-hover);
+    filter: var(--image-glow-m-hover);
 }
 
 .circle-wrapper img {
     border-radius: var(--radius-circle);
-    filter: none; /* Glow is on wrapper, not img */
-}
-
-/* === RADIAL-GRADIENT HALO (Premium Studio Light) === */
-/* Apply .halo class to image wrappers for Apple/Tesla-style lighting */
-/* Research: Codrops/Awwwards - radial halos read cleaner than stacked drop-shadows */
-.image-wrapper.halo,
-.image-frame.halo,
-.image-card.halo,
-.car-frame.halo,
-.image-container.halo,
-.photo-container.halo {
-    position: relative;
-}
-
-.image-wrapper.halo::before,
-.image-frame.halo::before,
-.image-card.halo::before,
-.car-frame.halo::before,
-.image-container.halo::before,
-.photo-container.halo::before {
-    content: "";
-    position: absolute;
-    inset: -12px;
-    border-radius: inherit;
-    background: radial-gradient(
-        closest-side,
-        rgba(255, 255, 255, 0.55),
-        rgba(255, 255, 255, 0.28) 55%,
-        transparent 72%
-    );
-    filter: blur(16px);
-    opacity: 1;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.image-wrapper.halo:hover::before,
-.image-frame.halo:hover::before,
-.image-card.halo:hover::before,
-.car-frame.halo:hover::before,
-.image-container.halo:hover::before,
-.photo-container.halo:hover::before {
-    filter: blur(14px);
-    opacity: 1;
-}
-
-/* === AMBIENT SPOTLIGHT (Deepens contrast) === */
-/* Apply .spotlight class to .slide-container for hero slides */
-/* Research: Premium brands use large, low-alpha spotlights to make halos appear whiter */
-.slide-container.spotlight::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 140%;
-    height: 140%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-        ellipse at center,
-        rgba(255, 255, 255, 0.12) 0%,
-        transparent 65%
-    );
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* === GLASS CHIPS FOR LABELS === */
-/* Apply .glass-chip class to label containers for backdrop-filter effect */
-/* Research: Fluent Design - acrylic used sparingly for legibility */
-.glass-chip {
-    backdrop-filter: blur(8px) saturate(1.15);
-    -webkit-backdrop-filter: blur(8px) saturate(1.15);
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
-    padding: 4px 12px;
-    /* Override gradient text to make it visible on glass background */
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    background-clip: border-box !important;
-}
-
-/* === LAYOUT CONTAINERS (no glow) === */
-/* These are parent containers that often include labels/text */
-/* Keep them clean - glow should be on inner image wrappers only */
-.circle-item,
-.fact-item,
-.feature-item,
-.image-item {
     filter: none !important;
-    transform: none !important;
-    box-shadow: none !important;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.circle-item:hover,
-.fact-item:hover,
-.feature-item:hover,
-.image-item:hover {
-    filter: none !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-/* === LAYOUT-CRITICAL RULES === */
-/* Content sections need proper z-index for layering */
-.content-left, .content-right, .left-section, .right-section, 
-.facts-container, .cars-container, .benefits-grid {
-    position: relative;
-    z-index: 5;
-}
-
-/* === VIDEOS (no glow, just rounded corners) === */
-.video-wrapper {
+/* === GRID ITEMS (for image grids) === */
+.grid-item {
     border-radius: var(--radius-image);
     overflow: hidden;
-    /* No filter on video wrappers */
+    border: none !important;
+    background: transparent !important;
+    filter: var(--image-glow-s);
+    transition: transform var(--elevate-duration) var(--elevate-timing), 
+                filter var(--elevate-duration) var(--elevate-timing);
 }
 
-.slide-container video {
+.grid-item:hover {
+    transform: scale(var(--elevate-scale));
+    filter: var(--image-glow-s-hover);
+}
+
+.grid-item img {
     border-radius: var(--radius-image);
-    filter: none;
+    filter: none !important;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* === M-TIGHT FOR SMALL IMAGES === */
+/* Use .halo-m-tight for smaller images that need crisp glow */
+.halo-m-tight {
+    filter: var(--image-glow-m-tight) !important;
+}
+
+.halo-m-tight:hover {
+    filter: var(--image-glow-m-tight-hover) !important;
 }
 
 /* === FALLBACK: ROUNDED CORNERS ON ALL CONTENT IMAGES === */
@@ -801,4 +689,109 @@ img[class*="circle"] {
 .circle-wrapper:not(:hover),
 .grid-item:not(:hover) {
     will-change: auto;
+}
+
+/* ============================================
+   MOBILE SPECIFIC STYLES
+   Disable filter effects that cause rendering issues
+   when combined with transform: scale() in iframe
+   ============================================ */
+
+/* Detect when viewed inside scaled iframe (mobile presentation) */
+/* The parent presentation.html adds a class or we use viewport detection */
+@media screen and (max-width: 1280px) {
+    /* Disable all filter-based glow effects on mobile */
+    /* Use box-shadow instead which works better with transforms */
+    
+    .image-wrapper,
+    .image-frame,
+    .image-card,
+    .car-frame,
+    .image-container,
+    .photo-container,
+    .image-panel,
+    .image-box,
+    .nutrition-card,
+    .product-card,
+    .circle-wrapper,
+    .grid-item {
+        filter: none !important;
+        -webkit-filter: none !important;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    
+    /* Disable hover transforms on mobile */
+    .image-wrapper:hover,
+    .image-frame:hover,
+    .image-card:hover,
+    .car-frame:hover,
+    .image-container:hover,
+    .photo-container:hover,
+    .image-panel:hover,
+    .image-box:hover,
+    .nutrition-card:hover,
+    .product-card:hover,
+    .circle-wrapper:hover,
+    .grid-item:hover {
+        transform: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+    
+    /* Disable halo classes on mobile */
+    .halo-s,
+    .halo-l,
+    .halo-xl,
+    .halo-xl-tight,
+    .halo-xl-frame,
+    .halo-m-tight {
+        filter: none !important;
+        -webkit-filter: none !important;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    
+    /* Disable logo glow on mobile */
+    .logo-glow,
+    .watermark-logo.logo-glow {
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+    
+    /* Disable circle badge filter on mobile */
+    .circle-badge {
+        filter: none !important;
+        -webkit-filter: none !important;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Simplify container glow on mobile */
+    .slide-container {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Disable animations on mobile for better performance */
+    .headline,
+    .slide-container h1,
+    .slide-container.has-shimmer .headline,
+    .slide-container.has-shimmer h1 {
+        animation: none !important;
+    }
+    
+    .feature-list, .facts-container,
+    .image-container, .car-frame, .benefits-grid {
+        animation: none !important;
+    }
+    
+    .particle {
+        display: none !important;
+    }
+    
+    .particles {
+        display: none !important;
+    }
+    
+    /* Disable watermark pulse on mobile */
+    .watermark-logo {
+        animation: none !important;
+    }
 }

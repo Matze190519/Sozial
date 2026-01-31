@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LR Präsentation - Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            touch-action: pan-y;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #000;
+        }
+        .frames-container {
+            position: relative;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            max-width: 1280px;
+            max-height: 720px;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%) 1;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: black;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s;
+        }
+        iframe.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .nav-button {
+            display: none; /* Buttons ausgeblendet - Navigation nur per Swipe */
+        }
+        .slide-counter {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            color: #ffd700;
+            z-index: 1000;
+        }
+        .swipe-hint {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .loading-text {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .loading-bar {
+            width: 80%;
+            max-width: 300px;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #9B7E3C, #E9D78E, #9B7E3C);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .loading-count {
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .ready-btn {
+            display: none;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            color: black;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .ready-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Mobile responsive - keine speziellen Anpassungen nötig */
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Folien werden geladen...<br><small>Bitte warten</small></div>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+        <div class="loading-count" id="loadingCount">0 / 38</div>
+        <button class="ready-btn" id="readyBtn" onclick="startPresentation()">Starten</button>
+    </div>
+
+    <div class="container" id="mainContainer">
+        <button class="nav-button prev" onclick="prevSlide()">&#9664;</button>
+        <div class="frames-container" id="framesContainer"></div>
+        <button class="nav-button next" onclick="nextSlide()">&#9654;</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">38</span>
+        </div>
+        <div class="swipe-hint">Wischen zum Blättern</div>
+    </div>
+
+    <script>
+        const slides = [
+            'folie_01',
+            'folie_02',
+            'folie_03',
+            'folie_04',
+            'folie_06',
+            'folie_07',
+            'folie_08',
+            'folie_09',
+            'folie_10',
+            'folie_11',
+            'folie_13',
+            'folie_12',
+            'folie_14',
+            'folie_20',
+            'folie_17',
+            'folie_19b',
+            'folie_19',
+            'folie_21',
+            'folie_22',
+            'folie_23',
+            'folie_24',
+            'folie_25',
+            'folie_26',
+            'folie_27',
+            'folie_28',
+            'folie_28a',
+            'folie_29',
+            'folie_30',
+            'folie_31',
+            'folie_32',
+            'folie_33',
+            'folie_34',
+            'folie_35',
+            'folie_36',
+            'folie_37',
+            'folie_39',
+            'folie_41',
+            'folie_42'
+        ];
+
+        const rawUrl = decodeURIComponent(window.location.search.slice(1));
+        let RAW_BASE = '';
+        let PREVIEW = '';
+
+        if (rawUrl && rawUrl.includes('raw.githubusercontent.com')) {
+            // Online mode via htmlpreview
+            RAW_BASE = rawUrl.replace(/slides\/presentation_mobile\.html.*/, 'slides/');
+            PREVIEW = 'https://htmlpreview.github.io/?';
+        } else {
+            // Direct hosting (frontend deploy, local, etc.)
+            RAW_BASE = '';
+            PREVIEW = '';
+        }
+
+        // Personalisierungs-Parameter extrahieren (name, phone, photo)
+        const urlParams = new URLSearchParams(window.location.search);
+        const personParams = new URLSearchParams();
+        if (urlParams.get('name')) personParams.set('name', urlParams.get('name'));
+        if (urlParams.get('phone')) personParams.set('phone', urlParams.get('phone'));
+        if (urlParams.get('photo')) personParams.set('photo', urlParams.get('photo'));
+        const personQuery = personParams.toString() ? '?' + personParams.toString() : '';
+
+        function srcFor(slideId) {
+            return PREVIEW + RAW_BASE + slideId + '.html' + personQuery;
+        }
+
+        let currentIndex = 0;
+        let loadedCount = 0;
+        const iframes = [];
+
+        // Touch swipe handling
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        function initPreload() {
+            const container = document.getElementById('framesContainer');
+            document.getElementById('totalSlides').textContent = slides.length;
+            
+            slides.forEach((slideId, index) => {
+                const iframe = document.createElement('iframe');
+                iframe.src = srcFor(slideId);
+                iframe.dataset.index = index;
+                if (index === 0) iframe.classList.add('active');
+                
+                iframe.onload = () => {
+                    loadedCount++;
+                    updateLoadingProgress();
+                };
+                
+                container.appendChild(iframe);
+                iframes.push(iframe);
+            });
+        }
+
+        function updateLoadingProgress() {
+            const percent = (loadedCount / slides.length) * 100;
+            document.getElementById('loadingProgress').style.width = percent + '%';
+            document.getElementById('loadingCount').textContent = loadedCount + ' / ' + slides.length;
+            
+            if (loadedCount >= slides.length) {
+                document.querySelector('.loading-text').innerHTML = 'Fertig!<br><small>Alle Folien geladen</small>';
+                document.getElementById('readyBtn').style.display = 'block';
+            }
+        }
+
+        function startPresentation() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function showSlide(index) {
+            iframes.forEach((iframe, i) => {
+                iframe.classList.toggle('active', i === index);
+            });
+            document.getElementById('currentSlide').textContent = index + 1;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            document.querySelector('.prev').disabled = currentIndex === 0;
+            document.querySelector('.next').disabled = currentIndex === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showSlide(currentIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                showSlide(currentIndex);
+            }
+        }
+
+        // Touch event handlers for swipe
+        const mainContainer = document.getElementById('mainContainer');
+
+        mainContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+        }, { passive: true });
+
+        mainContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const threshold = 50;
+
+            // Only trigger if horizontal swipe is greater than vertical
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    prevSlide(); // Swipe right = previous
+                } else {
+                    nextSlide(); // Swipe left = next
+                }
+            }
+        }
+
+        // Keyboard navigation (for desktop testing)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'Enter' && loadedCount >= slides.length) startPresentation();
+        });
+
+        // Start preloading
+        initPreload();
+    </script>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICONIC ELIXIRS - Pure Luxury</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -63,23 +64,23 @@
             padding: 0;
             margin: 0;
         }
-        .feature-item {
-            font-size: 20px;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            padding-left: 30px;
-            position: relative;
-        }
-        .feature-item:before {
-            content: "✦";
-            position: absolute;
-            left: 0;
-            background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 20px;
-        }
+                                .feature-item {
+                                    font-size: 20px;
+                                    color: #FFFFFF;
+                                    margin-bottom: 20px;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    line-height: 1.4;
+                                    padding-left: 0 !important;
+                                }
+                .feature-item i {
+                    background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
         .highlight {
             background: linear-gradient(135deg, #9B7E3C 0%, #E9D78E 50%, #9B7E3C 100%);
             -webkit-background-clip: text;
@@ -175,12 +176,13 @@
         
         <div class="left-section">
             <h1 class="headline">ICONIC ELIXIRS<br>Kollektion & Design</h1>
-            <ul class="feature-list">
-                <li class="feature-item"><span class="highlight">4 exklusive Düfte</span> – pure Eleganz</li>
-                <li class="feature-item">Zeitloses, <span class="highlight">luxuriöses Design</span></li>
-                <li class="feature-item"><span class="highlight">Edle Glasflakons</span> – Premium Auftritt</li>
-                <li class="feature-item">Statement-Piece im <span class="highlight">Badezimmer</span></li>
-            </ul>
+                        <ul class="feature-list">
+                                                        <li class="feature-item"><i class="fas fa-spray-can"></i><span><span class="highlight">4 exklusive Düfte</span> – pure Eleganz</span></li>
+                                                        <li class="feature-item"><i class="fas fa-gem"></i><span>Zeitloses, <span class="highlight">luxuriöses Design</span></span></li>
+                                                        <li class="feature-item"><i class="fas fa-flask"></i><span><span class="highlight">Edle Glasflakons</span> – Premium Auftritt</span></li>
+                                                        <li class="feature-item"><i class="fas fa-star"></i><span><span class="highlight">Wow-Effekt</span> im Badezimmer</span></li>
+                                                        <li class="feature-item"><i class="fas fa-award"></i><span>Mit dem <span class="highlight">Weltmarktführer Robertet</span> entwickelt</span></li>
+                        </ul>
         </div>
         
         <div class="right-section">

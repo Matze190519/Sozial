@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LR Präsentation</title>
     <style>
         * {
@@ -10,63 +10,74 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
         body {
             font-family: Arial, sans-serif;
             background: #000;
             color: white;
-            overflow: hidden;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
         .container {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 1) 60%);
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 1) 60%);
+        }
+        .frame-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            max-width: 1280px;
+            max-height: 720px;
+            overflow: visible;
+            border-radius: 8px;
+            /* Glow effect - works on all devices */
+            -webkit-box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), 0 0 120px rgba(255, 255, 255, 0.2);
+            -moz-box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), 0 0 120px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), 0 0 120px rgba(255, 255, 255, 0.2);
+        }
+        .slide-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            background: black;
         }
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 1280px;
             height: 720px;
             border: none;
             background: black;
-            box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), 0 0 150px rgba(212, 175, 55, 0.5), 0 0 250px rgba(212, 175, 55, 0.3);
-            border-radius: 8px;
+            transform-origin: top left;
+            pointer-events: none;
+        }
+        .touch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: transparent;
         }
         .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 215, 0, 0.8);
-            color: black;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 1000;
-            opacity: 0.3;
-        }
-        .nav-button:hover {
-            background: rgba(255, 215, 0, 1);
-            transform: translateY(-50%) scale(1.1);
-            opacity: 1;
-        }
-        .nav-button:disabled {
-            background: rgba(100, 100, 100, 0.3);
-            cursor: not-allowed;
-            color: #666;
-        }
-        .nav-button.prev {
-            left: 20px;
-        }
-        .nav-button.next {
-            right: 20px;
+            display: none;
         }
         .slide-counter {
             position: absolute;
@@ -83,27 +94,53 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 215, 0, 0.8);
-            color: black;
-            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 14px;
             cursor: pointer;
             z-index: 1000;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: all 0.3s;
         }
         .fullscreen-btn:hover {
-            background: rgba(255, 215, 0, 1);
+            background: rgba(255, 255, 255, 0.4);
             opacity: 1;
+        }
+        
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .frame-wrapper {
+                -webkit-box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
+                -moz-box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4);
+            }
+            .slide-counter {
+                bottom: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .fullscreen-btn {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <button class="nav-button prev" onclick="prevSlide()">◀</button>
-        <iframe id="slideFrame" src=""></iframe>
+        <div class="frame-wrapper">
+            <div class="slide-container">
+                <iframe id="slideFrame" src=""></iframe>
+            </div>
+            <div class="touch-overlay" id="touchOverlay"></div>
+        </div>
         <button class="nav-button next" onclick="nextSlide()">▶</button>
         <div class="slide-counter">
             <span id="currentSlide">1</span> / <span id="totalSlides">40</span>
@@ -155,7 +192,6 @@
         ];
 
         let currentIndex = 0;
-        const baseUrl = window.location.origin;
 
         function loadSlide(index) {
             const slideId = slides[index];
@@ -163,12 +199,6 @@
             document.getElementById('currentSlide').textContent = index + 1;
             document.getElementById('totalSlides').textContent = slides.length;
             window.location.hash = slideId;
-            updateButtons();
-        }
-
-        function updateButtons() {
-            document.querySelector('.prev').disabled = currentIndex === 0;
-            document.querySelector('.next').disabled = currentIndex === slides.length - 1;
         }
 
         function prevSlide() {
@@ -186,10 +216,18 @@
         }
 
         function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                }
             } else {
-                document.exitFullscreen();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
             }
         }
 
@@ -200,8 +238,109 @@
             if (e.key === 'f' || e.key === 'F') toggleFullscreen();
         });
 
-        // Load first slide
-        loadSlide(0);
+        // Touch swipe navigation - on the overlay
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+        const touchOverlay = document.getElementById('touchOverlay');
+
+        touchOverlay.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            e.preventDefault();
+        }, { passive: false });
+
+        touchOverlay.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+
+        touchOverlay.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const deltaTime = Date.now() - touchStartTime;
+            const threshold = 30;
+
+            // Swipe detection
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold && deltaTime < 500) {
+                if (deltaX > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+            // Tap detection (for next slide)
+            else if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10 && deltaTime < 300) {
+                // Tap on right half = next, left half = prev
+                const tapX = touchEndX;
+                const screenWidth = window.innerWidth;
+                if (tapX > screenWidth / 2) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            e.preventDefault();
+        }, { passive: false });
+
+        // Also listen on container for touches outside the slide
+        const container = document.querySelector('.container');
+        container.addEventListener('touchstart', (e) => {
+            if (e.target === container) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                touchStartTime = Date.now();
+            }
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+            if (e.target === container) {
+                const touchEndX = e.changedTouches[0].clientX;
+                const deltaX = touchEndX - touchStartX;
+                const deltaTime = Date.now() - touchStartTime;
+                
+                if (Math.abs(deltaX) > 30 && deltaTime < 500) {
+                    if (deltaX > 0) {
+                        prevSlide();
+                    } else {
+                        nextSlide();
+                    }
+                }
+            }
+        }, { passive: true });
+
+        // Scale iframe for all devices
+        function scaleIframe() {
+            const wrapper = document.querySelector('.frame-wrapper');
+            const iframe = document.getElementById('slideFrame');
+            const wrapperWidth = wrapper.offsetWidth;
+            const scale = wrapperWidth / 1280;
+            iframe.style.transform = `scale(${scale})`;
+        }
+
+        // Call on load and resize
+        window.addEventListener('resize', scaleIframe);
+        window.addEventListener('load', () => {
+            scaleIframe();
+            // Ensure glow is visible
+            document.querySelector('.frame-wrapper').style.overflow = 'visible';
+        });
+        window.addEventListener('orientationchange', () => {
+            setTimeout(scaleIframe, 100);
+        });
+
+        // Load first slide or from hash
+        const hash = window.location.hash.substring(1);
+        const hashIndex = slides.indexOf(hash);
+        if (hashIndex !== -1) {
+            currentIndex = hashIndex;
+        }
+        loadSlide(currentIndex);
+        
+        // Initial scale
+        setTimeout(scaleIframe, 100);
     </script>
 </body>
 </html>

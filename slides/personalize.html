@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LR Prasentation - Personalisieren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            height: 80px;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #9B7E3C 0%, #C9A961 15%, #E9D78E 30%, #F4E4A6 45%, #E9D78E 55%, #D5B455 70%, #C9A961 85%, #9B7E3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #E9D78E;
+            font-weight: 700;
+        }
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #111;
+            color: white;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        input:focus {
+            outline: none;
+            border-color: #E9D78E;
+        }
+        .photo-upload {
+            border: 2px dashed #333;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .photo-upload:hover {
+            border-color: #E9D78E;
+        }
+        .photo-upload.has-photo {
+            border-style: solid;
+            border-color: #E9D78E;
+        }
+        .photo-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .photo-preview.visible {
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .photo-text {
+            color: #888;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            color: black;
+        }
+        .btn-primary:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+        }
+        .btn-secondary {
+            background: #222;
+            color: #E9D78E;
+            border: 2px solid #E9D78E;
+        }
+        .result-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            border: 2px solid #E9D78E;
+        }
+        .result-box.visible {
+            display: block;
+        }
+        .result-label {
+            color: #E9D78E;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .result-url {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            word-break: break-all;
+            margin-bottom: 15px;
+        }
+        .copy-btn {
+            background: #E9D78E;
+            color: black;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .preview-btn {
+            background: transparent;
+            color: #E9D78E;
+            padding: 12px 25px;
+            border: 2px solid #E9D78E;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .status {
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .status.visible {
+            display: block;
+        }
+        .status.loading {
+            background: #333;
+            color: #E9D78E;
+        }
+        .status.success {
+            background: #1a3d1a;
+            color: #4ade80;
+        }
+        .status.error {
+            background: #3d1a1a;
+            color: #f87171;
+        }
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        .instructions h3 {
+            color: #E9D78E;
+            margin-bottom: 10px;
+        }
+        .instructions ol {
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/images/team_logo.png" alt="LR Lifestyle Team">
+        </div>
+        
+        <h1>Personalisiere deine Prasentation</h1>
+        
+        <div class="status" id="status"></div>
+        
+        <form id="personForm">
+            <div class="form-group">
+                <label for="name">Dein Name</label>
+                <input type="text" id="name" placeholder="z.B. Lisa Muller" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Deine Telefonnummer</label>
+                <input type="tel" id="phone" placeholder="z.B. +49 171 1234567" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Dein Foto</label>
+                <div class="photo-upload" id="photoUpload" onclick="document.getElementById('photoInput').click()">
+                    <img class="photo-preview" id="photoPreview">
+                    <div class="photo-text" id="photoText">Tippe hier um ein Foto auszuwahlen</div>
+                </div>
+                <input type="file" id="photoInput" accept="image/*" onchange="handlePhotoSelect(event)">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" id="submitBtn">Link erstellen</button>
+        </form>
+        
+        <div class="result-box" id="resultBox">
+            <div class="result-label">Dein personlicher Prasentations-Link:</div>
+            <div class="result-url" id="resultUrl"></div>
+            <button class="copy-btn" onclick="copyLink()">Link kopieren</button>
+            <button class="preview-btn" onclick="openPreview()">Vorschau</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>So funktioniert es:</h3>
+            <ol>
+                <li>Gib deinen Namen und Telefonnummer ein</li>
+                <li>Wahle ein Foto von dir aus</li>
+                <li>Klicke auf "Link erstellen"</li>
+                <li>Kopiere den Link und teile ihn mit Interessenten</li>
+            </ol>
+            <p style="margin-top: 15px;">Die letzte Folie der Prasentation zeigt dann automatisch deine Kontaktdaten!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Cloudinary Configuration
+        const CLOUD_NAME = 'dzp2yg0zt';
+        const UPLOAD_PRESET = 'LR Team';
+        
+        let selectedFile = null;
+        let uploadedPhotoUrl = null;
+        
+        function handlePhotoSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                selectedFile = file;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('photoPreview');
+                    preview.src = e.target.result;
+                    preview.classList.add('visible');
+                    document.getElementById('photoText').textContent = 'Foto ausgewahlt - Tippe um zu andern';
+                    document.getElementById('photoUpload').classList.add('has-photo');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status visible ' + type;
+        }
+        
+        function hideStatus() {
+            document.getElementById('status').className = 'status';
+        }
+        
+        async function uploadToCloudinary(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', UPLOAD_PRESET);
+            
+            const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error('Upload fehlgeschlagen');
+            }
+            
+            const data = await response.json();
+            // Return only the public_id for shorter URLs
+            return data.public_id;
+        }
+        
+        document.getElementById('personForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (!name || !phone) {
+                showStatus('Bitte Name und Telefonnummer eingeben', 'error');
+                return;
+            }
+            
+            if (!selectedFile) {
+                showStatus('Bitte ein Foto auswahlen', 'error');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            showStatus('Foto wird hochgeladen...', 'loading');
+            
+            try {
+                // Upload photo to Cloudinary
+                uploadedPhotoUrl = await uploadToCloudinary(selectedFile);
+                
+                // Build the personalized URL
+                const baseUrl = window.location.href.replace('personalize.html', 'presentation_mobile.html');
+                const params = new URLSearchParams();
+                params.set('name', name);
+                params.set('phone', phone);
+                params.set('photo', uploadedPhotoUrl);
+                
+                const personalUrl = baseUrl.split('?')[0] + '?' + params.toString();
+                
+                // Show result
+                document.getElementById('resultUrl').textContent = personalUrl;
+                document.getElementById('resultBox').classList.add('visible');
+                showStatus('Link erfolgreich erstellt!', 'success');
+                
+            } catch (error) {
+                console.error('Upload error:', error);
+                showStatus('Fehler beim Hochladen. Bitte versuche es erneut.', 'error');
+            }
+            
+            submitBtn.disabled = false;
+        });
+        
+        function copyLink() {
+            const url = document.getElementById('resultUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                showStatus('Link kopiert!', 'success');
+                setTimeout(hideStatus, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showStatus('Link kopiert!', 'success');
+                setTimeout(hideStatus, 2000);
+            });
+        }
+        
+        function openPreview() {
+            const url = document.getElementById('resultUrl').textContent;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

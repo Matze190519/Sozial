@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LR Präsentation - Showcase Preview</title>
+    <title>LR Präsentation - Live (Preloaded)</title>
     <style>
         * {
             margin: 0;
@@ -25,13 +25,28 @@
             position: relative;
             background: #000;
         }
+        .frames-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+        }
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 1280px;
             height: 720px;
             border: none;
             background: black;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.3);
             border-radius: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        iframe.active {
+            opacity: 1;
+            pointer-events: auto;
         }
         .nav-button {
             position: absolute;
@@ -98,39 +113,81 @@
             background: rgba(255, 215, 0, 1);
             opacity: 1;
         }
-        .info-banner {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 12px;
-            color: #ffd700;
-            z-index: 1000;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
         }
-        .info-banner.all-slides {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 8px 16px;
-            font-size: 11px;
+        .loading-text {
+            color: #ffd700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .loading-bar {
+            width: 300px;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #9B7E3C, #E9D78E, #9B7E3C);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .loading-count {
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .ready-btn {
+            display: none;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #9B7E3C, #E9D78E, #9B7E3C);
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .ready-btn:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-        <div class="container">
-            <button class="nav-button prev" onclick="prevSlide()">◀</button>
-        <iframe id="slideFrame" src=""></iframe>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Folien werden geladen...</div>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+        <div class="loading-count" id="loadingCount">0 / 38</div>
+        <button class="ready-btn" id="readyBtn" onclick="startPresentation()">Präsentation starten</button>
+    </div>
+
+    <div class="container">
+        <button class="nav-button prev" onclick="prevSlide()">◀</button>
+        <div class="frames-container" id="framesContainer"></div>
         <button class="nav-button next" onclick="nextSlide()">▶</button>
         <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">39</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">38</span>
         </div>
-        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Vollbild</button>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Vollbild</button>
     </div>
 
     <script>
-        // All slides from presentation.html
-        // Note: Slides 07, 08, 11, 14, 17, 28, 31, 35, 37, 39 have Variant C design applied
         const slides = [
             'folie_01',
             'folie_02',
@@ -172,9 +229,8 @@
             'folie_42'
         ];
 
-        // Dynamically derive RAW_BASE from the current page URL to avoid SHA hardcoding
         const rawUrl = decodeURIComponent(window.location.search.slice(1));
-        const RAW_BASE = rawUrl.replace(/slides\/presentation_preview\.html.*/, 'slides/');
+        const RAW_BASE = rawUrl.replace(/slides\/presentation_live\.html.*/, 'slides/');
         const PREVIEW = 'https://htmlpreview.github.io/?';
 
         function srcFor(slideId) {
@@ -182,13 +238,50 @@
         }
 
         let currentIndex = 0;
+        let loadedCount = 0;
+        const iframes = [];
 
-        function loadSlide(index) {
-            const slideId = slides[index];
-            document.getElementById('slideFrame').src = srcFor(slideId);
-            document.getElementById('currentSlide').textContent = index + 1;
+        // Create all iframes and start loading
+        function initPreload() {
+            const container = document.getElementById('framesContainer');
             document.getElementById('totalSlides').textContent = slides.length;
-            window.location.hash = slideId;
+            
+            slides.forEach((slideId, index) => {
+                const iframe = document.createElement('iframe');
+                iframe.src = srcFor(slideId);
+                iframe.dataset.index = index;
+                if (index === 0) iframe.classList.add('active');
+                
+                iframe.onload = () => {
+                    loadedCount++;
+                    updateLoadingProgress();
+                };
+                
+                container.appendChild(iframe);
+                iframes.push(iframe);
+            });
+        }
+
+        function updateLoadingProgress() {
+            const percent = (loadedCount / slides.length) * 100;
+            document.getElementById('loadingProgress').style.width = percent + '%';
+            document.getElementById('loadingCount').textContent = loadedCount + ' / ' + slides.length;
+            
+            if (loadedCount >= slides.length) {
+                document.querySelector('.loading-text').textContent = 'Alle Folien geladen!';
+                document.getElementById('readyBtn').style.display = 'block';
+            }
+        }
+
+        function startPresentation() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function showSlide(index) {
+            iframes.forEach((iframe, i) => {
+                iframe.classList.toggle('active', i === index);
+            });
+            document.getElementById('currentSlide').textContent = index + 1;
             updateButtons();
         }
 
@@ -200,14 +293,14 @@
         function prevSlide() {
             if (currentIndex > 0) {
                 currentIndex--;
-                loadSlide(currentIndex);
+                showSlide(currentIndex);
             }
         }
 
         function nextSlide() {
             if (currentIndex < slides.length - 1) {
                 currentIndex++;
-                loadSlide(currentIndex);
+                showSlide(currentIndex);
             }
         }
 
@@ -224,15 +317,11 @@
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+            if (e.key === 'Enter' && loadedCount >= slides.length) startPresentation();
         });
 
-        // Load first slide or slide from hash
-        const hash = window.location.hash.substring(1);
-        const hashIndex = slides.indexOf(hash);
-        if (hashIndex !== -1) {
-            currentIndex = hashIndex;
-        }
-        loadSlide(currentIndex);
+        // Start preloading
+        initPreload();
     </script>
 </body>
 </html>
