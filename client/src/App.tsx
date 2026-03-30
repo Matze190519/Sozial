@@ -1,66 +1,76 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch, useLocation } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import ThankYou from "./pages/ThankYou";
-import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
-import About from "./pages/About";
-import LiveAvatar from "./pages/LiveAvatar";
-import LiveAvatarFAB from "./components/LiveAvatarFAB";
+import { Switch, Route, Redirect } from "wouter";
+import { trpc } from "@/lib/trpc";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Dashboard from "@/pages/Dashboard";
+import Generator from "@/pages/Generator";
+import Library from "@/pages/Library";
+import Approval from "@/pages/Approval";
+import Settings from "@/pages/Settings";
+import Trends from "@/pages/Trends";
+import Login from "@/pages/Login";
+import WeekPlanner from "@/pages/WeekPlanner";
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
+function ProtectedRoute({ component: Component, adminOnly = false }) {
+  const { data: user, isLoading } = trpc.auth.me.useQuery();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-8 h-8 border-2 border-yellow-500/30 border-t-yellow-500 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Redirect to="/login" />;
+  }
+
+  if (adminOnly && user?.role !== "admin") {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <DashboardLayout>
+      <Component />
+    </DashboardLayout>
+  );
+}
+
+function PlaceholderPage({ title, icon }) {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh] p-6">
+      <div className="text-center space-y-4">
+        <div className="text-6xl">{icon}</div>
+        <h2 className="text-2xl font-bold gold-gradient-text">{title}</h2>
+        <p className="text-muted-foreground">Diese Seite wird bald verfügbar sein.</p>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/danke"} component={ThankYou} />
-      <Route path={"/impressum"} component={Impressum} />
-      <Route path={"/datenschutz"} component={Datenschutz} />
-      <Route path={"/about"} component={About} />
-      <Route path={"/ueber-uns"} component={About} />
-      <Route path={"/liveavatar"} component={LiveAvatar} />
-      <Route path={"/avatar"} component={LiveAvatar} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
+      <Route path="/login" component={Login} />
+
+      <Route path="/" component={() => <ProtectedRoute component={Dashboard} />} />
+      <Route path="/generator" component={() => <ProtectedRoute component={Generator} />} />
+      <Route path="/library" component={() => <ProtectedRoute component={Library} />} />
+      <Route path="/trends" component={() => <ProtectedRoute component={Trends} />} />
+      <Route path="/settings" component={() => <ProtectedRoute component={Settings} />} />
+      <Route path="/approval" component={() => <ProtectedRoute component={Approval} adminOnly />} />
+
+      <Route path="/weekplanner" component={() => <ProtectedRoute component={WeekPlanner} />} />
+
+      <Route path="/hashtags" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Hashtag Engine" icon="#️⃣" />} />} />
+      <Route path="/calendar" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Content Kalender" icon="📅" />} />} />
+      <Route path="/queue" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Post Queue" icon="⏰" />} />} />
+      <Route path="/analytics" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Analytics" icon="📊" />} />} />
+      <Route path="/creator-spy" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Creator Spy" icon="👁️" />} />} />
+      <Route path="/templates" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Templates" icon="📋" />} />} />
+      <Route path="/team" component={() => <ProtectedRoute component={() => <PlaceholderPage title="Mein Team" icon="👥" />} adminOnly />} />
+
+      <Route component={() => <Redirect to="/" />} />
     </Switch>
   );
-}
-
-// Component to conditionally show FAB only on Home page
-function ConditionalFAB() {
-  const [location] = useLocation();
-  // Only show FAB on home page, not on the dedicated LiveAvatar page
-  if (location === '/' || location === '') {
-    return <LiveAvatarFAB />;
-  }
-  return null;
-}
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ConditionalFAB />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
-
-export default App;
+        }
