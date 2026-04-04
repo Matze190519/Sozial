@@ -129,6 +129,15 @@ workflow.systemStatus = 'System: ' + response.data.status + '\nPosts: ' + respon
 
 ---
 
+### 8. Instagram Growth (NEU)
+Das ist eine Anleitungsseite im Content Hub. Keine API noetig.
+Antwort: Schau dir die Instagram Growth Anleitung an - dort steht alles zu AutoDM, Lead Magnets und Link-in-bio:
+👉 [Content Hub oeffnen] → Sidebar → "Instagram Growth"
+
+Kurz erklaert: Mit SuperProfile bekommst du automatisch Leads wenn jemand unter deinem Post kommentiert. Einmal einrichten, laeuft dann automatisch. Kostenloser Start moeglich!
+
+---
+
 ## Zusaetzliche Endpoints
 
 | Endpoint | Methode | Wofuer |
