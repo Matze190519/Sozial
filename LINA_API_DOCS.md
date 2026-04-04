@@ -283,3 +283,195 @@ Generiert einen einmaligen Login-Link für einen Partner. Der Partner klickt den
 3. **Magic Links** sind 24h gültig, danach muss ein neuer generiert werden
 4. **Benachrichtigungen** werden nur bei der täglichen Interaktion abgerufen (kein Push)
 5. **Alle Endpoints** geben `{ success: boolean, ... }` zurück für einfache Fehlerbehandlung
+
+---
+
+## NEUE Endpoints (04.04.2026) - 7 zusätzliche Endpoints
+
+### 12. Content generieren
+**Endpoint:** `POST /api/lina/generate`
+
+**Request Body:**
+```json
+{
+  "topic": "LR Aloe Vera Drinking Gel",
+  "platform": "instagram",
+  "contentType": "post",
+  "pillar": "produkt"
+}
+```
+- `topic` (Pflicht) - Thema für den Content
+- `platform` (optional, default: "instagram")
+- `contentType` (optional, default: "post") - "post", "reel", "story"
+- `pillar` (optional) - "lifestyle", "produkt", "business", "gesundheit", "autokonzept"
+
+**Response:**
+```json
+{
+  "success": true,
+  "postId": 42,
+  "content": "Generierter Post-Text...",
+  "message": "Content zum Thema \"LR Aloe Vera\" erstellt! Jetzt im Dashboard freigeben."
+}
+```
+
+---
+
+### 13. Content-Vorlagen abrufen
+**Endpoint:** `GET /api/lina/templates`
+
+**Query Parameter:**
+- `category` (optional) - Filter nach Kategorie
+- `limit` (optional, default: 10)
+
+**Response:**
+```json
+{
+  "success": true,
+  "count": 3,
+  "templates": [
+    { "id": 1, "name": "Lifestyle Post", "category": "lifestyle", "content": "...", "platforms": ["instagram"], "usageCount": 5 }
+  ]
+}
+```
+
+---
+
+### 14. Smart Hashtags generieren
+**Endpoint:** `POST /api/lina/hashtags`
+
+**Request Body:**
+```json
+{
+  "topic": "Aloe Vera Gesundheit",
+  "platform": "instagram",
+  "pillar": "gesundheit"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "hashtags": ["#AloeVera", "#Gesundheit", "#LR", "#Wellness", "#Naturprodukte"],
+  "categories": { "trending": [...], "niche": [...], "brand": [...], "broad": [...] },
+  "totalReach": "50K+",
+  "tips": "Mix aus Brand und Nische",
+  "platform": "instagram"
+}
+```
+
+---
+
+### 15. Post planen (Schedule)
+**Endpoint:** `POST /api/lina/schedule`
+
+**Request Body:**
+```json
+{
+  "postId": 42,
+  "scheduledTime": "2026-04-10T10:00:00Z"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "postId": 42,
+  "scheduledTime": "2026-04-10T10:00:00Z",
+  "message": "Post #42 geplant für 10.4.2026, 12:00:00"
+}
+```
+
+---
+
+### 16. Wochenplan abrufen
+**Endpoint:** `GET /api/lina/weekly-plan`
+
+**Query Parameter:**
+- `platform` (optional, default: "instagram") - "instagram", "tiktok", "linkedin", "facebook", "youtube", "twitter", "threads", "all"
+
+**Response:**
+```json
+{
+  "success": true,
+  "platform": "instagram",
+  "displayName": "Instagram",
+  "besteZeiten": ["12:00", "18:30"],
+  "topTage": ["Dienstag", "Mittwoch"],
+  "tage": [
+    { "tag": "Montag", "besteZeit": "12:00", "score": 85, "grund": "Mittagspause", "istTopTag": false }
+  ],
+  "hinweise": "Reels bevorzugt",
+  "tipp": "Poste an den Top-Tagen auf Instagram für maximale Reichweite."
+}
+```
+
+---
+
+### 17. Einwandbehandlung
+**Endpoint:** `POST /api/lina/objection`
+
+**Request Body:**
+```json
+{
+  "objection": "Das ist doch ein Pyramidensystem",
+  "context": "Erstgespräch",
+  "partnerName": "Max"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "objection": "Das ist doch ein Pyramidensystem",
+  "response": "Das ist eine berechtigte Frage...",
+  "message": "Einwandbehandlung generiert!"
+}
+```
+
+---
+
+### 18. Health-Check
+**Endpoint:** `GET /api/lina/health`
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "uptime": 86400,
+  "timestamp": "2026-04-04T12:00:00Z",
+  "db": "connected",
+  "totalPosts": 57,
+  "endpoints": 19,
+  "version": "2.0.0"
+}
+```
+
+---
+
+## Gesamt: 19 Endpoints (Stand 04.04.2026)
+
+| Nr | Endpoint | Methode |
+|----|----------|---------|
+| 1 | /api/lina/content | GET |
+| 2 | /api/lina/library | GET |
+| 3 | /api/lina/products | GET |
+| 4 | /api/lina/status | GET |
+| 5 | /api/lina/invite | POST |
+| 6 | /api/lina/invite/:token | GET |
+| 7 | /api/lina/login-link | POST |
+| 8 | /api/auth/magic/:token | GET |
+| 9 | /api/lina/notify | POST |
+| 10 | /api/lina/partner-stats/:nr | GET |
+| 11 | /api/lina/self-approve | POST |
+| 12 | /api/lina/pending/:nr | GET |
+| 13 | /api/lina/generate | POST |
+| 14 | /api/lina/templates | GET |
+| 15 | /api/lina/hashtags | POST |
+| 16 | /api/lina/schedule | POST |
+| 17 | /api/lina/weekly-plan | GET |
+| 18 | /api/lina/objection | POST |
+| 19 | /api/lina/health | GET |
