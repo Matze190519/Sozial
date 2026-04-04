@@ -345,3 +345,43 @@ Jede Plattform braucht eigene Pflichtfelder im Target-Objekt. Ohne diese gibt es
 4. Quality Gate prueft: Laenge, Brand Safety, Hook, CTA, Emojis, Hashtags, KEINE PREISE
 5. Blotato-Posting: Nochmal Hashtag-Limit + Preis-Filter als letzte Sicherung
 6. Post wird auf allen gewaehlten Plattformen gepostet
+
+### Auto-Bild bei JEDEM Post (04.04.2026 - Abends, Update 2)
+
+**WICHTIG: Kein Post ohne Bild!**
+- Jeder Post bekommt AUTOMATISCH ein Bild - der User muss keinen Toggle aktivieren
+- `autoGenerateImage` ist jetzt DEFAULT TRUE in allen Generatoren:
+  - Content Generator (GoViralBitch)
+  - Brand Voice Generator (LLM)
+  - Batch/Wochenplan
+  - A/B Tests
+  - Monthly Plan
+  - Trend-Scanner Autopilot
+  - Lifestyle Engine
+  - Lina /api/lina/generate
+- Reihenfolge: Zuerst Produktbild-Check (echtes Bild aus DB) → dann KI-Bild
+- Wenn Bildgenerierung fehlschlaegt, wird der Post trotzdem erstellt (Text-only als Fallback)
+
+### TikTok: NUR JPG-Bilder (04.04.2026 - Abends, Update 2)
+
+**TikTok akzeptiert KEINE PNG-Bilder!**
+- TikTok braucht JPG-Bilder oder MP4-Videos
+- PNG-Bilder fuehren zu "Media conversion failed" Fehler
+- Loesung: Vor dem Posten auf TikTok muessen PNG-Bilder zu JPG konvertiert werden
+- Das System macht das automatisch im Blotato-Posting-Flow
+
+### E-Mail-Benachrichtigungen (Status 04.04.2026)
+
+**Was funktioniert:**
+- E-Mail bei Ablehnung eines Posts (ueber Brevo)
+
+**Was NICHT funktioniert (TODO):**
+- E-Mail bei Freigabe eines Posts
+- E-Mail wenn neuer Content zur Freigabe bereit ist (Team-Notification)
+- E-Mail wenn Post erfolgreich gepostet wurde
+
+### Bekannte UI-Bugs (04.04.2026)
+
+1. **Brand Voice Generator Button** auf der Live-Seite reagiert manchmal nicht auf Klick (kein API-Call wird ausgeloest)
+2. **Lifestyle-Engine Batch** (5 Posts auf einmal) hat Timeout-Probleme auf dem Live-Server - Einzelgenerierung funktioniert
+3. **Lina "Neue Features" Menue** zeigt keine Buttons/Optionen an nach Auswahl
