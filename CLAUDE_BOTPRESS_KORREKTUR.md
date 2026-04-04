@@ -309,3 +309,39 @@ Jede Plattform braucht eigene Pflichtfelder im Target-Objekt. Ohne diese gibt es
 - 226 LR-Produkte mit Originalbildern
 - Kategorien: Aloe Vera, Koerperpflege, ZEITGARD, Parfum, etc.
 - Suchbar und filterbar im Dashboard
+
+### Content-Sicherheit: Automatische Regeln (04.04.2026 - Abends)
+
+**3 neue permanente Regeln im System eingebaut:**
+
+#### 1. Hashtag-Limiter (automatisch vor jedem Blotato-Post)
+- Instagram/TikTok/Threads/Twitter/Bluesky: max 5 Hashtags
+- Facebook/LinkedIn/YouTube/Pinterest: max 10 Hashtags
+- Ueberzaehlige Hashtags werden automatisch entfernt (die ersten N bleiben)
+- Gilt fuer ALLE Posts die ueber Blotato gepostet werden
+
+#### 2. Keine Preise (automatisch)
+- LLM-Prompt enthalt jetzt Regel: "KEINE PREISE in Posts!"
+- Quality Gate blockiert Posts mit Preisen (99 Euro, ab 15 Euro, etc.)
+- Blotato-Posting entfernt automatisch Preise aus dem Text als letzte Sicherung
+- Einstiegspreis wird NICHT mehr im Brand Voice Prompt erwaehnt
+- Grund: Preise aendern sich, wirken unserioes, und sind rechtlich problematisch
+
+#### 3. Echte Produktbilder (automatisch)
+- Wenn das Topic ein LR-Produkt enthaelt (z.B. "Aloe Vera", "Mind Master", "Zeitgard"):
+  → Automatisch echtes Produktbild aus der Datenbank (226 Bilder) verwenden
+  → KEIN KI-Bild generieren fuer Produktposts!
+- Wenn das Topic KEIN Produkt ist (z.B. "Freiheit", "Erfolg", "Business"):
+  → KI-Bild wie bisher generieren
+- Gilt fuer: Content Generator, Brand Voice Generator, Lina /api/lina/generate
+- Erkannte Produkt-Keywords: aloe vera, mind master, zeitgard, colostrum, 5in1,
+  protein power, lr lifetakt, super omega, pro balance, heart active, reishi plus,
+  parfum, guido maria, bruce willis, starterpaket, drinking gel, nahrungsergaenzung, etc.
+
+**Zusammenfassung der Content-Pipeline:**
+1. LLM generiert Text (OHNE Preise, max 5 Hashtags)
+2. Produkterkennung: Ist ein LR-Produkt im Topic? → Echtes Bild aus DB
+3. Kein Produkt? → KI-Bild generieren (Nano Banana Pro)
+4. Quality Gate prueft: Laenge, Brand Safety, Hook, CTA, Emojis, Hashtags, KEINE PREISE
+5. Blotato-Posting: Nochmal Hashtag-Limit + Preis-Filter als letzte Sicherung
+6. Post wird auf allen gewaehlten Plattformen gepostet
