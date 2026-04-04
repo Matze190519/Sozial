@@ -160,6 +160,8 @@ Kurz erklaert: Mit SuperProfile bekommst du automatisch Leads wenn jemand unter 
 4. Jeder generierte Post bekommt AUTOMATISCH ein Bild.
 5. Partner loggen sich ueber Magic Links ein, NICHT ueber Manus OAuth.
 6. Die Bibliothek enthaelt NUR vollstaendige Posts (Text + Bild/Video). Reine Text-Posts werden NICHT gespeichert.
+7. **WhatsApp Single Choice: MAXIMAL 10 Buttons pro Node!** WhatsApp erlaubt max. 10 Optionen in einer Single-Choice-Liste. Wenn du mehr als 10 Punkte hast, MUSST du sie auf 2 Ebenen aufteilen (z.B. Hauptmenue mit Kategorien → Untermenue mit Details). NIEMALS mehr als 10 Buttons in einer Single Choice Node!
+8. Blotato-Posts brauchen platform-spezifische Target-Felder (siehe Blotato-Regeln unten).
 
 ---
 
@@ -276,6 +278,32 @@ Aktuelle Sidebar-Struktur:
 - Auto-Post nach Freigabe (wenn Partner Blotato-Key hat)
 - One-Click Multi-Publish auf alle 9 Plattformen
 - Kosten: 25€/Monat pro Partner (Partner zahlt selbst)
+
+### Blotato API Platform-Regeln (WICHTIG - Fehlervermeidung!)
+Jede Plattform braucht eigene Pflichtfelder im Target-Objekt. Ohne diese gibt es 400/422 Fehler!
+
+| Plattform | Pflichtfelder im Target | Beispiel |
+|-----------|------------------------|----------|
+| Instagram | targetType | `{ targetType: "instagram" }` |
+| Facebook  | targetType | `{ targetType: "facebook" }` |
+| Twitter   | targetType | `{ targetType: "twitter" }` |
+| Threads   | targetType | `{ targetType: "threads" }` |
+| LinkedIn  | targetType | `{ targetType: "linkedin" }` |
+| YouTube   | targetType, title, privacyStatus, shouldNotifySubscribers | `{ targetType: "youtube", title: "...", privacyStatus: "public", shouldNotifySubscribers: true }` |
+| TikTok    | targetType, privacyLevel, disabledComments, disabledDuet, disabledStitch, isBrandedContent, isYourBrand, isAiGenerated | `{ targetType: "tiktok", privacyLevel: "PUBLIC_TO_EVERYONE", disabledComments: false, disabledDuet: false, disabledStitch: false, isBrandedContent: false, isYourBrand: false, isAiGenerated: true }` |
+
+**Bekannte Fehler (gefixt am 04.04.2026):**
+- YouTube 400: Fehlte title + privacyStatus → jetzt automatisch gesetzt
+- TikTok 422: Fehlten 7 Pflichtfelder → jetzt automatisch gesetzt
+- LinkedIn 422: Fehlte nichts, aber falsches Format → jetzt korrekt
+- Scheduling 4 Tage voraus: Smart-Engine bevorzugte "beste" Tage statt nahe Tage → jetzt stark heute/morgen bevorzugt
+
+### WhatsApp / Botpress Technische Limits
+- **Single Choice Node: MAXIMAL 10 Buttons** (WhatsApp-Limit, nicht Botpress-Limit)
+- Wenn mehr als 10 Optionen noetig: Aufteilen in Kategorien (z.B. "Erstellen", "Recherche", "Planen") → dann Untermenue
+- Beispiel: Statt 15 Menupunkte in einer Liste → 3 Kategorien mit je 5 Unterpunkten
+- Quick Replies: Max 3 Buttons (WhatsApp-Limit)
+- Textnachrichten: Max 4096 Zeichen
 
 ### Produkt-Bibliothek
 - 226 LR-Produkte mit Originalbildern
