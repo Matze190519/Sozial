@@ -39,9 +39,10 @@ Das Hauptmenü soll diese Optionen haben (Single Choice Node):
 5. ✍️ Content nach Wunsch
 6. 📚 Bibliothek durchsuchen
 7. 📊 Wochenplan anzeigen
-8. 🏷️ Hashtags generieren
-9. 📈 Meine Statistiken
-10. ❓ Hilfe & FAQ
+8. 📈 Meine Statistiken
+9. ❓ Hilfe & FAQ
+
+**Hashtags sind KEIN eigener Menüpunkt** — sie stehen automatisch bei jedem generierten Post dabei.
 
 ---
 
@@ -259,28 +260,7 @@ Single Choice: ["Zurück zum Menü"]
 
 ---
 
-### 8. Hashtags generieren
-Single Choice Thema wählen: ["Aloe Vera", "Mind Master", "Autokonzept", "Lifestyle", "Eigenes Thema", "Zurück zum Menü"]
-
-Execute Code:
-```javascript
-const response = await axios.post('https://sozialmedia.best/api/lina/hashtags', {
-  topic: workflow.hashtagTopic || workflow.userTopic || 'LR Lifestyle',
-  platform: 'instagram'
-}, { headers: { 'Content-Type': 'application/json' } });
-if (response.data.success) {
-  workflow.hashtagResult = (response.data.hashtags || []).join(' ');
-  workflow.hashtagTips = (response.data.tips || []).join('\n');
-} else {
-  workflow.hashtagResult = 'Fehler beim Generieren.';
-}
-```
-Text-Node: "🏷️ Hashtags für {{workflow.hashtagTopic}}:\n\n{{workflow.hashtagResult}}\n\n💡 {{workflow.hashtagTips}}"
-Single Choice: ["Zurück zum Menü"]
-
----
-
-### 9. Meine Statistiken
+### 8. Meine Statistiken
 Execute Code:
 ```javascript
 const partnerNumber = workflow.partnerNumber || user.partnerNumber || '00000';
