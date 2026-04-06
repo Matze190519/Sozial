@@ -1,31 +1,68 @@
-# STOPP - Lies das ZUERST bevor du irgendetwas machst!
+# BOTPRESS LINA — VOLLSTÄNDIGE KORREKTUR (Stand: April 2026)
 
 ## Was du NICHT tun sollst:
 - KEINE neuen Flows bauen
-- KEINE neuen Menupunkte erstellen
+- KEINE neuen Menüpunkte erstellen
 - KEINE Leute einladen (Team ist schon in Botpress drin!)
 - NICHTS neu aufbauen
 
 ## Was du tun sollst:
-Die bestehenden Botpress-Flows mit den sozialmedia.best API-Endpoints verbinden. Die Flows existieren bereits. Das Menu existiert bereits. Du musst NUR die Execute-Code-Bloecke in den bestehenden Flows aktualisieren.
+Die bestehenden Botpress-Flows mit den sozialmedia.best API-Endpoints verbinden. Die Flows existieren bereits. Das Menü existiert bereits. Du musst NUR die Execute-Code-Blöcke in den bestehenden Flows aktualisieren.
 
 ---
 
-## Bestehende Menupunkte und API-Verbindung
+## WIE CONTENT AUFS HANDY KOMMT — KEIN MAKE NÖTIG
 
-### 1. Content Hub oeffnen
+**Kein Make, kein Webhook, kein Cron-Job nötig.**
+
+Der Ablauf ist simpel:
+1. Partner schreibt Lina auf WhatsApp
+2. Lina ruft sozialmedia.best API auf (direkt per HTTP)
+3. sozialmedia.best antwortet mit Text + Bild-URL
+4. Lina sendet Text als Text-Node und Bild als **Image Card Node** an WhatsApp
+
+**Warum kommen Bilder nicht an?**
+Weil Botpress eine **Image Card Node** braucht — NICHT eine Text-Node mit `{{workflow.imageUrl}}`.
+Eine Text-Node mit einer URL zeigt nur den Link, kein Bild.
+Eine Image Card Node zeigt das echte Bild in WhatsApp.
+
+---
+
+## HAUPTMENÜ — KORREKTE STRUKTUR (max. 10 Buttons!)
+
+Das Hauptmenü soll diese Optionen haben (Single Choice Node):
+
+1. 📱 Content Hub öffnen
+2. 📋 Fertiger Content abrufen
+3. ✅ Content freigeben
+4. 💡 Einwände meistern
+5. ✍️ Content nach Wunsch
+6. 📚 Bibliothek durchsuchen
+7. 📊 Wochenplan anzeigen
+8. 🏷️ Hashtags generieren
+9. 📈 Meine Statistiken
+10. ❓ Hilfe & FAQ
+
+---
+
+## ALLE FLOWS MIT KORREKTEM CODE
+
+### 1. Content Hub öffnen
 Execute Code:
 ```javascript
 const response = await axios.post('https://sozialmedia.best/api/lina/login-link', {
-  partnerNumber: workflow.partnerNumber || user.partnerNumber,
+  partnerNumber: workflow.partnerNumber || user.partnerNumber || '00000',
   name: user.first_name || 'Partner',
   whatsappNumber: user.phone || ''
 }, { headers: { 'Content-Type': 'application/json' } });
 if (response.data.success) {
   workflow.loginUrl = response.data.loginUrl;
+} else {
+  workflow.loginUrl = 'https://sozialmedia.best';
 }
 ```
-Antwort: Hier ist dein persoenlicher Link zum Content Hub: {{workflow.loginUrl}}
+Text-Node danach: "Hier ist dein persönlicher Link zum Content Hub (24h gültig): {{workflow.loginUrl}}"
+Single Choice: ["Zurück zum Menü"]
 
 ---
 
@@ -36,352 +73,263 @@ const response = await axios.get('https://sozialmedia.best/api/lina/content', {
   params: { limit: 3 }
 });
 if (response.data.success && response.data.count > 0) {
-  workflow.posts = response.data.posts;
+  const posts = response.data.posts;
+  workflow.post1Text = posts[0] ? posts[0].text.substring(0, 300) + '...' : '';
+  workflow.post1Image = posts[0] ? (posts[0].imageUrl || '') : '';
+  workflow.post1Id = posts[0] ? posts[0].id : '';
+  workflow.post1Topic = posts[0] ? posts[0].topic : '';
+  workflow.post2Text = posts[1] ? posts[1].text.substring(0, 300) + '...' : '';
+  workflow.post2Image = posts[1] ? (posts[1].imageUrl || '') : '';
+  workflow.post2Id = posts[1] ? posts[1].id : '';
+  workflow.post2Topic = posts[1] ? posts[1].topic : '';
   workflow.hasContent = true;
-  workflow.contentText = response.data.posts.map(function(p, i) {
-    return (i+1) + '. ' + p.topic + '\n' + p.text.substring(0, 200) + '...' +
-      (p.imageUrl ? '\nBild dabei' : '') + (p.videoUrl ? '\nVideo dabei' : '');
-  }).join('\n\n');
+  workflow.contentCount = response.data.count;
 } else {
   workflow.hasContent = false;
-  workflow.contentText = 'Aktuell kein fertiger Content verfuegbar.';
 }
 ```
-Antwort: {{workflow.contentText}}
+
+Danach (wenn hasContent = true):
+- **Text-Node:** "Hier sind {{workflow.contentCount}} fertige Posts für dich:"
+- **Text-Node:** "📝 Post 1: {{workflow.post1Topic}}\n{{workflow.post1Text}}"
+- **Image Card Node:** URL = `{{workflow.post1Image}}` (NUR wenn post1Image nicht leer!)
+- **Text-Node:** "📝 Post 2: {{workflow.post2Topic}}\n{{workflow.post2Text}}"
+- **Image Card Node:** URL = `{{workflow.post2Image}}` (NUR wenn post2Image nicht leer!)
+- **Single Choice:** ["Post 1 freigeben", "Post 2 freigeben", "Zurück zum Menü"]
+
+Wenn hasContent = false:
+- **Text-Node:** "Aktuell kein fertiger Content verfügbar. Soll ich neuen Content für dich erstellen?"
+- **Single Choice:** ["Ja, Content erstellen", "Zurück zum Menü"]
 
 ---
 
 ### 3. Content freigeben
 Schritt 1 - Wartende Posts holen:
 ```javascript
-var partnerNumber = workflow.partnerNumber || user.partnerNumber;
-var response = await axios.get('https://sozialmedia.best/api/lina/pending/' + partnerNumber);
+const partnerNumber = workflow.partnerNumber || user.partnerNumber || '00000';
+const response = await axios.get('https://sozialmedia.best/api/lina/pending/' + partnerNumber);
 if (response.data.success && response.data.count > 0) {
   workflow.pendingPosts = response.data.posts;
   workflow.hasPending = true;
-  workflow.pendingText = response.data.posts.map(function(p, i) {
-    return (i+1) + '. "' + p.topic + '" (' + p.type + ') - ' + p.preview;
-  }).join('\n');
+  workflow.pendingCount = response.data.count;
+  // Erste 3 Posts als Buttons vorbereiten
+  workflow.pending1Id = response.data.posts[0] ? response.data.posts[0].id : '';
+  workflow.pending1Topic = response.data.posts[0] ? response.data.posts[0].topic : '';
+  workflow.pending2Id = response.data.posts[1] ? response.data.posts[1].id : '';
+  workflow.pending2Topic = response.data.posts[1] ? response.data.posts[1].topic : '';
+  workflow.pending3Id = response.data.posts[2] ? response.data.posts[2].id : '';
+  workflow.pending3Topic = response.data.posts[2] ? response.data.posts[2].topic : '';
 } else {
   workflow.hasPending = false;
 }
 ```
-Wenn Posts da sind, frage welchen freigeben. Dann Schritt 2:
+
+Wenn hasPending = true:
+- **Text-Node:** "Du hast {{workflow.pendingCount}} Posts die auf Freigabe warten:"
+- **Single Choice:** ["{{workflow.pending1Topic}}", "{{workflow.pending2Topic}}", "{{workflow.pending3Topic}}", "Zurück zum Menü"]
+- Nutzer wählt → speichere in `workflow.selectedPostId`
+
+Schritt 2 - Freigeben:
 ```javascript
-var partnerNumber = workflow.partnerNumber || user.partnerNumber;
-var postId = workflow.selectedPostId;
-var response = await axios.post('https://sozialmedia.best/api/lina/self-approve', {
+const partnerNumber = workflow.partnerNumber || user.partnerNumber || '00000';
+const response = await axios.post('https://sozialmedia.best/api/lina/self-approve', {
   partnerNumber: partnerNumber,
-  postId: postId
+  postId: workflow.selectedPostId
 }, { headers: { 'Content-Type': 'application/json' } });
-workflow.approveResult = response.data.message;
+workflow.approveResult = response.data.message || 'Post freigegeben!';
 workflow.published = response.data.published;
 ```
-Antwort: {{workflow.approveResult}}
-
-WICHTIG: self-approve postet jetzt automatisch auf Blotato! Der Partner muss nichts weiter tun.
+Text-Node: "{{workflow.approveResult}}"
+Single Choice: ["Weiteren Post freigeben", "Zurück zum Menü"]
 
 ---
 
-### 4. Einwaende meistern
+### 4. Einwände meistern
+Zuerst Single Choice mit häufigen Einwänden:
+["Keine Zeit", "Kein Geld", "Kein Interesse", "Eigenen Einwand eingeben", "Zurück zum Menü"]
+
+Execute Code (nach Auswahl):
 ```javascript
-var response = await axios.post('https://sozialmedia.best/api/lina/objection', {
-  objection: workflow.userObjection
+const objection = workflow.selectedObjection || workflow.userObjection || 'Keine Zeit';
+const response = await axios.post('https://sozialmedia.best/api/lina/objection', {
+  objection: objection,
+  context: 'Network Marketing / LR Health & Beauty',
+  partnerName: user.first_name || 'Partner'
 }, { headers: { 'Content-Type': 'application/json' } });
 if (response.data.success) {
-  workflow.objectionResponse = response.data.response;
+  workflow.objectionResponse = response.data.response.substring(0, 1000);
+} else {
+  workflow.objectionResponse = 'Fehler beim Laden der Antwort.';
 }
 ```
-Antwort: {{workflow.objectionResponse}}
+Text-Node: "{{workflow.objectionResponse}}"
+Single Choice: ["Weiteren Einwand", "Zurück zum Menü"]
 
 ---
 
 ### 5. Content nach Wunsch
+Zuerst fragen welche Plattform:
+Single Choice: ["Instagram", "TikTok", "Facebook", "Threads", "Zurück zum Menü"]
+→ speichere in `workflow.selectedPlatform`
+
+Dann fragen welches Thema:
+Single Choice: ["Aloe Vera", "Mind Master", "Zeitgard", "Autokonzept", "Lifestyle", "Eigenes Thema eingeben"]
+→ speichere in `workflow.userTopic`
+
+Execute Code:
 ```javascript
-var response = await axios.post('https://sozialmedia.best/api/lina/generate', {
-  topic: workflow.userTopic,
+const response = await axios.post('https://sozialmedia.best/api/lina/generate', {
+  topic: workflow.userTopic || 'LR Lifestyle',
   platform: workflow.selectedPlatform || 'instagram',
-  contentType: workflow.selectedType || 'post'
+  contentType: 'post'
 }, { headers: { 'Content-Type': 'application/json' } });
 if (response.data.success) {
-  workflow.generatedContent = response.data.content;
-  workflow.generatedImage = response.data.imageUrl;
-  workflow.postId = response.data.postId;
-  workflow.resultMessage = response.data.message;
+  workflow.generatedContent = (response.data.content || '').substring(0, 500) + '...';
+  workflow.generatedImage = response.data.imageUrl || '';
+  workflow.generatedPostId = response.data.postId;
+  workflow.resultMessage = response.data.message || 'Content erstellt!';
+} else {
+  workflow.resultMessage = 'Fehler beim Erstellen. Bitte nochmal versuchen.';
+  workflow.generatedImage = '';
 }
 ```
-Antwort: {{workflow.resultMessage}}
-
-WICHTIG: /api/lina/generate erstellt jetzt automatisch ein Bild mit!
-
----
-
-### 6. Leads kaufen
-Das ist ein externer Link. Keine API noetig.
+- **Text-Node:** "{{workflow.resultMessage}}"
+- **Text-Node:** "Vorschau: {{workflow.generatedContent}}"
+- **Image Card Node:** URL = `{{workflow.generatedImage}}` (NUR wenn nicht leer!)
+- **Single Choice:** ["Post freigeben", "Nochmal generieren", "Zurück zum Menü"]
 
 ---
 
-### 7. System-Hilfe und FAQ
+### 6. Bibliothek durchsuchen
+Execute Code:
 ```javascript
-var response = await axios.get('https://sozialmedia.best/api/lina/status');
-workflow.systemStatus = 'System: ' + response.data.status + '\nPosts: ' + response.data.totalPosts;
+const response = await axios.get('https://sozialmedia.best/api/lina/library', {
+  params: { limit: 5 }
+});
+if (response.data.success && response.data.count > 0) {
+  const items = response.data.items;
+  workflow.lib1Title = items[0] ? items[0].title : '';
+  workflow.lib1Text = items[0] ? (items[0].text || '').substring(0, 200) + '...' : '';
+  workflow.lib1Image = items[0] ? (items[0].imageUrl || '') : '';
+  workflow.lib1Video = items[0] ? (items[0].videoUrl || '') : '';
+  workflow.lib2Title = items[1] ? items[1].title : '';
+  workflow.lib2Text = items[1] ? (items[1].text || '').substring(0, 200) + '...' : '';
+  workflow.lib2Image = items[1] ? (items[1].imageUrl || '') : '';
+  workflow.lib3Title = items[2] ? items[2].title : '';
+  workflow.lib3Text = items[2] ? (items[2].text || '').substring(0, 200) + '...' : '';
+  workflow.lib3Image = items[2] ? (items[2].imageUrl || '') : '';
+  workflow.hasLibrary = true;
+  workflow.libCount = response.data.count;
+} else {
+  workflow.hasLibrary = false;
+}
 ```
 
----
-
-### 8. Instagram Growth (NEU)
-Das ist eine Anleitungsseite im Content Hub. Keine API noetig.
-Antwort: Schau dir die Instagram Growth Anleitung an - dort steht alles zu AutoDM, Lead Magnets und Link-in-bio:
-👉 [Content Hub oeffnen] → Sidebar → "Instagram Growth"
-
-Kurz erklaert: Mit SuperProfile bekommst du automatisch Leads wenn jemand unter deinem Post kommentiert. Einmal einrichten, laeuft dann automatisch. Kostenloser Start moeglich!
-
----
-
-## Zusaetzliche Endpoints
-
-| Endpoint | Methode | Wofuer |
-|----------|---------|--------|
-| /api/lina/templates | GET | Vorlagen anzeigen |
-| /api/lina/hashtags | POST {topic} | Hashtags generieren |
-| /api/lina/weekly-plan | GET | Wochenplan anzeigen |
-| /api/lina/products | GET | LR-Produkte anzeigen |
-| /api/lina/library | GET | Bibliothek durchsuchen (NUR Posts mit Bild/Video!) |
-| /api/lina/schedule | POST {postId, scheduledTime} | Post planen |
-| /api/lina/partner-stats/:partnerNumber | GET | Partner-Statistiken |
-| /api/lina/health | GET | Health-Check (Monitoring) |
+Wenn hasLibrary = true:
+- **Text-Node:** "Bibliothek ({{workflow.libCount}} Posts):"
+- **Text-Node:** "1️⃣ {{workflow.lib1Title}}\n{{workflow.lib1Text}}"
+- **Image Card Node:** URL = `{{workflow.lib1Image}}` (NUR wenn nicht leer!)
+- **Text-Node:** "2️⃣ {{workflow.lib2Title}}\n{{workflow.lib2Text}}"
+- **Image Card Node:** URL = `{{workflow.lib2Image}}` (NUR wenn nicht leer!)
+- **Text-Node:** "3️⃣ {{workflow.lib3Title}}\n{{workflow.lib3Text}}"
+- **Image Card Node:** URL = `{{workflow.lib3Image}}` (NUR wenn nicht leer!)
+- **Single Choice:** ["Zurück zum Menü"]
 
 ---
 
-## Regeln
-1. Das Team ist SCHON in Botpress. Niemand muss eingeladen werden.
-2. Benachrichtigungen laufen ueber Brevo, NICHT ueber Manus.
-3. Jeder Post der freigegeben wird, wird AUTOMATISCH auf Blotato gepostet.
-4. Jeder generierte Post bekommt AUTOMATISCH ein Bild.
-5. Partner loggen sich ueber Magic Links ein, NICHT ueber Manus OAuth.
-6. Die Bibliothek enthaelt NUR vollstaendige Posts (Text + Bild/Video). Reine Text-Posts werden NICHT gespeichert.
-7. **WhatsApp Single Choice: MAXIMAL 10 Buttons pro Node!** WhatsApp erlaubt max. 10 Optionen in einer Single-Choice-Liste. Wenn du mehr als 10 Punkte hast, MUSST du sie auf 2 Ebenen aufteilen (z.B. Hauptmenue mit Kategorien → Untermenue mit Details). NIEMALS mehr als 10 Buttons in einer Single Choice Node!
-8. Blotato-Posts brauchen platform-spezifische Target-Felder (siehe Blotato-Regeln unten).
+### 7. Wochenplan anzeigen
+Execute Code:
+```javascript
+const response = await axios.get('https://sozialmedia.best/api/lina/weekly-plan', {
+  params: { platform: 'instagram' }
+});
+if (response.data.success) {
+  const tage = response.data.tage || [];
+  workflow.wochenplan = tage.map(function(t) {
+    return t.tag + ': ' + t.besteZeit + (t.istTopTag ? ' ⭐' : '');
+  }).join('\n');
+  workflow.topTage = (response.data.topTage || []).join(', ');
+  workflow.tipp = response.data.tipp || '';
+} else {
+  workflow.wochenplan = 'Wochenplan nicht verfügbar.';
+}
+```
+Text-Node: "📅 Bester Posting-Zeitplan für Instagram:\n\n{{workflow.wochenplan}}\n\n💡 {{workflow.tipp}}"
+Single Choice: ["Zurück zum Menü"]
 
 ---
 
-## CHANGELOG - Alle Aenderungen seit Erstversion
+### 8. Hashtags generieren
+Single Choice Thema wählen: ["Aloe Vera", "Mind Master", "Autokonzept", "Lifestyle", "Eigenes Thema", "Zurück zum Menü"]
 
-### Budget-System & Kosten-Kontrolle (04.04.2026)
-- Partner haben Limits: 40 Bilder/Monat + 10 Videos/Monat (Testphase, normal: 20/5)
-- Globaler Monatsdeckel: $200
-- Bilder: $0.08 pro Bild (Nano Banana 2 / Google Gemini)
-- Videos Partner: $0.84 pro 5s Video (Kling 3.0 Pro mit Audio)
-- Videos Admin: $2.00 pro 5s Video (Veo 3.1 Top-Qualitaet)
-- Admin (Mathias) hat KEIN Budget-Limit + bekommt Veo 3.1
-- Neue Admin-Seite: Kosten-Uebersicht unter /budget (Sidebar: "Kosten-Uebersicht")
+Execute Code:
+```javascript
+const response = await axios.post('https://sozialmedia.best/api/lina/hashtags', {
+  topic: workflow.hashtagTopic || workflow.userTopic || 'LR Lifestyle',
+  platform: 'instagram'
+}, { headers: { 'Content-Type': 'application/json' } });
+if (response.data.success) {
+  workflow.hashtagResult = (response.data.hashtags || []).join(' ');
+  workflow.hashtagTips = (response.data.tips || []).join('\n');
+} else {
+  workflow.hashtagResult = 'Fehler beim Generieren.';
+}
+```
+Text-Node: "🏷️ Hashtags für {{workflow.hashtagTopic}}:\n\n{{workflow.hashtagResult}}\n\n💡 {{workflow.hashtagTips}}"
+Single Choice: ["Zurück zum Menü"]
 
-### Bibliothek-Filter (04.04.2026)
-- Bibliothek speichert NUR vollstaendige Posts (Text + Bild/Video + Hashtags)
-- Reiner Text-Content wird NICHT mehr in die Bibliothek gespeichert
-- 2 alte Text-only Eintraege wurden geloescht, 14 vollstaendige Posts bleiben
-- /api/lina/library gibt jetzt nur noch Posts MIT Bild oder Video zurueck
+---
 
-### Brevo Benachrichtigungen (04.04.2026)
-- Alle Benachrichtigungen laufen ueber Brevo (ehemals Sendinblue)
-- Brevo schickt E-Mails NUR an den Admin (Mathias: jedermannhandy@googlemail.com)
-- Absender: LR Lifestyle Team <info@lr-lifestyle.info>
-- Brevo wird NICHT vom Team genutzt - nur Admin bekommt Benachrichtigungen
-- Typische Benachrichtigungen: "Partner XY hat Content erstellt", "Neuer Post wartet auf Freigabe"
-- Die Partner bekommen ihre Infos ueber WhatsApp/Lina, NICHT ueber Brevo
+### 9. Meine Statistiken
+Execute Code:
+```javascript
+const partnerNumber = workflow.partnerNumber || user.partnerNumber || '00000';
+const response = await axios.get('https://sozialmedia.best/api/lina/partner-stats/' + partnerNumber);
+if (response.data.success) {
+  const s = response.data.stats;
+  workflow.statsText = 'Deine Stats:\n✅ Freigegeben: ' + s.approved + '\n⏳ Ausstehend: ' + s.pending + '\n🚀 Veröffentlicht: ' + s.published + '\n📝 Gesamt: ' + s.totalPosts;
+} else {
+  workflow.statsText = 'Statistiken nicht verfügbar. Bitte zuerst einloggen.';
+}
+```
+Text-Node: "{{workflow.statsText}}"
+Single Choice: ["Zurück zum Menü"]
 
-### SuperProfile / Instagram Growth (04.04.2026)
-- Neue Seite: /instagram-growth (Sidebar: "Instagram Growth")
-- Anleitung fuer SuperProfile AutoDM + Lead Magnets + Link-in-bio
-- Kein API-Endpoint noetig - ist eine reine Anleitungsseite im Dashboard
+---
 
-### Lina REST-API Endpoints (04.04.2026)
-- 19 Endpoints insgesamt (alle getestet und deployed)
-- Neue Endpoints seit Erstversion:
-  - POST /api/lina/generate (Content generieren mit automatischem Bild)
-  - GET /api/lina/templates (Content-Vorlagen)
-  - POST /api/lina/hashtags (Smart Hashtags)
-  - POST /api/lina/schedule (Posts planen)
-  - GET /api/lina/weekly-plan (Wochenplan)
-  - POST /api/lina/objection (Einwandbehandlung)
-  - GET /api/lina/health (Health-Check)
-  - GET /api/lina/pending/:partnerNumber (Wartende Posts)
+### 10. Hilfe & FAQ
+Execute Code:
+```javascript
+const response = await axios.get('https://sozialmedia.best/api/lina/status');
+if (response.data.success) {
+  const s = response.data.stats;
+  workflow.systemStatus = 'System: Online ✅\nPosts gesamt: ' + s.totalPosts + '\nAuf Freigabe: ' + s.pendingApproval + '\nGeplant: ' + s.scheduled;
+} else {
+  workflow.systemStatus = 'System: Wird geprüft...';
+}
+```
+Text-Node: "{{workflow.systemStatus}}\n\nFragen? Schreib uns: jedermannhandy@googlemail.com"
+Single Choice: ["Content Hub öffnen", "Zurück zum Menü"]
 
-### Freigabe-Logik (28.03.2026)
-- Jeder Partner gibt seinen EIGENEN Content frei (nicht Admin fuer alle)
-- Admin (Mathias) gibt nur seinen eigenen Content frei
-- self-approve postet AUTOMATISCH auf Blotato
-- Nicht-freigeschaltete User sehen eine "Zugang ausstehend" Seite
+---
 
-### Magic Link Auth (02.04.2026)
-- Partner loggen sich NICHT ueber Manus OAuth ein
-- Partner bekommen Magic Login-Links von Lina (24h gueltig)
-- POST /api/lina/login-link generiert den Link
-- Admin (Mathias) behaelt Manus OAuth als Login
+## KRITISCHE REGELN
 
-### Dashboard-Seiten (Sidebar-Navigation)
-Aktuelle Sidebar-Struktur:
+1. **Image Card Node** für Bilder — NIEMALS Text-Node mit Bild-URL!
+2. **Video Card Node** für Videos — NIEMALS Text-Node mit Video-URL!
+3. Bedingte Image Cards: Nur senden wenn URL nicht leer ist (Condition: `{{workflow.imageUrl}} !== ''`)
+4. Max. **10 Buttons** pro Single Choice Node
+5. Jeder Flow endet mit **"Zurück zum Menü"** Button
+6. Kein Tippen nötig — immer Buttons anbieten
+7. Das Team ist SCHON in Botpress — niemand einladen!
 
-**Erstellen:**
-- Dashboard (/)
-- Content Wizard (/wizard) - 3-Schritt KI-Magie
-- Content erstellen (/generator) - Text + Bild + Video
-- Content Remix (/remix) - 1 Thema → 5 Formate
-- Lifestyle-Engine (/lifestyle) - Freiheit, Autos, Erfolg
-- Karussell (/carousel) - Slide-Content erstellen
-- Freigabe (/approval) - Posts pruefen & posten (Badge mit Pending-Count)
-- Pipeline (/kanban) - Kanban-Board
-- Bibliothek (/library) - Fertige Posts kopieren (NUR mit Bild/Video)
+---
 
-**Recherche:**
-- Trend-Scanner (/trends) - Virale Trends finden
-- Creator Spy (/creator-spy) - Was geht viral?
-- Hashtag-Engine (/hashtags) - Smart Hashtags
+## CHANGELOG
 
-**Planen:**
-- Kalender (/calendar) - Posting-Zeitplan
-- Monatsplan (/monthly-plan) - 30 Posts auf Knopfdruck
-- Posting-Zeiten (/posting-times) - Optimale Zeiten
-
-**Mehr:**
-- Produktbilder (/products) - LR Produkte (226 Stueck)
-- Vorlagen (/templates) - Templates & Hooks
-- Content Queue (/queue) - Alle Posts
-- A/B Tests (/ab-test) - Was performt besser?
-- Analytics (/analytics) - Zahlen & Insights
-- Analytics+ (/analytics-plus) - Heatmap & Trends
-- Evergreen (/evergreen) - Top-Posts recyclen
-- Feedback (/feedback) - Top-Performer
-
-**System:**
-- Blotato Command (/blotato) - 9 Kanaele steuern
-- Leaderboard (/leaderboard) - Team-Rangliste
-- Team-Aktivitaeten (/team-activity) - Echtzeit-Stream
-- Einladungen (/invite-tokens) - Partner einladen
-- Team (/team) - Partner verwalten
-- Nutzer-Uebersicht (/admin-users) - Admin: Alle Partner
-- Kosten-Uebersicht (/budget) - Budget & Verbrauch (NEU)
-- Einstellungen (/settings) - Blotato & Branding
-- Quick-Start (/onboarding) - Setup-Anleitung
-- Instagram Growth (/instagram-growth) - AutoDM & Leads
-
-### KI-Modelle (Stand 04.04.2026)
-- Bilder: Nano Banana 2 (Google Gemini, $0.08/Bild) - fuer alle
-- Videos Partner: Kling 3.0 Pro (5s mit Audio, $0.84/Video)
-- Videos Admin: Veo 3.1 (Top-Qualitaet, $2.00/Video)
-- Text: GoViralBitch API (kostenlos, eigene API)
-- Hashtags: KI-generiert mit Trend-Daten
-- Einwandbehandlung: LLM-basiert
-
-### Blotato Integration
-- 8 Accounts verbunden: Facebook, YouTube, Instagram, LinkedIn, Threads, 2x TikTok, Twitter
-- Auto-Post nach Freigabe (wenn Partner Blotato-Key hat)
-- One-Click Multi-Publish auf alle 9 Plattformen
-- Kosten: 25€/Monat pro Partner (Partner zahlt selbst)
-
-### Blotato API Platform-Regeln (WICHTIG - Fehlervermeidung!)
-Jede Plattform braucht eigene Pflichtfelder im Target-Objekt. Ohne diese gibt es 400/422 Fehler!
-
-| Plattform | Pflichtfelder im Target | Beispiel |
-|-----------|------------------------|----------|
-| Instagram | targetType | `{ targetType: "instagram" }` |
-| Facebook  | targetType | `{ targetType: "facebook" }` |
-| Twitter   | targetType | `{ targetType: "twitter" }` |
-| Threads   | targetType | `{ targetType: "threads" }` |
-| LinkedIn  | targetType | `{ targetType: "linkedin" }` |
-| YouTube   | targetType, title, privacyStatus, shouldNotifySubscribers | `{ targetType: "youtube", title: "...", privacyStatus: "public", shouldNotifySubscribers: true }` |
-| TikTok    | targetType, privacyLevel, disabledComments, disabledDuet, disabledStitch, isBrandedContent, isYourBrand, isAiGenerated | `{ targetType: "tiktok", privacyLevel: "PUBLIC_TO_EVERYONE", disabledComments: false, disabledDuet: false, disabledStitch: false, isBrandedContent: false, isYourBrand: false, isAiGenerated: true }` |
-
-**Bekannte Fehler (gefixt am 04.04.2026):**
-- YouTube 400: Fehlte title + privacyStatus → jetzt automatisch gesetzt
-- TikTok 422: Fehlten 7 Pflichtfelder → jetzt automatisch gesetzt
-- LinkedIn 422: Fehlte nichts, aber falsches Format → jetzt korrekt
-- Scheduling 4 Tage voraus: Smart-Engine bevorzugte "beste" Tage statt nahe Tage → jetzt stark heute/morgen bevorzugt
-
-### WhatsApp / Botpress Technische Limits
-- **Single Choice Node: MAXIMAL 10 Buttons** (WhatsApp-Limit, nicht Botpress-Limit)
-- Wenn mehr als 10 Optionen noetig: Aufteilen in Kategorien (z.B. "Erstellen", "Recherche", "Planen") → dann Untermenue
-- Beispiel: Statt 15 Menupunkte in einer Liste → 3 Kategorien mit je 5 Unterpunkten
-- Quick Replies: Max 3 Buttons (WhatsApp-Limit)
-- Textnachrichten: Max 4096 Zeichen
-
-### Produkt-Bibliothek
-- 226 LR-Produkte mit Originalbildern
-- Kategorien: Aloe Vera, Koerperpflege, ZEITGARD, Parfum, etc.
-- Suchbar und filterbar im Dashboard
-
-### Content-Sicherheit: Automatische Regeln (04.04.2026 - Abends)
-
-**3 neue permanente Regeln im System eingebaut:**
-
-#### 1. Hashtag-Limiter (automatisch vor jedem Blotato-Post)
-- Instagram/TikTok/Threads/Twitter/Bluesky: max 5 Hashtags
-- Facebook/LinkedIn/YouTube/Pinterest: max 10 Hashtags
-- Ueberzaehlige Hashtags werden automatisch entfernt (die ersten N bleiben)
-- Gilt fuer ALLE Posts die ueber Blotato gepostet werden
-
-#### 2. Keine Preise (automatisch)
-- LLM-Prompt enthalt jetzt Regel: "KEINE PREISE in Posts!"
-- Quality Gate blockiert Posts mit Preisen (99 Euro, ab 15 Euro, etc.)
-- Blotato-Posting entfernt automatisch Preise aus dem Text als letzte Sicherung
-- Einstiegspreis wird NICHT mehr im Brand Voice Prompt erwaehnt
-- Grund: Preise aendern sich, wirken unserioes, und sind rechtlich problematisch
-
-#### 3. Echte Produktbilder (automatisch)
-- Wenn das Topic ein LR-Produkt enthaelt (z.B. "Aloe Vera", "Mind Master", "Zeitgard"):
-  → Automatisch echtes Produktbild aus der Datenbank (226 Bilder) verwenden
-  → KEIN KI-Bild generieren fuer Produktposts!
-- Wenn das Topic KEIN Produkt ist (z.B. "Freiheit", "Erfolg", "Business"):
-  → KI-Bild wie bisher generieren
-- Gilt fuer: Content Generator, Brand Voice Generator, Lina /api/lina/generate
-- Erkannte Produkt-Keywords: aloe vera, mind master, zeitgard, colostrum, 5in1,
-  protein power, lr lifetakt, super omega, pro balance, heart active, reishi plus,
-  parfum, guido maria, bruce willis, starterpaket, drinking gel, nahrungsergaenzung, etc.
-
-**Zusammenfassung der Content-Pipeline:**
-1. LLM generiert Text (OHNE Preise, max 5 Hashtags)
-2. Produkterkennung: Ist ein LR-Produkt im Topic? → Echtes Bild aus DB
-3. Kein Produkt? → KI-Bild generieren (Nano Banana Pro)
-4. Quality Gate prueft: Laenge, Brand Safety, Hook, CTA, Emojis, Hashtags, KEINE PREISE
-5. Blotato-Posting: Nochmal Hashtag-Limit + Preis-Filter als letzte Sicherung
-6. Post wird auf allen gewaehlten Plattformen gepostet
-
-### Auto-Bild bei JEDEM Post (04.04.2026 - Abends, Update 2)
-
-**WICHTIG: Kein Post ohne Bild!**
-- Jeder Post bekommt AUTOMATISCH ein Bild - der User muss keinen Toggle aktivieren
-- `autoGenerateImage` ist jetzt DEFAULT TRUE in allen Generatoren:
-  - Content Generator (GoViralBitch)
-  - Brand Voice Generator (LLM)
-  - Batch/Wochenplan
-  - A/B Tests
-  - Monthly Plan
-  - Trend-Scanner Autopilot
-  - Lifestyle Engine
-  - Lina /api/lina/generate
-- Reihenfolge: Zuerst Produktbild-Check (echtes Bild aus DB) → dann KI-Bild
-- Wenn Bildgenerierung fehlschlaegt, wird der Post trotzdem erstellt (Text-only als Fallback)
-
-### TikTok: NUR JPG-Bilder (04.04.2026 - Abends, Update 2)
-
-**TikTok akzeptiert KEINE PNG-Bilder!**
-- TikTok braucht JPG-Bilder oder MP4-Videos
-- PNG-Bilder fuehren zu "Media conversion failed" Fehler
-- Loesung: Vor dem Posten auf TikTok muessen PNG-Bilder zu JPG konvertiert werden
-- Das System macht das automatisch im Blotato-Posting-Flow
-
-### E-Mail-Benachrichtigungen (Status 04.04.2026)
-
-**Was funktioniert:**
-- E-Mail bei Ablehnung eines Posts (ueber Brevo)
-
-**Was NICHT funktioniert (TODO):**
-- E-Mail bei Freigabe eines Posts
-- E-Mail wenn neuer Content zur Freigabe bereit ist (Team-Notification)
-- E-Mail wenn Post erfolgreich gepostet wurde
-
-### Bekannte UI-Bugs (04.04.2026)
-
-1. **Brand Voice Generator Button** auf der Live-Seite reagiert manchmal nicht auf Klick (kein API-Call wird ausgeloest)
-2. **Lifestyle-Engine Batch** (5 Posts auf einmal) hat Timeout-Probleme auf dem Live-Server - Einzelgenerierung funktioniert
-3. **Lina "Neue Features" Menue** zeigt keine Buttons/Optionen an nach Auswahl
+### April 2026
+- Content-Endpoint gibt jetzt approved + scheduled Posts zurück
+- Bibliothek gibt Items-Array zurück (nicht posts-Array!)
+- Alle Flows mit Image Card Nodes für Bilder
+- Menüstruktur auf 10 Punkte optimiert
+- Wochenplan, Hashtags, Statistiken als eigene Menüpunkte
